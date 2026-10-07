@@ -8,6 +8,7 @@ binding = "DB"
 database_name = "portfolio-access"
 database_id = "00000000-0000-0000-0000-000000000000" # replaced with the real id during setup
 
-[[r2_buckets]]
+# Private storage for NDA case-study text and images. Not reachable from the internet: only the server code reads it.
+[[kv_namespaces]]
 binding = "CONTENT"
-bucket_name = "portfolio-private"
+id = "00000000000000000000000000000000" # replaced with the real id during setup

@@ -46,26 +46,26 @@ export async function onRequestGet({ request, env, params }) {
   if (parts.length === 3 && parts[1] === 'assets') {
     const file = parts[2];
     if (!/^[A-Za-z0-9._-]{1,120}$/.test(file) || file.includes('..')) return notFound();
-    const obj = await env.CONTENT.get(`projects/${slug}/assets/${file}`);
-    if (!obj) return notFound();
+    const { value, metadata } = await env.CONTENT.getWithMetadata(`projects/${slug}/assets/${file}`, { type: 'stream' });
+    if (!value) return notFound();
     const headers = new Headers({ ...SECURITY, 'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; sandbox" });
-    headers.set('Content-Type', (obj.httpMetadata && obj.httpMetadata.contentType) || 'application/octet-stream');
-    return new Response(obj.body, { headers });
+    headers.set('Content-Type', (metadata && metadata.contentType) || 'application/octet-stream');
+    return new Response(value, { headers });
   }
 
   if (parts.length !== 1) return notFound();
 
-  // Protected page: public shell + private content from R2.
-  const [shellRes, contentObj] = await Promise.all([siteFile(env, request, '/protected-shell.html'), env.CONTENT.get(`projects/${slug}/content.html`)]);
-  if (!contentObj) return notFound();
-  const content = (await contentObj.text()).replaceAll('{{ASSETS}}', `/p/${slug}/assets`);
+  // Protected page: public shell + private content from KV.
+  const [shellRes, contentText] = await Promise.all([siteFile(env, request, '/protected-shell.html'), env.CONTENT.get(`projects/${slug}/content.html`, 'text')]);
+  if (contentText === null) return notFound();
+  const content = contentText.replaceAll('{{ASSETS}}', `/p/${slug}/assets`);
 
   const others = [];
   for (const s of session.slugs) {
     if (s === slug || !SLUG_RE.test(s)) continue;
-    const m = await env.CONTENT.get(`projects/${s}/meta.json`);
-    if (!m) continue;
-    try { others.push(`<a href="/p/${esc(s)}">${esc(JSON.parse(await m.text()).title)}</a>`); } catch { /* skip unreadable meta */ }
+    const m = await env.CONTENT.get(`projects/${s}/meta.json`, 'text');
+    if (m === null) continue;
+    try { others.push(`<a href="/p/${esc(s)}">${esc(JSON.parse(m).title)}</a>`); } catch { /* skip unreadable meta */ }
   }
   const iso = new Date(session.expiresAt * 1000).toISOString();
   const bar =
