@@ -6,9 +6,9 @@ pages_build_output_dir = "."
 [[d1_databases]]
 binding = "DB"
 database_name = "portfolio-access"
-database_id = "00000000-0000-0000-0000-000000000000" # replaced with the real id during setup
+database_id = "c34cf406-e452-4af8-9665-4df44171176e"
 
 # Private storage for NDA case-study text and images. Not reachable from the internet: only the server code reads it.
 [[kv_namespaces]]
 binding = "CONTENT"
-id = "00000000000000000000000000000000" # replaced with the real id during setup
+id = "22e8475b9a2843e898ec9055ccf274d6"
