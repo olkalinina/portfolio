@@ -1,0 +1,13 @@
+# Cloudflare Pages configuration. Contains no secrets: the code-hashing key is a Cloudflare secret (CODE_PEPPER).
+name = "portfolio"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "portfolio-access"
+database_id = "00000000-0000-0000-0000-000000000000" # replaced with the real id during setup
+
+[[r2_buckets]]
+binding = "CONTENT"
+bucket_name = "portfolio-private"

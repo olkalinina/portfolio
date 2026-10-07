@@ -3,6 +3,5 @@
   Cache-Control: private, no-store
 /locked.html
   X-Robots-Tag: noindex, nofollow, noarchive
-  Cache-Control: private, no-store
-/nda-template-preview.html
+/protected-shell.html
   X-Robots-Tag: noindex, nofollow, noarchive

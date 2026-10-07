@@ -2,5 +2,5 @@ User-agent: *
 Disallow: /p/
 Disallow: /admin
 Disallow: /api/
-Disallow: /locked.html
-Disallow: /nda-template-preview.html
+Disallow: /locked
+Disallow: /protected-shell
