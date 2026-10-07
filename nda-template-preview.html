@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Protected case study — Olga Kalinina</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+    <nav class="nav">
+    <a href="/index.html"><img src="/images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <a href="/services.html">Services</a>
+      <a href="/case-studies.html">Case Studies</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/about.html">About me</a>
+      <a href="/contacts.html">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/index.html"><img src="/images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="/services.html">Services</a>
+      <a href="/case-studies.html">Case Studies</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/about.html">About me</a>
+      <a href="/contacts.html">Contacts</a>
+    </div>
+  </div>
+  <div class="page-wrapper">
+    <main class="page-content">
+      <div class="container">
+        <article class="nda-article">
+          <div class="nda-session-bar">
+            <span>Access active until <strong>Fri 9 Oct, 14:32</strong></span>
+            <a href="/case-studies.html">← All case studies</a>
+          </div>
+          <div class="nda-placeholder-banner"><strong>Placeholder content.</strong> Everything on this page is fake and exists only to show the layout. Real project content is stored privately and is never part of the website files.</div>
+          <h1>Placeholder Project — Example Dashboard Redesign</h1>
+          <p class="nda-lead">One-sentence summary of the project goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <dl class="nda-meta">
+            <div><dt>Client</dt><dd>Example Organisation</dd></div>
+            <div><dt>My role</dt><dd>Lead Product Designer</dd></div>
+            <div><dt>Year</dt><dd>2024</dd></div>
+            <div><dt>Team</dt><dd>2 designers, 5 engineers</dd></div>
+          </dl>
+          <div class="nda-ph-img" role="img" aria-label="Placeholder image">Placeholder — hero image</div>
+          <h2>Overview</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          <h2>The problem</h2>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+          <blockquote>“Placeholder quote from a fictional user about what was difficult before the redesign.”</blockquote>
+          <h2>Process</h2>
+          <ul>
+            <li>Placeholder step one: research and interviews</li>
+            <li>Placeholder step two: information architecture</li>
+            <li>Placeholder step three: prototypes and testing</li>
+          </ul>
+          <figure><div class="nda-ph-img" role="img" aria-label="Placeholder image">Placeholder — full-width figure</div><figcaption>Placeholder caption describing the figure above.</figcaption></figure>
+          <div class="nda-gallery"><div class="nda-ph-img" role="img" aria-label="Placeholder image">Placeholder — screen A</div><div class="nda-ph-img" role="img" aria-label="Placeholder image">Placeholder — screen B</div></div>
+          <h2>Outcome</h2>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Placeholder result: a made-up metric improved by an example amount.</p>
+          <nav class="nda-more" aria-label="Other case studies you can open">
+            <h3>Other case studies you can open</h3>
+            <a href="#">Placeholder Project Two</a>
+          </nav>
+        </article>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/about.html">About me</a>
+            <span class="footer-dot"></span>
+            <a href="/services.html">Services</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies.html">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog.html">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts.html">Contacts</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">
+              <img src="/images/Linkedin_logo.png" alt="LinkedIn" />
+            </a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">
+              <img src="/images/Behance_logo.png" alt="Behance" />
+            </a>
+            <a href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
+              <img src="/images/Substack_logo_footer.png" alt="Substack" />
+            </a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina. All rights reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); document.getElementById('menuBackdrop').classList.toggle('open'); }
+  </script>
+</body>
+</html>

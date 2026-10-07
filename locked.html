@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Locked case study — Olga Kalinina</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+    <nav class="nav">
+    <a href="/index.html"><img src="/images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <a href="/services.html">Services</a>
+      <a href="/case-studies.html">Case Studies</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/about.html">About me</a>
+      <a href="/contacts.html">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/index.html"><img src="/images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="/services.html">Services</a>
+      <a href="/case-studies.html">Case Studies</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/about.html">About me</a>
+      <a href="/contacts.html">Contacts</a>
+    </div>
+  </div>
+  <div class="page-wrapper">
+    <main class="page-content">
+      <div class="container">
+        <div class="locked-wrap" id="lockedGate" data-slug="" data-title="">
+          <div class="modal-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <h1>This case study is under NDA</h1>
+          <p>It contains confidential client work, so it opens with a personal access code. If I sent you one, enter it below.</p>
+          <div class="locked-actions">
+            <button type="button" class="modal-submit" id="lockedOpen">Enter access code</button>
+            <a href="/case-studies.html" class="modal-cancel">Back to case studies</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/about.html">About me</a>
+            <span class="footer-dot"></span>
+            <a href="/services.html">Services</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies.html">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog.html">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts.html">Contacts</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">
+              <img src="/images/Linkedin_logo.png" alt="LinkedIn" />
+            </a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">
+              <img src="/images/Behance_logo.png" alt="Behance" />
+            </a>
+            <a href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
+              <img src="/images/Substack_logo_footer.png" alt="Substack" />
+            </a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina. All rights reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); document.getElementById('menuBackdrop').classList.toggle('open'); }
+  </script>
+  <script>
+    // The page itself carries no project details: the title is looked up from the (public) list of card titles.
+    (function () {
+      var titles = {"un-escap-risk-portal": "UN ESCAP — Risk and Resilience Portal", "b2c-fitnesstech": "B2C FitnessTech Platform", "digital-assets-management": "Digital Assets Management System"};
+      var slug = (location.pathname.match(/^\/p\/([a-z0-9-]+)/) || [])[1] || '';
+      var g = document.getElementById('lockedGate');
+      g.setAttribute('data-slug', slug);
+      g.setAttribute('data-title', titles[slug] || '');
+    })();
+  </script>
+  <script src="/js/access.js" defer></script>
+</body>
+</html>

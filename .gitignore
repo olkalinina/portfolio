@@ -1,0 +1,12 @@
+# Private NDA material must never be committed
+private-content/
+*.private.*
+
+# Secrets and local tooling
+.dev.vars
+.env
+.env.*
+node_modules/
+.wrangler/
+
+.DS_Store
