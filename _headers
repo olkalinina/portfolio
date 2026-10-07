@@ -5,3 +5,9 @@
   X-Robots-Tag: noindex, nofollow, noarchive
 /protected-shell.html
   X-Robots-Tag: noindex, nofollow, noarchive
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: private, no-store
+/api/*
+  Cache-Control: private, no-store
+  X-Robots-Tag: noindex, nofollow

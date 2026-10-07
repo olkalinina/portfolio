@@ -12,3 +12,10 @@ database_id = "c34cf406-e452-4af8-9665-4df44171176e"
 [[kv_namespaces]]
 binding = "CONTENT"
 id = "22e8475b9a2843e898ec9055ccf274d6"
+
+# Cloudflare Access protects /admin and /api/admin; these identify your Access application and login.
+# Empty means "admin not set up yet", and the admin stays closed. (None of these are secrets.)
+[vars]
+ACCESS_TEAM_DOMAIN = ""
+ACCESS_AUD = ""
+ADMIN_EMAIL = ""

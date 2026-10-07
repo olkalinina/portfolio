@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Access codes — Admin</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .adm { max-width: 1187px; margin: 0 auto; padding: 48px 40px 100px; display: flex; flex-direction: column; gap: 40px; }
+    .adm-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .adm h1 { font-size: 32px; font-weight: 600; }
+    .adm h2 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+    .adm-back { font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+    .adm-card { background: var(--bg-soft); border-radius: var(--radius-card); padding: 28px; }
+    .adm-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+    .adm-field { display: flex; flex-direction: column; gap: 8px; }
+    .adm-field.full { grid-column: 1 / -1; }
+    .adm-field > label, .adm-field > legend { font-size: 14px; font-weight: 500; }
+    fieldset.adm-field { border: none; padding: 0; margin: 0; min-width: 0; }
+    .adm input[type="text"], .adm select { width: 100%; padding: 12px 14px; border: 1.5px solid var(--light-gray); border-radius: 12px; font-family: var(--font); font-size: 16px; color: var(--dark); background: white; }
+    .adm input[type="text"]:focus, .adm select:focus { outline: none; border-color: var(--blue-accent); box-shadow: 0 0 0 3px rgba(25,71,245,0.15); }
+    .adm-check { display: flex; align-items: center; gap: 10px; font-size: 16px; padding: 10px 14px; background: white; border: 1.5px solid var(--light-gray); border-radius: 12px; cursor: pointer; }
+    .adm-check input { width: 18px; height: 18px; accent-color: var(--dark); }
+    .adm-help { font-size: 13px; color: var(--gray); }
+    .adm-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-pill); border: none; background: var(--dark); color: white; font-family: var(--font); font-size: 15px; font-weight: 500; cursor: pointer; transition: opacity var(--transition); }
+    .adm-btn:hover { opacity: 0.85; }
+    .adm-btn[disabled] { opacity: 0.6; cursor: default; }
+    .adm-btn.ghost { background: white; color: var(--dark); border: 1.5px solid var(--light-gray); }
+    .adm-btn.ghost:hover { border-color: var(--dark); opacity: 1; }
+    .adm-btn.danger { background: white; color: var(--error); border: 1.5px solid #f1c9c9; padding: 6px 14px; font-size: 13px; }
+    .adm-btn.danger:hover { border-color: var(--error); opacity: 1; }
+    .adm-btn.small { padding: 6px 14px; font-size: 13px; }
+    .adm-btn:focus-visible, .adm a:focus-visible { outline: 3px solid var(--blue-accent); outline-offset: 2px; }
+    .adm-error { color: var(--error); font-size: 14px; font-weight: 500; min-height: 20px; }
+    .adm-result { display: none; margin-top: 24px; background: white; border: 2px solid var(--dark); border-radius: 16px; padding: 24px; gap: 14px; flex-direction: column; }
+    .adm-result.show { display: flex; }
+    .adm-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 30px; font-weight: 600; letter-spacing: 0.12em; word-break: break-all; }
+    .adm-result-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .adm-warn { font-size: 14px; color: #6b5200; background: #fff7e0; border: 1px solid #f1d98a; border-radius: 10px; padding: 10px 14px; }
+    .adm-table-wrap { overflow-x: auto; border: 1px solid var(--light-gray); border-radius: 16px; }
+    .adm table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 860px; }
+    .adm th { text-align: left; font-weight: 600; font-size: 13px; color: var(--gray); padding: 12px 16px; border-bottom: 1px solid var(--light-gray); background: var(--bg-soft); white-space: nowrap; }
+    .adm td { padding: 14px 16px; border-bottom: 1px solid #f2f2f2; vertical-align: top; }
+    .adm td.nw { white-space: nowrap; }
+    .adm tr:last-child td { border-bottom: none; }
+    .adm-pill { display: inline-block; padding: 3px 10px; border-radius: var(--radius-pill); font-size: 12px; font-weight: 500; white-space: nowrap; }
+    .adm-pill.active { background: #e6f4ec; color: var(--success); }
+    .adm-pill.unused { background: #e8eeff; color: var(--blue-accent); }
+    .adm-pill.ended { background: #f1f1f1; color: var(--gray); }
+    .adm-pill.revoked { background: #fbeaea; color: var(--error); }
+    .adm-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .adm-empty { padding: 32px; text-align: center; color: var(--gray); }
+    @media (max-width: 768px) { .adm { padding: 32px 20px 80px; } .adm-form { grid-template-columns: 1fr; } .adm h1 { font-size: 26px; } .adm-code { font-size: 22px; } .adm-card { padding: 20px; } }
+  </style>
+</head>
+<body>
+  <main class="adm container">
+    <div class="adm-top">
+      <h1>Access codes</h1>
+      <a class="adm-back" href="/case-studies">← View site</a>
+    </div>
+
+    <section class="adm-card" aria-labelledby="newTitle">
+      <h2 id="newTitle">Generate a code</h2>
+      <form id="newForm" class="adm-form" novalidate>
+        <div class="adm-field full">
+          <label for="label">Client label</label>
+          <input type="text" id="label" maxlength="80" placeholder="e.g. Acme Corp — recruiter call" autocomplete="off" />
+          <span class="adm-help">Only you see this. It helps you remember who the code was for.</span>
+        </div>
+        <fieldset class="adm-field full">
+          <legend>Case studies this code unlocks</legend>
+          <div id="projects"><span class="adm-help">Loading…</span></div>
+        </fieldset>
+        <div class="adm-field">
+          <label for="codeDays">Code must be used within</label>
+          <select id="codeDays">
+            <option value="1">1 day</option><option value="3">3 days</option><option value="7">7 days</option>
+            <option value="14" selected>14 days</option><option value="30">30 days</option><option value="90">90 days</option>
+          </select>
+          <span class="adm-help">After this, an unused code stops working.</span>
+        </div>
+        <div class="adm-field">
+          <label for="sessionHours">Access lasts, once the code is used</label>
+          <select id="sessionHours">
+            <option value="12">12 hours</option><option value="24">24 hours</option><option value="48" selected>48 hours</option>
+            <option value="72">3 days</option><option value="168">7 days</option><option value="336">14 days</option>
+          </select>
+          <span class="adm-help">The code works once. This is how long the client can keep reading afterwards.</span>
+        </div>
+        <div class="adm-field full">
+          <div class="adm-error" id="newError" role="alert"></div>
+          <div><button type="submit" class="adm-btn" id="newBtn">Generate code</button></div>
+        </div>
+      </form>
+
+      <div class="adm-result" id="result" role="status" aria-live="polite">
+        <div class="adm-warn"><strong>Copy this code now.</strong> It is shown only once and cannot be recovered. If you lose it, revoke it and generate a new one.</div>
+        <div class="adm-code" id="resultCode"></div>
+        <div class="adm-help" id="resultMeta"></div>
+        <div class="adm-result-row">
+          <button type="button" class="adm-btn" id="copyBtn">Copy code</button>
+          <button type="button" class="adm-btn ghost" id="doneBtn">I've copied it — hide</button>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="listTitle">
+      <h2 id="listTitle">Codes and sessions</h2>
+      <div class="adm-error" id="listError" role="alert"></div>
+      <div class="adm-table-wrap">
+        <table>
+          <thead><tr><th>Client</th><th>Projects</th><th>Created</th><th>Status</th><th>Redeemed</th><th>Access ends</th><th><span class="sr-only">Actions</span></th></tr></thead>
+          <tbody id="rows"><tr><td colspan="7" class="adm-empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    var titles = {};
+    var $ = function (id) { return document.getElementById(id); };
+    var fmt = function (ts) { return ts ? new Date(ts * 1000).toLocaleString([], { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '—'; };
+
+    function api(path, opts) {
+      opts = opts || {};
+      if (opts.body) { opts.method = 'POST'; opts.headers = { 'Content-Type': 'application/json' }; opts.body = JSON.stringify(opts.body); }
+      else if (opts.method === 'POST') { opts.headers = { 'Content-Type': 'application/json' }; opts.body = '{}'; }
+      opts.credentials = 'same-origin';
+      return fetch(path, opts).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { if (!r.ok) throw new Error(d.error || 'Something went wrong (' + r.status + ').'); return d; }); });
+    }
+
+    function loadProjects() {
+      return api('/api/admin/projects').then(function (d) {
+        var box = $('projects'); box.textContent = ''; box.style.cssText = 'display:flex;flex-direction:column;gap:8px';
+        if (!d.projects.length) { box.innerHTML = '<span class="adm-help">No projects have content uploaded yet.</span>'; return; }
+        d.projects.forEach(function (p) {
+          titles[p.slug] = p.title;
+          var l = document.createElement('label'); l.className = 'adm-check';
+          var i = document.createElement('input'); i.type = 'checkbox'; i.value = p.slug; i.name = 'slug';
+          l.appendChild(i); l.appendChild(document.createTextNode(' ' + p.title)); box.appendChild(l);
+        });
+      }).catch(function (e) { $('projects').textContent = e.message; });
+    }
+
+    var STATUS = { active: ['Active', 'active'], unused: ['Not used yet', 'unused'], code_expired: ['Code expired', 'ended'], session_expired: ['Access ended', 'ended'], session_revoked: ['Access revoked', 'revoked'], revoked: ['Revoked', 'revoked'] };
+
+    function loadCodes() {
+      return api('/api/admin/codes').then(function (d) {
+        var tb = $('rows'); tb.textContent = ''; $('listError').textContent = '';
+        if (!d.codes.length) { tb.innerHTML = '<tr><td colspan="7" class="adm-empty">No codes yet.</td></tr>'; return; }
+        d.codes.forEach(function (c) {
+          var tr = document.createElement('tr');
+          function td(txt, nw) { var e = document.createElement('td'); if (nw) e.className = 'nw'; e.textContent = txt; tr.appendChild(e); return e; }
+          td(c.label);
+          td(c.slugs.map(function (s) { return titles[s] || s; }).join(', '));
+          td(fmt(c.createdAt), true);
+          var st = document.createElement('td'), pill = document.createElement('span'), m = STATUS[c.status];
+          pill.className = 'adm-pill ' + m[1]; pill.textContent = m[0]; st.appendChild(pill); tr.appendChild(st);
+          td(c.redeemedAt ? fmt(c.redeemedAt) : (c.status === 'unused' ? 'Use by ' + fmt(c.codeExpiresAt) : '—'), true);
+          td(c.redeemedAt ? fmt(c.sessionExpiresAt) : '—', true);
+          var act = document.createElement('td'), box = document.createElement('div'); box.className = 'adm-actions';
+          if (c.status === 'active') box.appendChild(btn('End access now', function () { return confirm('End access for "' + c.label + '" right now?') && api('/api/admin/sessions/' + c.sessionId + '/revoke', { method: 'POST' }); }));
+          if (c.status === 'unused' || c.status === 'active') box.appendChild(btn('Revoke code', function () { return confirm('Revoke the code for "' + c.label + '"? It will stop working immediately.') && api('/api/admin/codes/' + c.id + '/revoke', { method: 'POST' }); }));
+          act.appendChild(box); tr.appendChild(act); tb.appendChild(tr);
+        });
+      }).catch(function (e) { $('listError').textContent = e.message; });
+    }
+
+    function btn(text, action) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'adm-btn danger'; b.textContent = text;
+      b.addEventListener('click', function () {
+        var p = action(); if (!p) return; b.disabled = true;
+        p.then(loadCodes).catch(function (e) { b.disabled = false; $('listError').textContent = e.message; });
+      });
+      return b;
+    }
+
+    $('newForm').addEventListener('submit', function (e) {
+      e.preventDefault(); $('newError').textContent = '';
+      var slugs = Array.prototype.map.call(document.querySelectorAll('#projects input:checked'), function (i) { return i.value; });
+      $('newBtn').disabled = true;
+      api('/api/admin/codes', { body: { label: $('label').value, slugs: slugs, codeValidDays: +$('codeDays').value, sessionHours: +$('sessionHours').value } })
+        .then(function (d) {
+          $('resultCode').textContent = d.code;
+          $('resultMeta').textContent = d.label + ' · unlocks ' + d.slugs.map(function (s) { return titles[s] || s; }).join(', ') + ' · use within ' + $('codeDays').options[$('codeDays').selectedIndex].text + ' · then ' + $('sessionHours').options[$('sessionHours').selectedIndex].text + ' of access';
+          $('result').classList.add('show'); $('copyBtn').textContent = 'Copy code'; $('copyBtn').focus();
+          $('label').value = ''; Array.prototype.forEach.call(document.querySelectorAll('#projects input'), function (i) { i.checked = false; });
+          return loadCodes();
+        })
+        .catch(function (err) { $('newError').textContent = err.message; })
+        .then(function () { $('newBtn').disabled = false; });
+    });
+
+    $('copyBtn').addEventListener('click', function () {
+      var t = $('resultCode').textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { $('copyBtn').textContent = 'Copied ✓'; }, function () {
+        var r = document.createRange(); r.selectNodeContents($('resultCode')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); $('copyBtn').textContent = 'Press Cmd/Ctrl+C to copy';
+      });
+    });
+    $('doneBtn').addEventListener('click', function () { $('result').classList.remove('show'); $('resultCode').textContent = ''; });
+
+    loadProjects().then(loadCodes);
+  </script>
+</body>
+</html>
