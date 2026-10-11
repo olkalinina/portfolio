@@ -1,5 +1,5 @@
 // Security tests. Run through tests/run-local.sh (local, throwaway copy of the database) or, for the
-// public-facing checks on a deployed site:  node tests/security.mjs remote https://your-site [ONE-FRESH-CODE]
+// public-facing checks on a deployed site (Cloudflare itself rejects spoofed CF-Connecting-IP headers):  node tests/security.mjs remote https://your-site [ONE-FRESH-CODE]
 import { execFileSync } from 'node:child_process';
 import { verifyAccessJwt } from '../functions/_lib/admin.js';
 
@@ -15,7 +15,7 @@ const JH = { ...H, 'Content-Type': 'application/json', Origin: BASE };
 const now = () => Math.floor(Date.now() / 1000);
 const sql = (q) => JSON.parse(execFileSync('npx', ['-y', 'wrangler@4', 'd1', 'execute', 'portfolio-access', '--local', '--persist-to', STATE, '--json', '--command', q], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }))[0].results;
 let ipN = 10;
-const redeem = (code, slug = SLUG, ip) => fetch(BASE + '/api/redeem', { method: 'POST', headers: { ...JH, 'CF-Connecting-IP': ip || `198.51.100.${ipN++}` }, body: JSON.stringify({ code, slug }) });
+const redeem = (code, slug = SLUG, ip) => fetch(BASE + '/api/redeem', { method: 'POST', headers: MODE === 'remote' ? JH : { ...JH, 'CF-Connecting-IP': ip || `198.51.100.${ipN++}` }, body: JSON.stringify({ code, slug }) });
 const get = (path, cookie, redirect = 'manual') => fetch(BASE + path, { headers: cookie ? { ...H, Cookie: cookie } : H, redirect });
 const cookieOf = (res) => (res.headers.get('set-cookie') || '').split(';')[0];
 const LEAK = ['Placeholder Project', 'Example Organisation', 'fake hero image'];
@@ -151,9 +151,9 @@ async function remote() {
   console.log('--- Deployed admin is closed');
   for (const p of ['/admin/', '/api/admin/codes', '/api/admin/projects']) { const r = await fetch(BASE + p, { headers: H, redirect: 'manual' }); const t = await r.text(); ok([302, 401, 403, 503].includes(r.status) && !/Generate a code|"codes"/.test(t), `${p} -> ${r.status}, nothing leaked`); }
   if (!REMOTE_CODE) { console.log('(no code given: skipping redemption tests)'); return; }
-  const r = await redeem(REMOTE_CODE, SLUG, '203.0.113.' + (1 + Math.floor(Math.random() * 200))); ok(r.status === 200, 'fresh code redeems'); const ck = cookieOf(r);
+  const r = await redeem(REMOTE_CODE, SLUG); ok(r.status === 200, 'fresh code redeems'); const ck = cookieOf(r);
   ok((await get(`/p/${SLUG}`, ck)).status === 200, 'protected page loads with the session');
-  ok((await redeem(REMOTE_CODE, SLUG, '203.0.113.' + (1 + Math.floor(Math.random() * 200)))).status === 401, 'the same code cannot be used again');
+  ok((await redeem(REMOTE_CODE, SLUG)).status === 401, 'the same code cannot be used again');
 }
 
 ({ open: async () => { await noSession(); await withCode(); await adminApi(); }, closed: async () => { await adminClosed(); await jwtUnit(); }, remote }[MODE] || (() => { console.log('usage: see top of file'); process.exit(2); }))()
