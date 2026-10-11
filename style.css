@@ -495,7 +495,7 @@ img { display: block; max-width: 100%; }
 
 /* Stacked column (card + picture), phone-shaped picture, light/dark comparison */
 .cs-protected .cs-col { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
-.cs-protected .cs-col > .cs-card { flex: 1; }
+.cs-protected .cs-col > .cs-card { flex: 0 0 auto; }
 .cs-protected .cs-img-wrap.is-phone { max-width: 300px; margin-inline: auto; border-radius: 36px; border: 1px solid #e5e5e5; background: #0d121c; }
 .cs-protected figure.cs-center figcaption { text-align: center; }
 .cs-protected .cs-compare { --pos: 50%; position: relative; height: 680px; border-radius: 32px; overflow: hidden; border: 1px solid #e5e5e5; background: #e9ecfb; touch-action: pan-y; }
