@@ -17,5 +17,6 @@ id = "22e8475b9a2843e898ec9055ccf274d6"
 # Empty means "admin not set up yet", and the admin stays closed. None of these are secrets.
 [vars]
 ACCESS_TEAM_DOMAIN = "calm-unit-28aa.cloudflareaccess.com"
-ACCESS_AUD = "c72a3a265483ab30417d75d324b3a4ef337931cd2993fa1caceec1a553178f36" # comma-separated list of Access application tags
+# Two Access applications: the real domain (admin) and the preview deployments.
+ACCESS_AUD = "c72a3a265483ab30417d75d324b3a4ef337931cd2993fa1caceec1a553178f36,b73562e107f4d08aff5cc8d34630c628b78d1071e502a6e3450645470302ac1b"
 ADMIN_EMAIL = "sundary.for@gmail.com"
