@@ -533,6 +533,7 @@ img { display: block; max-width: 100%; }
 .cs-protected .cs-phone-screen::-webkit-scrollbar { display: none; }
 .cs-protected .cs-phone-screen::before { content: ''; display: block; height: 34px; background: #f7f9fc; position: sticky; top: 0; z-index: 2; }
 .cs-protected .cs-phone-screen img { width: 100%; display: block; }
+.cs-protected .cs-phone-screen.is-dark, .cs-protected .cs-phone-screen.is-dark::before { background: #0d121c; }
 .cs-protected .cs-phone-hint { font-size: 14px; color: #707379; display: flex; align-items: center; gap: 8px; }
 .cs-protected .cs-phone-hint::before { content: ''; width: 14px; height: 22px; border: 1.5px solid #707379; border-radius: 8px; background: radial-gradient(circle at 50% 30%, #707379 0 2px, transparent 3px); }
 .cs-protected .cs-phone-screen.is-touched ~ .cs-phone-hint, .cs-protected .cs-phone-hint.is-hidden { opacity: 0.6; }
