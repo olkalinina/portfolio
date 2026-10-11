@@ -16,7 +16,8 @@ async function fetchJwks(team) {
   return keys;
 }
 
-// Pure function so it can be tested with generated keys. Returns the token's email, or throws.
+// Pure function so it can be tested with generated keys. `aud` is one Access application tag or several (comma-separated).
+// Returns the token's email, or throws.
 export async function verifyAccessJwt(token, { jwks, team, aud, now = Math.floor(Date.now() / 1000) }) {
   const parts = typeof token === 'string' ? token.split('.') : [];
   if (parts.length !== 3) throw new Error('malformed');
@@ -29,8 +30,9 @@ export async function verifyAccessJwt(token, { jwks, team, aud, now = Math.floor
   const valid = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, b64urlToBytes(parts[2]), new TextEncoder().encode(parts[0] + '.' + parts[1]));
   if (!valid) throw new Error('bad signature');
   if (payload.iss !== `https://${team}`) throw new Error('bad issuer');
-  const auds = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
-  if (!auds.includes(aud)) throw new Error('bad audience');
+  const tokenAuds = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
+  const allowed = (Array.isArray(aud) ? aud : String(aud).split(',')).map((a) => a.trim()).filter(Boolean);
+  if (!allowed.length || !tokenAuds.some((a) => allowed.includes(a))) throw new Error('bad audience');
   if (typeof payload.exp !== 'number' || payload.exp <= now) throw new Error('expired');
   if (typeof payload.nbf === 'number' && payload.nbf > now + 60) throw new Error('not yet valid');
   if (typeof payload.email !== 'string') throw new Error('no email');
