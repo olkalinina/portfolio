@@ -446,6 +446,7 @@ img { display: block; max-width: 100%; }
 .cs-protected .cs-split-img { flex-shrink: 0; width: 375px; border-radius: 32px; overflow: hidden; border: 1px solid #e5e5e5; background: white; }
 .cs-protected .cs-split-img img { width: 100%; display: block; border: none; border-radius: 0; }
 .cs-protected .cs-split-text { flex: 1; min-width: 0; }
+.cs-protected .cs-split.cs-split-top { align-items: flex-start; }
 
 .cs-protected .cs-callouts { display: flex; flex-direction: column; gap: 24px; }
 .cs-protected .cs-callout-light, .cs-protected .cs-callout-dark { border-radius: 24px; padding: 24px; display: flex; gap: 24px; align-items: flex-start; }
