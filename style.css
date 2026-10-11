@@ -473,6 +473,26 @@ img { display: block; max-width: 100%; }
 .cs-protected .cs-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 9999px; border: 1.5px solid #ebebeb; background: white; font-size: 16px; font-weight: 500; color: #292b2d; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
 .cs-protected .cs-btn:hover { border-color: #292b2d; transform: translateY(-1px); }
 
+/* NDA pill, disclaimer, layered ecosystem, process variants, two-column list */
+.cs-protected .cs-logo-pill.is-nda { gap: 10px; padding: 10px 20px 10px 14px; }
+.cs-protected .cs-logo-pill.is-nda svg { width: 20px; height: 20px; flex-shrink: 0; }
+.cs-protected .cs-logo-pill.is-nda .cs-logo-name { font-size: 16px; font-weight: 600; letter-spacing: 0; }
+.cs-protected .cs-disclaimer { background: #fafafa; border-radius: 24px; padding: 18px 24px; font-style: italic; color: #292b2d; font-size: 16px; line-height: 24px; display: flex; flex-direction: column; gap: 6px; }
+.cs-protected .cs-disclaimer strong { font-weight: 500; }
+.cs-protected .cs-disclaimer p { font-size: 16px; line-height: 24px; max-width: none; }
+.cs-protected .cs-layers { display: flex; flex-direction: column; gap: 12px; }
+.cs-protected .cs-layer { display: grid; grid-template-columns: 40px 230px 1fr; gap: 8px 24px; align-items: center; background: #fafafa; border-radius: 24px; padding: 20px 24px; }
+.cs-protected .cs-layer .n { width: 40px; height: 40px; border-radius: 50%; background: #292b2d; color: white; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600; }
+.cs-protected .cs-layer h3 { font-size: 20px; font-weight: 700; line-height: 26px; margin: 0; color: #292b2d; }
+.cs-protected .cs-layer p { font-size: 16px; line-height: 26px; color: #292b2d; max-width: none; }
+.cs-protected ol.cs-steps.cs-steps-3 { grid-template-columns: repeat(3, 1fr); }
+.cs-protected ol.cs-steps li strong { font-size: 18px; font-weight: 600; line-height: 24px; color: #292b2d; display: block; }
+.cs-protected ol.cs-steps li span { font-size: 15px; font-weight: 400; line-height: 22px; color: #707379; display: block; margin-top: 6px; }
+.cs-protected ul.cs-list.cols2 { display: block; columns: 2; column-gap: 40px; }
+.cs-protected ul.cs-list.cols2 li { break-inside: avoid; margin-bottom: 8px; }
+.cs-protected .cs-card .cs-lead { font-size: 18px; line-height: 28px; font-weight: 500; color: #292b2d; }
+.cs-protected .cs-card .cs-sub { font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #707379; }
+
 /* Results panel, expandable impact rows, large quote */
 .cs-protected .cs-results { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: center; background: #3d3d3d; color: white; border-radius: 24px; padding: 48px; }
 .cs-protected .cs-results-hero { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
@@ -518,6 +538,9 @@ img { display: block; max-width: 100%; }
 .cs-protected .cs-phone-screen.is-touched ~ .cs-phone-hint, .cs-protected .cs-phone-hint.is-hidden { opacity: 0.6; }
 
 @media (max-width: 1000px) {
+  .cs-protected .cs-layer { grid-template-columns: 40px 1fr; }
+  .cs-protected .cs-layer p { grid-column: 1 / -1; }
+  .cs-protected ol.cs-steps.cs-steps-3 { grid-template-columns: 1fr 1fr; }
   .cs-protected .cs-results { grid-template-columns: 1fr; gap: 40px; padding: 40px 32px; }
   .cs-protected .cs-row4 { grid-template-columns: 1fr 1fr; }
   .cs-protected .cs-row3 { grid-template-columns: 1fr; }
@@ -536,6 +559,8 @@ img { display: block; max-width: 100%; }
   .cs-protected ol.cs-steps { grid-template-columns: 1fr 1fr; }
   .cs-protected .cs-callout-light, .cs-protected .cs-callout-dark { flex-direction: column; gap: 16px; }
   .cs-protected .cs-stat strong { font-size: 36px; }
+  .cs-protected ol.cs-steps.cs-steps-3 { grid-template-columns: 1fr; }
+  .cs-protected ul.cs-list.cols2 { columns: 1; }
   .cs-protected .cs-results { padding: 32px 24px; }
   .cs-protected .cs-ring { width: 180px; height: 180px; }
   .cs-protected .cs-ring strong { font-size: 48px; }
