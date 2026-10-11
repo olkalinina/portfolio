@@ -237,7 +237,9 @@ img { display: block; max-width: 100%; }
    ============================================================ */
 :root { --error: #c62828; --success: #1b7f4b; }
 
-.cs-access-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 8px 16px; border: 1.5px solid var(--light-gray); border-radius: var(--radius-pill); background: white; font-size: 14px; font-weight: 500; color: var(--dark); transition: border-color var(--transition); }
+.cs-card-locked .cs-card-header { flex-wrap: wrap; row-gap: 12px; }
+.cs-card-locked .cs-card-header > div:first-child { flex: 1 1 220px; min-width: 0; }
+.cs-access-btn { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; white-space: nowrap; margin-top: 2px; padding: 8px 16px; border: 1.5px solid var(--light-gray); border-radius: var(--radius-pill); background: white; font-size: 14px; font-weight: 500; color: var(--dark); transition: border-color var(--transition); }
 .cs-access-btn svg { width: 16px; height: 16px; }
 .cs-card-locked:hover .cs-access-btn { border-color: var(--dark); }
 .cs-card-locked:focus-visible, .cs-access-btn:focus-visible { outline: 3px solid var(--blue-accent); outline-offset: 3px; }
