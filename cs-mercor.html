@@ -247,48 +247,38 @@
       .btn-outline { justify-content: center; }
     }
 
-    /* ─── MERCOR: STORY BLOCKS ─── */
-    .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #4f46e5; margin-bottom: 8px; }
-    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
-    .story-grid.img-left .story-media { order: -1; }
-    .story-media { border-radius: 24px; overflow: hidden; border: 1px solid var(--border); background: #fff; }
-    .story-media img { width: 100%; }
-    .story-media.plain { border: none; background: none; border-radius: 0; }
-    .caption { font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 12px; }
-    .checks { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 8px 0 0; padding: 0; }
-    .checks li { display: flex; gap: 12px; align-items: center; font-size: 18px; line-height: 28px; }
-    .checks li::before { content: ""; flex: 0 0 24px; height: 24px; border-radius: 50%; background: #e8f7ee url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a9a50' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }
-    .status-pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 10px 20px; border-radius: 9999px; background: #e8f7ee; color: #14773e; font-weight: 600; font-size: 16px; }
-    .callout { background: #f1efff; border-radius: 24px; padding: 28px 32px; display: flex; flex-direction: column; gap: 8px; }
-    .callout strong { font-size: 20px; font-weight: 700; color: #3b34b8; }
-    .callout p { font-size: 18px; line-height: 28px; }
-    .callout.warn { background: #fff1f1; } .callout.warn strong { color: #b42323; }
-    .fails { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; list-style: none; padding: 0; counter-reset: f; }
-    .fails li { counter-increment: f; background: var(--bg-card); border-radius: 24px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; font-size: 18px; line-height: 28px; }
-    .fails li::before { content: counter(f); flex: 0 0 40px; height: 40px; border-radius: 50%; background: #292b2d; color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 16px; }
-    .fails li:last-child { grid-column: 1 / -1; }
-    .fails strong { font-weight: 700; }
-    .journey { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; max-width: 760px; margin: 0 auto; width: 100%; }
-    .journey li { padding: 14px 24px; border-radius: 9999px; font-size: 18px; font-weight: 500; background: #f1efff; color: #3b34b8; width: fit-content; }
-    .journey li:nth-child(even) { margin-left: 56px; }
-    .journey li.break { align-self: stretch; width: auto; margin: 10px 0 !important; background: none; border-radius: 0; border-top: 1.5px dashed #c9c9d1; padding: 14px 0 0; text-align: center; color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-    .journey li.bad { background: #ffe9e9; color: #b42323; }
-    .fix-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-    .fix-list li { display: flex; gap: 16px; align-items: center; background: var(--bg-card); border-radius: 20px; padding: 20px 24px; font-size: 18px; line-height: 28px; }
-    .fix-list li::before { content: ""; flex: 0 0 24px; height: 24px; border-radius: 6px; border: 2px solid #4f46e5; background: #4f46e5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 16px no-repeat; }
-    .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; font-size: 28px; font-weight: 600; line-height: 1.25; }
-    .chain .arrow { color: #4f46e5; }
-    .takeaways { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; }
-    .takeaways li { font-size: 20px; line-height: 30px; padding-left: 40px; position: relative; }
-    .takeaways li::before { content: "→"; position: absolute; left: 0; color: #4f46e5; font-weight: 700; }
-    .closing { background: linear-gradient(135deg, #4338ca, #7c6cf0 70%, #c58ee0); color: #fff; border-radius: 32px; padding: 48px 40px; font-size: 24px; line-height: 1.45; font-weight: 500; text-align: center; }
+    /* ─── MERCOR: SWIPE DECK ─── */
+    .hero-logo.wide { width: auto; height: 56px; border-radius: 0; }
+    .deck { margin-top: 48px; }
+    .deck-track {
+      display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-padding-left: 0; padding: 4px 2px 20px; margin: 0 -2px;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch; cursor: grab; touch-action: pan-x pan-y;
+    }
+    .deck-track::-webkit-scrollbar { display: none; }
+    .deck-track.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+    .deck-card {
+      flex: 0 0 min(560px, 84vw); scroll-snap-align: start;
+      border-radius: 32px; overflow: hidden; border: 1px solid var(--border); background: #fafaff;
+      aspect-ratio: 13 / 15;
+    }
+    .deck-card img { width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; pointer-events: none; }
+    .deck-track:focus-visible { outline: 3px solid #4f46e5; outline-offset: 4px; border-radius: 16px; }
+    .deck-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 8px; }
+    .deck-count { font-size: 16px; font-weight: 500; color: var(--muted); min-width: 64px; }
+    .deck-dots { display: flex; gap: 8px; flex: 1; justify-content: center; }
+    .deck-dots button { width: 28px; height: 4px; border: 0; border-radius: 2px; background: #e4e2f8; padding: 0; cursor: pointer; transition: background .2s, width .2s; }
+    .deck-dots button.active { background: #4338ca; width: 40px; }
+    .deck-btns { display: flex; gap: 12px; }
+    .deck-btn { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--border); background: #fff; cursor: pointer; display: grid; place-items: center; transition: border-color .2s, opacity .2s; color: var(--text); }
+    .deck-btn:hover:not(:disabled) { border-color: var(--text); }
+    .deck-btn:disabled { opacity: .35; cursor: default; }
+    .deck-btn svg { width: 20px; height: 20px; }
+    .deck-hint { font-size: 14px; color: var(--muted); margin-top: 12px; text-align: center; }
     @media (max-width: 860px) {
-      .story-grid, .fails { grid-template-columns: 1fr; }
-      .story-grid.img-left .story-media { order: 0; }
-      .fails li:last-child { grid-column: auto; }
-      .journey li:nth-child(even) { margin-left: 24px; }
-      .chain { font-size: 22px; }
-      .closing { font-size: 20px; padding: 32px 24px; }
+      .deck-dots { display: none; }
+      .deck-controls { justify-content: space-between; }
+      .hero-logo.wide { height: 44px; }
     }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -332,186 +322,40 @@
 <!-- PAGE CONTENT -->
 <div class="page">
 
-  <!-- 1. HERO -->
+  <!-- HERO -->
   <section>
     <div class="hero-top">
-      <img src="images/Mercor_logo.png" alt="Mercor" class="hero-logo" />
+      <img src="images/Mercor_logo_full.png" alt="Mercor" class="hero-logo wide" />
     </div>
     <h1 class="hero-title">Mercor: when a policy change breaks trust with verified candidates</h1>
     <p class="hero-sub">UX analysis | Conversion &amp; retention | 2026</p>
     <p class="hero-desc">A teardown of a real journey on the Mercor talent platform: a qualified applicant, a quiet policy change, and a flow with no way out. How Mercor risks losing verified candidates due to UX inconsistency.</p>
-    <div class="hero-img">
-      <img src="images/Mercor_card.png" alt="Work that fits you versus an experience that doesn't support you, next to the Mercor logo and website" />
-    </div>
   </section>
 
-  <!-- 2. SNAPSHOT + IN ONE LINE -->
-  <div class="section two-col align-start">
-    <div class="card">
-      <h2 class="card-title">Project snapshot</h2>
-      <div class="card-body">
-        <p><strong>My role:</strong> UX analysis, self-initiated</p>
-        <p><strong>Based on:</strong> my own experience as an applicant</p>
-        <p><strong>Focus:</strong> verification flow, communication, error recovery</p>
-        <p><strong>Business risk:</strong> losing candidates who have already passed every step</p>
+  <!-- SWIPE DECK -->
+  <section class="deck" aria-label="Case study cards, swipe or use the arrows">
+    <div class="deck-track" id="deckTrack" tabindex="0">
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="1 of 10"><img src="images/mercor-slide-01.webp" width="1300" height="1500" alt="Slide 1: Work that fits you versus an experience that doesn't support you. How Mercor risks losing verified candidates due to UX inconsistency." draggable="false" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="2 of 10"><img src="images/mercor-slide-02.webp" width="1300" height="1500" alt="Slide 2: A month ago I applied to a Product Design/UX Expert role on Mercor. Signed up and verified my phone, completed onboarding, built a full profile, passed the interview. Everything was done, profile active, status qualified." draggable="false" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="3 of 10"><img src="images/mercor-slide-03.webp" width="1300" height="1500" alt="Slide 3: Then this arrived. An email saying the application requirements have changed and I must finish my application, with no explanation of what changed." draggable="false" loading="lazy" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="4 of 10"><img src="images/mercor-slide-04.webp" width="1300" height="1500" alt="Slide 4: Georgia (+995) was supported when I signed up and my number was verified. Mercor then quietly added Georgia to the restricted regions list, retroactively invalidating my verified number and blocking my profile." draggable="false" loading="lazy" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="5 of 10"><img src="images/mercor-slide-05.webp" width="1300" height="1500" alt="Slide 5: Georgia is still in the country dropdown and the number can still be typed; the system only rejects it on submit. A false affordance." draggable="false" loading="lazy" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="6 of 10"><img src="images/mercor-slide-06.webp" width="1300" height="1500" alt="Slide 6: Let's check the FAQs. The FAQ link leads to a generic page with no visible list, no next step and no contact path: a liability-focused answer." draggable="false" loading="lazy" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="7 of 10"><img src="images/mercor-slide-07.webp" width="1300" height="1500" alt="Slide 7: What went wrong, specifically: retroactive invalidation, no impact assessment, false affordance, blame reversal, and no recovery path." draggable="false" loading="lazy" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="8 of 10"><img src="images/mercor-slide-08.webp" width="1300" height="1500" alt="Slide 8: The sequence of signals I received as a user, from 'Your phone verified' to 'Your profile is blocked'." draggable="false" loading="lazy" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="9 of 10"><img src="images/mercor-slide-09.webp" width="1300" height="1500" alt="Slide 9: Before restricting any location, Mercor should have identified affected users, sent a proactive honest email, explained what changed and why, and offered an alternative or timeline. The email I needed to receive." draggable="false" loading="lazy" /></div>
+      <div class="deck-card" role="group" aria-roledescription="slide" aria-label="10 of 10"><img src="images/mercor-slide-10.webp" width="1300" height="1500" alt="Slide 10: Policy changes lead to weak communication, and users hit a wall. The fix isn't expensive, and users deserve an honest explanation." draggable="false" loading="lazy" /></div>
+    </div>
+    <div class="deck-controls">
+      <span class="deck-count" id="deckCount" aria-live="polite">1 / 10</span>
+      <div class="deck-dots" id="deckDots"><button type="button" aria-label="Go to slide 1" class="active"></button><button type="button" aria-label="Go to slide 2"></button><button type="button" aria-label="Go to slide 3"></button><button type="button" aria-label="Go to slide 4"></button><button type="button" aria-label="Go to slide 5"></button><button type="button" aria-label="Go to slide 6"></button><button type="button" aria-label="Go to slide 7"></button><button type="button" aria-label="Go to slide 8"></button><button type="button" aria-label="Go to slide 9"></button><button type="button" aria-label="Go to slide 10"></button></div>
+      <div class="deck-btns">
+        <button type="button" class="deck-btn" id="deckPrev" aria-label="Previous card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg></button>
+        <button type="button" class="deck-btn" id="deckNext" aria-label="Next card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg></button>
       </div>
     </div>
-    <div class="card">
-      <h2 class="card-title">In one line</h2>
-      <div class="card-body">
-        <p>Policy changes, weak communication, and users hit a wall. A decision made by the platform ends up reading as a failure of the user.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. THE STORY -->
-  <div class="section story-grid">
-    <div class="text-col">
-      <p class="eyebrow">The story</p>
-      <h2 class="section-title">A month ago I applied to a Product Design/UX Expert role on Mercor</h2>
-      <ul class="checks">
-        <li>Signed up &amp; verified my phone</li>
-        <li>Completed onboarding</li>
-        <li>Built a full profile</li>
-        <li>Passed the interview</li>
-      </ul>
-      <span class="status-pill">Everything was done. Profile active. Status: qualified.</span>
-    </div>
-    <div class="story-media plain">
-      <img src="images/mercor_site.png" alt="The Mercor website: 'Get paid to work' hero with average pay and roles created, and a list of latest roles." style="border-radius:32px; max-width:420px; margin:0 auto;" loading="lazy" />
-    </div>
-  </div>
-
-  <!-- 4. THE EMAIL -->
-  <div class="section story-grid img-left">
-    <div>
-      <div class="story-media"><img src="images/mercor_email.png" alt="Email from Mercor: the application requirements have changed, and the applicant must finish the application. The phrases 'application requirements', 'have changed' and 'you must finish your application' are underlined." loading="lazy" /></div>
-      <p class="caption">The email, with the phrases that matter underlined</p>
-    </div>
-    <div class="text-col">
-      <p class="eyebrow">Then this arrived</p>
-      <h2 class="section-title">&ldquo;You must finish your application&rdquo;</h2>
-      <div class="section-body">
-        <p>No explanation of what changed. No acknowledgment of what I'd already completed. Just: &ldquo;you must finish your application.&rdquo;</p>
-        <p>As a user, my first reaction: <strong>what did I miss?</strong></p>
-      </div>
-      <div class="callout"><strong>The answer: nothing.</strong><p>The platform changed the rules.</p></div>
-    </div>
-  </div>
-
-  <!-- 5. GEORGIA -->
-  <div class="section story-grid">
-    <div class="text-col">
-      <p class="eyebrow">The rule that changed</p>
-      <h2 class="section-title">A number that was accepted, then wasn't</h2>
-      <div class="section-body">
-        <p>Georgia (+995) was supported when I signed up. I verified successfully. The platform accepted it.</p>
-        <p>Yesterday, Mercor quietly added Georgia to their restricted regions list. My previously verified number was retroactively invalidated.</p>
-        <p><strong>My entire profile: blocked.</strong></p>
-      </div>
-    </div>
-    <div>
-      <div class="story-media"><img src="images/mercor_signup_error.png" alt="Phone verification screen with a Georgian +995 number and the error: we'd love to support phone numbers from GE (+995), but we're not available there yet." loading="lazy" /></div>
-      <p class="caption">The phone verification screen after the change (number blurred)</p>
-    </div>
-  </div>
-
-  <!-- 6. FALSE AFFORDANCE -->
-  <div class="section story-grid img-left">
-    <div>
-      <div class="story-media"><img src="images/mercor_dropdown.png" alt="The country-code dropdown still lists Georgia +995 between Gambia and Germany." loading="lazy" /></div>
-      <p class="caption">Georgia is still in the country dropdown</p>
-    </div>
-    <div class="text-col">
-      <p class="eyebrow">A broken promise</p>
-      <h2 class="section-title">This is called a false affordance</h2>
-      <div class="section-body">
-        <p>Georgia is still in the dropdown. You can still type the number. The system only rejects it after you try to submit.</p>
-      </div>
-      <div class="callout warn"><strong>The cost lands on the user</strong><p>The UI promises a capability that doesn't exist. The user pays the cost of that broken promise.</p></div>
-    </div>
-  </div>
-
-  <!-- 7. FAQ -->
-  <div class="section text-col">
-    <p class="eyebrow">Looking for help</p>
-    <h2 class="section-title">Let's check the FAQs</h2>
-    <div class="section-body">
-      <p>The FAQ answer says Mercor only supports certain countries and links to the &ldquo;full allowed list&rdquo;. That link leads to a generic page: there is no visible list, no next step, no contact path.</p>
-      <p><strong>This isn't helpful content. It's a liability-focused answer.</strong></p>
-    </div>
-    <div class="two-col align-start" style="margin-top:8px;">
-      <div>
-        <div class="story-media"><img src="images/mercor_faq.png" alt="FAQ entry: what happens if my country code is not supported? Mercor only supports certain countries, full allowed list here." loading="lazy" /></div>
-        <p class="caption">The FAQ answer</p>
-      </div>
-      <div>
-        <div class="story-media"><img src="images/mercor_faq_page.png" alt="The page the link leads to: a generic 'Create your Account' help page with no list of countries." loading="lazy" /></div>
-        <p class="caption">Where the &ldquo;full allowed list&rdquo; link leads</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 8. WHAT WENT WRONG -->
-  <div class="section text-col">
-    <h2 class="section-title">What went wrong, specifically</h2>
-    <ol class="fails">
-      <li><span><strong>Retroactive invalidation.</strong> A previously accepted verification was revoked without grandfathering existing users.</span></li>
-      <li><span><strong>No impact assessment.</strong> The policy shipped without user communication.</span></li>
-      <li><span><strong>False affordance.</strong> An unsupported country is still selectable in the UI.</span></li>
-      <li><span><strong>Blame reversal.</strong> &ldquo;Finish your application&rdquo; frames a platform decision as user incompleteness.</span></li>
-      <li><span><strong>No recovery path.</strong> Zero alternative verification, zero support escalation surfaced at the point of failure.</span></li>
-    </ol>
-  </div>
-
-  <!-- 9. SEQUENCE OF SIGNALS -->
-  <div class="section text-col">
-    <h2 class="section-title">The sequence of signals I received as a user</h2>
-    <ol class="journey">
-      <li>Your phone verified</li>
-      <li>Your profile is active</li>
-      <li>Fill your profile to apply for jobs</li>
-      <li>Your profile is complete</li>
-      <li>Pass the application interview</li>
-      <li>Interview passed</li>
-      <li>Application finished</li>
-      <li class="break">The platform changed the rules</li>
-      <li class="bad">Application requirements have changed</li>
-      <li class="bad">You must finish your application</li>
-      <li class="bad">Your country is restricted</li>
-      <li class="bad">Your profile is blocked</li>
-    </ol>
-  </div>
-
-  <!-- 10. WHAT THEY SHOULD HAVE DONE -->
-  <div class="section story-grid">
-    <div class="text-col">
-      <p class="eyebrow">The better version</p>
-      <h2 class="section-title">Before restricting Georgia or any other location, Mercor should have</h2>
-      <ul class="fix-list">
-        <li>Identified all existing users with Georgian numbers</li>
-        <li>Sent a proactive, honest email, before blocking anything</li>
-        <li>Explained what changed and why</li>
-        <li>Offered an alternative or a clear timeline before blocking access</li>
-      </ul>
-    </div>
-    <div>
-      <div class="story-media plain"><img src="images/mercor_email_mock.png" alt="A redesigned email: Hi Olga, we're updating our supported regions. Your account is affected. Here's what this means and what you can do." loading="lazy" style="border-radius:24px;" /></div>
-      <p class="caption">The email I needed to receive</p>
-    </div>
-  </div>
-
-  <!-- 11. TAKEAWAYS -->
-  <div class="section text-col" style="gap:32px;">
-    <div class="chain">Policy changes <span class="arrow">&rarr;</span> weak communication <span class="arrow">&rarr;</span> users hit a wall</div>
-    <h2 class="section-title">The fix isn't expensive</h2>
-    <ul class="takeaways">
-      <li>Policy changes that affect existing users are a design problem, not just a legal one.</li>
-      <li>Never let a platform decision read as user failure.</li>
-      <li>A dead end is a product decision: someone chose not to build the exit.</li>
-    </ul>
-    <p class="closing">Users spend time, pass interviews, and build profiles on a foundation the platform later decides to remove. The least they deserve is an honest explanation.</p>
-  </div>
+    <p class="deck-hint">Swipe, drag, or use the arrows</p>
+  </section>
 
   <!-- CTA BLOCK -->
   <div class="cta-block">
@@ -565,6 +409,59 @@
     </footer>
 </div><!-- /page-wrapper -->
 
+  <script>
+    (function () {
+      var track = document.getElementById('deckTrack'); if (!track) return;
+      var cards = Array.prototype.slice.call(track.children);
+      var dots = Array.prototype.slice.call(document.querySelectorAll('#deckDots button'));
+      var count = document.getElementById('deckCount'), prev = document.getElementById('deckPrev'), next = document.getElementById('deckNext');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function current() {
+        var x = track.scrollLeft, best = 0, d = Infinity;
+        cards.forEach(function (c, i) { var dd = Math.abs(c.offsetLeft - track.offsetLeft - x); if (dd < d) { d = dd; best = i; } });
+        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) best = cards.length - 1;
+        return best;
+      }
+      function update() {
+        var i = current();
+        count.textContent = (i + 1) + ' / ' + cards.length;
+        dots.forEach(function (b, k) { b.classList.toggle('active', k === i); });
+        prev.disabled = track.scrollLeft <= 4;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      }
+      function go(i) {
+        i = Math.max(0, Math.min(cards.length - 1, i));
+        track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      prev.addEventListener('click', function () { go(current() - 1); });
+      next.addEventListener('click', function () { go(current() + 1); });
+      dots.forEach(function (b, k) { b.addEventListener('click', function () { go(k); }); });
+      var raf = 0; track.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }, { passive: true });
+      window.addEventListener('resize', update);
+      track.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(current() + 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); go(current() - 1); }
+      });
+      // Mouse drag (touch and trackpads already scroll natively)
+      var down = false, startX = 0, startLeft = 0, moved = false;
+      track.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+      });
+      window.addEventListener('pointermove', function (e) {
+        if (!down) return;
+        var dx = e.clientX - startX;
+        if (!moved && Math.abs(dx) > 4) { moved = true; track.classList.add('is-dragging'); }
+        if (moved) track.scrollLeft = startLeft - dx;
+      });
+      function end() {
+        if (!down) return; down = false;
+        if (moved) { track.classList.remove('is-dragging'); go(current()); }
+      }
+      window.addEventListener('pointerup', end); window.addEventListener('pointercancel', end);
+      update();
+    })();
+  </script>
   <script>
     async function doShare() {
       const url   = window.location.href;
