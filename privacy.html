@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy — Olga Kalinina</title>
+  <meta name="description" content="What happens to the information you send through this website: the contact form, the access-code cookie, and hosting." />
+  <link rel="canonical" href="https://olgakalinina.me/privacy" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="Privacy — Olga Kalinina" />
+  <meta property="og:description" content="What happens to the information you send through this website: the contact form, the access-code cookie, and hosting." />
+  <meta property="og:url" content="https://olgakalinina.me/privacy" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-wrap { max-width: 760px; margin: 0 auto; padding: 60px 0 100px; display: flex; flex-direction: column; gap: 48px; }
+    .about-section { display: flex; flex-direction: column; gap: 16px; }
+    .about-section h2 { font-size: 28px; font-weight: 600; color: var(--dark); }
+    .about-section p { font-size: 16px; color: var(--dark); line-height: 1.75; }
+    .about-photo img { width: 100%; height: auto; display: block; border-radius: 24px; }
+    .about-caption { font-size: 14px; color: var(--gray); text-align: center; margin-top: 12px; }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+</head>
+<body>
+    <nav class="nav">
+    <a href="index.html"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About me</a>
+      <a href="contacts.html">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="index.html"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About me</a>
+      <a href="contacts.html">Contacts</a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <main class="page-content">
+      <div class="container">
+        <div class="about-wrap">
+
+          <div class="about-section">
+            <h1 style="font-size:32px;font-weight:700;line-height:1.3;color:var(--dark);margin:0;">Privacy</h1>
+            <p>This is a personal portfolio. I don't run ads or analytics, and I don't keep a mailing list. Here is the little information that does pass through the site, and what I do with it.</p>
+            <p class="about-caption" style="text-align:left;margin-top:0;">Last updated: 12 October 2026</p>
+          </div>
+
+          <div class="about-section">
+            <h2>The contact form</h2>
+            <p>If you write to me through the contact form, I receive your name (optional), your email address and your message. They are sent to my inbox through Formspree, the service that runs the form, which is based in the United States.</p>
+            <p>I use this only to reply to you. I don't add you to any list, and I don't share your message with anyone. I keep correspondence for as long as it is useful to the conversation, and delete it when you ask.</p>
+          </div>
+
+          <div class="about-section">
+            <h2>Protected case studies</h2>
+            <p>Some case studies are shared under NDA and need an access code. When you enter a valid code, the site sets one cookie that keeps you signed in for the period the code allows, usually a day or two. It is used for nothing else.</p>
+            <p>I can see when a code I issued has been used. To stop people guessing codes, I keep a short record of failed attempts, using a scrambled form of the IP address, not the address itself.</p>
+          </div>
+
+          <div class="about-section">
+            <h2>Cookies and tracking</h2>
+            <p>Apart from the access-code cookie above, this site sets no cookies and has no analytics, advertising or tracking tools. That is why there is no cookie banner. Fonts are served from this site, not from a third party.</p>
+          </div>
+
+          <div class="about-section">
+            <h2>Hosting</h2>
+            <p>The site is hosted by Cloudflare, which keeps standard server logs, such as IP addresses and the pages requested, to run and protect the service.</p>
+          </div>
+
+          <div class="about-section">
+            <h2>Your choices</h2>
+            <p>You can ask me what I hold about you, ask me to correct or delete it, or object to how I use it. Write to me through the <a href="contacts.html" style="text-decoration:underline;text-underline-offset:3px;">contact form</a> and I will reply. If you are in the EU or the UK, you can also complain to your local data protection authority.</p>
+          </div>
+
+        </div>
+      </div>
+    </main>
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="about.html">About me</a>
+            <span class="footer-dot"></span>
+            <a href="services.html">Services</a>
+            <span class="footer-dot"></span>
+            <a href="case-studies.html">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="blog.html">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="contacts.html">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="privacy.html">Privacy</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">
+              <img src="images/Linkedin_logo.png" alt="LinkedIn" />
+            </a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">
+              <img src="images/Behance_logo.png" alt="Behance" />
+            </a>
+            <a href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
+              <img src="images/Substack_logo_footer.png" alt="Substack" />
+            </a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina. All rights reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
