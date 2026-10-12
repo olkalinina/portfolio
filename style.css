@@ -335,6 +335,10 @@ img { display: block; max-width: 100%; }
   .hero { padding: 40px 0 0 !important; gap: 28px !important; }
   .hero-title { font-size: 24px !important; line-height: 1.4 !important; }
   .hero-sub { font-size: 16px !important; }
+  .hero-name { font-size: 34px !important; }
+  .hero-role { font-size: 20px !important; }
+  .hero-desc { font-size: 16px !important; }
+  .hero-tags { font-size: 14px !important; }
   .hero-photo { height: 220px !important; border-radius: 20px !important; }
   .client-logos { gap: 16px !important; flex-wrap: wrap !important; }
   .client-logos img { height: 28px !important; }
