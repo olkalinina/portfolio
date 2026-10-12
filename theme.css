@@ -98,6 +98,11 @@ body.is-protected .nav { background: rgba(255, 255, 255, 0.94); border-bottom-co
 .theme-toggle:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
 .theme-toggle svg { width: 17px; height: 17px; }
 
+/* Circle-spread theme change (View Transitions): the browser's default cross-fade is switched off */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+
 /* ---- Mobile menu ---- */
 .mobile-menu { background: #faf8f4; backdrop-filter: none; -webkit-backdrop-filter: none; border: 1px solid #e6e0d5; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
 body.is-protected .mobile-menu { background: #fff; border-color: #ebebeb; }

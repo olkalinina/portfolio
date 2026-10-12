@@ -8,11 +8,25 @@
   var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'theme-toggle';
   function dark() { return root.getAttribute('data-theme') === 'dark'; }
   function paint() { var d = dark(); btn.innerHTML = d ? SUN : MOON; btn.setAttribute('aria-label', d ? 'Switch to light mode' : 'Switch to dark mode'); btn.setAttribute('aria-pressed', d ? 'true' : 'false'); }
-  btn.addEventListener('click', function () {
-    var next = dark() ? 'light' : 'dark';
+  function apply(next) {
     if (next === 'dark') root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
     try { localStorage.setItem('theme', next); } catch (e) {}
     paint();
+  }
+  btn.addEventListener('click', function () {
+    var next = dark() ? 'light' : 'dark';
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.startViewTransition || reduce) { apply(next); return; }
+    // Circle spread: the new theme grows out of the button like a ripple
+    var r = btn.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+    var end = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+    var t = document.startViewTransition(function () { apply(next); });
+    t.ready.then(function () {
+      root.animate(
+        { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
+        { duration: 700, easing: 'cubic-bezier(.4, 0, .2, 1)', pseudoElement: '::view-transition-new(root)' }
+      );
+    }).catch(function () {});
   });
   var ham = nav.querySelector('.nav-hamburger');
   nav.insertBefore(btn, ham || null);
