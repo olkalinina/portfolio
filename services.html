@@ -46,7 +46,7 @@
     .page-sub { font-size: 24px; font-weight: 500; color: var(--muted); }
 
     /* SERVICE CARDS GRID */
-    .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .svc-card {
       background: var(--bg-card);
       border-radius: 24px;
@@ -180,18 +180,18 @@
 
     <div class="svc-card" onclick="openModal(1)">
       <div class="svc-card-top">
-        <img src="images/fingerprint-04.svg" alt="" class="svc-icon" />
-        <div class="svc-title">MVP Product Design</div>
-        <div class="svc-desc">From idea to a clickable MVP: core flows, key screens, and a prototype ready for testing and development.</div>
+        <img src="images/trend-up-01.svg" alt="" class="svc-icon" />
+        <div class="svc-title">CRO Audit for Websites &amp; SaaS</div>
+        <div class="svc-desc">Find where visitors drop off and get a prioritised plan of changes that lift sign-ups, trials, and revenue.</div>
       </div>
       <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
     </div>
 
     <div class="svc-card" onclick="openModal(2)">
       <div class="svc-card-top">
-        <img src="images/face-id-square.svg" alt="" class="svc-icon" />
-        <div class="svc-title">Product Discovery Sprint</div>
-        <div class="svc-desc">Clarify the problem, audience, and scope — so you can build the right MVP without guesswork.</div>
+        <img src="images/fingerprint-04.svg" alt="" class="svc-icon" />
+        <div class="svc-title">MVP Product Design</div>
+        <div class="svc-desc">From idea to a clickable MVP: core flows, key screens, and a prototype ready for testing and development.</div>
       </div>
       <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
     </div>
@@ -207,15 +207,6 @@
 
     <div class="svc-card" onclick="openModal(4)">
       <div class="svc-card-top">
-        <img src="images/command.svg" alt="" class="svc-icon" />
-        <div class="svc-title">New Feature Design</div>
-        <div class="svc-desc small">Design new features that fit your product logic and improve the experience without adding clutter.</div>
-      </div>
-      <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </div>
-
-    <div class="svc-card" onclick="openModal(5)">
-      <div class="svc-card-top">
         <img src="images/cursor-click-02.svg" alt="" class="svc-icon" />
         <div class="svc-title">Usability Testing &amp; Iteration</div>
         <div class="svc-desc small">Run quick, practical user testing and turn insights into focused design improvements.</div>
@@ -223,7 +214,7 @@
       <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
     </div>
 
-    <div class="svc-card" onclick="openModal(6)">
+    <div class="svc-card" onclick="openModal(5)">
       <div class="svc-card-top">
         <img src="images/pen-tool-01.svg" alt="" class="svc-icon" />
         <div class="svc-title">High-Fidelity UI for Web Products</div>
@@ -232,7 +223,7 @@
       <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
     </div>
 
-    <div class="svc-card" onclick="openModal(7)">
+    <div class="svc-card" onclick="openModal(6)">
       <div class="svc-card-top">
         <img src="images/star-06.svg" alt="" class="svc-icon" />
         <div class="svc-title">AI Feature UX</div>
@@ -241,16 +232,7 @@
       <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
     </div>
 
-    <div class="svc-card" onclick="openModal(8)">
-      <div class="svc-card-top">
-        <img src="images/webcam-02.svg" alt="" class="svc-icon" />
-        <div class="svc-title">Handoff &amp; Build Support</div>
-        <div class="svc-desc small">Detailed handoff, team support, and design QA to ensure the final product matches the design intent.</div>
-      </div>
-      <div class="svc-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </div>
-
-    <div class="svc-card" onclick="openModal(9)">
+    <div class="svc-card" onclick="openModal(7)">
       <div class="svc-card-top">
         <img src="images/users-check.svg" alt="" class="svc-icon" />
         <div class="svc-title">Fractional Product Design Partner</div>
@@ -360,6 +342,13 @@ const services = [
     benefits: ['A prioritised list of issues (quick wins + high-impact fixes)', 'Clear recommendations with examples (what to change and why)', 'A practical next-step plan your team can execute']
   },
   {
+    icon: 'images/trend-up-01.svg',
+    title: 'CRO Audit for Websites & SaaS',
+    short: 'Find where visitors drop off and get a prioritised plan of changes that lift sign-ups, trials, and revenue.',
+    desc: 'A conversion-focused review of your key funnels: landing pages, pricing, sign-up, onboarding, and checkout. I combine UX heuristics, behavioural insights, and your analytics to find where trust breaks and users drop off, then turn the findings into changes you can test.\n\nIdeal when traffic is healthy but sign-ups, trials, or purchases are not, and you need to know what to fix first.',
+    benefits: ['A funnel walkthrough with the friction and trust gaps found at each step', 'Prioritised fixes, ranked by expected impact and effort', 'Wireframe-level redesign proposals and A/B test ideas for the highest-impact changes']
+  },
+  {
     icon: 'images/fingerprint-04.svg',
     title: 'MVP Product Design',
     short: 'From idea to a clickable MVP: core flows, key screens, and a prototype ready for testing and development.',
@@ -367,25 +356,11 @@ const services = [
     benefits: ['MVP scope and core flows (user journeys + key states)', 'Wireframes → high-fidelity screens for the MVP', 'A clickable prototype ready for testing and development']
   },
   {
-    icon: 'images/face-id-square.svg',
-    title: 'Product Discovery Sprint',
-    short: 'Clarify the problem, audience, and scope — so you can build the right MVP without guesswork.',
-    desc: 'A structured sprint to align the team on what to build and why. We\'ll define the problem space, identify users and their core needs, and scope the MVP so development starts with confidence.\n\nPerfect at the start of a project or when priorities are unclear.',
-    benefits: ['Defined problem statement and user personas', 'Prioritised scope for the MVP', 'A shared direction your team can act on immediately']
-  },
-  {
     icon: 'images/bezier-curve-03.svg',
     title: 'Information Architecture & UX Flows',
     short: 'Turn complex workflows into clear, step-by-step journeys with edge cases covered.',
     desc: 'I structure complex products so they feel simple: navigation, content hierarchy, and step-by-step flows users can follow with confidence. We\'ll define roles, states, edge cases, and error and empty scenarios — so the experience holds up in real use.\n\nBest for products with many features, screens, or user types that need clear logic and structure.',
     benefits: ['A clear IA and navigation proposal (how the product is organized)', 'User flows for key scenarios, including edge cases', 'UX rules for states: empty, error, loading, and permissions']
-  },
-  {
-    icon: 'images/command.svg',
-    title: 'New Feature Design',
-    short: 'Design new features that fit your product logic and improve the experience without adding clutter.',
-    desc: 'Design new features that fit your product logic and improve the experience without adding clutter. I\'ll align the feature with user goals, integrate it into existing flows, and define the states needed for implementation.\n\nIdeal for product teams scaling functionality while keeping UX consistent.',
-    benefits: ['Feature flow and integration into existing journeys', 'Key screens and interaction details, including states', 'A build-ready design handoff in Figma']
   },
   {
     icon: 'images/cursor-click-02.svg',
@@ -407,13 +382,6 @@ const services = [
     short: 'Design AI-assisted flows that feel safe, understandable, and user-controlled.',
     desc: 'Design AI-assisted flows that feel safe, understandable, and user-controlled. I focus on clear inputs and outputs, review and edit loops, regeneration, transparency, and strong error recovery — so AI supports real work, not just content generation.\n\nBest for products adding AI into creation, admin, or decision-making workflows.',
     benefits: ['AI flow design (prompting → output → review/edit/regenerate)', 'UX guardrails: states, errors, empty cases, and safety and clarity patterns', 'Build-ready screens and interaction specs']
-  },
-  {
-    icon: 'images/webcam-02.svg',
-    title: 'Handoff & Build Support',
-    short: 'Detailed handoff, team support, and design QA to ensure the final product matches the design intent.',
-    desc: 'Support during implementation to ensure the final product matches the design intent. I provide clear handoff, answer developer questions, align on edge cases, and run design QA during build.\n\nIdeal when speed matters and you want fewer redesign loops during development.',
-    benefits: ['Clean handoff with specs, states, and annotations', 'Async support for developer and PM questions', 'Design QA review and a fix list before release']
   },
   {
     icon: 'images/users-check.svg',
