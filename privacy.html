@@ -25,6 +25,8 @@
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=3" />
 </head>
 <body>
     <nav class="nav">
@@ -81,7 +83,7 @@
 
           <div class="about-section">
             <h2>Cookies and tracking</h2>
-            <p>Apart from the access-code cookie above, this site sets no cookies and has no analytics, advertising or tracking tools. That is why there is no cookie banner. Fonts are served from this site, not from a third party.</p>
+            <p>If you switch between light and dark mode, your choice is saved on your own device so the site remembers it. It is never sent to me. Apart from the access-code cookie above, this site sets no cookies and has no analytics, advertising or tracking tools. That is why there is no cookie banner. Fonts are served from this site, not from a third party.</p>
           </div>
 
           <div class="about-section">
@@ -135,5 +137,6 @@
       document.getElementById('menuBackdrop').classList.toggle('open');
     }
   </script>
+  <script src="/js/theme.js" defer></script>
 </body>
 </html>
