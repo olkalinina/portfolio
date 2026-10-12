@@ -1,7 +1,7 @@
 /* ============================================================
    OLGA KALININA PORTFOLIO — Shared Design System
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('/fonts.css');
 
 :root {
   --font: 'Inter', sans-serif;

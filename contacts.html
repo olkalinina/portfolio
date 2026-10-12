@@ -35,6 +35,8 @@
     .form-field textarea { height: 160px; resize: vertical; }
     .form-field .required { color: #e53e3e; margin-left: 2px; }
     .form-submit { align-self: flex-start; }
+    .form-note { font-size: 13px; line-height: 1.5; color: var(--gray); margin-top: -8px; }
+    .form-note a { text-decoration: underline; text-underline-offset: 3px; color: var(--dark); }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -95,6 +97,7 @@
               <textarea name="message" placeholder="" required></textarea>
             </div>
             <button type="submit" class="btn-dark form-submit">Send</button>
+            <p class="form-note">Your message is sent through Formspree and used only to reply to you. <a href="privacy.html">Privacy</a></p>
           </form>
         </div>
         <div style="display:flex;align-items:center;gap:8px;margin-top:48px;padding-bottom:80px;">
@@ -116,6 +119,8 @@
             <a href="blog.html">Blog</a>
             <span class="footer-dot"></span>
             <a href="contacts.html">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="privacy.html">Privacy</a>
           </nav>
           <div class="footer-socials">
             <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">
