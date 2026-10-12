@@ -111,6 +111,10 @@ body.is-protected .mobile-menu { background: #fff; border-color: #ebebeb; }
 .mobile-menu-close { background: transparent; border-color: #cfc8ba; }
 
 /* ---- Footer ---- */
+.footer-socials { gap: 20px; }
+.footer-socials a { width: auto; height: auto; border-radius: 0; overflow: visible; font-family: 'Lora', Georgia, serif; font-size: 13px; font-weight: 400; color: var(--gray); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.footer-socials a:hover { opacity: 1; color: var(--dark); }
+body.is-protected .footer-socials a { color: #707379; }
 .footer { background: transparent; border-top: 1px solid #e6e0d5; margin-top: 40px; }
 body.is-protected .footer { border-top-color: #ebebeb; }
 .footer-links a { font-family: 'Lora', Georgia, serif; }
