@@ -1,0 +1,74 @@
+/* Editorial skin: warm paper background, serif type, a thin top bar.
+   Loaded last on every page, so it overrides each page's own styles. Remove the link to go back to the old look.
+   Protected case studies (body.is-protected) keep their own type and colours; only the top bar and footer follow the theme. */
+
+/* ---- Palette and fonts (public pages only) ---- */
+body:not(.is-protected) {
+  --font: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --dark: #111111;      --gray: #6f6b64;      --light-gray: #e6e0d5;  --bg-soft: #f2eee6;
+  --text: #111111;      --muted: #6f6b64;     --border: #e6e0d5;      --bg-card: #f2eee6;   --border-btn: #cfc8ba;
+  --ink: #111111;       --ink-muted: #6f6b64; --white: #faf8f4;
+  --shadow-nav: none;
+  background: #faf8f4;
+  color: #111111;
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+}
+html { background: #faf8f4; }
+body.home:not(.is-protected) { background: #faf8f4; }
+
+body:not(.is-protected) :is(h1, h2, h3, h4) {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+body:not(.is-protected) :where([class$="-title"], [class*="-title "], .hero-name, .cs-card-title, .svc-card-title) {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.012em;
+}
+/* UI mock-ups inside case studies stay in the product's own font */
+.wf-root, .wf-root * { font-family: 'Inter', sans-serif !important; letter-spacing: normal; }
+
+/* ---- Thin top bar ---- */
+.nav {
+  top: 0; left: 0; right: 0; width: 100%;
+  transform: none;
+  justify-content: space-between;
+  padding: 14px max(20px, calc((100% - 1187px) / 2 + 40px));
+  background: rgba(250, 248, 244, 0.94);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 0; border-bottom: 1px solid #e6e0d5;
+  border-radius: 0; box-shadow: none;
+}
+body.is-protected .nav { background: rgba(255, 255, 255, 0.94); border-bottom-color: #ebebeb; }
+.nav > a:first-child { display: flex; align-items: center; gap: 12px; }
+.nav > a:first-child::after {
+  content: "Olga Kalinina";
+  font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 500; letter-spacing: -0.01em; color: #111;
+}
+.nav-links { gap: 28px; }
+.nav-links a { font-family: 'Lora', Georgia, serif; font-size: 16px; font-weight: 500; }
+.nav-links a:hover { font-weight: 500; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.nav-links a.active { font-weight: 500; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.page-content { padding-top: 96px; }
+
+/* ---- Mobile menu ---- */
+.mobile-menu { background: #faf8f4; backdrop-filter: none; -webkit-backdrop-filter: none; border: 1px solid #e6e0d5; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+body.is-protected .mobile-menu { background: #fff; border-color: #ebebeb; }
+.mobile-menu-links a { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; border-bottom-color: #e6e0d5; }
+.mobile-menu-links a.active { font-weight: 500; }
+.mobile-menu-close { background: transparent; border-color: #cfc8ba; }
+
+/* ---- Buttons, labels, footer ---- */
+.btn-dark, .cta-btn, .modal-cta, .modal-submit { background: #111111; color: #faf8f4; font-family: 'Lora', Georgia, serif; }
+.btn-dark:hover { opacity: 0.88; }
+.section-label { font-family: 'Lora', Georgia, serif; background: transparent; border-color: #e6e0d5; }
+.footer { background: transparent; border-top: 1px solid #e6e0d5; margin-top: 40px; }
+body.is-protected .footer { border-top-color: #ebebeb; }
+.footer-links a, .footer-copy { font-family: 'Lora', Georgia, serif; }
+
+@media (max-width: 768px) {
+  .nav { padding: 10px 20px; }
+  .nav > a:first-child::after { font-size: 18px; }
+  .page-content { padding-top: 84px; }
+}
