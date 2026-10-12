@@ -4,3 +4,5 @@ Disallow: /admin
 Disallow: /api/
 Disallow: /locked
 Disallow: /protected-shell
+
+Sitemap: https://olgakalinina.me/sitemap.xml
