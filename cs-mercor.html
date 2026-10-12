@@ -258,7 +258,7 @@
     .deck-track::-webkit-scrollbar { display: none; }
     .deck-track.is-dragging { cursor: grabbing; scroll-snap-type: none; }
     .deck-card {
-      flex: 0 0 min(560px, 84vw); scroll-snap-align: start;
+      flex: 0 0 calc((100% - 20px) / 1.2); scroll-snap-align: start;
       border-radius: 32px; overflow: hidden; border: 1px solid var(--border); background: #fafaff;
       aspect-ratio: 13 / 15;
     }
@@ -276,6 +276,7 @@
     .deck-btn svg { width: 20px; height: 20px; }
     .deck-hint { font-size: 14px; color: var(--muted); margin-top: 12px; text-align: center; }
     @media (max-width: 860px) {
+      .deck-card { flex-basis: calc((100% - 20px) / 1.1); }
       .deck-dots { display: none; }
       .deck-controls { justify-content: space-between; }
       .hero-logo.wide { height: 44px; }
