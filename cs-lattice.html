@@ -23,8 +23,8 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #292b2d; --ink-muted: #707379; --bg-card: #fafafa;
-      --border: #e9eaec; --white: #ffffff; --font: 'Inter', sans-serif;
+      --ink: var(--dark); --ink-muted: var(--gray); --bg-card: var(--bg-soft);
+      --border: var(--light-gray); --white: #ffffff; --font: 'Inter', sans-serif;
       --content-w: 1187px; --page-w: 1440px;
     }
     html { font-family: var(--font); color: var(--ink); background: var(--white); }
@@ -121,7 +121,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/theme.css?v=1" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=2" />
 </head>
 <body>
 
@@ -164,7 +165,7 @@
           <div class="logo-row">
             <img class="logo" src="images/Logo_lattice.png" alt="Lattice Studio" />
             <button class="share-btn" id="shareTopBtn" aria-label="Share">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" stroke="#292b2d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" style="stroke:var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </div>
 
@@ -325,7 +326,7 @@
             <div class="cta-buttons">
               <button class="btn-pill" id="shareCtaBtn">
                 Share with your network
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" stroke="#292b2d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98" style="stroke:var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
               <a class="btn-pill" href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
                 Subscribe
@@ -384,5 +385,6 @@
     document.getElementById('menuBackdrop').classList.toggle('open');
   }
 </script>
+  <script src="/js/theme.js" defer></script>
 </body>
 </html>

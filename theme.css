@@ -1,39 +1,75 @@
-/* Editorial skin: warm paper background, serif type, a thin top bar.
+/* Editorial skin: warm paper background, serif type, a thin top bar, light and dark modes.
    Loaded last on every page, so it overrides each page's own styles. Remove the link to go back to the old look.
-   Protected case studies (body.is-protected) keep their own type and colours; only the top bar and footer follow the theme. */
+   Protected case studies (body.is-protected) keep their own type and colours; only the top bar and footer follow the theme,
+   and they always stay light. Type sizes follow the scale of justinwelsh.me. */
 
 /* ---- Palette and fonts (public pages only) ---- */
 body:not(.is-protected) {
   --font: 'Lora', Georgia, 'Times New Roman', serif;
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --dark: #111111;      --gray: #6f6b64;      --light-gray: #e6e0d5;  --bg-soft: #f2eee6;
-  --text: #111111;      --muted: #6f6b64;     --border: #e6e0d5;      --bg-card: #f2eee6;   --border-btn: #cfc8ba;
-  --ink: #111111;       --ink-muted: #6f6b64; --white: #faf8f4;
+  --dark: #2a2925;      --gray: #6f6a60;      --light-gray: #e6e0d5;  --bg-soft: #f2eee6;
+  --text: #2a2925;      --muted: #6f6a60;     --border: #e6e0d5;      --bg-card: #f2eee6;   --border-btn: #cfc8ba;
+  --ink: #2a2925;       --ink-muted: #6f6a60; --white: #faf8f4;
+  --strong: #111111;    --surface: #fffdf9;   --on-accent: #faf8f4;   --accent-bg: #111111;
   --shadow-nav: none;
   background: #faf8f4;
-  color: #111111;
+  color: #2a2925;
   font-family: 'Lora', Georgia, 'Times New Roman', serif;
 }
 html { background: #faf8f4; }
 body.home:not(.is-protected) { background: #faf8f4; }
 
-body:not(.is-protected) :is(h1, h2, h3, h4) {
+/* ---- Headings ---- */
+body:not(.is-protected) :is(h1, h2) {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  font-weight: 500;
-  letter-spacing: -0.012em;
+  font-weight: 400; letter-spacing: -0.016em; color: var(--strong);
+}
+body:not(.is-protected) :is(h3, h4) {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 500; letter-spacing: -0.012em; color: var(--strong);
 }
 body:not(.is-protected) :where([class$="-title"], [class*="-title "], .hero-name, .cs-card-title, .svc-card-title) {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  letter-spacing: -0.012em;
+  letter-spacing: -0.014em;
 }
-/* UI mock-ups inside case studies stay in the product's own font */
+/* UI mock-ups inside case studies stay in the product's own font and colours */
 .wf-root, .wf-root * { font-family: 'Inter', sans-serif !important; letter-spacing: normal; }
+.wf-root { color: #1a1a1a; }
+
+/* ---- Type scale (from justinwelsh.me): H1 43, H3 24, lead 18, card text 15.5, small 14, CTA 15, nav 17, footer 13 ---- */
+.hero-name { font-size: 43px; line-height: 1.14; font-weight: 400; margin-bottom: 4px; }
+.hero-role { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.25; color: var(--gray); }
+.hero-desc { font-size: 18px; line-height: 1.5; color: var(--dark); }
+.hero-tags { font-size: 14px; line-height: 1.6; color: var(--gray); }
+.cs-section-title { font-size: 34px; font-weight: 400; line-height: 1.15; }
+.cs-section-sub { font-size: 18px; font-weight: 400; line-height: 1.5; color: var(--dark); }
+.cs-card-title { font-size: 24px; font-weight: 500; line-height: 1.2; color: var(--strong); }
+.cs-card-desc { font-size: 15.5px; line-height: 1.5; color: var(--gray); }
+.svc-card-title, .svc-title { font-size: 24px; font-weight: 500; line-height: 1.2; color: var(--strong); }
+.svc-card-desc, .svc-desc, .svc-desc.small { font-size: 15.5px; line-height: 1.5; color: var(--gray); }
+.blog-card-title, .bcard-title { font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--strong); }
+.blog-card-excerpt, .bcard-desc, .bcard-excerpt { font-size: 15.5px; line-height: 1.5; }
+.page-title, .about-section h1, .contacts-title { font-size: 43px !important; font-weight: 400 !important; line-height: 1.14; }
+.page-sub, .contacts-text { font-size: 18px !important; font-weight: 400 !important; line-height: 1.5; color: var(--gray); }
+.about-section h2 { font-size: 30px; font-weight: 400; }
+.about-section p { font-size: 18px; line-height: 1.6; color: var(--dark); }
+.tools-title, .cta-title { font-size: 30px; font-weight: 400; }
+.tools-sub { font-size: 18px; font-weight: 400; }
+.nav-links a { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 400; }
+.footer-links a, .footer-copy { font-size: 13px; font-weight: 400; color: var(--gray); }
+.section-label { font-family: 'Lora', Georgia, serif; font-size: 14px; font-weight: 500; padding: 10px 20px; background: transparent; border-color: var(--light-gray); color: var(--strong); }
+.section-label img { display: none; }
+.btn-dark, .cta-btn, .modal-cta, .modal-submit { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 500; padding: 13px 26px; background: var(--accent-bg); color: var(--on-accent); }
+.btn-dark:hover { opacity: 0.88; }
+
+/* ---- Cards: one colour everywhere ---- */
+body:not(.is-protected) .cs-card, body:not(.is-protected) .svc-card, body:not(.is-protected) .card { background: var(--bg-soft); }
 
 /* ---- Thin top bar ---- */
 .nav {
   top: 0; left: 0; right: 0; width: 100%;
   transform: none;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 14px max(20px, calc((100% - 1187px) / 2 + 40px));
   background: rgba(250, 248, 244, 0.94);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -46,29 +82,72 @@ body.is-protected .nav { background: rgba(255, 255, 255, 0.94); border-bottom-co
   content: "Olga Kalinina";
   font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 500; letter-spacing: -0.01em; color: #111;
 }
-.nav-links { gap: 28px; }
-.nav-links a { font-family: 'Lora', Georgia, serif; font-size: 16px; font-weight: 500; }
-.nav-links a:hover { font-weight: 500; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
-.nav-links a.active { font-weight: 500; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.nav-links { gap: 28px; margin-left: auto; }
+.nav-links a:hover { font-weight: 400; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.nav-links a.active { font-weight: 400; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
 .page-content { padding-top: 96px; }
+
+/* ---- Light / dark switch ---- */
+.theme-toggle {
+  flex: 0 0 auto; width: 36px; height: 36px; margin-left: 20px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 50%; background: #ece6da; color: #111; cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.theme-toggle:hover { transform: scale(1.06); }
+.theme-toggle:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+.theme-toggle svg { width: 17px; height: 17px; }
 
 /* ---- Mobile menu ---- */
 .mobile-menu { background: #faf8f4; backdrop-filter: none; -webkit-backdrop-filter: none; border: 1px solid #e6e0d5; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
 body.is-protected .mobile-menu { background: #fff; border-color: #ebebeb; }
-.mobile-menu-links a { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; border-bottom-color: #e6e0d5; }
-.mobile-menu-links a.active { font-weight: 500; }
+.mobile-menu-links a { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; border-bottom-color: #e6e0d5; }
+.mobile-menu-links a.active { font-weight: 400; }
 .mobile-menu-close { background: transparent; border-color: #cfc8ba; }
 
-/* ---- Buttons, labels, footer ---- */
-.btn-dark, .cta-btn, .modal-cta, .modal-submit { background: #111111; color: #faf8f4; font-family: 'Lora', Georgia, serif; }
-.btn-dark:hover { opacity: 0.88; }
-.section-label { font-family: 'Lora', Georgia, serif; background: transparent; border-color: #e6e0d5; }
+/* ---- Footer ---- */
 .footer { background: transparent; border-top: 1px solid #e6e0d5; margin-top: 40px; }
 body.is-protected .footer { border-top-color: #ebebeb; }
-.footer-links a, .footer-copy { font-family: 'Lora', Georgia, serif; }
+.footer-links a { font-family: 'Lora', Georgia, serif; }
 
 @media (max-width: 768px) {
   .nav { padding: 10px 20px; }
   .nav > a:first-child::after { font-size: 18px; }
+  .theme-toggle { margin-left: auto; margin-right: 6px; }
   .page-content { padding-top: 84px; }
+  .hero-name { font-size: 34px; }
+  .page-title, .about-section h1, .contacts-title { font-size: 34px !important; }
+  .cs-section-title { font-size: 28px; }
 }
+
+/* ============ DARK MODE (public pages only; protected pages always stay light) ============ */
+html[data-theme="dark"] { background: #141311; color-scheme: dark; }
+html[data-theme="dark"] body:not(.is-protected) {
+  --dark: #e7e3da;      --gray: #a39e92;      --light-gray: #302d28;  --bg-soft: #1e1c19;
+  --text: #e7e3da;      --muted: #a39e92;     --border: #302d28;      --bg-card: #1e1c19;   --border-btn: #3d3934;
+  --ink: #e7e3da;       --ink-muted: #a39e92; --white: #141311;
+  --strong: #f4f1ea;    --surface: #1a1816;   --on-accent: #141311;   --accent-bg: #ece8df;
+  background: #141311; color: #e7e3da;
+}
+html[data-theme="dark"] body.home:not(.is-protected) { background: #141311; }
+html[data-theme="dark"] body:not(.is-protected) .nav { background: rgba(20, 19, 17, 0.92); border-bottom-color: #2a2824; }
+html[data-theme="dark"] body:not(.is-protected) .nav > a:first-child::after { color: #f4f1ea; }
+html[data-theme="dark"] body:not(.is-protected) .nav-hamburger span { background: #e7e3da; }
+html[data-theme="dark"] body:not(.is-protected) .theme-toggle { background: #2a2723; color: #f4f1ea; }
+html[data-theme="dark"] body:not(.is-protected) .mobile-menu { background: #1a1816; border-color: #302d28; }
+html[data-theme="dark"] body:not(.is-protected) .mobile-menu-backdrop { background: rgba(0,0,0,0.5); }
+html[data-theme="dark"] body:not(.is-protected) .footer { border-top-color: #2a2824; }
+html[data-theme="dark"] body:not(.is-protected) :is(.cs-lock-btn, .cs-lock, .carousel-btn, .filter-pill, .table-scroll, .bcard, .blog-card, .form-field input, .form-field textarea, .svc-btn, .modal, .modal-cancel, .cs-access-btn, .modal-field input, .badge, .tool-pill, .btn-outline, .btn-pill, .deck-btn, .mobile-menu-close, .section-label) {
+  background: var(--surface); color: var(--dark); border-color: var(--light-gray);
+}
+html[data-theme="dark"] body:not(.is-protected) :is(.blog-tab) { color: var(--gray); }
+html[data-theme="dark"] body:not(.is-protected) .blog-tab.active { background: #ece8df; color: #141311; }
+html[data-theme="dark"] body:not(.is-protected) .section-label { background: transparent; }
+html[data-theme="dark"] body:not(.is-protected) .client-logos img { filter: grayscale(1) invert(1); opacity: 0.55; }
+html[data-theme="dark"] body:not(.is-protected) .footer-socials img { filter: grayscale(1) invert(1); opacity: 0.5; }
+html[data-theme="dark"] body:not(.is-protected) .carousel-progress span { background: #3a3631; }
+html[data-theme="dark"] body:not(.is-protected) .carousel-progress span.active { background: #ece8df; }
+html[data-theme="dark"] body:not(.is-protected) .svc-card img.svc-icon, html[data-theme="dark"] body:not(.is-protected) .svc-card-icon, html[data-theme="dark"] body:not(.is-protected) .svc-icon, html[data-theme="dark"] body:not(.is-protected) .modal-icon { filter: invert(1); }
+html[data-theme="dark"] body:not(.is-protected) .svc-btn svg { color: #e7e3da; }
+html[data-theme="dark"] body:not(.is-protected) .cs-card-img-contained img, html[data-theme="dark"] body:not(.is-protected) .cs-card-img img { border-color: #302d28; }
+html[data-theme="dark"] body:not(.is-protected) .modal-overlay { background: rgba(0,0,0,0.6); }

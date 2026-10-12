@@ -64,7 +64,7 @@
     .cs-card-img { margin: 16px -28px 0; overflow: hidden; border-radius: 16px 16px 0 0; }
     .cs-card-img img { width: 100%; height: 300px; object-fit: cover; object-position: top; display: block; }
     .cs-card-img-contained { margin: 16px 0 16px; padding: 0; overflow: hidden; border-radius: 12px; }
-    .cs-card-img-contained img { width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; border-radius: 12px; border: 1px solid #e9eaec; }
+    .cs-card-img-contained img { width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; border-radius: 12px; border: 1px solid var(--light-gray); }
 
     .carousel-controls { display: flex; align-items: center; justify-content: space-between; width: 100%; }
     .carousel-progress { display: flex; gap: 8px; align-items: center; }
@@ -124,7 +124,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/theme.css?v=1" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=2" />
 </head>
 <body class="home">
 
@@ -452,5 +453,6 @@
     }
   </script>
   <script src="/js/access.js" defer></script>
+  <script src="/js/theme.js" defer></script>
 </body>
 </html>

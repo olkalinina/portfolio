@@ -24,10 +24,10 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:        #292b2d;
-      --ink-muted:  #707379;
-      --bg-card:    #fafafa;
-      --border:     #e9eaec;
+      --ink:        var(--dark);
+      --ink-muted:  var(--gray);
+      --bg-card:    var(--bg-soft);
+      --border:     var(--light-gray);
       --yellow:     #fdd30e;
       --red:        #fd220e;
       --white:      #ffffff;
@@ -292,7 +292,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/theme.css?v=1" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=2" />
 </head>
 <body>
 
@@ -741,5 +742,6 @@
       document.getElementById('menuBackdrop').classList.toggle('open');
     }
   </script>
+  <script src="/js/theme.js" defer></script>
 </body>
 </html>

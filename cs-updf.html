@@ -36,7 +36,7 @@
     .cs-logo-row { display: flex; align-items: center; justify-content: space-between; }
     .cs-logo-pill {
       display: flex; align-items: center; gap: 8px;
-      background: #fafafa; border-radius: 9999px;
+      background: #fff; border-radius: 9999px;
       padding: 8px 16px;
     }
     .cs-logo-pill img { width: 42px; height: 42px; object-fit: contain; }
@@ -53,41 +53,41 @@
 
     /* Title block */
     .cs-title-block { display: flex; flex-direction: column; gap: 10px; }
-    .cs-title-block h1 { font-size: 36px; font-weight: 600; line-height: 1.2; color: #292b2d; }
-    .cs-subtitle { font-size: 16px; font-weight: 500; color: #707379; }
+    .cs-title-block h1 { font-size: 36px; font-weight: 600; line-height: 1.2; color: var(--dark); }
+    .cs-subtitle { font-size: 16px; font-weight: 500; color: var(--gray); }
 
     /* Intro description */
-    .cs-intro { font-size: 22px; line-height: 1.5; color: #292b2d; font-weight: 400; }
+    .cs-intro { font-size: 22px; line-height: 1.5; color: var(--dark); font-weight: 400; }
 
     /* Disclaimer card */
     .cs-disclaimer {
-      background: #fafafa; border-radius: 24px;
+      background: var(--bg-soft); border-radius: 24px;
       padding: 16px 22px; font-style: italic;
-      color: #292b2d; font-size: 16px;
+      color: var(--dark); font-size: 16px;
       display: flex; flex-direction: column; gap: 12px;
     }
     .cs-disclaimer-label { font-weight: 500; font-style: italic; line-height: 1; }
     .cs-disclaimer p { font-weight: 400; line-height: 1; font-style: italic; }
 
     /* Cover image */
-    .cs-cover-wrap { border-radius: 32px; overflow: hidden; border: 1px solid #e5e5e5; background: white; }
+    .cs-cover-wrap { border-radius: 32px; overflow: hidden; border: 1px solid var(--light-gray); background: white; }
     .cs-cover-wrap img { width: 100%; display: block; border: none; }
 
     /* "The one job" section — grey card */
     .cs-snapshot-card {
-      background: #fafafa; border-radius: 24px;
+      background: var(--bg-soft); border-radius: 24px;
       padding: 32px 24px; display: flex; flex-direction: column; gap: 24px;
     }
-    .cs-snapshot-card h2 { font-size: 24px; font-weight: 500; color: #292b2d; line-height: 28px; }
-    .cs-snapshot-card p { font-size: 18px; line-height: 28px; color: #292b2d; }
+    .cs-snapshot-card h2 { font-size: 24px; font-weight: 500; color: var(--dark); line-height: 28px; }
+    .cs-snapshot-card p { font-size: 18px; line-height: 28px; color: var(--dark); }
 
     /* Sections */
     .cs-section { display: flex; flex-direction: column; gap: 56px; }
     .cs-section-inner { display: flex; flex-direction: column; gap: 32px; }
-    .cs-issue-heading { font-size: 24px; font-weight: 700; line-height: 28px; color: #292b2d; }
+    .cs-issue-heading { font-size: 24px; font-weight: 700; line-height: 28px; color: var(--dark); }
 
     /* Body text */
-    .cs-body { font-size: 18px; line-height: 28px; color: #292b2d; }
+    .cs-body { font-size: 18px; line-height: 28px; color: var(--dark); }
     .cs-body p { margin-bottom: 8px; }
     .cs-body p:last-child { margin-bottom: 0; }
     .cs-body strong { font-weight: 700; }
@@ -101,7 +101,7 @@
     .cs-issue-split { display: flex; gap: 32px; align-items: center; }
     .cs-issue-split-img { flex-shrink: 0; width: 375px; border-radius: 32px; overflow: hidden; }
     .cs-issue-split-img img { width: 100%; display: block; border: none; }
-    .cs-issue-split-text { flex: 1; font-size: 18px; line-height: 28px; color: #292b2d; }
+    .cs-issue-split-text { flex: 1; font-size: 18px; line-height: 28px; color: var(--dark); }
     .cs-issue-split-text p { margin-bottom: 8px; }
     .cs-issue-split-text p:last-child { margin-bottom: 0; }
     .cs-issue-split-text strong { font-weight: 700; }
@@ -111,11 +111,11 @@
 
     /* Light callout */
     .cs-callout-light {
-      background: #fafafa; border-radius: 24px;
+      background: var(--bg-soft); border-radius: 24px;
       padding: 24px; display: flex; gap: 24px; align-items: flex-start;
     }
     .cs-callout-light-icon { width: 44px; height: 44px; flex-shrink: 0; object-fit: contain; }
-    .cs-callout-light-body { flex: 1; font-size: 18px; line-height: 28px; color: #292b2d; font-style: italic; }
+    .cs-callout-light-body { flex: 1; font-size: 18px; line-height: 28px; color: var(--dark); font-style: italic; }
     .cs-callout-light-body > strong:first-child { font-weight: 700; display: block; margin-bottom: 8px; }
     .cs-callout-light-body strong { font-weight: 700; }
 
@@ -132,8 +132,8 @@
     /* Redesign section — centered */
     .cs-redesign-center { display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center; }
     .cs-redesign-char { width: 100px; height: 100px; object-fit: contain; }
-    .cs-redesign-heading { font-size: 24px; font-weight: 700; color: #292b2d; line-height: 28px; }
-    .cs-redesign-sub { font-size: 18px; line-height: 28px; color: #292b2d; max-width: 858px; }
+    .cs-redesign-heading { font-size: 24px; font-weight: 700; color: var(--dark); line-height: 28px; }
+    .cs-redesign-sub { font-size: 18px; line-height: 28px; color: var(--dark); max-width: 858px; }
 
     /* Wireframe block — scoped under .wf-root */
     .wf-root {
@@ -213,15 +213,15 @@
     .wf-root .separator-label span { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #aaa; white-space: nowrap; }
 
     /* Closing paragraph */
-    .cs-closing { font-size: 18px; line-height: 28px; color: #292b2d; }
+    .cs-closing { font-size: 18px; line-height: 28px; color: var(--dark); }
 
     /* CTA */
-    .cta-block { margin-top: 0; padding: 48px 0 120px; border-top: 2px solid #ebebeb; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .cta-block h2 { font-size: 24px; font-weight: 600; color: #292b2d; }
-    .cta-block p { font-size: 16px; color: #707379; line-height: 1.6; margin-bottom: 12px; }
+    .cta-block { margin-top: 0; padding: 48px 0 120px; border-top: 2px solid var(--light-gray); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .cta-block h2 { font-size: 24px; font-weight: 600; color: var(--dark); }
+    .cta-block p { font-size: 16px; color: var(--gray); line-height: 1.6; margin-bottom: 12px; }
     .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 9999px; border: 1.5px solid #ebebeb; background: white; font-size: 16px; font-weight: 500; color: #292b2d; cursor: pointer; transition: border-color 0.2s, transform 0.2s; font-family: 'Inter', sans-serif; text-decoration: none; }
-    .btn-outline:hover { border-color: #292b2d; transform: translateY(-1px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 9999px; border: 1.5px solid var(--light-gray); background: white; font-size: 16px; font-weight: 500; color: var(--dark); cursor: pointer; transition: border-color 0.2s, transform 0.2s; font-family: 'Inter', sans-serif; text-decoration: none; }
+    .btn-outline:hover { border-color: var(--dark); transform: translateY(-1px); }
     .btn-outline img { width: 18px; height: 18px; object-fit: contain; }
 
     @media (max-width: 900px) {
@@ -245,7 +245,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/theme.css?v=1" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=2" />
 </head>
 <body>
 
@@ -318,9 +319,9 @@
           <div class="cs-snapshot-card">
             <h2>The one job of a pricing page</h2>
             <div>
-              <p style="font-size:18px;line-height:28px;color:#292b2d;margin-bottom:8px;">A user arrives at a pricing page already interested. They've read about the product. They've compared alternatives. They came here for one thing: to understand what to buy and why.</p>
-              <p style="font-size:18px;line-height:28px;color:#292b2d;margin-bottom:8px;">The page has 30 seconds to answer that.</p>
-              <p style="font-size:18px;line-height:28px;color:#292b2d;">This one doesn't.</p>
+              <p style="font-size:18px;line-height:28px;color:var(--dark);margin-bottom:8px;">A user arrives at a pricing page already interested. They've read about the product. They've compared alternatives. They came here for one thing: to understand what to buy and why.</p>
+              <p style="font-size:18px;line-height:28px;color:var(--dark);margin-bottom:8px;">The page has 30 seconds to answer that.</p>
+              <p style="font-size:18px;line-height:28px;color:var(--dark);">This one doesn't.</p>
             </div>
           </div>
 
@@ -329,7 +330,7 @@
 
             <!-- Issue 1 -->
             <div class="cs-section-inner">
-              <p style="font-size:32px;font-weight:700;line-height:32px;color:#292b2d;">What I found</p>
+              <p style="font-size:32px;font-weight:700;line-height:32px;color:var(--dark);">What I found</p>
               <p class="cs-issue-heading">Issue 1: The page doesn't know what it's selling</p>
               <div class="cs-img-wrap">
                 <img src="images/issue_1.png" alt="Issue 1: duplicate plan names" />
@@ -671,8 +672,8 @@
 
           <!-- Three questions -->
           <div style="display:flex;flex-direction:column;gap:32px;">
-            <p style="font-size:24px;font-weight:700;line-height:28px;color:#292b2d;">Three questions I'd ask before designing any pricing page</p>
-            <div style="font-size:18px;line-height:28px;color:#292b2d;">
+            <p style="font-size:24px;font-weight:700;line-height:28px;color:var(--dark);">Three questions I'd ask before designing any pricing page</p>
+            <div style="font-size:18px;line-height:28px;color:var(--dark);">
               <ol style="padding-left:27px;margin-bottom:8px;">
                 <li style="margin-bottom:8px;"><strong>Can a new user name all the plans and explain the difference between them in 30 seconds?</strong></li>
               </ol>
@@ -694,7 +695,7 @@
 
           <!-- Sources -->
           <div style="display:flex;flex-direction:column;gap:32px;padding:32px 0 0;">
-            <hr style="border:none;border-top:1px solid #e9eaec;margin:0;" />
+            <hr style="border:none;border-top:1px solid var(--light-gray);margin:0;" />
             <div style="font-size:14px;font-style:italic;color:#7e808e;line-height:20px;">
               <p style="margin-bottom:8px;">Sources:</p>
               <ul style="list-style:disc;padding-left:21px;">
@@ -782,5 +783,6 @@
     document.getElementById('shareCtaBtn').addEventListener('click', doShare);
     document.getElementById('shareTopBtn').addEventListener('click', doShare);
   </script>
+  <script src="/js/theme.js" defer></script>
 </body>
 </html>
