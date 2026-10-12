@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercor — a policy change that breaks trust · Olga Kalinina</title>
+  <meta name="description" content="UX teardown: how Mercor risks losing verified candidates when a policy change meets weak communication and a dead-end flow." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text:    #292b2d;
+      --muted:   #707379;
+      --border:  #ebebeb;
+      --bg-card: #fafafa;
+      --content: 1187px;
+      --pad:     126px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── PAGE ─── */
+    .page {
+      max-width: var(--content);
+      margin: 0 auto;
+      padding: 80px var(--pad) 0;
+    }
+
+    /* ─── HERO ─── */
+    .hero-top {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .hero-logo {
+      width: 80px; height: 80px;
+      border-radius: 24px; object-fit: contain;
+    }
+    .badges { display: flex; gap: 8px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px;
+      border: 2px solid var(--border);
+      border-radius: 9999px;
+      background: #fff;
+      font-size: 16px; font-weight: 500;
+      color: var(--text);
+      transition: background .15s;
+    }
+    .badge:hover { background: #f9fafb; }
+    .badge img { width: 24px; height: 24px; object-fit: contain; }
+
+    .hero-title {
+      font-size: 36px; font-weight: 600;
+      line-height: 1.15; margin-bottom: 10px;
+    }
+    .hero-sub {
+      font-size: 16px; font-weight: 500;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 18px; line-height: 28px;
+      color: var(--text);
+    }
+    .hero-img {
+      margin-top: 40px;
+      border-radius: 24px; overflow: hidden;
+    }
+    .hero-img img { width: 100%; }
+
+    /* ─── SECTION SPACING ─── */
+    .section { margin-top: 56px; }
+
+    /* ─── TWO COLUMNS ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .two-col.align-center { align-items: center; }
+    .two-col.align-start  { align-items: start; }
+
+    /* ─── CARDS (fafafa bg, 24px radius) ─── */
+    .card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 32px 24px;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    .card-title {
+      font-size: 24px; font-weight: 500;
+      line-height: 1.2;
+    }
+    .card-body {
+      font-size: 18px; line-height: 28px;
+      color: var(--text);
+    }
+    .card-body p { margin-bottom: 8px; }
+    .card-body p:last-child { margin-bottom: 0; }
+    .card-body strong { font-weight: 700; }
+
+    /* ─── TOOL PILLS ─── */
+    .tools-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tool-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px;
+      border: 2px solid var(--border);
+      border-radius: 9999px;
+      background: #fff;
+      font-size: 16px; font-weight: 500;
+      color: var(--text);
+    }
+    .tool-pill img { width: 24px; height: 24px; object-fit: contain; }
+
+    /* ─── PLAIN TEXT SECTIONS (Problem / Goal) ─── */
+    .text-col { display: flex; flex-direction: column; gap: 24px; }
+    .section-title {
+      font-size: 24px; font-weight: 500;
+      line-height: 1.2;
+    }
+    .section-body {
+      font-size: 18px; line-height: 28px;
+      color: var(--text);
+    }
+    .section-body p { margin-bottom: 7px; }
+    .section-body p:last-child { margin-bottom: 0; }
+    .section-body ul { padding-left: 27px; }
+    .section-body li { margin-bottom: 0; }
+    .section-body strong { font-weight: 700; }
+
+    /* ─── TIMELINE IMAGE ─── */
+    .timeline-img {
+      width: 100%;
+      border-radius: 16px; overflow: hidden;
+    }
+    .timeline-img img { width: 100%; }
+
+    /* ─── FULL-WIDTH IMAGE ─── */
+    .full-img {
+      border-radius: 32px; overflow: hidden;
+    }
+    .full-img img { width: 100%; }
+
+    /* ─── CENTRED HIGHLIGHT ─── */
+    .highlight {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 32px;
+      text-align: center;
+    }
+    .highlight-logo {
+      width: 80px; height: 80px;
+      border-radius: 24px; object-fit: contain;
+    }
+    .highlight-texts { display: flex; flex-direction: column; gap: 24px; }
+    .highlight-title {
+      font-size: 32px; font-weight: 500;
+      line-height: 1.2;
+    }
+    .highlight-desc {
+      font-size: 18px; line-height: 28px;
+      color: var(--text);
+    }
+    .img-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      width: 100%;
+    }
+    .img-pair-item {
+      border-radius: 24px; overflow: hidden;
+      aspect-ratio: 1/1;
+    }
+    .img-pair-item img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* ─── SCREEN NOTES — full-width images stacked ─── */
+    .screen-notes { display: flex; flex-direction: column; }
+    .screen-note-img { width: 100%; }
+    .screen-note-img img { width: 100%; display: block; }
+
+    /* ─── FINAL SECTION ─── */
+    .final { display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center; }
+    .final-title {
+      font-size: 32px; font-weight: 500;
+      line-height: 1.2; width: 100%;
+    }
+    .final-desc {
+      font-size: 18px; line-height: 28px;
+      color: var(--text); width: 100%;
+    }
+    .final-img {
+      border-radius: 32px; overflow: hidden;
+      width: 100%; aspect-ratio: 2000/1333;
+    }
+    .final-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 860px) {
+      :root { --pad: 20px; }
+      .two-col, .img-pair { grid-template-columns: 1fr; }
+      .hero-title { font-size: 26px; }
+      .highlight-title, .final-title { font-size: 24px; }
+
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      margin-top: 72px;
+      padding: 48px 0 120px;
+      border-top: 2px solid var(--border);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .cta-block h2 { font-size: 24px; font-weight: 600; color: var(--text); }
+    .cta-block p { font-size: 16px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+    .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 9999px;
+      border: 1.5px solid var(--border); background: white;
+      font-size: 16px; font-weight: 500; color: var(--text);
+      cursor: pointer; transition: border-color .2s, transform .2s;
+      font-family: 'Inter', sans-serif; text-decoration: none;
+    }
+    .btn-outline:hover { border-color: var(--text); transform: translateY(-1px); }
+    .btn-outline img { width: 18px; height: 18px; object-fit: contain; }
+    @media (max-width: 768px) {
+      .cta-block h2 { font-size: 20px; }
+      .cta-buttons { flex-direction: column; align-items: stretch; }
+      .btn-outline { justify-content: center; }
+    }
+
+    /* ─── MERCOR: STORY BLOCKS ─── */
+    .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #4f46e5; margin-bottom: 8px; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    .story-grid.img-left .story-media { order: -1; }
+    .story-media { border-radius: 24px; overflow: hidden; border: 1px solid var(--border); background: #fff; }
+    .story-media img { width: 100%; }
+    .story-media.plain { border: none; background: none; border-radius: 0; }
+    .caption { font-size: 14px; color: var(--muted); line-height: 1.5; margin-top: 12px; }
+    .checks { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 8px 0 0; padding: 0; }
+    .checks li { display: flex; gap: 12px; align-items: center; font-size: 18px; line-height: 28px; }
+    .checks li::before { content: ""; flex: 0 0 24px; height: 24px; border-radius: 50%; background: #e8f7ee url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a9a50' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }
+    .status-pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 10px 20px; border-radius: 9999px; background: #e8f7ee; color: #14773e; font-weight: 600; font-size: 16px; }
+    .callout { background: #f1efff; border-radius: 24px; padding: 28px 32px; display: flex; flex-direction: column; gap: 8px; }
+    .callout strong { font-size: 20px; font-weight: 700; color: #3b34b8; }
+    .callout p { font-size: 18px; line-height: 28px; }
+    .callout.warn { background: #fff1f1; } .callout.warn strong { color: #b42323; }
+    .fails { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; list-style: none; padding: 0; counter-reset: f; }
+    .fails li { counter-increment: f; background: var(--bg-card); border-radius: 24px; padding: 24px; display: flex; gap: 16px; align-items: flex-start; font-size: 18px; line-height: 28px; }
+    .fails li::before { content: counter(f); flex: 0 0 40px; height: 40px; border-radius: 50%; background: #292b2d; color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 16px; }
+    .fails li:last-child { grid-column: 1 / -1; }
+    .fails strong { font-weight: 700; }
+    .journey { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; max-width: 760px; margin: 0 auto; width: 100%; }
+    .journey li { padding: 14px 24px; border-radius: 9999px; font-size: 18px; font-weight: 500; background: #f1efff; color: #3b34b8; width: fit-content; }
+    .journey li:nth-child(even) { margin-left: 56px; }
+    .journey li.break { align-self: stretch; width: auto; margin: 10px 0 !important; background: none; border-radius: 0; border-top: 1.5px dashed #c9c9d1; padding: 14px 0 0; text-align: center; color: var(--muted); font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .journey li.bad { background: #ffe9e9; color: #b42323; }
+    .fix-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+    .fix-list li { display: flex; gap: 16px; align-items: center; background: var(--bg-card); border-radius: 20px; padding: 20px 24px; font-size: 18px; line-height: 28px; }
+    .fix-list li::before { content: ""; flex: 0 0 24px; height: 24px; border-radius: 6px; border: 2px solid #4f46e5; background: #4f46e5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 16px no-repeat; }
+    .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; font-size: 28px; font-weight: 600; line-height: 1.25; }
+    .chain .arrow { color: #4f46e5; }
+    .takeaways { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+    .takeaways li { font-size: 20px; line-height: 30px; padding-left: 40px; position: relative; }
+    .takeaways li::before { content: "→"; position: absolute; left: 0; color: #4f46e5; font-weight: 700; }
+    .closing { background: linear-gradient(135deg, #4338ca, #7c6cf0 70%, #c58ee0); color: #fff; border-radius: 32px; padding: 48px 40px; font-size: 24px; line-height: 1.45; font-weight: 500; text-align: center; }
+    @media (max-width: 860px) {
+      .story-grid, .fails { grid-template-columns: 1fr; }
+      .story-grid.img-left .story-media { order: 0; }
+      .fails li:last-child { grid-column: auto; }
+      .journey li:nth-child(even) { margin-left: 24px; }
+      .chain { font-size: 22px; }
+      .closing { font-size: 20px; padding: 32px 24px; }
+    }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+</head>
+<body>
+
+    <nav class="nav">
+    <a href="index.html"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="case-studies.html" class="active">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About me</a>
+      <a href="contacts.html">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="index.html"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="services.html">Services</a>
+      <a href="case-studies.html" class="active">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About me</a>
+      <a href="contacts.html">Contacts</a>
+    </div>
+  </div>
+
+<div class="page-wrapper">
+<main class="page-content">
+<div class="container">
+<!-- PAGE CONTENT -->
+<div class="page">
+
+  <!-- 1. HERO -->
+  <section>
+    <div class="hero-top">
+      <img src="images/Mercor_logo.png" alt="Mercor" class="hero-logo" />
+    </div>
+    <h1 class="hero-title">Mercor: when a policy change breaks trust with verified candidates</h1>
+    <p class="hero-sub">UX analysis | Conversion &amp; retention | 2026</p>
+    <p class="hero-desc">A teardown of a real journey on the Mercor talent platform: a qualified applicant, a quiet policy change, and a flow with no way out. How Mercor risks losing verified candidates due to UX inconsistency.</p>
+    <div class="hero-img">
+      <img src="images/Mercor_card.png" alt="Work that fits you versus an experience that doesn't support you, next to the Mercor logo and website" />
+    </div>
+  </section>
+
+  <!-- 2. SNAPSHOT + IN ONE LINE -->
+  <div class="section two-col align-start">
+    <div class="card">
+      <h2 class="card-title">Project snapshot</h2>
+      <div class="card-body">
+        <p><strong>My role:</strong> UX analysis, self-initiated</p>
+        <p><strong>Based on:</strong> my own experience as an applicant</p>
+        <p><strong>Focus:</strong> verification flow, communication, error recovery</p>
+        <p><strong>Business risk:</strong> losing candidates who have already passed every step</p>
+      </div>
+    </div>
+    <div class="card">
+      <h2 class="card-title">In one line</h2>
+      <div class="card-body">
+        <p>Policy changes, weak communication, and users hit a wall. A decision made by the platform ends up reading as a failure of the user.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. THE STORY -->
+  <div class="section story-grid">
+    <div class="text-col">
+      <p class="eyebrow">The story</p>
+      <h2 class="section-title">A month ago I applied to a Product Design/UX Expert role on Mercor</h2>
+      <ul class="checks">
+        <li>Signed up &amp; verified my phone</li>
+        <li>Completed onboarding</li>
+        <li>Built a full profile</li>
+        <li>Passed the interview</li>
+      </ul>
+      <span class="status-pill">Everything was done. Profile active. Status: qualified.</span>
+    </div>
+    <div class="story-media plain">
+      <img src="images/mercor_site.png" alt="The Mercor website: 'Get paid to work' hero with average pay and roles created, and a list of latest roles." style="border-radius:32px; max-width:420px; margin:0 auto;" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- 4. THE EMAIL -->
+  <div class="section story-grid img-left">
+    <div>
+      <div class="story-media"><img src="images/mercor_email.png" alt="Email from Mercor: the application requirements have changed, and the applicant must finish the application. The phrases 'application requirements', 'have changed' and 'you must finish your application' are underlined." loading="lazy" /></div>
+      <p class="caption">The email, with the phrases that matter underlined</p>
+    </div>
+    <div class="text-col">
+      <p class="eyebrow">Then this arrived</p>
+      <h2 class="section-title">&ldquo;You must finish your application&rdquo;</h2>
+      <div class="section-body">
+        <p>No explanation of what changed. No acknowledgment of what I'd already completed. Just: &ldquo;you must finish your application.&rdquo;</p>
+        <p>As a user, my first reaction: <strong>what did I miss?</strong></p>
+      </div>
+      <div class="callout"><strong>The answer: nothing.</strong><p>The platform changed the rules.</p></div>
+    </div>
+  </div>
+
+  <!-- 5. GEORGIA -->
+  <div class="section story-grid">
+    <div class="text-col">
+      <p class="eyebrow">The rule that changed</p>
+      <h2 class="section-title">A number that was accepted, then wasn't</h2>
+      <div class="section-body">
+        <p>Georgia (+995) was supported when I signed up. I verified successfully. The platform accepted it.</p>
+        <p>Yesterday, Mercor quietly added Georgia to their restricted regions list. My previously verified number was retroactively invalidated.</p>
+        <p><strong>My entire profile: blocked.</strong></p>
+      </div>
+    </div>
+    <div>
+      <div class="story-media"><img src="images/mercor_signup_error.png" alt="Phone verification screen with a Georgian +995 number and the error: we'd love to support phone numbers from GE (+995), but we're not available there yet." loading="lazy" /></div>
+      <p class="caption">The phone verification screen after the change (number blurred)</p>
+    </div>
+  </div>
+
+  <!-- 6. FALSE AFFORDANCE -->
+  <div class="section story-grid img-left">
+    <div>
+      <div class="story-media"><img src="images/mercor_dropdown.png" alt="The country-code dropdown still lists Georgia +995 between Gambia and Germany." loading="lazy" /></div>
+      <p class="caption">Georgia is still in the country dropdown</p>
+    </div>
+    <div class="text-col">
+      <p class="eyebrow">A broken promise</p>
+      <h2 class="section-title">This is called a false affordance</h2>
+      <div class="section-body">
+        <p>Georgia is still in the dropdown. You can still type the number. The system only rejects it after you try to submit.</p>
+      </div>
+      <div class="callout warn"><strong>The cost lands on the user</strong><p>The UI promises a capability that doesn't exist. The user pays the cost of that broken promise.</p></div>
+    </div>
+  </div>
+
+  <!-- 7. FAQ -->
+  <div class="section text-col">
+    <p class="eyebrow">Looking for help</p>
+    <h2 class="section-title">Let's check the FAQs</h2>
+    <div class="section-body">
+      <p>The FAQ answer says Mercor only supports certain countries and links to the &ldquo;full allowed list&rdquo;. That link leads to a generic page: there is no visible list, no next step, no contact path.</p>
+      <p><strong>This isn't helpful content. It's a liability-focused answer.</strong></p>
+    </div>
+    <div class="two-col align-start" style="margin-top:8px;">
+      <div>
+        <div class="story-media"><img src="images/mercor_faq.png" alt="FAQ entry: what happens if my country code is not supported? Mercor only supports certain countries, full allowed list here." loading="lazy" /></div>
+        <p class="caption">The FAQ answer</p>
+      </div>
+      <div>
+        <div class="story-media"><img src="images/mercor_faq_page.png" alt="The page the link leads to: a generic 'Create your Account' help page with no list of countries." loading="lazy" /></div>
+        <p class="caption">Where the &ldquo;full allowed list&rdquo; link leads</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. WHAT WENT WRONG -->
+  <div class="section text-col">
+    <h2 class="section-title">What went wrong, specifically</h2>
+    <ol class="fails">
+      <li><span><strong>Retroactive invalidation.</strong> A previously accepted verification was revoked without grandfathering existing users.</span></li>
+      <li><span><strong>No impact assessment.</strong> The policy shipped without user communication.</span></li>
+      <li><span><strong>False affordance.</strong> An unsupported country is still selectable in the UI.</span></li>
+      <li><span><strong>Blame reversal.</strong> &ldquo;Finish your application&rdquo; frames a platform decision as user incompleteness.</span></li>
+      <li><span><strong>No recovery path.</strong> Zero alternative verification, zero support escalation surfaced at the point of failure.</span></li>
+    </ol>
+  </div>
+
+  <!-- 9. SEQUENCE OF SIGNALS -->
+  <div class="section text-col">
+    <h2 class="section-title">The sequence of signals I received as a user</h2>
+    <ol class="journey">
+      <li>Your phone verified</li>
+      <li>Your profile is active</li>
+      <li>Fill your profile to apply for jobs</li>
+      <li>Your profile is complete</li>
+      <li>Pass the application interview</li>
+      <li>Interview passed</li>
+      <li>Application finished</li>
+      <li class="break">The platform changed the rules</li>
+      <li class="bad">Application requirements have changed</li>
+      <li class="bad">You must finish your application</li>
+      <li class="bad">Your country is restricted</li>
+      <li class="bad">Your profile is blocked</li>
+    </ol>
+  </div>
+
+  <!-- 10. WHAT THEY SHOULD HAVE DONE -->
+  <div class="section story-grid">
+    <div class="text-col">
+      <p class="eyebrow">The better version</p>
+      <h2 class="section-title">Before restricting Georgia or any other location, Mercor should have</h2>
+      <ul class="fix-list">
+        <li>Identified all existing users with Georgian numbers</li>
+        <li>Sent a proactive, honest email, before blocking anything</li>
+        <li>Explained what changed and why</li>
+        <li>Offered an alternative or a clear timeline before blocking access</li>
+      </ul>
+    </div>
+    <div>
+      <div class="story-media plain"><img src="images/mercor_email_mock.png" alt="A redesigned email: Hi Olga, we're updating our supported regions. Your account is affected. Here's what this means and what you can do." loading="lazy" style="border-radius:24px;" /></div>
+      <p class="caption">The email I needed to receive</p>
+    </div>
+  </div>
+
+  <!-- 11. TAKEAWAYS -->
+  <div class="section text-col" style="gap:32px;">
+    <div class="chain">Policy changes <span class="arrow">&rarr;</span> weak communication <span class="arrow">&rarr;</span> users hit a wall</div>
+    <h2 class="section-title">The fix isn't expensive</h2>
+    <ul class="takeaways">
+      <li>Policy changes that affect existing users are a design problem, not just a legal one.</li>
+      <li>Never let a platform decision read as user failure.</li>
+      <li>A dead end is a product decision: someone chose not to build the exit.</li>
+    </ul>
+    <p class="closing">Users spend time, pass interviews, and build profiles on a foundation the platform later decides to remove. The least they deserve is an honest explanation.</p>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>Enjoyed this analysis?</h2>
+    <p>Share it with your network or subscribe for future insights.</p>
+    <div class="cta-buttons">
+      <button class="btn-outline" id="shareCtaBtn">
+        Share with your network
+        <img src="images/share-07.png" alt="" />
+      </button>
+      <a class="btn-outline" href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
+        Subscribe
+        <img src="images/substack.png" alt="Substack" />
+      </a>
+    </div>
+  </div>
+
+</div><!-- /page -->
+</div><!-- /container -->
+</main><!-- /page-content -->
+
+<!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="about.html">About me</a>
+            <span class="footer-dot"></span>
+            <a href="services.html">Services</a>
+            <span class="footer-dot"></span>
+            <a href="case-studies.html">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="blog.html">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="contacts.html">Contacts</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">
+              <img src="images/Linkedin_logo.png" alt="LinkedIn" />
+            </a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">
+              <img src="images/Behance_logo.png" alt="Behance" />
+            </a>
+            <a href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
+              <img src="images/Substack_logo_footer.png" alt="Substack" />
+            </a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina. All rights reserved</p>
+      </div>
+    </footer>
+</div><!-- /page-wrapper -->
+
+  <script>
+    async function doShare() {
+      const url   = window.location.href;
+      const title = document.title;
+      if (navigator.share) {
+        try { await navigator.share({ title, url }); return; } catch (e) {}
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        const btn = document.getElementById('shareCtaBtn');
+        const orig = btn.innerHTML;
+        btn.textContent = 'Link copied ✓';
+        setTimeout(() => { btn.innerHTML = orig; }, 2000);
+      } catch (e) {
+        window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url), '_blank');
+      }
+    }
+    document.getElementById('shareCtaBtn').addEventListener('click', doShare);
+  </script>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

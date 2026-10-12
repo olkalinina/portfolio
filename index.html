@@ -178,8 +178,7 @@
           <div style="width:100%;">
             <div class="carousel-wrap">
               <div class="carousel-slides" id="csSlides">
-
-                <!-- Slide 1: UPDF + Kualitee -->
+                <!-- Slide 1 -->
                 <div class="carousel-slide">
                   <a class="cs-card" href="cs-updf.html">
                     <div class="cs-card-header">
@@ -201,8 +200,17 @@
                   </a>
                 </div>
 
-                <!-- Slide 2: Payli + Lattice -->
+                <!-- Slide 2 -->
                 <div class="carousel-slide">
+                  <a class="cs-card" href="cs-mercor.html">
+                    <div class="cs-card-header">
+                      <div>
+                        <div class="cs-card-title">Mercor: when a policy change breaks trust with verified candidates</div>
+                        <div class="cs-card-desc">UX analysis &middot; Conversion &amp; retention &middot; Talent platform</div>
+                      </div>
+                    </div>
+                    <div class="cs-card-img-contained"><img src="images/Mercor_card.png" alt="Mercor UX analysis" /></div>
+                  </a>
                   <a class="cs-card" href="cs-payli.html">
                     <div class="cs-card-header">
                       <div>
@@ -212,6 +220,10 @@
                     </div>
                     <div class="cs-card-img"><img src="images/Payli_image.png" alt="Payli Budget App" /></div>
                   </a>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
                   <a class="cs-card" href="cs-lattice.html">
                     <div class="cs-card-header">
                       <div>
@@ -221,10 +233,6 @@
                     </div>
                     <div class="cs-card-img-contained"><img src="images/Cover_lattice_small.png" alt="Lattice Studio AI Product Builder" /></div>
                   </a>
-                </div>
-
-                <!-- Slide 3: Ghibli + B2C Fitness -->
-                <div class="carousel-slide">
                   <a class="cs-card" href="cs-ghibli.html">
                     <div class="cs-card-header">
                       <div>
@@ -234,6 +242,10 @@
                     </div>
                     <div class="cs-card-img"><img src="images/Ghibli_image.png" alt="Maserati Ghibli" /></div>
                   </a>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="carousel-slide">
                   <a class="cs-card cs-card-locked" href="/p/creator-community-platform" data-locked data-slug="creator-community-platform" data-title="Creator Community Platform" aria-label="Creator Community Platform — locked, enter access code">
                     <div class="cs-card-header">
                       <div>
@@ -244,10 +256,6 @@
                     </div>
                     <div class="cs-card-img"><img src="images/B2C_fitness_platform_image.png" alt="Creator community platform: admin dashboard" /></div>
                   </a>
-                </div>
-
-                <!-- Slide 4: UN ESCAP + DAM -->
-                <div class="carousel-slide">
                   <a class="cs-card cs-card-locked" href="/p/un-escap-risk-portal" data-locked data-slug="un-escap-risk-portal" data-title="UN ESCAP — Risk and Resilience Portal" aria-label="UN ESCAP — Risk and Resilience Portal — locked, enter access code">
                     <div class="cs-card-header">
                       <div>
@@ -258,6 +266,10 @@
                     </div>
                     <div class="cs-card-img"><img src="images/UN_case_study_image.png" alt="UN ESCAP" /></div>
                   </a>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="carousel-slide">
                   <a class="cs-card cs-card-locked" href="/p/digital-assets-management" data-locked data-slug="digital-assets-management" data-title="Digital Assets Management System" aria-label="Digital Assets Management System — locked, enter access code">
                     <div class="cs-card-header">
                       <div>
@@ -275,7 +287,7 @@
 
             <div class="carousel-controls" style="margin-top:24px;">
               <div class="carousel-progress">
-                <span class="active"></span><span></span><span></span><span></span>
+                <span class="active"></span><span></span><span></span><span></span><span></span>
               </div>
               <div class="carousel-btns">
                 <button class="carousel-btn" onclick="slideCS(-1)" aria-label="Previous">
@@ -408,7 +420,7 @@
   <script>
     // Carousel
     let csIndex = 0;
-    const totalSlides = 4;
+    const totalSlides = 5;
     function slideCS(dir) {
       csIndex = (csIndex + dir + totalSlides) % totalSlides;
       document.getElementById('csSlides').style.transform = `translateX(-${csIndex * 100}%)`;
