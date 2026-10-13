@@ -153,7 +153,7 @@ async function exposure() {
     const r = await get(p); const t = await r.text();
     ok(!(r.status === 200 && t.includes(MARK)), `${p} does not serve the admin page`, r.status);
   }
-  for (const p of ['/wrangler.toml', '/README.md', '/readme.md', '/.gitignore', '/migrations/0001_init.sql', '/tests/security.mjs', '/tests/run-local.sh', '/sample-content/un-escap-risk-portal/meta.json', '/functions/_lib/crypto.js', '/.dev.vars', '/.git/config', '/.env', '/package.json']) {
+  for (const p of ['/wrangler.toml', '/README.md', '/readme.md', '/.gitignore', '/migrations/0001_init.sql', '/tests/security.mjs', '/tests/run-local.sh', '/sample-content/un-escap-risk-portal/meta.json', '/functions/_lib/crypto.js', '/.dev.vars', '/.git/config', '/.env', '/package.json', '/%77rangler.toml', '/%52EADME.md']) {
     const r = await get(p); ok(r.status === 404, `${p} -> 404 (not downloadable)`, r.status);
   }
   const h = await get('/about');

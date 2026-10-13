@@ -22,7 +22,8 @@
     "/package.json",
     "/package-lock.json",
     "/.wrangler/*",
-    "/private-content/*"
+    "/private-content/*",
+    "/%*"
   ],
   "exclude": []
 }
