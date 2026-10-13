@@ -1,1 +1,28 @@
-{ "version": 1, "include": ["/p/*", "/api/*", "/admin/*"], "exclude": [] }
+{
+  "version": 1,
+  "include": [
+    "/p/*",
+    "/api/*",
+    "/admin",
+    "/admin/*",
+    "/admin%2f*",
+    "/admin%2F*",
+    "/wrangler.toml",
+    "/README.md",
+    "/readme.md",
+    "/.gitignore",
+    "/migrations/*",
+    "/tests/*",
+    "/sample-content/*",
+    "/functions/*",
+    "/.dev.vars",
+    "/.env",
+    "/.git",
+    "/.git/*",
+    "/package.json",
+    "/package-lock.json",
+    "/.wrangler/*",
+    "/private-content/*"
+  ],
+  "exclude": []
+}

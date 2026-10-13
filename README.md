@@ -1,38 +1,28 @@
-# Olga Kalinina — Portfolio
+# Olga Kalinina: portfolio
 
-Live site: https://sundary-des.github.io/portfolio/
+Source of the portfolio site at https://olgakalinina.me, published with Cloudflare Pages from the `main` branch.
 
-## How to upload your images
+## Layout
+- `*.html`, `style.css`, `theme.css`, `fonts/`, `images/`, `js/`: the public website (static files).
+- `functions/`: server code (Cloudflare Pages Functions) for the protected case studies and the admin page.
+- `migrations/`: database layout for the access codes (Cloudflare D1).
+- `tests/`: security tests and the private-text scanner. See the comments at the top of each file.
+- `wrangler.toml`: Cloudflare configuration. It contains no secrets.
 
-All images go into the `images/` folder. Upload them via GitHub → Add file → Upload files → type `images/` in the path.
+## Protected case studies
+NDA case studies are not in this repository. Their text and images live in private Cloudflare storage and are delivered
+only after a valid one-time access code is redeemed. The public pages only contain the locked cards.
 
-### Personal photos
-| Filename | Used on |
-|---|---|
-| `olga_kalinina.jpg` | Nav avatar (all pages) |
-| `ted_talk_2024.jpg` | Hero banner (Home) |
-| `kyrgyzstan_2023.jpg` | About me page |
+## Secrets
+None are stored in the repository. The key that scrambles access codes (`CODE_PEPPER`) is a Cloudflare secret.
+The admin page is only reachable by the site owner through Cloudflare Access.
 
-### Case study covers
-| Filename | Card |
-|---|---|
-| `cs-payli-cover.jpg` | Payli Budget App |
-| `cs-ghibli-cover.jpg` | Maserati Ghibli Redesign |
-| `cs-un-cover.jpg` | UN ESCAP Portal |
-| `cs-b2c-cover.jpg` | B2C FitnessTech Platform |
-| `cs-dam-cover.jpg` | Digital Assets Management |
+## Checks before publishing
+```
+tests/run-local.sh                                  # full security suite against a throwaway local copy
+node tests/security.mjs remote https://olgakalinina.me
+node tests/scan-leaks.mjs private-content/markers.txt https://olgakalinina.me
+```
 
-### Client logos (homepage)
-| Filename | Logo |
-|---|---|
-| `logo-unescap.png` | UN ESCAP |
-| `logo-moonbug.png` | Moonbug |
-| `logo-sdg.png` | Decade of Action |
-| `logo-tbd.png` | Think Blue Data |
-| `logo-un.png` | United Nations |
-| `logo-nationalize.png` | Plantations International |
-
-## Notes
-- Tool icons on Services page are loaded directly from Figma (valid for 7 days from build date). Re-export from Figma if they expire.
-- Contact form uses Formspree (ID: mnjbkwnn) — emails go to olgakalinina2025@gmail.com
-- NDA case studies show a popup modal — no secret URLs, safe for public repo
+Important: the project folder is published as is, so only add files that are meant to be public. Internal files
+(this README, `tests/`, `migrations/`, `wrangler.toml`) are blocked from download by `functions/_middleware.js`.

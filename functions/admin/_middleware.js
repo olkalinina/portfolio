@@ -1,6 +1,6 @@
 import { requireAdmin } from '../_lib/admin.js';
 
-// The admin page itself is a static file; this makes sure nobody but the administrator can fetch it.
+// Nobody but the administrator gets anything under /admin.
 export async function onRequest({ request, env, next }) {
   const denied = await requireAdmin(request, env);
   if (denied) return denied;

@@ -118,7 +118,7 @@ async function adminClosed() {
   console.log('--- Admin is closed without a valid Access login (no dev bypass)');
   for (const [m, p] of [['GET', '/admin/'], ['GET', '/admin/index.html'], ['GET', '/api/admin/codes'], ['GET', '/api/admin/projects'], ['POST', '/api/admin/codes'], ['POST', '/api/admin/codes/x/revoke'], ['POST', '/api/admin/sessions/x/revoke']]) {
     const r = await fetch(BASE + p, { method: m, headers: m === 'POST' ? JH : H, body: m === 'POST' ? '{}' : undefined, redirect: 'manual' }); const t = await r.text();
-    ok([302, 403, 503].includes(r.status) && !/Access codes|Generate a code|"codes"/.test(t), `${m} ${p} -> ${r.status}, nothing leaked`);
+    ok(([302, 403, 503].includes(r.status) || (p === '/admin/index.html' && r.status === 404)) && !/Access codes|Generate a code|"codes"/.test(t), `${m} ${p} -> ${r.status}, nothing leaked`);
   }
   const r = await fetch(BASE + '/api/admin/codes', { headers: { ...H, 'Cf-Access-Jwt-Assertion': 'a.b.c' }, redirect: 'manual' }); ok([302, 403, 503].includes(r.status), 'forged Access header not accepted');
 }
@@ -146,7 +146,32 @@ async function jwtUnit() {
   ok((await v(t, 'x1,x2')) === 'bad audience' && (await v(t, '')) === 'bad audience' && (await v(t, ',')) === 'bad audience', 'no match / empty list rejected');
 }
 
+async function exposure() {
+  console.log('--- Nothing internal is public, and the admin page has no public copy');
+  const MARK = 'Access codes — Admin';
+  for (const p of ['/admin%2f', '/admin%2F', '/%61dmin%2f', '//admin', '/admin/index.html', '/ADMIN', '/admin/x']) {
+    const r = await get(p); const t = await r.text();
+    ok(!(r.status === 200 && t.includes(MARK)), `${p} does not serve the admin page`, r.status);
+  }
+  for (const p of ['/wrangler.toml', '/README.md', '/readme.md', '/.gitignore', '/migrations/0001_init.sql', '/tests/security.mjs', '/tests/run-local.sh', '/sample-content/un-escap-risk-portal/meta.json', '/functions/_lib/crypto.js', '/.dev.vars', '/.git/config', '/.env', '/package.json']) {
+    const r = await get(p); ok(r.status === 404, `${p} -> 404 (not downloadable)`, r.status);
+  }
+  const h = await get('/about');
+  const hv = (n) => h.headers.get(n) || '';
+  ok(/max-age=\d{7,}/.test(hv('strict-transport-security')), 'public pages send HSTS');
+  ok(/frame-ancestors/.test(hv('content-security-policy')) && /object-src 'none'/.test(hv('content-security-policy')), 'public pages send a content-security policy');
+  ok(/SAMEORIGIN|DENY/.test(hv('x-frame-options')) && /nosniff/.test(hv('x-content-type-options')) && hv('permissions-policy') !== '', 'frame, sniffing and permissions headers present');
+}
+
+async function adminPageOpen() {
+  console.log('--- Admin page (local, login bypass on)');
+  const r = await get('/admin'); const t = await r.text();
+  ok(r.status === 200 && t.includes('Access codes — Admin'), 'the real admin page loads at /admin');
+  ok(/no-store/.test(r.headers.get('cache-control')) && /DENY/.test(r.headers.get('x-frame-options')) && /frame-ancestors 'none'/.test(r.headers.get('content-security-policy')), 'admin page: no-store, no framing');
+}
+
 async function remote() {
+  await exposure();
   await noSession();
   console.log('--- Deployed admin is closed');
   for (const p of ['/admin/', '/api/admin/codes', '/api/admin/projects']) { const r = await fetch(BASE + p, { headers: H, redirect: 'manual' }); const t = await r.text(); ok([302, 401, 403, 503].includes(r.status) && !/Generate a code|"codes"/.test(t), `${p} -> ${r.status}, nothing leaked`); }
@@ -156,6 +181,6 @@ async function remote() {
   ok((await redeem(REMOTE_CODE, SLUG)).status === 401, 'the same code cannot be used again');
 }
 
-({ open: async () => { await noSession(); await withCode(); await adminApi(); }, closed: async () => { await adminClosed(); await jwtUnit(); }, remote }[MODE] || (() => { console.log('usage: see top of file'); process.exit(2); }))()
+({ open: async () => { await noSession(); await exposure(); await withCode(); await adminApi(); await adminPageOpen(); }, closed: async () => { await adminClosed(); await exposure(); await jwtUnit(); }, remote }[MODE] || (() => { console.log('usage: see top of file'); process.exit(2); }))()
   .then(() => { console.log(`\n${pass} passed, ${failed} failed`); process.exit(failed ? 1 : 0); })
   .catch((e) => { console.error(e); process.exit(1); });
