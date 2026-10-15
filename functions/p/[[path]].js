@@ -70,7 +70,7 @@ export async function onRequestGet({ request, env, params }) {
   const iso = new Date(session.expiresAt * 1000).toISOString();
   const bar =
     `<div class="nda-session-bar"><span>Access active until <time datetime="${iso}">${iso.slice(0, 16).replace('T', ' ')} UTC</time></span>` +
-    `<a href="/case-studies.html">← All case studies</a></div>` +
+    `<a href="/case-studies">← All case studies</a></div>` +
     `<script>document.querySelectorAll('time[datetime]').forEach(function(t){var d=new Date(t.getAttribute('datetime'));t.textContent=d.toLocaleString([], {weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});});</script>`;
   const more = others.length ? `<nav class="nda-more" aria-label="Other case studies you can open"><h3>Other case studies you can open</h3>${others.join('')}</nav>` : '';
 

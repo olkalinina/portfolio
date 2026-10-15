@@ -34,7 +34,7 @@
             '<button type="button" class="modal-cancel" data-close>Cancel</button>' +
             '<button type="submit" class="modal-submit" id="accessSubmit">View case study</button>' +
           '</div>' +
-          '<p class="modal-hint">No code yet? <a href="/contacts.html">Ask me for access</a>. Each code works once.</p>' +
+          '<p class="modal-hint">No code yet? <a href="/contacts">Ask me for access</a>. Each code works once.</p>' +
         '</form>' +
       '</div>';
     document.body.appendChild(overlay);
