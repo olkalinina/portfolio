@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Behavioral CRO Diagnosis — Olga Kalinina</title>
+  <meta name="description" content="An evidence-based review of your website or digital product to find the behavioral barriers behind lost conversions, with clear explanations and actionable recommendations." />
+  <link rel="canonical" href="https://olgakalinina.me/behavioral-cro-diagnosis" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="Behavioral CRO Diagnosis — Olga Kalinina" />
+  <meta property="og:description" content="An evidence-based review of your website or digital product to find the behavioral barriers behind lost conversions, with clear explanations and actionable recommendations." />
+  <meta property="og:url" content="https://olgakalinina.me/behavioral-cro-diagnosis" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Behavioral CRO Diagnosis","serviceType":"Conversion diagnosis","description":"An evidence-based review of a website or digital product to find the behavioral barriers behind lost conversions, with clear explanations and actionable recommendations.","url":"https://olgakalinina.me/behavioral-cro-diagnosis","provider":{"@id":"https://olgakalinina.me/#person"},"areaServed":"Worldwide"},{"@type":"Person","@id":"https://olgakalinina.me/#person","name":"Olga Kalinina","jobTitle":"Lead Product Designer & CRO Expert","url":"https://olgakalinina.me/"}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .sv-page { max-width: 860px; margin: 0 auto; padding: 56px 0 100px; display: flex; flex-direction: column; gap: 72px; }
+    .sv-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+    .sv-hero h1 { font-size: 43px !important; font-weight: 400 !important; line-height: 1.14; margin-bottom: 20px; }
+    .sv-lead { font-size: 20px; line-height: 1.55; color: var(--dark); max-width: 720px; }
+    .sv-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 28px; }
+    .sv-link { font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; color: var(--dark); }
+    .sv-section h2 { font-size: 30px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .sv-section .sv-sub { font-size: 18px; line-height: 1.5; color: var(--gray); margin-bottom: 28px; max-width: 680px; }
+    .sv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .sv-grid.two { grid-template-columns: repeat(2, 1fr); }
+    .sv-card { background: var(--bg-soft); border-radius: 24px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit; }
+    .sv-card h3 { font-size: 22px; line-height: 1.25; }
+    .sv-card p { font-size: 15.5px; line-height: 1.55; color: var(--gray); }
+    a.sv-card { transition: transform .2s, box-shadow .2s; }
+    a.sv-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.07); }
+    .sv-card .sv-more { margin-top: auto; padding-top: 10px; font-size: 14px; font-weight: 500; color: var(--dark); }
+    .sv-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+    .sv-steps li { counter-increment: s; display: flex; flex-direction: column; gap: 8px; border-top: 1.5px solid var(--light-gray); padding-top: 16px; }
+    .sv-steps li::before { content: counter(s, decimal-leading-zero); font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--gray); }
+    .sv-steps strong { font-size: 17px; font-weight: 600; }
+    .sv-steps span { font-size: 15px; line-height: 1.55; color: var(--gray); }
+    .sv-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+    .sv-list li { font-size: 18px; line-height: 1.5; padding-left: 30px; position: relative; }
+    .sv-list li::before { content: ""; position: absolute; left: 4px; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--dark); }
+    .sv-list li span { color: var(--gray); }
+    .sv-chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .sv-chips li { font-size: 15px; font-weight: 500; padding: 10px 20px; border: 1.5px solid var(--light-gray); border-radius: 9999px; }
+    .sv-cta { background: var(--bg-soft); border-radius: 32px; padding: 56px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .sv-cta h2 { font-size: 32px; font-weight: 400; }
+    .sv-cta p { font-size: 18px; color: var(--gray); max-width: 560px; line-height: 1.5; }
+    @media (max-width: 860px) {
+      .sv-page { gap: 56px; padding-top: 36px; }
+      .sv-hero h1 { font-size: 34px !important; }
+      .sv-lead { font-size: 18px; }
+      .sv-grid, .sv-grid.two, .sv-steps { grid-template-columns: 1fr; }
+      .sv-cta { padding: 40px 24px; }
+    }
+
+    .sv-defs { display: flex; flex-direction: column; border-top: 1.5px solid var(--light-gray); }
+    .sv-defs > div { display: grid; grid-template-columns: 230px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1.5px solid var(--light-gray); }
+    .sv-defs dt { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; line-height: 1.25; color: var(--strong, var(--dark)); }
+    .sv-defs dd { font-size: 17px; line-height: 1.55; color: var(--gray); }
+    .sv-note { font-size: 15.5px; line-height: 1.6; color: var(--gray); margin-top: 28px; max-width: 700px; padding-left: 18px; border-left: 2px solid var(--light-gray); }
+    .sv-sub + .sv-sub { margin-top: -12px; }
+    @media (max-width: 860px) { .sv-defs > div { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; } }
+    .sv-prose { display: flex; flex-direction: column; gap: 14px; max-width: 720px; }
+    .sv-prose p { font-size: 18px; line-height: 1.6; color: var(--dark); }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=4" />
+</head>
+<body>
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About me</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="/services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About me</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <main class="page-content">
+      <div class="container">
+        <div class="sv-page">
+
+          <section class="sv-hero">
+            <p class="sv-eyebrow">Behavioral CRO Diagnosis</p>
+            <h1>Why aren't users converting?</h1>
+            <p class="sv-lead">Your product may be losing potential customers for reasons that aren't immediately obvious. I investigate where users encounter friction, what undermines trust, and why your website or product isn't moving them toward the next step.</p>
+            <div class="sv-actions">
+              <a href="/contacts" class="btn-dark">Discuss your project</a>
+            </div>
+          </section>
+
+          <section class="sv-section">
+            <h2>What the diagnosis investigates</h2>
+            <p class="sv-sub">Depending on the project, I look at some or all of these areas. We agree on the focus at the start.</p>
+            <dl class="sv-defs">
+              <div><dt>Value proposition</dt><dd>Whether users understand what the product offers and why it matters to them.</dd></div>
+              <div><dt>Trust and credibility</dt><dd>What helps or prevents users from trusting the product and its offer.</dd></div>
+              <div><dt>Conversion journey</dt><dd>Where obstacles emerge between the first interaction and the intended action.</dd></div>
+              <div><dt>Onboarding and activation</dt><dd>What makes it difficult for users to get started and experience the product's value.</dd></div>
+              <div><dt>Decision friction</dt><dd>What prevents users from choosing a plan, signing up, purchasing, or continuing.</dd></div>
+            </dl>
+          </section>
+
+          <section class="sv-section">
+            <h2>Who it's for</h2>
+            <p class="sv-sub">Primarily founders and small teams building these kinds of products:</p>
+            <ul class="sv-chips"><li>SaaS products</li><li>AI tools</li><li>Digital platforms</li><li>Marketplaces</li><li>E-commerce</li><li>Other digital services</li></ul>
+            <p class="sv-sub" style="margin-top:36px;">It is particularly useful when:</p>
+            <ul class="sv-list">
+              <li>Traffic exists, but conversion is below expectations.</li>
+              <li>Users fail to complete important steps or reach activation.</li>
+              <li>The value proposition is difficult to communicate.</li>
+              <li>The team knows something is not working but does not know where to focus.</li>
+              <li>The product has accumulated UX issues, but the team needs to understand which ones matter most.</li>
+            </ul>
+          </section>
+
+          <section class="sv-section">
+            <h2>How it works</h2>
+            <ol class="sv-steps">
+              <li><strong>Context</strong><span>Understand the product, target audience, business goals and current challenges.</span></li>
+              <li><strong>Investigation</strong><span>Examine the interface and key user journey, using available evidence and analytics where appropriate.</span></li>
+              <li><strong>Diagnosis</strong><span>Identify problems, interpret their possible behavioral causes, and explain their implications for conversion.</span></li>
+              <li><strong>Action plan</strong><span>Translate findings into prioritized recommendations, explaining what to improve and why.</span></li>
+            </ol>
+            <p class="sv-note">Findings are labelled by the evidence behind them. What can be observed in the product is kept separate from what is a reasoned hypothesis about why users behave as they do, and conclusions are calibrated to the evidence available.</p>
+          </section>
+
+          <section class="sv-section">
+            <h2>What you'll receive</h2>
+            <ul class="sv-list">
+              <li>A structured diagnosis report.</li>
+              <li>Evidence-backed findings, supported by annotated screenshots where useful.</li>
+              <li>Explanations of the behavioral implications of each identified problem.</li>
+              <li>Prioritized recommendations and implementation direction.</li>
+              <li>A practical action plan to help the team decide what to address first.</li>
+            </ul>
+          </section>
+
+          <section class="sv-section">
+            <h2>Why work with me</h2>
+            <div class="sv-prose">
+              <p>I'm a product designer with 20+ years of experience, focused on complex digital products: platforms, enterprise tools and AI-driven systems. My work is built around UX, information architecture and user journeys, so I look at a product the way a new user meets it, step by step.</p>
+              <p>I combine that product design experience with behavioral reasoning, to understand why people hesitate, and with a business-oriented view, to focus on what is worth fixing first.</p>
+              <p>These public write-ups show how I analyse real products:</p>
+            </div>
+            <div class="sv-grid" style="margin-top:24px;">
+              <a class="sv-card" href="/cs-updf"><h3>UPDF pricing page</h3><p>How unclear plans and inconsistent prices break trust before the user pays.</p><span class="sv-more">Read the analysis →</span></a>
+              <a class="sv-card" href="/cs-kualitee"><h3>Kualitee sign-up</h3><p>Why a B2B SaaS sign-up page was leaking conversions, and what a redesign changes.</p><span class="sv-more">Read the analysis →</span></a>
+              <a class="sv-card" href="/cs-mercor"><h3>Mercor policy change</h3><p>How a quiet policy change and a dead-end flow can lose verified candidates.</p><span class="sv-more">Read the analysis →</span></a>
+            </div>
+          </section>
+
+          <section class="sv-cta">
+            <h2>Understand what's getting in the way of conversion.</h2>
+            <p>Let's look at your product, identify where users encounter friction, and determine what is worth improving first.</p>
+            <a href="/contacts" class="btn-dark">Discuss your project</a>
+          </section>
+
+        </div>
+      </div>
+    </main>
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/about">About me</a>
+            <span class="footer-dot"></span>
+            <a href="/services">Services</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="/privacy">Privacy</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">Behance</a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>
