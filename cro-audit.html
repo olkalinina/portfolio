@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRO Audit for Websites &amp; SaaS — Olga Kalinina</title>
+  <meta name="description" content="Conversion rate optimisation audit for websites and SaaS: where visitors drop off, what breaks trust, and a prioritised plan of changes and A/B test ideas." />
+  <link rel="canonical" href="https://olgakalinina.me/cro-audit" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="CRO Audit for Websites &amp; SaaS — Olga Kalinina" />
+  <meta property="og:description" content="Conversion rate optimisation audit for websites and SaaS: where visitors drop off, what breaks trust, and a prioritised plan of changes and A/B test ideas." />
+  <meta property="og:url" content="https://olgakalinina.me/cro-audit" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"CRO audit for websites and SaaS","serviceType":"Conversion rate optimisation audit","description":"Conversion rate optimisation audit for websites and SaaS: friction and trust gaps, prioritised fixes, redesign proposals and A/B test ideas.","url":"https://olgakalinina.me/cro-audit","provider":{"@id":"https://olgakalinina.me/#person"},"areaServed":"Worldwide"},{"@type":"Person","@id":"https://olgakalinina.me/#person","name":"Olga Kalinina","jobTitle":"Lead Product Designer & CRO Expert","url":"https://olgakalinina.me/"}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .sv-page { max-width: 860px; margin: 0 auto; padding: 56px 0 100px; display: flex; flex-direction: column; gap: 72px; }
+    .sv-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+    .sv-hero h1 { font-size: 43px !important; font-weight: 400 !important; line-height: 1.14; margin-bottom: 20px; }
+    .sv-lead { font-size: 20px; line-height: 1.55; color: var(--dark); max-width: 720px; }
+    .sv-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 28px; }
+    .sv-link { font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; color: var(--dark); }
+    .sv-section h2 { font-size: 30px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .sv-section .sv-sub { font-size: 18px; line-height: 1.5; color: var(--gray); margin-bottom: 28px; max-width: 680px; }
+    .sv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .sv-grid.two { grid-template-columns: repeat(2, 1fr); }
+    .sv-card { background: var(--bg-soft); border-radius: 24px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit; }
+    .sv-card h3 { font-size: 22px; line-height: 1.25; }
+    .sv-card p { font-size: 15.5px; line-height: 1.55; color: var(--gray); }
+    a.sv-card { transition: transform .2s, box-shadow .2s; }
+    a.sv-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.07); }
+    .sv-card .sv-more { margin-top: auto; padding-top: 10px; font-size: 14px; font-weight: 500; color: var(--dark); }
+    .sv-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+    .sv-steps li { counter-increment: s; display: flex; flex-direction: column; gap: 8px; border-top: 1.5px solid var(--light-gray); padding-top: 16px; }
+    .sv-steps li::before { content: counter(s, decimal-leading-zero); font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--gray); }
+    .sv-steps strong { font-size: 17px; font-weight: 600; }
+    .sv-steps span { font-size: 15px; line-height: 1.55; color: var(--gray); }
+    .sv-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+    .sv-list li { font-size: 18px; line-height: 1.5; padding-left: 30px; position: relative; }
+    .sv-list li::before { content: ""; position: absolute; left: 4px; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--dark); }
+    .sv-list li span { color: var(--gray); }
+    .sv-chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .sv-chips li { font-size: 15px; font-weight: 500; padding: 10px 20px; border: 1.5px solid var(--light-gray); border-radius: 9999px; }
+    .sv-cta { background: var(--bg-soft); border-radius: 32px; padding: 56px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .sv-cta h2 { font-size: 32px; font-weight: 400; }
+    .sv-cta p { font-size: 18px; color: var(--gray); max-width: 560px; line-height: 1.5; }
+    @media (max-width: 860px) {
+      .sv-page { gap: 56px; padding-top: 36px; }
+      .sv-hero h1 { font-size: 34px !important; }
+      .sv-lead { font-size: 18px; }
+      .sv-grid, .sv-grid.two, .sv-steps { grid-template-columns: 1fr; }
+      .sv-cta { padding: 40px 24px; }
+    }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=4" />
+</head>
+<body>
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About me</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="/services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About me</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <main class="page-content">
+      <div class="container">
+        <div class="sv-page">
+
+          <section class="sv-hero">
+            <p class="sv-eyebrow">CRO audit</p>
+            <h1>CRO audit for websites and SaaS</h1>
+            <p class="sv-lead">People visit, but sign-ups, trials or purchases fall short. I review your key funnel, find where visitors drop off and lose trust, and give you a prioritised plan of changes worth testing.</p>
+            <div class="sv-actions">
+              <a href="/contacts" class="btn-dark">Request an audit</a>
+              <a href="#examples" class="sv-link">See examples</a>
+            </div>
+          </section>
+
+          <section class="sv-section">
+            <h2>What I review</h2>
+            <p class="sv-sub">The pages and flows where a visitor decides to trust you or leave.</p>
+            <ul class="sv-chips"><li>Landing pages</li><li>Pricing and plans</li><li>Sign-up forms</li><li>Onboarding</li><li>Checkout and upgrade</li><li>Error and policy messages</li></ul>
+          </section>
+
+          <section class="sv-section">
+            <h2>How I find the problems</h2>
+            <p class="sv-sub">I combine three things, so findings are grounded and not only opinion.</p>
+            <div class="sv-grid">
+              <div class="sv-card"><h3>UX heuristics</h3><p>A structured review of clarity, hierarchy, consistency and friction on every step.</p></div>
+              <div class="sv-card"><h3>Behavioural insight</h3><p>Where doubt, effort and mixed signals make people hesitate, and why.</p></div>
+              <div class="sv-card"><h3>Your data</h3><p>Your analytics and any recordings or research you have, to point at the steps that matter most.</p></div>
+            </div>
+          </section>
+
+          <section class="sv-section">
+            <h2>What you get</h2>
+            <ul class="sv-list">
+              <li>A funnel walkthrough with the friction and trust gaps found at each step</li>
+              <li>Prioritised fixes, ranked by expected impact and effort</li>
+              <li>Wireframe-level redesign proposals and A/B test ideas for the highest-impact changes</li>
+            </ul>
+          </section>
+
+          <section class="sv-section">
+            <h2>How it works</h2>
+            <ol class="sv-steps">
+              <li><strong>Brief</strong><span>You share your goal, the funnel to look at and any analytics you can open up.</span></li>
+              <li><strong>Review</strong><span>I go through the journey as a new visitor, on desktop and on mobile.</span></li>
+              <li><strong>Report</strong><span>Prioritised findings and redesign proposals, written to act on.</span></li>
+              <li><strong>Walkthrough</strong><span>We go through the findings together and agree what to test first.</span></li>
+            </ol>
+          </section>
+
+          <section class="sv-section" id="examples">
+            <h2>What an audit looks like</h2>
+            <p class="sv-sub">Three public teardowns of real products, written in the same way.</p>
+            <div class="sv-grid">
+              <a class="sv-card" href="/cs-updf"><h3>UPDF pricing page</h3><p>How unclear plans and inconsistent prices break trust before the user pays.</p><span class="sv-more">Read the teardown →</span></a>
+              <a class="sv-card" href="/cs-kualitee"><h3>Kualitee sign-up</h3><p>Why a B2B SaaS sign-up page was leaking conversions, and how it could be redesigned.</p><span class="sv-more">Read the case study →</span></a>
+              <a class="sv-card" href="/cs-mercor"><h3>Mercor policy change</h3><p>How a quiet policy change and a dead-end flow can lose verified candidates.</p><span class="sv-more">See the teardown →</span></a>
+            </div>
+          </section>
+
+          <section class="sv-section">
+            <h2>A good fit if</h2>
+            <ul class="sv-list">
+              <li>You have a live website or SaaS product with real visitors</li>
+              <li>Sign-ups, trials or purchases are lower than you expected</li>
+              <li>You want to know what to fix first, not a list of everything</li>
+            </ul>
+          </section>
+
+          <section class="sv-cta">
+            <h2>Find out what is costing you conversions</h2>
+            <p>Send me the page or funnel you are worried about, and what you hoped it would do.</p>
+            <a href="/contacts" class="btn-dark">Request an audit</a>
+          </section>
+
+        </div>
+      </div>
+    </main>
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/about">About me</a>
+            <span class="footer-dot"></span>
+            <a href="/services">Services</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="/privacy">Privacy</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">Behance</a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>

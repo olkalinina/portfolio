@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Design for SaaS &amp; AI Products — Olga Kalinina</title>
+  <meta name="description" content="Lead product designer for SaaS and AI products: MVP design, complex platforms and tools, and AI feature UX, from research and flows to a build-ready interface." />
+  <link rel="canonical" href="https://olgakalinina.me/product-design" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="Product Design for SaaS &amp; AI Products — Olga Kalinina" />
+  <meta property="og:description" content="Lead product designer for SaaS and AI products: MVP design, complex platforms and tools, and AI feature UX, from research and flows to a build-ready interface." />
+  <meta property="og:url" content="https://olgakalinina.me/product-design" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Product design for SaaS and AI products","serviceType":"Product design","description":"Lead product designer for SaaS and AI products: MVP design, complex platforms and tools, and AI feature UX.","url":"https://olgakalinina.me/product-design","provider":{"@id":"https://olgakalinina.me/#person"},"areaServed":"Worldwide"},{"@type":"Person","@id":"https://olgakalinina.me/#person","name":"Olga Kalinina","jobTitle":"Lead Product Designer & CRO Expert","url":"https://olgakalinina.me/"}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .sv-page { max-width: 860px; margin: 0 auto; padding: 56px 0 100px; display: flex; flex-direction: column; gap: 72px; }
+    .sv-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 14px; }
+    .sv-hero h1 { font-size: 43px !important; font-weight: 400 !important; line-height: 1.14; margin-bottom: 20px; }
+    .sv-lead { font-size: 20px; line-height: 1.55; color: var(--dark); max-width: 720px; }
+    .sv-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 28px; }
+    .sv-link { font-size: 15px; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; color: var(--dark); }
+    .sv-section h2 { font-size: 30px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+    .sv-section .sv-sub { font-size: 18px; line-height: 1.5; color: var(--gray); margin-bottom: 28px; max-width: 680px; }
+    .sv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .sv-grid.two { grid-template-columns: repeat(2, 1fr); }
+    .sv-card { background: var(--bg-soft); border-radius: 24px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit; }
+    .sv-card h3 { font-size: 22px; line-height: 1.25; }
+    .sv-card p { font-size: 15.5px; line-height: 1.55; color: var(--gray); }
+    a.sv-card { transition: transform .2s, box-shadow .2s; }
+    a.sv-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.07); }
+    .sv-card .sv-more { margin-top: auto; padding-top: 10px; font-size: 14px; font-weight: 500; color: var(--dark); }
+    .sv-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+    .sv-steps li { counter-increment: s; display: flex; flex-direction: column; gap: 8px; border-top: 1.5px solid var(--light-gray); padding-top: 16px; }
+    .sv-steps li::before { content: counter(s, decimal-leading-zero); font-family: 'Playfair Display', Georgia, serif; font-size: 22px; color: var(--gray); }
+    .sv-steps strong { font-size: 17px; font-weight: 600; }
+    .sv-steps span { font-size: 15px; line-height: 1.55; color: var(--gray); }
+    .sv-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+    .sv-list li { font-size: 18px; line-height: 1.5; padding-left: 30px; position: relative; }
+    .sv-list li::before { content: ""; position: absolute; left: 4px; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--dark); }
+    .sv-list li span { color: var(--gray); }
+    .sv-chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .sv-chips li { font-size: 15px; font-weight: 500; padding: 10px 20px; border: 1.5px solid var(--light-gray); border-radius: 9999px; }
+    .sv-cta { background: var(--bg-soft); border-radius: 32px; padding: 56px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .sv-cta h2 { font-size: 32px; font-weight: 400; }
+    .sv-cta p { font-size: 18px; color: var(--gray); max-width: 560px; line-height: 1.5; }
+    @media (max-width: 860px) {
+      .sv-page { gap: 56px; padding-top: 36px; }
+      .sv-hero h1 { font-size: 34px !important; }
+      .sv-lead { font-size: 18px; }
+      .sv-grid, .sv-grid.two, .sv-steps { grid-template-columns: 1fr; }
+      .sv-cta { padding: 40px 24px; }
+    }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=4" />
+</head>
+<body>
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <a href="/services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About me</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <a href="/services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About me</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <main class="page-content">
+      <div class="container">
+        <div class="sv-page">
+
+          <section class="sv-hero">
+            <p class="sv-eyebrow">Product design</p>
+            <h1>Product design for SaaS and AI products</h1>
+            <p class="sv-lead">I'm a lead product designer with 20+ years of experience. I turn complex platforms, enterprise tools and AI features into products people can use, from the first idea to a build-ready interface.</p>
+            <div class="sv-actions">
+              <a href="/contacts" class="btn-dark">Contact me</a>
+              <a href="/case-studies" class="sv-link">See my case studies</a>
+            </div>
+          </section>
+
+          <section class="sv-section">
+            <h2>Where I help most</h2>
+            <p class="sv-sub">Three kinds of work I take on, end to end or as one part of your team's process.</p>
+            <div class="sv-grid">
+              <div class="sv-card"><h3>New products and MVPs</h3><p>From idea to a clickable MVP: core flows, key screens and a prototype ready for testing and development.</p></div>
+              <div class="sv-card"><h3>Complex platforms and tools</h3><p>Information architecture, roles and permissions, dashboards and workflows that stay clear as the product grows.</p></div>
+              <div class="sv-card"><h3>AI features</h3><p>Flows for prompting, review, editing and regeneration that feel safe, understandable and under the user's control.</p></div>
+            </div>
+          </section>
+
+          <section class="sv-section">
+            <h2>What you get</h2>
+            <p class="sv-sub">Depending on the project, the work includes:</p>
+            <ul class="sv-list">
+              <li>User and stakeholder research, so decisions rest on how people really work</li>
+              <li>Requirements, information architecture and user flows, including edge cases and states</li>
+              <li>Wireframes and prototypes, tested with users before development</li>
+              <li>High-fidelity, component-based UI with the specs your developers need</li>
+              <li>A design system and light and dark modes when the product calls for them</li>
+            </ul>
+          </section>
+
+          <section class="sv-section">
+            <h2>How I work</h2>
+            <p class="sv-sub">The same four steps I used on products such as an internal asset platform and a data portal for the UN.</p>
+            <ol class="sv-steps">
+              <li><strong>Understand</strong><span>Interviews, analysis of the current tools and competitors, and a clear problem statement.</span></li>
+              <li><strong>Structure</strong><span>Requirements, MVP scope, information architecture and user flows.</span></li>
+              <li><strong>Design and test</strong><span>Wireframes, prototypes and usability testing, then high-fidelity UI.</span></li>
+              <li><strong>Build and improve</strong><span>Handoff to the team and iterations after release.</span></li>
+            </ol>
+          </section>
+
+          <section class="sv-section">
+            <h2>Selected work</h2>
+            <p class="sv-sub">Public case studies. More are shared under NDA with an access code.</p>
+            <div class="sv-grid two">
+              <a class="sv-card" href="/cs-lattice"><h3>Lattice Studio</h3><p>An AI product builder that guides digital creators from an idea to a sellable product in one flow.</p><span class="sv-more">Read the case study →</span></a>
+              <a class="sv-card" href="/cs-payli"><h3>Payli</h3><p>A mobile payments and bills tracker designed for logging a transaction in seconds.</p><span class="sv-more">Read the case study →</span></a>
+            </div>
+            <div class="sv-actions"><a href="/case-studies" class="sv-link">All case studies, including NDA projects →</a></div>
+          </section>
+
+          <section class="sv-section">
+            <h2>Industries</h2>
+            <ul class="sv-chips"><li>SaaS</li><li>AI products</li><li>EdTech</li><li>FitnessTech</li><li>MediaTech</li><li>Logistics</li></ul>
+          </section>
+
+          <section class="sv-cta">
+            <h2>Let's talk about your product</h2>
+            <p>Tell me what you are building and where it is stuck. I'll reply with how I would approach it.</p>
+            <a href="/contacts" class="btn-dark">Contact me</a>
+          </section>
+
+        </div>
+      </div>
+    </main>
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/about">About me</a>
+            <span class="footer-dot"></span>
+            <a href="/services">Services</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="/privacy">Privacy</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">Behance</a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>
