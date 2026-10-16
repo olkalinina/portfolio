@@ -53,6 +53,10 @@
       .sv-grid, .sv-grid.two, .sv-steps { grid-template-columns: 1fr; }
       .sv-cta { padding: 40px 24px; }
     }
+    .sv-pills { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+    .sv-pills li { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border: 1.5px solid var(--light-gray); border-radius: 9999px; font-size: 15px; font-weight: 500; background: #fffdf9; color: #2a2925; }
+    .sv-pills img { width: 24px; height: 24px; object-fit: contain; }
+    html[data-theme="dark"] .sv-pills li { background: #ece8df; border-color: #ece8df; color: #111; }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -64,7 +68,6 @@
     <nav class="nav">
     <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
     <div class="nav-links">
-      <a href="/services">Services</a>
       <a href="/case-studies">Case Studies</a>
       <a href="/blog">Blog</a>
       <a href="/about">About me</a>
@@ -82,7 +85,6 @@
       <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
     </div>
     <div class="mobile-menu-links">
-      <a href="/services">Services</a>
       <a href="/case-studies">Case Studies</a>
       <a href="/blog">Blog</a>
       <a href="/about">About me</a>
@@ -153,6 +155,28 @@
             <ul class="sv-chips"><li>SaaS</li><li>AI products</li><li>EdTech</li><li>FitnessTech</li><li>MediaTech</li><li>Logistics</li></ul>
           </section>
 
+          <section class="sv-section">
+            <h2>Tools</h2>
+            <p class="sv-sub">What I use to bring your product to life.</p>
+            <ul class="sv-pills">
+              <li><img src="/images/Figma_logo.svg" alt="" />Figma / FigJam / Figma Make</li>
+              <li><img src="/images/jira_logo.svg" alt="" />Jira</li>
+              <li><img src="/images/notion_logo.svg" alt="" />Notion</li>
+              <li><img src="/images/gemini_logo.svg" alt="" />Gemini</li>
+              <li><img src="/images/notebookLM_logo.svg" alt="" />NotebookLM</li>
+              <li><img src="/images/chatgpt_logo.svg" alt="" />ChatGPT</li>
+              <li><img src="/images/claude_logo.svg" alt="" />Claude</li>
+              <li><img src="/images/maze_logo.svg" alt="" />Maze</li>
+              <li><img src="/images/miro_logo.svg" alt="" />Miro</li>
+              <li><img src="/images/amplitude_logo.svg" alt="" />Amplitude</li>
+              <li><img src="/images/Google_analytics_logo.svg" alt="" />Google Analytics</li>
+              <li><img src="/images/webflow_logo.svg" alt="" />Webflow</li>
+              <li><img src="/images/hotjar_logo.svg" alt="" />Hotjar</li>
+              <li><img src="/images/adobe_logo.svg" alt="" />Adobe CC</li>
+              <li><img src="/images/lucidchart_logo.svg" alt="" />LucidChart</li>
+            </ul>
+          </section>
+
           <section class="sv-cta">
             <h2>Let's talk about your product</h2>
             <p>Tell me what you are building and where it is stuck. I'll reply with how I would approach it.</p>
@@ -168,7 +192,9 @@
           <nav class="footer-links">
             <a href="/about">About me</a>
             <span class="footer-dot"></span>
-            <a href="/services">Services</a>
+            <a href="/product-design">Product design</a>
+            <span class="footer-dot"></span>
+            <a href="/behavioral-cro-diagnosis">CRO diagnosis</a>
             <span class="footer-dot"></span>
             <a href="/case-studies">Case Studies</a>
             <span class="footer-dot"></span>

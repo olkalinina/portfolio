@@ -95,22 +95,6 @@
     .carousel-btn.active { border-color: var(--dark); }
     .carousel-btn svg { width: 20px; height: 20px; }
 
-    /* ── Services ── */
-    .services-section { display: flex; flex-direction: column; gap: 22px; padding: 80px 0 0; align-items: flex-start; }
-    .services-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; width: 100%; }
-    .svc-card {
-      background: var(--bg-soft); border-radius: var(--radius-card);
-      padding: 20px 20px 40px; display: flex; flex-direction: column; gap: 16px;
-      cursor: pointer; transition: box-shadow 0.2s, transform 0.2s;
-      text-decoration: none; color: inherit; min-height: 302px;
-    }
-    .svc-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); }
-    .svc-card-icon { width: 32px; height: 32px; object-fit: contain; }
-    .svc-card-title { font-size: 24px; font-weight: 500; color: var(--dark); line-height: 1.3; }
-    .svc-card-desc { font-size: 20px; color: var(--dark); line-height: 1.4; }
-    .svc-card-more { align-items: center; justify-content: center; }
-    .svc-card-more span { font-size: 24px; color: var(--gray); }
-
     /* ── Blog ── */
     .blog-section { display: flex; flex-direction: column; gap: 48px; align-items: center; padding: 80px 0 100px; }
     .blog-section-header { display: flex; flex-direction: column; gap: 24px; align-items: center; }
@@ -144,7 +128,6 @@
     <nav class="nav">
     <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
     <div class="nav-links">
-      <a href="/services">Services</a>
       <a href="/case-studies">Case Studies</a>
       <a href="/blog">Blog</a>
       <a href="/about">About me</a>
@@ -162,7 +145,6 @@
       <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
     </div>
     <div class="mobile-menu-links">
-      <a href="/services">Services</a>
       <a href="/case-studies">Case Studies</a>
       <a href="/blog">Blog</a>
       <a href="/about">About me</a>
@@ -347,36 +329,6 @@
           </div>
         </div>
 
-        <!-- SERVICES -->
-        <div class="services-section">
-          <a href="/services" style="text-decoration:none;color:inherit;">
-          <span class="section-label">
-            <img src="images/My_services_icon.svg" alt="" />
-            My Services
-          </span>
-          </a>
-          <div class="services-cards">
-            <a href="/services" class="svc-card">
-              <img src="images/shield-tick.svg" alt="" class="svc-card-icon" />
-              <div class="svc-card-title">UX Audit for Complex Products</div>
-              <div class="svc-card-desc">Find what blocks users today and get a prioritised fix plan with clear, actionable recommendations.</div>
-            </a>
-            <a href="/services" class="svc-card">
-              <img src="images/trend-up-01.svg" alt="" class="svc-card-icon" />
-              <div class="svc-card-title">Behavioral CRO Diagnosis</div>
-              <div class="svc-card-desc">Understand why users hesitate, where conversion breaks down, and what to improve.</div>
-            </a>
-            <a href="/services" class="svc-card">
-              <img src="images/fingerprint-04.svg" alt="" class="svc-card-icon" />
-              <div class="svc-card-title">MVP Product Design</div>
-              <div class="svc-card-desc">From idea to a clickable MVP: core flows, key screens, and a prototype ready for testing and build.</div>
-            </a>
-            <a href="/services" class="svc-card svc-card-more">
-              <span>+5 more →</span>
-            </a>
-          </div>
-        </div>
-
         <!-- BLOG -->
         <div class="blog-section">
           <div class="blog-section-header">
@@ -438,7 +390,9 @@
           <nav class="footer-links">
             <a href="/about">About me</a>
             <span class="footer-dot"></span>
-            <a href="/services">Services</a>
+            <a href="/product-design">Product design</a>
+            <span class="footer-dot"></span>
+            <a href="/behavioral-cro-diagnosis">CRO diagnosis</a>
             <span class="footer-dot"></span>
             <a href="/case-studies">Case Studies</a>
             <span class="footer-dot"></span>
