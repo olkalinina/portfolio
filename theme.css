@@ -161,10 +161,15 @@ html[data-theme="dark"] body:not(.is-protected) .svc-btn svg { color: #e7e3da; }
 html[data-theme="dark"] body:not(.is-protected) .cs-card-img-contained img, html[data-theme="dark"] body:not(.is-protected) .cs-card-img img { border-color: #302d28; }
 html[data-theme="dark"] body:not(.is-protected) .modal-overlay { background: rgba(0,0,0,0.6); }
 
-/* ---- Pen-nib cursor over anything clickable (tip at the top-left) ---- */
+/* ---- Pen-nib cursor everywhere (tip at the top-left). Dark near-black in light mode, gold in dark mode.
+   Text fields keep the normal text cursor so typing stays precise. ---- */
 @media (hover: hover) and (pointer: fine) {
-  a[href], button:not(:disabled), [role="button"], summary, label[for], [data-magic], .help-card, .cs-card, .bcard, .blog-card, .carousel-btn, .theme-toggle, .sv-card {
-    cursor: url('/images/cursor-pen-32.png') 3 3, pointer !important;
-    cursor: image-set(url('/images/cursor-pen-32.png') 1x, url('/images/cursor-pen-64.png') 2x) 3 3, pointer !important;
+  html, html *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+    cursor: url('/images/cursor-pen.png') 3 3, auto !important;
+    cursor: image-set(url('/images/cursor-pen.png') 1x, url('/images/cursor-pen@2x.png') 2x) 3 3, auto !important;
+  }
+  html[data-theme="dark"] body:not(.is-protected), html[data-theme="dark"] body:not(.is-protected) *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+    cursor: url('/images/cursor-pen-gold.png') 3 3, auto !important;
+    cursor: image-set(url('/images/cursor-pen-gold.png') 1x, url('/images/cursor-pen-gold@2x.png') 2x) 3 3, auto !important;
   }
 }
