@@ -118,6 +118,44 @@
     .cs-card-img-contained { margin: 16px 0 16px; padding: 0; overflow: hidden; border-radius: 12px; }
     .cs-card-img-contained img { width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; border-radius: 12px; border: 1px solid var(--light-gray); }
 
+    /* Bento grid: hovered cell grows (its column and row), the others dim */
+    .bento { --c1: 1fr; --c2: 1fr; --c3: 1fr; --r1: 1fr; --r2: 1fr; --r3: 1fr; width: 100%; height: 940px; display: grid; gap: 14px;
+      grid-template-columns: var(--c1) var(--c2) var(--c3); grid-template-rows: var(--r1) var(--r2) var(--r3);
+      transition: grid-template-columns .6s cubic-bezier(.22,.7,.2,1), grid-template-rows .6s cubic-bezier(.22,.7,.2,1); }
+    .bento-cell { position: relative; overflow: hidden; border-radius: 22px; background: var(--bg-soft); min-width: 0; min-height: 0; color: #fff; text-decoration: none;
+      box-shadow: inset 0 0 0 1px rgba(42,41,37,0.08); transition: opacity .4s ease, filter .4s ease; }
+    .bento-cell > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .8s cubic-bezier(.22,.7,.2,1); }
+    .bento-cell::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(18,17,15,0.9), rgba(18,17,15,0.55) 52%, transparent 86%); transition: opacity .5s ease; }
+    .bento-info { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 6px; }
+    html body .bento .bento-title { font-size: 19px; font-weight: 500; line-height: 1.25; color: #fff; text-wrap: balance; }
+    html body .bento .bento-desc { font-size: 14.5px; line-height: 1.45; color: rgba(255,255,255,0.86); max-height: 0; opacity: 0; overflow: hidden; transform: translateY(6px);
+      transition: max-height .5s ease, opacity .4s ease, transform .5s ease; }
+    html body .bento .cs-access-btn { position: absolute; top: 14px; right: 14px; z-index: 3; margin: 0; padding: 8px; gap: 8px; border: 0; border-radius: 999px; background: rgba(255,255,255,0.92); color: #1a1a1a; font-size: 13px; }
+    .bento .cs-access-btn span { max-width: 0; overflow: hidden; opacity: 0; transition: max-width .45s ease, opacity .3s ease; }
+    .bento-cell:hover .cs-access-btn, .bento-cell:focus-visible .cs-access-btn { padding: 8px 14px; }
+    .bento-cell:hover .cs-access-btn span, .bento-cell:focus-visible .cs-access-btn span { max-width: 140px; opacity: 1; }
+    .bento-cell:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
+    @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
+      .bento-cell:is(:hover, :focus-visible) > img { transform: scale(1.06); }
+      .bento-cell:is(:hover, :focus-visible) .bento-desc { max-height: 90px; opacity: 1; transform: none; }
+      .bento:has(.bento-cell:is(:hover, :focus-visible)) .bento-cell:not(:hover):not(:focus-visible) { opacity: .72; filter: grayscale(.45); }
+      /* column and row of the hovered cell grow */
+      .bento:has(.bento-cell:nth-child(3n+1):is(:hover, :focus-visible)) { --c1: 1.8fr; }
+      .bento:has(.bento-cell:nth-child(3n+2):is(:hover, :focus-visible)) { --c2: 1.8fr; }
+      .bento:has(.bento-cell:nth-child(3n):is(:hover, :focus-visible)) { --c3: 1.8fr; }
+      .bento:has(.bento-cell:nth-child(-n+3):is(:hover, :focus-visible)) { --r1: 1.5fr; }
+      .bento:has(.bento-cell:nth-child(n+4):nth-child(-n+6):is(:hover, :focus-visible)) { --r2: 1.5fr; }
+      .bento:has(.bento-cell:nth-child(n+7):is(:hover, :focus-visible)) { --r3: 1.5fr; }
+    }
+    @media (max-width: 860px), (hover: none) {
+      .bento { height: auto; grid-template-columns: 1fr; grid-template-rows: none; gap: 16px; }
+      .bento-cell { aspect-ratio: 1 / 1; }
+      html body .bento .bento-desc { max-height: none; opacity: 1; transform: none; }
+      html body .bento .cs-access-btn { padding: 8px 14px; } .bento .cs-access-btn span { max-width: 140px; opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { .bento, .bento-cell, .bento-cell > img, .bento-desc, .bento .cs-access-btn span { transition: none !important; } }
+    html[data-theme="dark"] .bento-cell { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1); }
+
     .carousel-controls { display: flex; align-items: center; justify-content: space-between; width: 100%; }
     .carousel-progress { display: flex; gap: 8px; align-items: center; }
     .carousel-progress span { width: 32px; height: 4px; background: var(--light-gray); border-radius: 2px; transition: background 0.3s; }
@@ -257,121 +295,46 @@
             <div class="cs-section-sub">I turn complex products into intuitive experiences that convert.</div>
           </div>
 
-          <div style="width:100%;">
-            <div class="carousel-wrap">
-              <div class="carousel-slides" id="csSlides">
-                <!-- Slide 1 -->
-                <div class="carousel-slide">
-                  <a class="cs-card" href="/cs-mercor">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">Mercor: when a policy change breaks trust with verified candidates</div>
-                        <div class="cs-card-desc">UX analysis &middot; Conversion &amp; retention &middot; Talent platform</div>
-                      </div>
-                    </div>
-                    <div class="cs-card-img-contained"><img src="images/Mercor_card.png" alt="Mercor UX analysis" /></div>
-                  </a>
-                  <a class="cs-card" href="/cs-updf">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">UPDF: how a pricing page breaks trust before the user pays</div>
-                        <div class="cs-card-desc">AI-powered PDF editor · SaaS · Product Design</div>
-                      </div>
-                    </div>
-                    <div class="cs-card-img-contained"><img src="images/UPDF_cover_card.png" alt="UPDF pricing page analysis" /></div>
-                  </a>
-                  <a class="cs-card" href="/cs-kualitee">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">Kualitee — why the Sign-Up page was leaking conversions</div>
-                        <div class="cs-card-desc">B2B SaaS platform sign-up page redesign</div>
-                      </div>
-                    </div>
-                    <div class="cs-card-img-contained"><img src="images/Cover_image_card.png" alt="Kualitee B2B SaaS Sign-Up Redesign" /></div>
-                  </a>
-                  <a class="cs-card" href="/cs-payli">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">Payli Budget App</div>
-                        <div class="cs-card-desc">App for tracking bills, recurring payments, and monthly spending.</div>
-                      </div>
-                    </div>
-                    <div class="cs-card-img"><img src="images/Payli_image.png" alt="Payli Budget App" /></div>
-                  </a>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-slide">
-                  <a class="cs-card" href="/cs-lattice">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">Lattice Studio — designing an AI product builder for digital creators</div>
-                        <div class="cs-card-desc">AI-assisted creation flow &middot; SaaS &middot; Product Design</div>
-                      </div>
-                    </div>
-                    <div class="cs-card-img-contained"><img src="images/Cover_lattice_small.png" alt="Lattice Studio AI Product Builder" /></div>
-                  </a>
-                  <a class="cs-card" href="/cs-ghibli">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">Maserati Ghibli Website Redesign</div>
-                        <div class="cs-card-desc">Concept redesign for Maserati's Ghibli model website.</div>
-                      </div>
-                    </div>
-                    <div class="cs-card-img"><img src="images/Ghibli_image.png" alt="Maserati Ghibli" /></div>
-                  </a>
-                  <a class="cs-card cs-card-locked" href="/p/creator-community-platform" data-locked data-slug="creator-community-platform" data-title="Creator Community Platform" aria-label="Creator Community Platform — locked, enter access code">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">Creator Community Platform</div>
-                        <div class="cs-card-desc">All-in-one platform where creators build communities, sell, and engage their audience.</div>
-                      </div>
-<span class="cs-access-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Enter access code</span>
-                    </div>
-                    <div class="cs-card-img"><img src="images/B2C_fitness_platform_image.png" alt="Creator community platform: admin dashboard" /></div>
-                  </a>
-                  <a class="cs-card cs-card-locked" href="/p/un-escap-risk-portal" data-locked data-slug="un-escap-risk-portal" data-title="UN ESCAP — Risk and Resilience Portal" aria-label="UN ESCAP — Risk and Resilience Portal — locked, enter access code">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">UN ESCAP — Risk and Resilience Portal</div>
-                        <div class="cs-card-desc">Portal for exploring climate risk data by country.</div>
-                      </div>
-<span class="cs-access-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Enter access code</span>
-                    </div>
-                    <div class="cs-card-img"><img src="images/UN_case_study_image.png" alt="UN ESCAP" /></div>
-                  </a>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-slide">
-                  <a class="cs-card cs-card-locked" href="/p/digital-assets-management" data-locked data-slug="digital-assets-management" data-title="Digital Assets Management System" aria-label="Digital Assets Management System — locked, enter access code">
-                    <div class="cs-card-header">
-                      <div>
-                        <div class="cs-card-title">Digital Assets Management System</div>
-                        <div class="cs-card-desc">Enterprise DAM to organize, tag, and share media at scale.</div>
-                      </div>
-<span class="cs-access-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Enter access code</span>
-                    </div>
-                    <div class="cs-card-img-contained"><img src="images/DAM_card_hifi.png" alt="Digital asset management system: the My DAM home screen" style="object-position:left top;" /></div>
-                  </a>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="carousel-controls" style="margin-top:24px;">
-              <div class="carousel-progress">
-                <span class="active"></span><span></span><span></span>
-              </div>
-              <div class="carousel-btns">
-                <button class="carousel-btn" onclick="slideCS(-1)" aria-label="Previous">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
-                </button>
-                <button class="carousel-btn active" onclick="slideCS(1)" aria-label="Next">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
-                </button>
-              </div>
-            </div>
+          <div class="bento" id="csBento">
+            <a class="bento-cell" href="/cs-mercor">
+              <img src="images/Mercor_card.png" alt="Mercor UX analysis" loading="lazy" />
+              <div class="bento-info"><h3 class="bento-title">Mercor: when a policy change breaks trust with verified candidates</h3><p class="bento-desc">UX analysis · Conversion &amp; retention · Talent platform</p></div>
+            </a>
+            <a class="bento-cell" href="/cs-updf">
+              <img src="images/UPDF_cover_card.png" alt="UPDF pricing page analysis" loading="lazy" />
+              <div class="bento-info"><h3 class="bento-title">UPDF: how a pricing page breaks trust before the user pays</h3><p class="bento-desc">AI-powered PDF editor · SaaS · Product Design</p></div>
+            </a>
+            <a class="bento-cell" href="/cs-kualitee">
+              <img src="images/Cover_image_card.png" alt="Kualitee B2B SaaS Sign-Up Redesign" loading="lazy" />
+              <div class="bento-info"><h3 class="bento-title">Kualitee — why the Sign-Up page was leaking conversions</h3><p class="bento-desc">B2B SaaS platform sign-up page redesign</p></div>
+            </a>
+            <a class="bento-cell" href="/cs-payli">
+              <img src="images/Payli_image.png" alt="Payli Budget App" loading="lazy" />
+              <div class="bento-info"><h3 class="bento-title">Payli Budget App</h3><p class="bento-desc">App for tracking bills, recurring payments, and monthly spending.</p></div>
+            </a>
+            <a class="bento-cell" href="/cs-lattice">
+              <img src="images/Cover_lattice_small.png" alt="Lattice Studio AI Product Builder" loading="lazy" />
+              <div class="bento-info"><h3 class="bento-title">Lattice Studio — designing an AI product builder for digital creators</h3><p class="bento-desc">AI-assisted creation flow · SaaS · Product Design</p></div>
+            </a>
+            <a class="bento-cell" href="/cs-ghibli">
+              <img src="images/Ghibli_image.png" alt="Maserati Ghibli" loading="lazy" />
+              <div class="bento-info"><h3 class="bento-title">Maserati Ghibli Website Redesign</h3><p class="bento-desc">Concept redesign for Maserati's Ghibli model website.</p></div>
+            </a>
+            <a class="bento-cell cs-card-locked" href="/p/creator-community-platform" data-locked data-slug="creator-community-platform" data-title="Creator Community Platform" aria-label="Creator Community Platform — locked, enter access code">
+              <img src="images/B2C_fitness_platform_image.png" alt="Creator community platform: admin dashboard" loading="lazy" />
+              <span class="cs-access-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>Enter access code</span></span>
+              <div class="bento-info"><h3 class="bento-title">Creator Community Platform</h3><p class="bento-desc">All-in-one platform where creators build communities, sell, and engage their audience.</p></div>
+            </a>
+            <a class="bento-cell cs-card-locked" href="/p/un-escap-risk-portal" data-locked data-slug="un-escap-risk-portal" data-title="UN ESCAP — Risk and Resilience Portal" aria-label="UN ESCAP — Risk and Resilience Portal — locked, enter access code">
+              <img src="images/UN_case_study_image.png" alt="UN ESCAP" loading="lazy" />
+              <span class="cs-access-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>Enter access code</span></span>
+              <div class="bento-info"><h3 class="bento-title">UN ESCAP — Risk and Resilience Portal</h3><p class="bento-desc">Portal for exploring climate risk data by country.</p></div>
+            </a>
+            <a class="bento-cell cs-card-locked" href="/p/digital-assets-management" data-locked data-slug="digital-assets-management" data-title="Digital Assets Management System" aria-label="Digital Assets Management System — locked, enter access code">
+              <img src="images/DAM_card_hifi.png" alt="Digital asset management system: the My DAM home screen" loading="lazy" style="object-position:left top;" />
+              <span class="cs-access-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>Enter access code</span></span>
+              <div class="bento-info"><h3 class="bento-title">Digital Assets Management System</h3><p class="bento-desc">Enterprise DAM to organize, tag, and share media at scale.</p></div>
+            </a>
           </div>
         </div>
 
@@ -459,14 +422,6 @@
   </div>
 
   <script>
-    // Carousel
-    let csIndex = 0;
-    const totalSlides = 3;
-    function slideCS(dir) {
-      csIndex = (csIndex + dir + totalSlides) % totalSlides;
-      document.getElementById('csSlides').style.transform = `translateX(-${csIndex * 100}%)`;
-      document.querySelectorAll('.carousel-progress span').forEach((s,i) => s.classList.toggle('active', i === csIndex));
-    }
     // Blog pagination (static, just dots for now)
     let blogIndex = 0;
     function slideBlog(dir) {
