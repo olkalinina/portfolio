@@ -37,40 +37,51 @@
     .client-logos img { height: 40px; width: auto; max-width: 130px; object-fit: contain; opacity: 0.5; filter: grayscale(1); flex-shrink: 0; }
 
 
-    /* ── How I can help: the two main offers ── */
+    /* ── How I can help: the two main offers (side-by-side, hover to expand) ── */
     .help-section { display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 80px 0 0; text-align: center; }
     .help-title { font-size: 34px; font-weight: 400; line-height: 1.15; }
-    .help-cards { display: flex; flex-direction: column; gap: 24px; width: 100%; text-align: left; }
+    .help-cards { display: flex; flex-direction: row; gap: 20px; width: 100%; text-align: left; }
     .help-card {
-      --mx: 50%; --my: 50%; --glow: 0;
-      position: relative; isolation: isolate; overflow: hidden;
-      background: var(--bg-soft); border-radius: 28px; padding: 44px 48px;
+      --mx: 50%; --my: 50%; --glow: 0; --more-w: 470px;
+      position: relative; isolation: isolate; overflow: hidden; min-width: 0;
+      flex: 1 1 0; background: var(--bg-soft); border-radius: 28px; padding: 44px 44px 40px;
       display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
-      transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
+      transition: flex-grow .6s cubic-bezier(.22,.7,.2,1), box-shadow .5s ease;
     }
-    /* spotlight that follows the cursor */
-    .help-card::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: var(--glow); transition: opacity .35s ease;
-      background: radial-gradient(560px circle at var(--mx) var(--my), rgba(255,255,255,1), rgba(255,238,206,0.62) 42%, transparent 74%); }
-    /* thin border that lights up near the cursor */
-    .help-card::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; border-radius: inherit; padding: 1.5px; opacity: var(--glow); transition: opacity .35s ease;
-      background: radial-gradient(260px circle at var(--mx) var(--my), rgba(42,41,37,0.55), rgba(42,41,37,0.08) 60%, transparent 80%);
+    .help-card:hover, .help-card:focus-within { flex-grow: 1.7; box-shadow: 0 14px 36px rgba(42,41,37,0.07); }
+    /* off-white spotlight that follows the cursor */
+    .help-card::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: var(--glow); transition: opacity .4s ease;
+      background: radial-gradient(520px circle at var(--mx) var(--my), rgba(255,255,255,0.92), rgba(255,255,255,0.35) 50%, transparent 78%); }
+    /* hairline border with a restrained blue-violet-pink tint near the cursor */
+    .help-card::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; border-radius: inherit; padding: 1px; opacity: var(--glow); transition: opacity .4s ease;
+      background: radial-gradient(340px circle at var(--mx) var(--my), rgba(99,102,241,0.55), rgba(168,85,247,0.38) 42%, rgba(236,110,173,0.28) 66%, transparent 90%);
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
-    .help-eyebrow { font-size: 14px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); }
-    .help-card h3 { font-size: 34px; font-weight: 500; line-height: 1.15; max-width: 760px; }
-    .help-card p { font-size: 16px; line-height: 1.6; color: var(--gray); max-width: 820px; }
-    .help-card .help-lead { font-size: 19px; line-height: 1.5; color: var(--dark); }
-    .help-tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 10px; }
+    .help-name { font-size: 44px; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
+    .help-headline { font-size: 21px; line-height: 1.4; color: var(--dark); max-width: 460px; }
+    .help-more { width: var(--more-w); flex: none; display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(8px);
+      transition: opacity .25s ease, transform .25s ease; }
+    .help-card:hover .help-more, .help-card:focus-within .help-more { opacity: 1; transform: none; transition: opacity .45s ease .18s, transform .45s ease .18s; }
+    .help-more p { font-size: 16px; line-height: 1.6; color: var(--gray); }
+    .help-more .help-lead { font-size: 18px; line-height: 1.5; color: var(--dark); }
+    .help-tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 0; }
     .help-tags li { font-size: 14.5px; font-weight: 500; padding: 9px 16px; border-radius: 10px; background: rgba(42,41,37,0.07); color: var(--dark); }
-    .help-card .btn-dark { margin-top: 6px; display: inline-flex; gap: 8px; }
+    .help-card .btn-dark { margin-top: auto; display: inline-flex; gap: 8px; }
+    .help-card .help-more + .btn-dark { margin-top: auto; }
     .help-card .btn-dark::after { content: ""; position: absolute; inset: 0; z-index: 2; }  /* the whole card is clickable */
-    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-      .help-card:hover, .help-card:focus-within { transform: translateY(-4px) scale(1.018); box-shadow: 0 22px 50px rgba(42,41,37,0.12); }
+    /* narrow screens and touch devices: stacked, everything visible */
+    @media (max-width: 960px), (hover: none) {
+      .help-cards { flex-direction: column; gap: 20px; }
+      .help-card, .help-card:hover, .help-card:focus-within { flex-grow: 1; box-shadow: none; }
+      .help-more { width: auto; opacity: 1; transform: none; }
+      .help-card .btn-dark { margin-top: 10px; }
     }
-    @media (max-width: 860px) { .help-section { padding-top: 56px; } .help-title { font-size: 28px; } .help-card { padding: 32px 24px; border-radius: 24px; } .help-card h3 { font-size: 27px; } .help-card .btn-dark { width: 100%; } }
-    html[data-theme="dark"] .help-card::before { background: radial-gradient(520px circle at var(--mx) var(--my), rgba(255,255,255,0.10), rgba(255,255,255,0.04) 40%, transparent 70%); }
-    html[data-theme="dark"] .help-card::after { background: radial-gradient(260px circle at var(--mx) var(--my), rgba(255,255,255,0.55), rgba(255,255,255,0.08) 60%, transparent 80%); }
+    @media (max-width: 860px) { .help-section { padding-top: 56px; } .help-title { font-size: 28px; } .help-card { padding: 32px 24px; border-radius: 24px; } .help-name { font-size: 34px; } .help-card .btn-dark { width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { .help-card, .help-more, .help-card::before, .help-card::after { transition: none !important; } }
+    html[data-theme="dark"] .help-card::before { background: radial-gradient(520px circle at var(--mx) var(--my), rgba(255,255,255,0.09), rgba(255,255,255,0.03) 50%, transparent 78%); }
+    html[data-theme="dark"] .help-card::after { background: radial-gradient(340px circle at var(--mx) var(--my), rgba(129,140,248,0.75), rgba(192,132,252,0.5) 42%, rgba(244,114,182,0.35) 66%, transparent 90%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
     html[data-theme="dark"] .help-tags li { background: rgba(255,255,255,0.08); }
-    html[data-theme="dark"] .help-card:hover, html[data-theme="dark"] .help-card:focus-within { box-shadow: 0 22px 50px rgba(0,0,0,0.5); }
+    html[data-theme="dark"] .help-card:hover, html[data-theme="dark"] .help-card:focus-within { box-shadow: 0 14px 36px rgba(0,0,0,0.35); }
 
     /* ── Case Studies section ── */
     .cs-section { display: flex; flex-direction: column; gap: 48px; align-items: center; padding: 80px 0 0; }
@@ -212,18 +223,22 @@
           <h2 class="help-title">Two ways to work together.</h2>
           <div class="help-cards">
             <div class="help-card" data-magic>
-              <span class="help-eyebrow">Product design</span>
-              <h3>Complex products. Clear experiences.</h3>
-              <p class="help-lead">I design digital products that turn complex functionality into experiences people can understand and use.</p>
-              <p>From shaping new products and defining user journeys to redesigning complex platforms and AI-powered tools, I help founders and product teams build products that work for both users and the business.</p>
-              <ul class="help-tags"><li>SaaS &amp; AI products</li><li>Complex platforms</li><li>New product development</li></ul>
+              <h3 class="help-name">Product design</h3>
+              <p class="help-headline">Complex products. Clear experiences.</p>
+              <div class="help-more">
+                <p class="help-lead">I design digital products that turn complex functionality into experiences people can understand and use.</p>
+                <p>From shaping new products and defining user journeys to redesigning complex platforms and AI-powered tools, I help founders and product teams build products that work for both users and the business.</p>
+                <ul class="help-tags"><li>SaaS &amp; AI products</li><li>Complex platforms</li><li>New product development</li></ul>
+              </div>
               <a href="/product-design" class="btn-dark">Explore product design <span aria-hidden="true">&rarr;</span></a>
             </div>
             <div class="help-card" data-magic>
-              <span class="help-eyebrow">Behavioral CRO Diagnosis</span>
-              <h3>Understand why users hesitate, where conversion breaks down, and what to improve.</h3>
-              <p>An evidence-based review of your website or digital product to uncover the behavioral barriers behind lost conversions, with clear explanations and actionable recommendations.</p>
-              <ul class="help-tags"><li>Value proposition</li><li>Trust and credibility</li><li>Conversion journey</li></ul>
+              <h3 class="help-name">Behavioral CRO Diagnosis</h3>
+              <p class="help-headline">Understand why users hesitate, where conversion breaks down, and what to improve.</p>
+              <div class="help-more">
+                <p>An evidence-based review of your website or digital product to uncover the behavioral barriers behind lost conversions, with clear explanations and actionable recommendations.</p>
+                <ul class="help-tags"><li>Value proposition</li><li>Trust and credibility</li><li>Conversion journey</li></ul>
+              </div>
               <a href="/behavioral-cro-diagnosis" class="btn-dark">Explore the service <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
