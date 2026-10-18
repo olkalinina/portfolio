@@ -28,6 +28,11 @@
     .hero-tags { font-size: 16px; font-weight: 500; color: var(--gray); line-height: 1.6; }
     .hero-media { display: flex; flex-direction: column; align-items: center; gap: 42px; width: 100%; max-width: 863px; }
     .hero-photo { width: 100%; max-width: 802px; height: auto; aspect-ratio: 2000 / 1328; border-radius: 33px; object-fit: cover; object-position: 50% 50%; display: block; background: #e8eeff; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn-outline-dark { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border: 1.5px solid var(--dark); border-radius: var(--radius-pill); background: transparent; color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 500; transition: background var(--transition), transform var(--transition); }
+    .btn-outline-dark:hover { background: var(--bg-soft); transform: translateY(-1px); }
+    #services { scroll-margin-top: 70px; }
+    @media (max-width: 768px) { .hero-actions { width: 100%; flex-direction: column; } .hero-actions .btn-dark, .hero-actions .btn-outline-dark { width: 100%; } }
     .client-logos { display: flex; align-items: center; gap: 24px; flex-wrap: nowrap; justify-content: center; }
     .client-logos img { height: 40px; width: auto; max-width: 130px; object-fit: contain; opacity: 0.5; filter: grayscale(1); flex-shrink: 0; }
 
@@ -181,11 +186,13 @@
         <div class="hero">
           <div class="hero-text">
             <h1 class="hero-name">Olga Kalinina</h1>
-            <p class="hero-role">Lead Product Designer &amp; CRO Expert.</p>
-            <p class="hero-desc">I design digital products where great UX meets business performance. I combine product thinking, behavioural insights, and conversion-focused design to simplify complex SaaS platforms, AI products, and user journeys — turning better experiences into business results.</p>
-            <p class="hero-tags">Product Design · Conversion Rate Optimisation · SaaS &amp; AI Products · UX Strategy</p>
+            <p class="hero-role">Product Designer &amp; Behavioral CRO Expert</p>
+            <p class="hero-desc">I help businesses turn complex digital products into clear, effective experiences — through thoughtful product design and evidence-based behavioral diagnosis.</p>
           </div>
-          <a href="/contacts" class="btn-dark">Contact me</a>
+          <div class="hero-actions">
+            <a href="#services" class="btn-dark">Explore services</a>
+            <a href="/contacts" class="btn-outline-dark">Contact me</a>
+          </div>
           <div class="hero-media">
             <img src="images/olga_hero.jpg" alt="Olga Kalinina" class="hero-photo" />
             <div class="client-logos">
@@ -200,7 +207,7 @@
         </div>
 
         <!-- HOW I CAN HELP -->
-        <div class="help-section">
+        <div class="help-section" id="services">
           <span class="section-label">How I can help</span>
           <h2 class="help-title">Two ways to work together.</h2>
           <div class="help-cards">
