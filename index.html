@@ -199,17 +199,18 @@
     .cs-card-img-contained { margin: 16px 0 16px; padding: 0; overflow: hidden; border-radius: 12px; }
     .cs-card-img-contained img { width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; border-radius: 12px; border: 1px solid var(--light-gray); }
 
-    .work-on { width: 100%; text-align: left; border: 1px solid var(--light-gray); border-radius: 24px; padding: 36px 44px 40px; }
+    .work-on { width: 100%; text-align: left; border: 1px solid var(--light-gray); border-radius: 24px; padding: 36px 44px 44px; }
     .work-on-eyebrow { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
-    .work-on-head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 72px; align-items: start; padding: 28px 0 34px; border-bottom: 1px solid var(--light-gray); }
-    .work-on-head h2 { font-size: 40px; font-weight: 400; line-height: 1.15; }
-    .work-on-head p { font-size: 18px; line-height: 1.65; color: var(--gray); }
-    .work-on-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 72px; padding-top: 34px; }
-    .work-on-grid li { display: flex; flex-direction: column; gap: 6px; }
-    .work-on-grid .n { font-size: 13px; letter-spacing: 0.14em; color: var(--gray); }
-    .work-on-grid strong { font-family: 'Playfair Display', Georgia, serif; font-size: 23px; font-weight: 500; line-height: 1.25; }
-    .work-on-grid .d { font-size: 16px; line-height: 1.55; color: var(--gray); }
-    @media (max-width: 860px) { .work-on { padding: 28px 24px 32px; } .work-on-head, .work-on-grid { grid-template-columns: 1fr; } .work-on-head h2 { font-size: 32px; } .work-on-grid { gap: 26px; } }
+    .work-on-body { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 72px; align-items: start; padding-top: 28px; }
+    .work-on-intro { display: flex; flex-direction: column; gap: 18px; }
+    .work-on-intro h2 { font-size: 40px; font-weight: 400; line-height: 1.15; }
+    .work-on-intro p { font-size: 18px; line-height: 1.65; color: var(--gray); max-width: 440px; }
+    .work-on-list { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 26px; }
+    .work-on-list li { position: relative; display: flex; flex-direction: column; gap: 5px; padding-left: 30px; }
+    .work-on-list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: var(--dark); }
+    .work-on-list strong { font-family: 'Playfair Display', Georgia, serif; font-size: 23px; font-weight: 500; line-height: 1.25; }
+    .work-on-list .d { font-size: 16px; line-height: 1.55; color: var(--gray); }
+    @media (max-width: 860px) { .work-on { padding: 28px 24px 32px; } .work-on-body { grid-template-columns: 1fr; } .work-on-intro h2 { font-size: 32px; } }
     /* ── Case studies: arc carousel ── */
     .arc { --arc-size: 300px; --step: 22deg; --pivot: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; }
     .arc-stage { position: relative; width: 100%; height: calc(var(--arc-size) + 90px); overflow: hidden; touch-action: pan-y; user-select: none;
@@ -423,16 +424,18 @@
         <section class="sec-block" id="who" aria-labelledby="who-title">
           <div class="work-on">
             <p class="work-on-eyebrow">What I work on</p>
-            <div class="work-on-head">
-              <h2 id="who-title">Complex products, made clear.</h2>
-              <p>From early-stage concepts to established platforms, I help teams make digital products easier to understand, navigate and use.</p>
+            <div class="work-on-body">
+              <div class="work-on-intro">
+                <h2 id="who-title">Complex products, made clear.</h2>
+                <p>From early-stage concepts to established platforms, I help teams make digital products easier to understand, navigate and use.</p>
+              </div>
+              <ul class="work-on-list">
+                <li><strong>SaaS &amp; enterprise platforms</strong><span class="d">Complex workflows, dashboards, data-heavy tools</span></li>
+                <li><strong>AI-powered products</strong><span class="d">AI tools, copilots, interfaces for intelligent systems</span></li>
+                <li><strong>Web &amp; mobile applications</strong><span class="d">New products, redesigns, user journeys</span></li>
+                <li><strong>Digital services &amp; commerce</strong><span class="d">Marketplaces, e-commerce, customer-facing services</span></li>
+              </ul>
             </div>
-            <ul class="work-on-grid">
-              <li><span class="n" aria-hidden="true">01</span><strong>SaaS &amp; enterprise platforms</strong><span class="d">Complex workflows, dashboards, data-heavy tools</span></li>
-              <li><span class="n" aria-hidden="true">02</span><strong>AI-powered products</strong><span class="d">AI tools, copilots, interfaces for intelligent systems</span></li>
-              <li><span class="n" aria-hidden="true">03</span><strong>Web &amp; mobile applications</strong><span class="d">New products, redesigns, user journeys</span></li>
-              <li><span class="n" aria-hidden="true">04</span><strong>Digital services &amp; commerce</strong><span class="d">Marketplaces, e-commerce, customer-facing services</span></li>
-            </ul>
           </div>
         </section>
 
