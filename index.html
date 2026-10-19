@@ -216,6 +216,20 @@
     .work-on-list .d { font-size: 15px; line-height: 1.55; color: var(--gray); }
     @media (max-width: 960px) { .work-on-list { grid-template-columns: 1fr 1fr; row-gap: 30px; } .work-on-list li:nth-child(odd) { border-left: 0; } }
     @media (max-width: 640px) { .work-on { padding: 28px 24px 32px; } .work-on-intro h2 { font-size: 32px; } .work-on-list { grid-template-columns: 1fr; } .work-on-list li + li { border-left: 0; border-top: 1px solid var(--light-gray); padding-top: 26px; } }
+    /* Case studies on a dark full-width band */
+    .cs-section { --band: #171717; position: relative; margin-top: 128px; padding: 96px 0 104px; background: var(--band); box-shadow: 0 0 0 100vmax var(--band); clip-path: inset(0 -100vmax); }
+    html[data-theme="dark"] .cs-section { --band: #2f2e2e; }
+    html body .cs-section .cs-section-title { color: #f7f5f5; }
+    html body .cs-section .cs-section-sub { color: rgba(247,245,245,0.72); }
+    html body .cs-section .arc-tag { color: rgba(247,245,245,0.78); border-color: rgba(247,245,245,0.28); }
+    html body .cs-section .arc-title { color: #f7f5f5; }
+    html body .cs-section .arc-desc { color: rgba(247,245,245,0.72); }
+    html body .cs-section .arc-count { color: rgba(247,245,245,0.6); }
+    html body .cs-section .arc-card { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12); background: #2f2e2e; }
+    html body .cs-section .carousel-btn { background: transparent; border-color: rgba(247,245,245,0.35); color: #f7f5f5; }
+    html body .cs-section .carousel-btn:hover, html body .cs-section .carousel-btn.active { border-color: #f7f5f5; }
+    html body .cs-section .arc-card:focus-visible { outline-color: #f7f5f5; }
+    @media (max-width: 860px) { .cs-section { margin-top: 88px; padding: 64px 0 72px; } }
     /* ── Case studies: arc carousel ── */
     .arc { --arc-size: 300px; --step: 22deg; --pivot: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; }
     .arc-stage { position: relative; width: 100%; height: calc(var(--arc-size) + 90px); overflow: hidden; touch-action: pan-y; user-select: none;
