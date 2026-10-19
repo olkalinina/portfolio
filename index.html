@@ -206,7 +206,9 @@
     .work-on-intro h2 { font-size: 40px; font-weight: 400; line-height: 1.15; }
     .work-on-intro p { font-size: 18px; line-height: 1.65; color: var(--gray); max-width: 560px; }
     .work-on-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 72px; }
-    .work-on-list li { border-top: 1.5px solid var(--dark); padding-top: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .work-on-list li { display: flex; align-items: flex-start; gap: 18px; }
+    .work-on-list li > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .wo-ico { width: 32px; height: 32px; flex: none; color: var(--dark); margin-top: 1px; }
     .work-on-list strong { font-family: 'Playfair Display', Georgia, serif; font-size: 23px; font-weight: 500; line-height: 1.25; }
     .work-on-list .d { font-size: 16px; line-height: 1.55; color: var(--gray); }
     @media (max-width: 860px) { .work-on { padding: 28px 24px 32px; } .work-on-intro h2 { font-size: 32px; } .work-on-list { grid-template-columns: 1fr; gap: 26px; } }
@@ -429,10 +431,10 @@
                 <p>From early-stage concepts to established platforms, I help teams make digital products easier to understand, navigate and use.</p>
               </div>
               <ul class="work-on-list">
-                <li><strong>SaaS &amp; enterprise platforms</strong><span class="d">Complex workflows, dashboards, data-heavy tools</span></li>
-                <li><strong>AI-powered products</strong><span class="d">AI tools, copilots, interfaces for intelligent systems</span></li>
-                <li><strong>Web &amp; mobile applications</strong><span class="d">New products, redesigns, user journeys</span></li>
-                <li><strong>Digital services &amp; commerce</strong><span class="d">Marketplaces, e-commerce, customer-facing services</span></li>
+                <li><svg class="wo-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg><div><strong>SaaS &amp; enterprise platforms</strong><span class="d">Complex workflows, dashboards, data-heavy tools</span></div></li>
+                <li><svg class="wo-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9L11 3z"/><path d="M19 16v5M16.5 18.5h5"/></svg><div><strong>AI-powered products</strong><span class="d">AI tools, copilots, interfaces for intelligent systems</span></div></li>
+                <li><svg class="wo-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.8"/><path d="M6 18h6M9 14v4"/><rect x="18" y="8" width="4" height="10" rx="1.3"/></svg><div><strong>Web &amp; mobile applications</strong><span class="d">New products, redesigns, user journeys</span></div></li>
+                <li><svg class="wo-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><div><strong>Digital services &amp; commerce</strong><span class="d">Marketplaces, e-commerce, customer-facing services</span></div></li>
               </ul>
             </div>
           </div>
