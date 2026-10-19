@@ -77,11 +77,36 @@
     }
     @media (max-width: 860px) { .help-section { padding-top: 56px; } .help-title { font-size: 28px; } .help-card { padding: 32px 24px; border-radius: 24px; } .help-name { font-size: 34px; } .help-card .btn-dark { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .help-card, .help-more, .help-card::before, .help-card::after { transition: none !important; } }
-    html[data-theme="dark"] .help-card::before { background: radial-gradient(520px circle at var(--mx) var(--my), rgba(255,255,255,0.09), rgba(255,255,255,0.03) 50%, transparent 78%); }
-    html[data-theme="dark"] .help-card::after { background: radial-gradient(340px circle at var(--mx) var(--my), rgba(129,140,248,0.75), rgba(192,132,252,0.5) 42%, rgba(244,114,182,0.35) 66%, transparent 90%);
+    /* Colourful cards: drifting gradient mesh + fine grain, white type, glass tags */
+    .help-bg { position: absolute; inset: -25%; z-index: -3; pointer-events: none; will-change: transform; animation: help-drift 22s ease-in-out infinite alternate; }
+    .help-grain { position: absolute; inset: 0; z-index: -2; pointer-events: none; opacity: .5; mix-blend-mode: soft-light; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 180px 180px; }
+    .help-card--product { background: #3b1fa8; }
+    .help-card--product .help-bg { background:
+      radial-gradient(38% 42% at 12% 12%, #ff7a2f 0%, transparent 70%),
+      radial-gradient(40% 46% at 88% 22%, #7a3cf5 0%, transparent 72%),
+      radial-gradient(42% 44% at 22% 92%, #ff2d95 0%, transparent 70%),
+      radial-gradient(40% 44% at 92% 92%, #2a62ff 0%, transparent 70%),
+      linear-gradient(135deg, #ff3d4f, #5a2bd6); }
+    .help-card--cro { background: #2a4bd6; }
+    .help-card--cro .help-bg { background:
+      radial-gradient(40% 44% at 10% 10%, #38c6ff 0%, transparent 70%),
+      radial-gradient(40% 46% at 90% 18%, #a68bff 0%, transparent 72%),
+      radial-gradient(52% 50% at 80% 96%, #ff9a7a 0%, transparent 72%),
+      radial-gradient(46% 48% at 4% 94%, #1d2fa6 0%, transparent 72%),
+      linear-gradient(135deg, #4a7bff, #8a5cf0); animation-duration: 26s; animation-direction: alternate-reverse; }
+    @keyframes help-drift { from { transform: translate3d(-3%, -2%, 0) rotate(0deg) scale(1); } to { transform: translate3d(3%, 3%, 0) rotate(8deg) scale(1.08); } }
+    /* soft light sheen following the cursor (replaces the old glow) */
+    html body .help-card::before { background: radial-gradient(460px circle at var(--mx) var(--my), rgba(255,255,255,0.30), rgba(255,255,255,0.08) 45%, transparent 72%); }
+    html body .help-card::after { background: radial-gradient(300px circle at var(--mx) var(--my), rgba(255,255,255,0.85), rgba(255,255,255,0.2) 55%, transparent 85%);
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
-    html[data-theme="dark"] .help-tags li { background: rgba(255,255,255,0.08); }
-    html[data-theme="dark"] .help-card:hover, html[data-theme="dark"] .help-card:focus-within { box-shadow: 0 14px 36px rgba(0,0,0,0.35); }
+    html body .help-card { color: #fff; }
+    html body .help-card:hover, html body .help-card:focus-within { box-shadow: 0 24px 50px -18px rgba(40,20,120,0.45); }
+    html body .help-card .help-name { color: #fff; }
+    html body .help-card .help-headline, html body .help-card .help-lead { color: rgba(255,255,255,0.96); }
+    html body .help-card .help-more p { color: rgba(255,255,255,0.86); }
+    html body .help-card .help-tags li { background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+    html body .help-card .btn-dark { background: #fff !important; color: #17132b !important; border-color: transparent !important; box-shadow: 0 6px 18px -6px rgba(20,10,60,0.35); }
+    @media (prefers-reduced-motion: reduce) { .help-bg { animation: none; } }
 
     /* ── Case Studies section ── */
     .cs-section { display: flex; flex-direction: column; gap: 48px; align-items: center; padding: 80px 0 0; }
@@ -260,7 +285,8 @@
           <span class="section-label">How I can help</span>
           <h2 class="help-title">Two ways to work together.</h2>
           <div class="help-cards">
-            <div class="help-card" data-magic>
+            <div class="help-card help-card--product" data-magic>
+              <span class="help-bg" aria-hidden="true"></span><span class="help-grain" aria-hidden="true"></span>
               <h3 class="help-name">Product design</h3>
               <p class="help-headline">Complex products. Clear experiences.</p>
               <div class="help-more">
@@ -270,7 +296,8 @@
               </div>
               <a href="/product-design" class="btn-dark">Explore product design <span aria-hidden="true">&rarr;</span></a>
             </div>
-            <div class="help-card" data-magic>
+            <div class="help-card help-card--cro" data-magic>
+              <span class="help-bg" aria-hidden="true"></span><span class="help-grain" aria-hidden="true"></span>
               <h3 class="help-name">Behavioral CRO Diagnosis</h3>
               <p class="help-headline">Understand why users hesitate, where conversion breaks down, and what to improve.</p>
               <div class="help-more">
