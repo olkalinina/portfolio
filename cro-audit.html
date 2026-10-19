@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRO Audit for Websites &amp; SaaS Products | Olga Kalinina</title>
+  <meta name="description" content="An evidence-based CRO audit to identify conversion barriers across websites and digital products. Get a structured diagnosis, supporting evidence and prioritized recommendations." />
+  <link rel="canonical" href="https://olgakalinina.me/cro-audit" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="CRO Audit for Websites &amp; SaaS Products | Olga Kalinina" />
+  <meta property="og:description" content="An evidence-based CRO audit to identify conversion barriers across websites and digital products. Get a structured diagnosis, supporting evidence and prioritized recommendations." />
+  <meta property="og:url" content="https://olgakalinina.me/cro-audit" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "CRO audit", "alternateName": "Behavioral CRO Diagnosis", "serviceType": "Conversion rate optimization audit", "description": "An evidence-based CRO audit to identify conversion barriers across websites and digital products. Get a structured diagnosis, supporting evidence and prioritized recommendations.", "url": "https://olgakalinina.me/cro-audit", "provider": {"@id": "https://olgakalinina.me/#person"}, "areaServed": "Worldwide"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a CRO audit?", "acceptedAnswer": {"@type": "Answer", "text": "A conversion rate optimization audit is a structured review of a website or digital product to identify issues that may prevent users from completing a desired action. It examines the conversion journey, user experience, messaging, trust and relevant behavioral evidence to produce prioritized recommendations."}}, {"@type": "Question", "name": "How is a CRO audit different from a UX audit?", "acceptedAnswer": {"@type": "Answer", "text": "A UX audit focuses on usability and the overall user experience. A CRO audit focuses on barriers to a specific business outcome, such as signups, purchases or demo requests. Product usability is one of the factors that can influence conversion."}}, {"@type": "Question", "name": "Is analytics data required?", "acceptedAnswer": {"@type": "Answer", "text": "Analytics data, session recordings and heatmaps can strengthen the diagnosis, especially when they help identify drop-off points or patterns in user behavior. If these sources are unavailable, the scope can be based on the information that is accessible. Findings will reflect the strength and limitations of the available evidence."}}, {"@type": "Question", "name": "What does the CRO audit report include?", "acceptedAnswer": {"@type": "Answer", "text": "The report includes documented findings, supporting evidence where available, explanations of potential behavioral implications, prioritized recommendations and an action plan. The exact scope depends on the product and the questions being investigated."}}, {"@type": "Question", "name": "Does the service include redesign or implementation?", "acceptedAnswer": {"@type": "Answer", "text": "The core service focuses on diagnosis and recommendations. Product design, interface redesign and implementation support can be scoped separately based on the findings and the team's needs."}}, {"@type": "Question", "name": "Can a CRO audit guarantee a conversion increase?", "acceptedAnswer": {"@type": "Answer", "text": "No audit can guarantee a specific uplift. Results depend on the product, audience, traffic, implementation and other factors. The purpose of the diagnosis is to identify plausible barriers, explain the evidence and establish a more informed direction for improvement."}}, {"@type": "Question", "name": "Is a CRO audit suitable for a product with low traffic?", "acceptedAnswer": {"@type": "Answer", "text": "A diagnosis may still identify usability, messaging and trust issues, but limited traffic can restrict what analytics data can establish. The scope and confidence of conclusions should reflect the available evidence."}}, {"@type": "Question", "name": "How much does a CRO audit cost?", "acceptedAnswer": {"@type": "Answer", "text": "The cost depends on the product's complexity, the number of flows or pages being investigated, the available data and the required depth of analysis. The scope and estimate can be discussed after an initial review of the project."}}]}, {"@type": "Person", "@id": "https://olgakalinina.me/#person", "name": "Olga Kalinina", "jobTitle": "Product Designer & Behavioral CRO Expert", "url": "https://olgakalinina.me/"}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .pd { display: flex; flex-direction: column; gap: 108px; padding: 40px 0 100px; }
+    .pd h2 { font-size: 36px; font-weight: 400; line-height: 1.15; }
+    .pd-sub { font-size: 18px; line-height: 1.6; color: var(--gray); max-width: 620px; margin-top: 14px; }
+    .pd-sub + .pd-sub { margin-top: 10px; }
+    /* hero */
+    .pd-hero { position: relative; overflow: hidden; isolation: isolate; border-radius: 32px; background: var(--bg-soft); padding: 64px 56px 68px; box-shadow: inset 0 0 0 1px var(--light-gray); }
+    .pd-hero::before, .pd-cta::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgba(23,23,23,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(23,23,23,0.07) 1px, transparent 1px); background-size: 36px 36px;
+      -webkit-mask-image: radial-gradient(70% 90% at 100% 0%, #000, transparent 75%); mask-image: radial-gradient(70% 90% at 100% 0%, #000, transparent 75%); }
+    .pd-hero-tile { width: 64px; height: 64px; border-radius: 18px; background: #171717; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
+    .pd-hero-tile img { width: 46px; height: 46px; display: block; }
+    .pd-eyebrow { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .pd-hero h1 { font-size: 54px !important; font-weight: 400 !important; line-height: 1.08; max-width: 760px; margin-bottom: 26px; text-wrap: balance; }
+    .pd-lead { font-size: 19px; line-height: 1.65; color: var(--dark); max-width: 640px; }
+    .pd-lead + .pd-lead { margin-top: 14px; color: var(--gray); }
+    .pd-actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    /* services */
+    .pd-svc { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; margin-top: 36px; }
+    .pd-card { grid-column: span 2; position: relative; background: var(--bg-soft); border-radius: 24px; padding: 28px 26px 30px; display: flex; flex-direction: column; gap: 12px; box-shadow: inset 0 0 0 1px var(--light-gray); transition: box-shadow .3s ease, transform .3s ease; }
+    .pd-card:nth-child(n+4) { grid-column: span 3; }
+    .pd-card:hover { box-shadow: inset 0 0 0 1px var(--dark); transform: translateY(-3px); }
+    .pd-ico { width: 48px; height: 48px; border-radius: 14px; background: #171717; color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+    .pd-ico svg { width: 24px; height: 24px; }
+    .pd-num { position: absolute; top: 28px; right: 26px; font-size: 13px; letter-spacing: 0.18em; color: var(--gray); }
+    .pd-card h3 { font-size: 23px; line-height: 1.2; font-weight: 500; }
+    .pd-card p { font-size: 15.5px; line-height: 1.6; color: var(--gray); }
+    /* split blocks */
+    .pd-split { display: grid; grid-template-columns: 1fr 1.5fr; gap: 72px; align-items: start; }
+    .pd-split-head { position: sticky; top: 100px; }
+    .pd-incl { list-style: none; padding: 0; margin: 0; }
+    .pd-incl li { display: grid; grid-template-columns: 34px 1fr; gap: 6px 14px; padding: 24px 0; border-top: 1.5px solid var(--light-gray); }
+    .pd-incl li:last-child { border-bottom: 1.5px solid var(--light-gray); }
+    .pd-incl .n { grid-row: span 2; font-size: 13px; letter-spacing: 0.14em; color: var(--gray); padding-top: 6px; }
+    .pd-incl strong { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 500; line-height: 1.25; }
+    .pd-incl span.d { font-size: 16px; line-height: 1.6; color: var(--gray); }
+    /* process */
+    .pd-steps { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
+    .pd-steps li { position: relative; border-top: 1.5px solid var(--dark); padding-top: 26px; display: flex; flex-direction: column; gap: 10px; }
+    .pd-steps li::before { content: ""; position: absolute; top: -6px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--dark); }
+    .pd-steps .n { font-size: 13px; letter-spacing: 0.18em; color: var(--gray); }
+    .pd-steps h3 { font-size: 24px; font-weight: 500; line-height: 1.2; }
+    .pd-steps p { font-size: 15.5px; line-height: 1.6; color: var(--gray); }
+    /* work */
+    .pd-work { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+    .pd-work a { display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: inherit; }
+    .pd-work .pic { position: relative; overflow: hidden; border-radius: 22px; aspect-ratio: 1 / 1; background: var(--bg-soft); box-shadow: inset 0 0 0 1px var(--light-gray); }
+    .pd-work img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .8s cubic-bezier(.22,.7,.2,1); }
+    .pd-work a:hover img, .pd-work a:focus-visible img { transform: scale(1.05); }
+    .pd-work a:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 22px; }
+    .pd-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+    .pd-work h3 { font-size: 24px; font-weight: 500; line-height: 1.2; margin-top: -6px; }
+    .pd-work p { font-size: 15.5px; line-height: 1.55; color: var(--gray); margin-top: -6px; }
+    .pd-work-actions { margin-top: 34px; display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .pd-link { font-size: 16px; color: var(--dark); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+    /* chips + tools */
+    .pd-chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .pd-chips li { font-size: 15.5px; padding: 11px 20px; border: 1.5px solid var(--light-gray); border-radius: 9999px; background: var(--bg-soft); }
+    .pd-chips.tools li { display: inline-flex; align-items: center; gap: 9px; background: #fdfcfc; color: #2f2e2e; }
+    .pd-chips.tools img { width: 22px; height: 22px; object-fit: contain; }
+    html[data-theme="dark"] .pd-chips.tools li { background: #ede8ea; border-color: #ede8ea; color: #171717; }
+    /* faq */
+    .pd-faq { border-top: 1.5px solid var(--light-gray); }
+    .pd-faq details { border-bottom: 1.5px solid var(--light-gray); }
+    .pd-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; font-size: 19px; font-weight: 500; color: var(--dark); }
+    .pd-faq summary::-webkit-details-marker { display: none; }
+    .pd-faq summary:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 6px; }
+    .pd-faq .pl { position: relative; width: 16px; height: 16px; flex: none; }
+    .pd-faq .pl::before, .pd-faq .pl::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -0.75px; background: currentColor; transition: transform .3s ease; }
+    .pd-faq .pl::after { transform: rotate(90deg); }
+    .pd-faq details[open] .pl::after { transform: rotate(0); }
+    .pd-faq p { padding: 0 40px 24px 0; font-size: 16.5px; line-height: 1.65; color: var(--gray); }
+    /* closing */
+    .pd-cta { position: relative; overflow: hidden; isolation: isolate; border-radius: 32px; background: var(--bg-soft); padding: 72px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: inset 0 0 0 1px var(--light-gray); }
+    .pd-cta h2 { font-size: 40px; }
+    .pd-cta p { font-size: 18px; line-height: 1.6; color: var(--gray); max-width: 560px; }
+    .pd-cta .btn-dark { margin-top: 12px; }
+    html[data-theme="dark"] .pd-hero::before, html[data-theme="dark"] .pd-cta::before { background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px); }
+    html[data-theme="dark"] .pd-hero-tile, html[data-theme="dark"] .pd-ico { background: rgba(255,255,255,0.1); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16); }
+    @media (max-width: 960px) {
+      .pd { gap: 80px; }
+      .pd-hero { padding: 44px 28px 48px; } .pd-hero h1 { font-size: 40px !important; }
+      .pd-card, .pd-card:nth-child(n+4) { grid-column: span 3; } .pd-card:last-child { grid-column: span 6; }
+      .pd-split { grid-template-columns: 1fr; gap: 28px; } .pd-split-head { position: static; }
+      .pd-steps { grid-template-columns: repeat(2, 1fr); }
+      .pd-work { grid-template-columns: 1fr; } .pd-work .pic { aspect-ratio: 4 / 3; }
+    }
+    @media (max-width: 640px) {
+      .pd h2 { font-size: 30px; } .pd-hero h1 { font-size: 34px !important; } .pd-lead { font-size: 17px; }
+      .pd-card, .pd-card:nth-child(n+4), .pd-card:last-child { grid-column: span 6; }
+      .pd-steps { grid-template-columns: 1fr; }
+      .pd-cta { padding: 48px 24px; } .pd-cta h2 { font-size: 32px; }
+      .pd-actions .btn-dark, .pd-cta .btn-dark, .pd-work-actions .btn-dark { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { .pd-card, .pd-work img, .pd-faq .pl::before, .pd-faq .pl::after { transition: none; } .pd-card:hover { transform: none; } }
+  
+    /* CRO identity: deep ink panels with diagnostic rings */
+    .pd-hero, .pd-cta { background: #2f2e2e; color: #f7f5f5; box-shadow: none; }
+    .pd-hero::before, .pd-cta::before { background-image: repeating-radial-gradient(circle at 100% 100%, rgba(255,255,255,0.09) 0 1px, transparent 1px 38px) !important; background-size: auto !important;
+      -webkit-mask-image: radial-gradient(80% 100% at 100% 100%, #000, transparent 75%); mask-image: radial-gradient(80% 100% at 100% 100%, #000, transparent 75%); }
+    .pd-hero-tile { background: rgba(255,255,255,0.1); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18); }
+    html body .pd-hero .pd-eyebrow, html body .pd-cta p, html body .pd-hero .pd-lead + .pd-lead { color: rgba(247,245,245,0.72); }
+    html body .pd-hero h1, html body .pd-cta h2 { color: #f7f5f5; }
+    html body .pd-hero .pd-lead { color: rgba(247,245,245,0.92); }
+    .pd-hero .btn-dark, .pd-cta .btn-dark { background: #ede8ea !important; color: #171717 !important; }
+    html[data-theme="dark"] .pd-hero, html[data-theme="dark"] .pd-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
+    .pd-svc.six { grid-template-columns: repeat(3, 1fr); }
+    .pd-svc.six .pd-card, .pd-svc.six .pd-card:nth-child(n+4) { grid-column: auto; }
+    .pd-dots { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-direction: column; gap: 14px; }
+    .pd-dots li { position: relative; padding-left: 30px; font-size: 17px; line-height: 1.55; }
+    .pd-dots li::before { content: ""; position: absolute; left: 3px; top: 9px; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--dark); }
+    .pd-note { margin-top: 20px; padding: 22px 26px; border-left: 3px solid var(--dark); background: var(--bg-soft); border-radius: 0 18px 18px 0; font-size: 17px; line-height: 1.65; }
+    .pd-quote { font-family: 'Playfair Display', Georgia, serif; font-size: 27px; line-height: 1.3; margin-top: 32px; padding-top: 28px; border-top: 1.5px solid var(--light-gray); max-width: 640px; }
+    .pd-why h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 500; line-height: 1.25; margin-bottom: 14px; }
+    .pd-why p { font-size: 17px; line-height: 1.7; color: var(--gray); margin-top: 12px; max-width: 620px; }
+    .pd-why-grid { grid-template-columns: 1fr 1fr; gap: 56px; }
+    @media (max-width: 960px) { .pd-why-grid { grid-template-columns: 1fr; gap: 44px; } }
+    .pd-venn { width: 100%; max-width: 420px; justify-self: center; }
+    .pd-venn circle { fill: rgba(23,23,23,0.06); stroke: var(--dark); stroke-width: 1.5; }
+    .pd-venn text { font-family: 'Lora', Georgia, serif; font-size: 13px; letter-spacing: 0.14em; fill: var(--dark); text-anchor: middle; }
+    html[data-theme="dark"] .pd-venn circle { fill: rgba(255,255,255,0.07); }
+    .pd-work .pd-more { font-size: 15px; color: var(--dark); margin-top: 2px; }
+    .pd-work a:hover .pd-more { text-decoration: underline; text-underline-offset: 4px; }
+    @media (max-width: 960px) { .pd-svc.six { grid-template-columns: repeat(2, 1fr); } .pd-svc.six .pd-card, .pd-svc.six .pd-card:last-child { grid-column: auto; } }
+    @media (max-width: 640px) { .pd-svc.six { grid-template-columns: 1fr; } .pd-quote { font-size: 23px; } }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=11" />
+</head>
+<body>
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <div class="nav-dd is-current"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="navServices">Services<svg viewBox="0 0 12 8" width="11" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1.5,1.75 6,6.25 10.5,1.75"/></svg></button><div class="nav-dd-menu" id="navServices"><a href="/product-design" class="nav-dd-item"><strong>Product Design</strong><span>Building a new product or improving an existing one.</span></a><a href="/cro-audit" class="nav-dd-item" aria-current="page"><strong>Behavioral CRO Diagnosis</strong><span>Finding conversion barriers and deciding what to improve.</span></a></div></div>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About me</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <span class="mobile-menu-label">Services</span>
+      <a href="/product-design" class="mobile-sub">Product Design</a>
+      <a href="/cro-audit" class="mobile-sub active" aria-current="page">Behavioral CRO Diagnosis</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About me</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <main class="page-content">
+      <div class="container">
+        <div class="pd">
+
+          <section class="pd-hero">
+            <div class="pd-hero-tile" aria-hidden="true"><img src="/images/icon-shapes-white.gif" alt="" width="46" height="46" /></div>
+            <p class="pd-eyebrow">Behavioral CRO Diagnosis</p>
+            <h1>CRO audit: understand why users aren't converting</h1>
+            <p class="pd-lead">Your website or digital product may be losing potential customers for reasons that aren't immediately obvious. A CRO audit examines where users encounter friction, what undermines trust, and what prevents them from taking the next step.</p>
+            <p class="pd-lead">Behavioral CRO Diagnosis combines product UX analysis, behavioral reasoning and available analytics to identify conversion barriers and determine what is worth improving first.</p>
+            <div class="pd-actions"><a href="/contacts" class="btn-dark">Request a CRO Audit</a></div>
+          </section>
+
+          <section aria-labelledby="pd-investigates">
+            <h2 id="pd-investigates">What the diagnosis investigates</h2>
+            <p class="pd-sub">The scope depends on the product, its goals and the challenges being investigated. The analysis can cover the following areas.</p>
+            <div class="pd-svc six">
+            <article class="pd-card"><span class="pd-num" aria-hidden="true">01</span><span class="pd-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 9-9 9-9-9 9-9z"/><path d="M12 8v8M8 12h8"/></svg></span><h3>Value proposition</h3><p>Whether visitors understand what the product offers, who it is for, and why it matters to them.</p></article>
+            <article class="pd-card"><span class="pd-num" aria-hidden="true">02</span><span class="pd-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><h3>Trust and credibility</h3><p>What helps users trust the product and its offer — and what creates doubt or makes the decision feel risky.</p></article>
+            <article class="pd-card"><span class="pd-num" aria-hidden="true">03</span><span class="pd-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="2.2"/><circle cx="18" cy="7" r="2.2"/><path d="M7.7 15.6l8.6-7.2"/></svg></span><h3>Conversion journey</h3><p>Where obstacles emerge between the first interaction and the intended action, from exploring an offer to signing up or making a purchase.</p></article>
+            <article class="pd-card"><span class="pd-num" aria-hidden="true">04</span><span class="pd-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg></span><h3>Onboarding and activation</h3><p>What makes it difficult for users to get started, complete key steps and experience the product's value.</p></article>
+            <article class="pd-card"><span class="pd-num" aria-hidden="true">05</span><span class="pd-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l5 5v8l-5 5H8l-5-5V8l5-5z"/><path d="M8 12h8"/></svg></span><h3>Decision friction</h3><p>What prevents users from choosing a plan, requesting a demo, signing up, purchasing or continuing through an important flow.</p></article>
+            <article class="pd-card"><span class="pd-num" aria-hidden="true">06</span><span class="pd-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 7-6 2-2 6L5 3z"/></svg></span><h3>UX and interaction issues</h3><p>How confusing navigation, unclear messaging, unnecessary steps or inconsistent interface patterns may interfere with the user's ability to complete a task.</p></article>
+            </div>
+          </section>
+
+          <section class="pd-split" aria-labelledby="pd-for">
+            <div class="pd-split-head">
+              <h2 id="pd-for">Who it's for</h2>
+              <p class="pd-sub">CRO audits are particularly useful for businesses that have an existing website or digital product and need to understand why users aren't progressing as expected.</p>
+            </div>
+            <div>
+              <p class="pd-tag" style="margin-bottom:12px;">Suitable for</p>
+              <ul class="pd-chips"><li>SaaS products</li><li>AI-powered products</li><li>Digital platforms</li><li>Marketplaces</li><li>E-commerce</li><li>Other digital services</li></ul>
+              <p class="pd-tag" style="margin:34px 0 0;">Common situations include</p>
+              <ul class="pd-dots"><li>Traffic exists, but conversion rates are below expectations.</li><li>Visitors explore the offer but don't sign up, request a demo or purchase.</li><li>Users abandon important steps in a signup or onboarding flow.</li><li>The value proposition is difficult to communicate.</li><li>The product has accumulated UX issues, but the team doesn't know which ones matter most.</li><li>The team has analytics data but needs help interpreting what may be preventing conversion.</li></ul>
+              <p class="pd-note">A CRO audit is most useful when there is a defined conversion goal and enough product context to investigate the experience. Available analytics and behavioral data can strengthen the diagnosis, but the scope can be adapted when data is limited.</p>
+            </div>
+          </section>
+
+          <section aria-labelledby="pd-process">
+            <h2 id="pd-process">How the CRO audit works</h2>
+            <ol class="pd-steps">
+            <li><span class="n">01</span><h3>Context</h3><p>Establish the product's goals, target audience, conversion objectives and current challenges. Review the available product information, analytics and relevant business context.</p></li>
+            <li><span class="n">02</span><h3>Investigation</h3><p>Examine the interface and key user journeys. Depending on the project, the analysis may include analytics data, session recordings, heatmaps, competitor reviews and other relevant evidence.</p></li>
+            <li><span class="n">03</span><h3>Diagnosis</h3><p>Identify conversion barriers, assess their potential behavioral implications and distinguish directly observable issues from hypotheses that require further validation.</p></li>
+            <li><span class="n">04</span><h3>Action plan</h3><p>Translate findings into prioritized recommendations. Each recommendation explains what should be improved, why it matters and what the team can investigate or change next.</p></li>
+            </ol>
+            <p class="pd-note">The analysis distinguishes observed evidence from reasoned hypotheses. Conclusions are calibrated to the information available; assumptions are not presented as proven user behavior.</p>
+          </section>
+
+          <section class="pd-split" aria-labelledby="pd-receive">
+            <div class="pd-split-head">
+              <h2 id="pd-receive">What you'll receive</h2>
+              <p class="pd-sub">A structured CRO audit report designed to help the team understand the problems and decide what to address first.</p>
+            </div>
+            <div>
+              <ul class="pd-incl">
+              <li><span class="n" aria-hidden="true">01</span><strong>Evidence-backed findings</strong><span class="d">Supported by annotated screenshots and relevant data where available.</span></li>
+              <li><span class="n" aria-hidden="true">02</span><strong>Behavioral explanations</strong><span class="d">Describing how each identified issue may affect user understanding, confidence or decision-making.</span></li>
+              <li><span class="n" aria-hidden="true">03</span><strong>Prioritized recommendations</strong><span class="d">Based on the likely impact, strength of evidence and practical relevance of each issue.</span></li>
+              <li><span class="n" aria-hidden="true">04</span><strong>Implementation direction</strong><span class="d">Explaining what to change and how the improvement could be approached.</span></li>
+              <li><span class="n" aria-hidden="true">05</span><strong>A practical action plan</strong><span class="d">That helps the team determine what to address first and what may require further investigation or testing.</span></li>
+              </ul>
+              <p class="pd-quote">The deliverable is a diagnostic report and a clear direction for improvement — not just a list of interface problems.</p>
+            </div>
+          </section>
+
+          <section class="pd-why" aria-labelledby="pd-why">
+            <h2 id="pd-why">Why this approach</h2>
+            <div class="pd-split pd-why-grid" style="margin-top:36px;">
+              <div>
+                <h3>Product UX expertise meets conversion diagnosis</h3>
+                <p>A conversion problem is not always a button, a headline or a layout issue. It may involve a mismatch between the user's expectations and the offer, a lack of clarity about the product's value, an unnecessarily complex workflow or uncertainty at a critical decision point.</p>
+                <p>With 20+ years of product design experience, the analysis considers how the interface, information architecture and user journey work together — not just whether individual elements look correct.</p>
+                <p>The focus is on understanding the problem before recommending a solution, grounding decisions in available evidence and helping teams concentrate on the changes that matter most.</p>
+              </div>
+              <div>
+                <h3>CRO audit vs. UX audit</h3>
+                <svg class="pd-venn" viewBox="0 0 420 260" role="img" aria-label="UX audit and CRO audit overlap"><circle cx="160" cy="130" r="100"/><circle cx="260" cy="130" r="100"/><text x="105" y="135">UX AUDIT</text><text x="315" y="135">CRO AUDIT</text></svg>
+                <p>A UX audit typically examines usability and the overall product experience. A CRO audit focuses on barriers that may prevent users from completing a specific business goal.</p>
+                <p>The two overlap: usability problems can affect conversion, and conversion barriers can arise from unclear messaging, weak trust signals or a poorly structured journey.</p>
+                <p>Behavioral CRO Diagnosis takes a conversion-focused view of the experience while drawing on product UX expertise to investigate the underlying issues.</p>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="pd-work">
+            <h2 id="pd-work">Selected analyses</h2>
+            <p class="pd-sub">Public examples of conversion and behavioral analysis across different digital products.</p>
+            <div class="pd-work">
+            <a href="/cs-updf"><span class="pic"><img src="images/UPDF_cover_card.png" alt="" loading="lazy" /></span><h3>UPDF pricing page</h3><p>How unclear plans and inconsistent pricing can undermine trust before a user pays.</p><span class="pd-more">Read the analysis →</span></a>
+            <a href="/cs-kualitee"><span class="pic"><img src="images/Cover_image_card.png" alt="" loading="lazy" /></span><h3>Kualitee sign-up</h3><p>Why a B2B SaaS signup page was losing potential conversions, and what a redesign could change.</p><span class="pd-more">Read the analysis →</span></a>
+            <a href="/cs-mercor"><span class="pic"><img src="images/Mercor_card.png" alt="" loading="lazy" /></span><h3>Mercor policy change</h3><p>How a quiet policy change and a dead-end flow can create friction for candidates completing a verification journey.</p><span class="pd-more">Read the analysis →</span></a>
+            </div>
+            <div class="pd-work-actions"><a href="/case-studies" class="pd-link">Explore more analyses and case studies</a></div>
+          </section>
+
+          <section class="pd-split" aria-labelledby="pd-tools">
+            <div class="pd-split-head" style="position:static;">
+              <h2 id="pd-tools">Tools</h2>
+              <p class="pd-sub">Tools used to investigate websites and digital products, depending on the available data and project requirements.</p>
+            </div>
+            <div>
+              <ul class="pd-chips tools"><li><img src="/images/Google_analytics_logo.svg" alt="" />Google Analytics</li><li><img src="/images/clarity_logo.png" alt="" />Microsoft Clarity</li><li><img src="/images/hotjar_logo.svg" alt="" />Hotjar</li><li><img src="/images/maze_logo.svg" alt="" />Maze</li><li><img src="/images/miro_logo.svg" alt="" />Miro</li><li><img src="/images/jira_logo.svg" alt="" />Jira</li><li><img src="/images/notion_logo.svg" alt="" />Notion</li></ul>
+              <p class="pd-sub" style="margin-top:24px;">The specific tools depend on the questions being investigated and the data available. Access to analytics or session recordings is useful where available, but the diagnostic scope can be discussed when these sources are missing.</p>
+            </div>
+          </section>
+
+          <section class="pd-split" aria-labelledby="pd-faq">
+            <div class="pd-split-head">
+              <h2 id="pd-faq">Frequently asked questions</h2>
+            </div>
+            <div class="pd-faq">
+              <details><summary>What is a CRO audit?<span class="pl" aria-hidden="true"></span></summary><p>A conversion rate optimization audit is a structured review of a website or digital product to identify issues that may prevent users from completing a desired action. It examines the conversion journey, user experience, messaging, trust and relevant behavioral evidence to produce prioritized recommendations.</p></details>
+              <details><summary>How is a CRO audit different from a UX audit?<span class="pl" aria-hidden="true"></span></summary><p>A UX audit focuses on usability and the overall user experience. A CRO audit focuses on barriers to a specific business outcome, such as signups, purchases or demo requests. Product usability is one of the factors that can influence conversion.</p></details>
+              <details><summary>Is analytics data required?<span class="pl" aria-hidden="true"></span></summary><p>Analytics data, session recordings and heatmaps can strengthen the diagnosis, especially when they help identify drop-off points or patterns in user behavior. If these sources are unavailable, the scope can be based on the information that is accessible. Findings will reflect the strength and limitations of the available evidence.</p></details>
+              <details><summary>What does the CRO audit report include?<span class="pl" aria-hidden="true"></span></summary><p>The report includes documented findings, supporting evidence where available, explanations of potential behavioral implications, prioritized recommendations and an action plan. The exact scope depends on the product and the questions being investigated.</p></details>
+              <details><summary>Does the service include redesign or implementation?<span class="pl" aria-hidden="true"></span></summary><p>The core service focuses on diagnosis and recommendations. Product design, interface redesign and implementation support can be scoped separately based on the findings and the team's needs.</p></details>
+              <details><summary>Can a CRO audit guarantee a conversion increase?<span class="pl" aria-hidden="true"></span></summary><p>No audit can guarantee a specific uplift. Results depend on the product, audience, traffic, implementation and other factors. The purpose of the diagnosis is to identify plausible barriers, explain the evidence and establish a more informed direction for improvement.</p></details>
+              <details><summary>Is a CRO audit suitable for a product with low traffic?<span class="pl" aria-hidden="true"></span></summary><p>A diagnosis may still identify usability, messaging and trust issues, but limited traffic can restrict what analytics data can establish. The scope and confidence of conclusions should reflect the available evidence.</p></details>
+              <details><summary>How much does a CRO audit cost?<span class="pl" aria-hidden="true"></span></summary><p>The cost depends on the product's complexity, the number of flows or pages being investigated, the available data and the required depth of analysis. The scope and estimate can be discussed after an initial review of the project.</p></details>
+            </div>
+          </section>
+
+          <section class="pd-cta" aria-labelledby="pd-contact">
+            <h2 id="pd-contact">Let's identify what's getting in the way</h2>
+            <p>If your website or digital product isn't converting as expected, a structured diagnosis can help clarify where users encounter friction and what deserves attention first.</p>
+            <p>Share the product, its conversion goal and the challenges the team is facing to discuss the appropriate audit scope.</p>
+            <a href="/contacts" class="btn-dark">Request a CRO Audit</a>
+          </section>
+
+        </div>
+      </div>
+    </main>
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/about">About me</a>
+            <span class="footer-dot"></span>
+            <a href="/product-design">Product design</a>
+            <span class="footer-dot"></span>
+            <a href="/cro-audit">CRO diagnosis</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="/privacy">Privacy</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">Behance</a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>

@@ -1,3 +1,6 @@
 # The Services page was removed: old links and search results go to the home page.
 /services / 301
 /services.html / 301
+# The Behavioral CRO Diagnosis page moved to /cro-audit.
+/behavioral-cro-diagnosis /cro-audit 301
+/behavioral-cro-diagnosis.html /cro-audit 301
