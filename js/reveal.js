@@ -7,7 +7,7 @@
   if (!root) return;
   if (root.children.length === 1 && root.firstElementChild.classList.contains('pd')) root = root.firstElementChild;
 
-  var LISTS = 'ul,ol,.help-cards,.pd-svc,.pd-work,.post-list,.faq-list,.pd-faq,.pd-incl,.work-on-list';
+  var LISTS = 'ul,ol,.pd-cmp,.help-cards,.pd-svc,.pd-work,.post-list,.faq-list,.pd-faq,.pd-incl,.work-on-list';
   var WRAPS = '.hero-text,.work-on,.work-on-body,.work-on-intro,.cs-section-header,.contact-block,.pd-split,.pd-why-grid,.faq';
   var GAP = 520;   // ms between one section starting and the next one starting
 
