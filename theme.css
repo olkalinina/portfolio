@@ -174,6 +174,22 @@ html[data-theme="dark"] body:not(.is-protected) .modal-overlay { background: rgb
   }
 }
 
+/* ---- Pen cursor flips to its opposite colour over dark (or, in dark mode, light) surfaces so it never disappears ---- */
+@media (hover: hover) and (pointer: fine) {
+  html:not([data-theme="dark"]) body main :is(.cs-section, .cs-section *, .btn-dark, .btn-dark *, .help-card--cro, .help-card--cro *, .pd-dark, .pd-dark *, .pd-ico, .pd-ico *, .pd-hero-tile, .pd-hero-tile *, .help-icon-tile, .help-icon-tile *, .tm-avatar, .faq-tab-check, .faq-tab-check *):not(input):not(textarea):not(select) {
+    cursor: url('/images/cursor-pen-light.png') 2 1, auto !important;
+  cursor: image-set(url('/images/cursor-pen-light.png') 1x, url('/images/cursor-pen-light@2x.png') 2x) 2 1, auto !important;
+  }
+  html:not([data-theme="dark"]) body main :is(.cs-section .arc-card, .cs-section .arc-card *, .help-card--cro .btn-dark, .help-card--cro .btn-dark *, .pd-dark .btn-dark, .pd-dark .btn-dark *):not(input):not(textarea):not(select) {
+    cursor: url('/images/cursor-pen.png') 2 1, auto !important;
+  cursor: image-set(url('/images/cursor-pen.png') 1x, url('/images/cursor-pen@2x.png') 2x) 2 1, auto !important;
+  }
+  html[data-theme="dark"] body:not(.is-protected) main :is(.btn-dark, .btn-dark *, .pd-chips.tools li, .pd-chips.tools li *, .faq-tab-check, .faq-tab-check *):not(input):not(textarea):not(select) {
+    cursor: url('/images/cursor-pen.png') 2 1, auto !important;
+  cursor: image-set(url('/images/cursor-pen.png') 1x, url('/images/cursor-pen@2x.png') 2x) 2 1, auto !important;
+  }
+}
+
 /* ---- Services dropdown in the top bar ---- */
 .nav-dd { position: relative; display: flex; align-items: center; }
 .nav-dd-btn { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 400; }
