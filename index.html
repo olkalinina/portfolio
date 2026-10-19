@@ -48,7 +48,7 @@
       display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
       transition: flex-grow .6s cubic-bezier(.22,.7,.2,1), box-shadow .5s ease;
     }
-    .help-card:hover, .help-card:focus-within { flex-grow: 1.7; box-shadow: 0 14px 36px rgba(42,41,37,0.07); }
+    .help-card:hover, .help-card:focus-within { flex-grow: 1.7; box-shadow: 0 14px 36px rgba(47,46,46,0.07); }
     /* off-white spotlight that follows the cursor */
     .help-card::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: var(--glow); transition: opacity .4s ease;
       background: radial-gradient(520px circle at var(--mx) var(--my), rgba(255,255,255,0.92), rgba(255,255,255,0.35) 50%, transparent 78%); }
@@ -64,7 +64,7 @@
     .help-more p { font-size: 16px; line-height: 1.6; color: var(--gray); }
     .help-more .help-lead { font-size: 18px; line-height: 1.5; color: var(--dark); }
     .help-tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 0; }
-    .help-tags li { font-size: 14.5px; font-weight: 500; padding: 9px 16px; border-radius: 10px; background: rgba(42,41,37,0.07); color: var(--dark); }
+    .help-tags li { font-size: 14.5px; font-weight: 500; padding: 9px 16px; border-radius: 10px; background: rgba(47,46,46,0.07); color: var(--dark); }
     .help-card .btn-dark { margin-top: auto; display: inline-flex; gap: 8px; }
     .help-card .help-more + .btn-dark { margin-top: auto; }
     .help-card .btn-dark::after { content: ""; position: absolute; inset: 0; z-index: 2; }  /* the whole card is clickable */
@@ -78,13 +78,13 @@
     @media (max-width: 860px) { .help-section { padding-top: 56px; } .help-title { font-size: 28px; } .help-card { padding: 32px 24px; border-radius: 24px; } .help-name { font-size: 34px; } .help-card .btn-dark { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .help-card, .help-more, .help-card::before, .help-card::after { transition: none !important; } }
     /* Editorial cards: two quiet surfaces (warm sand / cool ink), a fine texture each, and a pink-violet-blue gradient stroke that appears on hover */
-    .help-card { --ink: #1f1d1a; --fg: #1f1d1a; --fg-soft: rgba(31,29,26,0.72); --line: rgba(31,29,26,0.12); --chip: rgba(31,29,26,0.06);
+    .help-card { --ink: #171717; --fg: #171717; --fg-soft: rgba(23,23,23,0.72); --line: rgba(23,23,23,0.12); --chip: rgba(23,23,23,0.06);
       color: var(--fg); box-shadow: inset 0 0 0 1px var(--line); }
-    .help-card--product { background: #efe9dc; }
-    .help-card--cro { --fg: #f1ece1; --fg-soft: rgba(241,236,225,0.74); --line: rgba(255,255,255,0.10); --chip: rgba(255,255,255,0.08); background: #1d2124; }
+    .help-card--product { background: #ede8ea; }
+    .help-card--cro { --fg: #ede8ea; --fg-soft: rgba(237,232,234,0.74); --line: rgba(255,255,255,0.10); --chip: rgba(255,255,255,0.08); background: #2f2e2e; }
     /* textures (static): blueprint grid / diagnostic rings */
     .help-bg { position: absolute; inset: 0; z-index: -3; pointer-events: none; }
-    .help-card--product .help-bg { background-image: linear-gradient(rgba(31,29,26,0.075) 1px, transparent 1px), linear-gradient(90deg, rgba(31,29,26,0.075) 1px, transparent 1px); background-size: 32px 32px;
+    .help-card--product .help-bg { background-image: linear-gradient(rgba(23,23,23,0.075) 1px, transparent 1px), linear-gradient(90deg, rgba(23,23,23,0.075) 1px, transparent 1px); background-size: 32px 32px;
       -webkit-mask-image: radial-gradient(75% 70% at 100% 0%, #000, transparent 72%); mask-image: radial-gradient(75% 70% at 100% 0%, #000, transparent 72%); }
     .help-card--cro .help-bg { background-image: repeating-radial-gradient(circle at 100% 100%, rgba(255,255,255,0.09) 0 1px, transparent 1px 34px);
       -webkit-mask-image: radial-gradient(85% 80% at 100% 100%, #000, transparent 74%); mask-image: radial-gradient(85% 80% at 100% 100%, #000, transparent 74%); }
@@ -102,21 +102,21 @@
     html body .help-card .help-name, html body .help-card .help-headline, html body .help-card .help-lead { color: var(--fg); }
     html body .help-card .help-more p { color: var(--fg-soft); }
     html body .help-card .help-tags li { background: var(--chip); color: var(--fg); border: 1px solid var(--line); -webkit-backdrop-filter: none; backdrop-filter: none; }
-    html body .help-card .btn-dark { background: #1f1d1a !important; color: #f6f2e9 !important; border-color: transparent !important; box-shadow: none; }
-    html body .help-card--cro .btn-dark { background: #f1ece1 !important; color: #1d2124 !important; }
+    html body .help-card .btn-dark { background: #171717 !important; color: #f6f2e9 !important; border-color: transparent !important; box-shadow: none; }
+    html body .help-card--cro .btn-dark { background: #ede8ea !important; color: #2f2e2e !important; }
     /* icon tile + numeral */
     .help-icon { display: block; width: 45px; height: 45px; flex: none; margin: 0; user-select: none; -webkit-user-drag: none; }
-    .help-icon-tile { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: #1f1d1a; margin-bottom: 6px; }
+    .help-icon-tile { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: #171717; margin-bottom: 6px; }
     .help-card--cro .help-icon-tile { background: rgba(255,255,255,0.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14); }
     .help-num { position: absolute; top: 44px; right: 44px; font-size: 13px; letter-spacing: 0.18em; color: var(--fg-soft); font-variant-numeric: tabular-nums; }
     @media (max-width: 860px) { .help-num { top: 32px; right: 24px; } }
     /* dark theme: warm graphite and deep slate */
-    html[data-theme="dark"] body .help-card--product { --fg: #f1ece1; --fg-soft: rgba(241,236,225,0.74); --line: rgba(255,255,255,0.10); --chip: rgba(255,255,255,0.08); background: #2a2621; }
+    html[data-theme="dark"] body .help-card--product { --fg: #ede8ea; --fg-soft: rgba(237,232,234,0.74); --line: rgba(255,255,255,0.10); --chip: rgba(255,255,255,0.08); background: #2f2e2e; }
     html[data-theme="dark"] body .help-card--product .help-bg { background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px); }
     html[data-theme="dark"] body .help-card--product::before { background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255,255,255,0.07), transparent 70%); }
-    html[data-theme="dark"] body .help-card--product .btn-dark { background: #f1ece1 !important; color: #1f1d1a !important; }
+    html[data-theme="dark"] body .help-card--product .btn-dark { background: #ede8ea !important; color: #171717 !important; }
     html[data-theme="dark"] body .help-card--product .help-icon-tile { background: rgba(255,255,255,0.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14); }
-    html[data-theme="dark"] body .help-card--cro { background: #12161a; }
+    html[data-theme="dark"] body .help-card--cro { background: #171717; }
     @media (prefers-reduced-motion: reduce) { html body .help-card::after { animation: none; } }
     .help-card { clip-path: inset(0 round 28px); } @media (max-width: 860px) { .help-card { clip-path: inset(0 round 24px); } }
 
@@ -204,7 +204,7 @@
     .arc-stage { position: relative; width: 100%; height: calc(var(--arc-size) + 90px); overflow: hidden; touch-action: pan-y; user-select: none;
       -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
     .arc-card { position: absolute; top: 20px; left: 50%; width: var(--arc-size); height: var(--arc-size); margin-left: calc(var(--arc-size) / -2); display: block; border-radius: 26px; overflow: hidden; background: var(--bg-soft);
-      box-shadow: inset 0 0 0 1px rgba(42,41,37,0.10); transform-origin: 50% var(--pivot); transform: rotate(calc(var(--d, 0) * var(--step))) scale(var(--sc, 0.9)); filter: brightness(var(--br, 0.55)); opacity: var(--op, 1); z-index: var(--z, 1);
+      box-shadow: inset 0 0 0 1px rgba(47,46,46,0.10); transform-origin: 50% var(--pivot); transform: rotate(calc(var(--d, 0) * var(--step))) scale(var(--sc, 0.9)); filter: brightness(var(--br, 0.55)); opacity: var(--op, 1); z-index: var(--z, 1);
       transition: transform .8s cubic-bezier(.2,.85,.25,1), filter .8s ease, opacity .6s ease; }
     .arc-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; pointer-events: none; }
     .arc-card:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; }
@@ -310,7 +310,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
-  <link rel="stylesheet" href="/theme.css?v=10" />
+  <link rel="stylesheet" href="/theme.css?v=11" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What types of products do you work on?", "acceptedAnswer": {"@type": "Answer", "text": "I work on SaaS platforms, AI-powered products, complex web applications, internal tools, and new digital products. My focus is on making complex functionality easier to understand and use, while ensuring the product supports real user needs and business goals."}}, {"@type": "Question", "name": "Can you help me build a product from scratch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I can help turn an early-stage idea into a structured product experience, from clarifying user needs and defining key workflows to designing the interface and preparing it for development. The scope depends on how far along you are and what you need to validate or build."}}, {"@type": "Question", "name": "Can you improve or redesign an existing product?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I can review an existing product, identify usability and workflow problems, simplify complex functionality, and redesign key experiences. I start by understanding the product, its users, and the business challenges before deciding what needs to change."}}, {"@type": "Question", "name": "What does the design process look like?", "acceptedAnswer": {"@type": "Answer", "text": "Every project starts with understanding the problem. I review the available product information, business requirements, user needs, and existing workflows. From there, I structure the experience, design user flows and interfaces, validate important decisions where appropriate, and prepare the design for implementation. The exact process depends on the project."}}, {"@type": "Question", "name": "Do you work with developers during implementation?", "acceptedAnswer": {"@type": "Answer", "text": "I prepare designs and specifications with implementation in mind and can collaborate with developers to clarify interactions, edge cases, and design decisions. The level of involvement during development is agreed on based on your team's needs and the project scope."}}, {"@type": "Question", "name": "How do you estimate the cost of a project?", "acceptedAnswer": {"@type": "Answer", "text": "The estimate depends on the product's complexity, the scope of work, existing research and documentation, and the level of involvement required. After an initial discussion, I can help define a realistic scope and provide an estimate based on the actual needs of the project."}}, {"@type": "Question", "name": "How is this different from a UX audit?", "acceptedAnswer": {"@type": "Answer", "text": "A traditional UX audit often evaluates usability and interface issues across a product. Behavioral CRO Diagnosis focuses on the barriers that may prevent users from taking a desired action. I examine how the value proposition, trust signals, user expectations, and conversion journey work together, then explain the likely causes of friction and recommend what to improve. The findings are grounded in the evidence available for your project."}}, {"@type": "Question", "name": "Do I need analytics data to get started?", "acceptedAnswer": {"@type": "Answer", "text": "Analytics data is valuable because it helps identify where users drop off and which journeys deserve closer attention. Access to tools such as GA4, Microsoft Clarity, or Hotjar can strengthen the diagnosis. If you don't have these tools or your tracking is incomplete, we can discuss what can be assessed with the information available and identify any limitations. I won't present assumptions as proven findings."}}, {"@type": "Question", "name": "What exactly will I receive?", "acceptedAnswer": {"@type": "Answer", "text": "You'll receive a structured diagnostic report outlining the key barriers identified, the evidence behind the findings, why each issue may affect user behavior, and actionable recommendations. The report helps you understand what needs attention and why, with priorities to guide your next steps."}}, {"@type": "Question", "name": "Will you implement the recommendations?", "acceptedAnswer": {"@type": "Answer", "text": "The core service focuses on diagnosis and recommendations, not implementation. You'll receive a clear direction for improvement that your internal team or development partner can act on. If you need design support to implement the recommendations, we can discuss that as a separate engagement."}}, {"@type": "Question", "name": "How do you prioritize improvements?", "acceptedAnswer": {"@type": "Answer", "text": "I prioritize issues based on their likely impact on the conversion journey, the strength of the supporting evidence, and the practical effort required to address them. The goal is to identify the changes most worth investigating or implementing first, rather than produce a long list of equally weighted observations."}}, {"@type": "Question", "name": "Can you guarantee an increase in conversion?", "acceptedAnswer": {"@type": "Answer", "text": "No responsible diagnosis can guarantee a specific conversion uplift. The service identifies evidence-based opportunities to reduce friction and improve the user experience, but actual results depend on implementation, traffic, audience behavior, and other factors. Where appropriate, recommendations can be tested and measured after implementation."}}]}</script>
 </head>
 <body class="home">
