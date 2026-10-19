@@ -16,9 +16,9 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Product design", "serviceType": "Product design", "description": "Product design for web and mobile apps, websites, SaaS and complex digital platforms. From product discovery and UX design to development-ready interfaces.", "url": "https://olgakalinina.me/product-design", "provider": {"@id": "https://olgakalinina.me/#person"}, "areaServed": "Worldwide"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What types of digital products can be designed?", "acceptedAnswer": {"@type": "Answer", "text": "Product design can cover websites, mobile applications, SaaS products, enterprise platforms, internal tools and AI-powered applications. The scope depends on the product's complexity, audience and business objectives."}}, {"@type": "Question", "name": "Can an existing product be redesigned?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Product redesign can address usability issues, confusing navigation, inefficient workflows, inconsistent interfaces or changing business requirements. The work begins with understanding the current experience and identifying what needs to improve."}}, {"@type": "Question", "name": "Can product design start from an idea?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Early-stage product design can include defining the core user journey, structuring functionality, creating wireframes and developing prototypes before full development begins."}}, {"@type": "Question", "name": "What does a product design project include?", "acceptedAnswer": {"@type": "Answer", "text": "Deliverables may include research, information architecture, user flows, wireframes, prototypes, UI design, design system components and development specifications. The exact scope is defined according to the project."}}, {"@type": "Question", "name": "How much do product design services cost?", "acceptedAnswer": {"@type": "Answer", "text": "The cost depends on the product's complexity, project scope, timeline and required deliverables. An estimate can be provided after the project requirements and expected outcomes are clarified."}}]}, {"@type": "Person", "@id": "https://olgakalinina.me/#person", "name": "Olga Kalinina", "jobTitle": "Product Designer & Behavioral CRO Expert", "url": "https://olgakalinina.me/"}]}</script>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .pd { display: flex; flex-direction: column; gap: 132px; padding: 40px 0 100px; }
+    .pd { display: flex; flex-direction: column; gap: 128px; padding: 40px 0 100px; }
     .pd h2 { font-size: 36px; font-weight: 400; line-height: 1.15; }
-    .pd-sub { font-size: 18px; line-height: 1.6; color: var(--gray); max-width: 620px; margin-top: 14px; }
+    .pd-sub { font-size: 18px; line-height: 1.6; color: var(--gray); max-width: 620px; margin-top: 16px; }
     .pd-sub + .pd-sub { margin-top: 10px; }
     /* hero */
     .pd-hero { position: relative; overflow: hidden; isolation: isolate; border-radius: 32px; background: var(--bg-soft); padding: 64px 56px 68px; box-shadow: inset 0 0 0 1px var(--light-gray); }
@@ -32,7 +32,7 @@
     .pd-lead + .pd-lead { margin-top: 14px; color: var(--gray); }
     .pd-actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     /* services */
-    .pd-svc { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; margin-top: 36px; }
+    .pd-svc { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; margin-top: 56px; }
     .pd-card { grid-column: span 2; position: relative; background: var(--bg-soft); border-radius: 24px; padding: 28px 26px 30px; display: flex; flex-direction: column; gap: 12px; box-shadow: inset 0 0 0 1px var(--light-gray); transition: box-shadow .3s ease, transform .3s ease; }
     .pd-card:nth-child(n+4) { grid-column: span 3; }
     .pd-card:hover { box-shadow: inset 0 0 0 1px var(--dark); transform: translateY(-3px); }
@@ -51,14 +51,14 @@
     .pd-incl strong { font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 500; line-height: 1.25; }
     .pd-incl span.d { font-size: 16px; line-height: 1.6; color: var(--gray); }
     /* process */
-    .pd-steps { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
+    .pd-steps { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
     .pd-steps li { position: relative; border-top: 1.5px solid var(--dark); padding-top: 26px; display: flex; flex-direction: column; gap: 10px; }
     .pd-steps li::before { content: ""; position: absolute; top: -6px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--dark); }
     .pd-steps .n { font-size: 13px; letter-spacing: 0.18em; color: var(--gray); }
     .pd-steps h3 { font-size: 24px; font-weight: 500; line-height: 1.2; }
     .pd-steps p { font-size: 15.5px; line-height: 1.6; color: var(--gray); }
     /* work */
-    .pd-work { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+    .pd-work { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 56px; }
     .pd-work a { display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: inherit; }
     .pd-work .pic { position: relative; overflow: hidden; border-radius: 22px; aspect-ratio: 1 / 1; background: var(--bg-soft); box-shadow: inset 0 0 0 1px var(--light-gray); }
     .pd-work img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .8s cubic-bezier(.22,.7,.2,1); }
@@ -94,13 +94,14 @@
     html[data-theme="dark"] .pd-hero::before, html[data-theme="dark"] .pd-cta::before { background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px); }
     html[data-theme="dark"] .pd-hero-tile, html[data-theme="dark"] .pd-ico { background: rgba(255,255,255,0.1); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16); }
     @media (max-width: 960px) {
-      .pd { gap: 96px; }
+      .pd { gap: 88px; }
       .pd-hero { padding: 44px 28px 48px; } .pd-hero h1 { font-size: 40px !important; }
       .pd-card, .pd-card:nth-child(n+4) { grid-column: span 3; } .pd-card:last-child { grid-column: span 6; }
       .pd-split { grid-template-columns: 1fr; gap: 28px; } .pd-split-head { position: static; }
       .pd-steps { grid-template-columns: repeat(2, 1fr); }
       .pd-work { grid-template-columns: 1fr; } .pd-work .pic { aspect-ratio: 4 / 3; }
     }
+    @media (max-width: 860px) { .pd-svc, .pd-work, .pd-steps { margin-top: 40px; } }
     @media (max-width: 640px) {
       .pd h2 { font-size: 30px; } .pd-hero h1 { font-size: 34px !important; } .pd-lead { font-size: 17px; }
       .pd-card, .pd-card:nth-child(n+4), .pd-card:last-child { grid-column: span 6; }

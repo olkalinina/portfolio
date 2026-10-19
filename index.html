@@ -27,20 +27,20 @@
     .hero-desc { font-size: 19px; line-height: 1.65; color: var(--gray); max-width: 520px; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
     .hero-actions .btn-dark { display: inline-flex; align-items: center; gap: 8px; }
-    .hero-facts { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 22px 34px; }
-    .hero-facts li { display: flex; align-items: center; gap: 12px; font-size: 14.5px; line-height: 1.35; color: var(--dark); }
-    .hero-facts svg { width: 28px; height: 28px; flex: none; color: var(--dark); }
+    .hero-facts { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 14px 34px; }
+    .hero-facts li { font-size: 15px; line-height: 1.4; color: var(--dark); }
+    .hero-facts li + li { padding-left: 34px; border-left: 1px solid var(--light-gray); }
     .hero-photo { width: 100%; height: auto; aspect-ratio: 4 / 4.3; border-radius: 33px; object-fit: cover; object-position: 50% 40%; display: block; background: var(--bg-soft); }
     .btn-outline-dark { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border: 1.5px solid var(--dark); border-radius: var(--radius-pill); background: transparent; color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 500; transition: background var(--transition), transform var(--transition); }
     .btn-outline-dark:hover { background: var(--bg-soft); transform: translateY(-1px); }
     #services { scroll-margin-top: 70px; }
     @media (max-width: 960px) { .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; } .hero-title { font-size: 44px; } .hero-photo { aspect-ratio: 4 / 3; } }
-    @media (max-width: 640px) { .hero-title { font-size: 36px; } .hero-actions { width: 100%; flex-direction: column; } .hero-actions .btn-dark, .hero-actions .btn-outline-dark { width: 100%; } .hero-facts { flex-direction: column; gap: 14px; } }
+    @media (max-width: 640px) { .hero-title { font-size: 36px; } .hero-actions { width: 100%; flex-direction: column; } .hero-actions .btn-dark, .hero-actions .btn-outline-dark { width: 100%; } .hero-facts { flex-direction: column; gap: 14px; } .hero-facts li + li { padding-left: 0; border-left: 0; } }
     .trusted { display: flex; align-items: center; gap: 36px; padding: 56px 0 0; }
     .trusted-label { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); flex: none; }
-    .client-logos { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: space-between; flex: 1; }
+    .client-logos { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: space-between; flex: 1; }
     @media (max-width: 860px) { .trusted { flex-direction: column; align-items: flex-start; gap: 18px; } .client-logos { justify-content: flex-start; } }
-    .client-logos img { height: 30px; width: auto; max-width: 104px; object-fit: contain; opacity: 0.5; filter: grayscale(1); flex-shrink: 0; }
+    .client-logos img { height: 39px; width: auto; max-width: 135px; object-fit: contain; opacity: 0.5; filter: grayscale(1); flex-shrink: 0; }
 
 
     /* ── How I can help: the two main offers (side-by-side, hover to expand) ── */
@@ -141,7 +141,7 @@
     .hw-steps p { font-size: 15.5px; line-height: 1.6; color: var(--gray); }
     .hw-steps .hw-out { color: var(--dark); font-size: 14.5px; padding-top: 10px; border-top: 1px dashed var(--light-gray); margin-top: auto; }
     .hw-out strong { font-weight: 600; }
-    .contact-block { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; text-align: left; width: 100%; background: var(--bg-soft); border-radius: 28px; padding: 56px; margin-top: 8px; }
+    .contact-block { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; text-align: left; width: 100%; background: var(--bg-soft); border-radius: 28px; padding: 56px; }
     .contact-copy { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
     .contact-copy h2 { font-size: 38px; font-weight: 500; line-height: 1.12; }
     .contact-copy p { font-size: 17px; line-height: 1.6; color: var(--gray); }
@@ -233,7 +233,16 @@
     html body .cs-section .carousel-btn { background: transparent; border-color: rgba(247,245,245,0.35); color: #f7f5f5; }
     html body .cs-section .carousel-btn:hover, html body .cs-section .carousel-btn.active { border-color: #f7f5f5; }
     html body .cs-section .arc-card:focus-visible { outline-color: #f7f5f5; }
-    @media (max-width: 860px) { .cs-section { margin-top: 88px; padding: 64px 0 72px; } }
+    /* ── Spacing system (one set of numbers for every section) ──
+       section to section: 128px (88px on phones) · title to intro line: 16px · title block to content: 56px (40px on phones) */
+    :root { --sec-gap: 128px; --head-gap: 16px; --head-to-content: 56px; }
+    @media (max-width: 860px) { :root { --sec-gap: 88px; --head-to-content: 40px; } }
+    .help-section, .sec-block { padding-top: var(--sec-gap); gap: var(--head-gap); }
+    .cs-section { margin-top: var(--sec-gap); padding-top: calc(var(--sec-gap) * 0.75); padding-bottom: calc(var(--sec-gap) * 0.75); gap: var(--head-to-content); }
+    .cs-section-header { gap: var(--head-gap); }
+    .help-section .help-cards, .sec-block .hw-steps, .sec-block .tm-marquee, .sec-block .post-list, .sec-block .faq { margin-top: calc(var(--head-to-content) - var(--head-gap)); }
+    .sec-block > .btn-outline-dark { margin-top: calc(var(--head-to-content) - var(--head-gap) - 8px); }
+    .trusted { padding-top: 56px; }
     /* ── Case studies: arc carousel ── */
     .arc { --arc-size: 300px; --step: 22deg; --pivot: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; }
     .arc-stage { position: relative; width: 100%; height: calc(var(--arc-size) + 90px); overflow: hidden; touch-action: pan-y; user-select: none;
@@ -392,9 +401,9 @@
               <a href="#contact" class="btn-outline-dark">Discuss a project</a>
             </div>
             <ul class="hero-facts" aria-label="At a glance">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>20+ years<br>in design</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span>Independent<br>senior specialist</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span>Working remotely<br>worldwide (UTC+4)</span></li>
+              <li><span>20+ years<br>in design</span></li>
+              <li><span>Independent<br>senior specialist</span></li>
+              <li><span>Working remotely<br>worldwide (UTC+4)</span></li>
             </ul>
           </div>
           <img src="images/olga_hero.jpg" alt="Olga Kalinina, product designer" class="hero-photo" />
