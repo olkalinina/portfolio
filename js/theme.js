@@ -30,6 +30,20 @@
       );
     }).catch(function () {});
   });
+  // Services dropdown: opens on hover (CSS) or on click / Enter / Space / arrow down; Escape or a click elsewhere closes it
+  var dd = nav.querySelector('.nav-dd');
+  if (dd) {
+    var ddBtn = dd.querySelector('.nav-dd-btn');
+    function ddSet(open, focusFirst) {
+      dd.classList.toggle('open', open); ddBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && focusFirst) { var f = dd.querySelector('.nav-dd-item'); if (f) f.focus(); }
+    }
+    ddBtn.addEventListener('click', function () { ddSet(!dd.classList.contains('open'), false); });
+    ddBtn.addEventListener('keydown', function (e) { if (e.key === 'ArrowDown') { e.preventDefault(); ddSet(true, true); } });
+    dd.addEventListener('keydown', function (e) { if (e.key === 'Escape') { ddSet(false); ddBtn.focus(); } });
+    dd.addEventListener('focusout', function (e) { if (!dd.contains(e.relatedTarget)) ddSet(false); });
+    document.addEventListener('click', function (e) { if (!dd.contains(e.target)) ddSet(false); });
+  }
   var ham = nav.querySelector('.nav-hamburger');
   nav.insertBefore(btn, ham || null);
   paint();
