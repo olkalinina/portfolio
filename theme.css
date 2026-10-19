@@ -198,3 +198,9 @@ html[data-theme="dark"] .nav-links .nav-dd-item span { color: #a5a1a2; }
 @media (prefers-reduced-motion: reduce) { .nav-dd-menu, .nav-dd-btn svg { transition: none !important; } }
 .mobile-menu-label { padding: 16px 0 4px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
 .mobile-menu-links a.mobile-sub { padding-left: 14px; font-size: 18px; }
+
+/* ---- Scroll reveal (js/reveal.js adds .rv, then .in when the section is in view) ---- */
+.rv { opacity: 0; transform: translateY(28px); }
+.rv.in { animation: rv-in .85s cubic-bezier(.2,.7,.2,1) var(--rd, 0ms) both; }
+@keyframes rv-in { to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .rv, .rv.in { opacity: 1; transform: none; animation: none; } }

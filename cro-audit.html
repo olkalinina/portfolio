@@ -16,7 +16,7 @@
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "CRO audit", "alternateName": "Behavioral CRO Diagnosis", "serviceType": "Conversion rate optimization audit", "description": "An evidence-based CRO audit to identify conversion barriers across websites and digital products. Get a structured diagnosis, supporting evidence and prioritized recommendations.", "url": "https://olgakalinina.me/cro-audit", "provider": {"@id": "https://olgakalinina.me/#person"}, "areaServed": "Worldwide"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a CRO audit?", "acceptedAnswer": {"@type": "Answer", "text": "A conversion rate optimization audit is a structured review of a website or digital product to identify issues that may prevent users from completing a desired action. It examines the conversion journey, user experience, messaging, trust and relevant behavioral evidence to produce prioritized recommendations."}}, {"@type": "Question", "name": "How is a CRO audit different from a UX audit?", "acceptedAnswer": {"@type": "Answer", "text": "A UX audit focuses on usability and the overall user experience. A CRO audit focuses on barriers to a specific business outcome, such as signups, purchases or demo requests. Product usability is one of the factors that can influence conversion."}}, {"@type": "Question", "name": "Is analytics data required?", "acceptedAnswer": {"@type": "Answer", "text": "Analytics data, session recordings and heatmaps can strengthen the diagnosis, especially when they help identify drop-off points or patterns in user behavior. If these sources are unavailable, the scope can be based on the information that is accessible. Findings will reflect the strength and limitations of the available evidence."}}, {"@type": "Question", "name": "What does the CRO audit report include?", "acceptedAnswer": {"@type": "Answer", "text": "The report includes documented findings, supporting evidence where available, explanations of potential behavioral implications, prioritized recommendations and an action plan. The exact scope depends on the product and the questions being investigated."}}, {"@type": "Question", "name": "Does the service include redesign or implementation?", "acceptedAnswer": {"@type": "Answer", "text": "The core service focuses on diagnosis and recommendations. Product design, interface redesign and implementation support can be scoped separately based on the findings and the team's needs."}}, {"@type": "Question", "name": "Can a CRO audit guarantee a conversion increase?", "acceptedAnswer": {"@type": "Answer", "text": "No audit can guarantee a specific uplift. Results depend on the product, audience, traffic, implementation and other factors. The purpose of the diagnosis is to identify plausible barriers, explain the evidence and establish a more informed direction for improvement."}}, {"@type": "Question", "name": "Is a CRO audit suitable for a product with low traffic?", "acceptedAnswer": {"@type": "Answer", "text": "A diagnosis may still identify usability, messaging and trust issues, but limited traffic can restrict what analytics data can establish. The scope and confidence of conclusions should reflect the available evidence."}}, {"@type": "Question", "name": "How much does a CRO audit cost?", "acceptedAnswer": {"@type": "Answer", "text": "The cost depends on the product's complexity, the number of flows or pages being investigated, the available data and the required depth of analysis. The scope and estimate can be discussed after an initial review of the project."}}]}, {"@type": "Person", "@id": "https://olgakalinina.me/#person", "name": "Olga Kalinina", "jobTitle": "Product Designer & Behavioral CRO Expert", "url": "https://olgakalinina.me/"}]}</script>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .pd { display: flex; flex-direction: column; gap: 108px; padding: 40px 0 100px; }
+    .pd { display: flex; flex-direction: column; gap: 132px; padding: 40px 0 100px; }
     .pd h2 { font-size: 36px; font-weight: 400; line-height: 1.15; }
     .pd-sub { font-size: 18px; line-height: 1.6; color: var(--gray); max-width: 620px; margin-top: 14px; }
     .pd-sub + .pd-sub { margin-top: 10px; }
@@ -94,7 +94,7 @@
     html[data-theme="dark"] .pd-hero::before, html[data-theme="dark"] .pd-cta::before { background-image: linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px); }
     html[data-theme="dark"] .pd-hero-tile, html[data-theme="dark"] .pd-ico { background: rgba(255,255,255,0.1); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16); }
     @media (max-width: 960px) {
-      .pd { gap: 80px; }
+      .pd { gap: 96px; }
       .pd-hero { padding: 44px 28px 48px; } .pd-hero h1 { font-size: 40px !important; }
       .pd-card, .pd-card:nth-child(n+4) { grid-column: span 3; } .pd-card:last-child { grid-column: span 6; }
       .pd-split { grid-template-columns: 1fr; gap: 28px; } .pd-split-head { position: static; }
@@ -144,7 +144,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
-  <link rel="stylesheet" href="/theme.css?v=11" />
+  <link rel="stylesheet" href="/theme.css?v=12" />
 </head>
 <body>
     <nav class="nav">
@@ -348,5 +348,6 @@
     }
   </script>
   <script src="/js/theme.js" defer></script>
+  <script src="/js/reveal.js" defer></script>
 </body>
 </html>

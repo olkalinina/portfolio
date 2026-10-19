@@ -36,7 +36,7 @@
     #services { scroll-margin-top: 70px; }
     @media (max-width: 960px) { .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; } .hero-title { font-size: 44px; } .hero-photo { aspect-ratio: 4 / 3; } }
     @media (max-width: 640px) { .hero-title { font-size: 36px; } .hero-actions { width: 100%; flex-direction: column; } .hero-actions .btn-dark, .hero-actions .btn-outline-dark { width: 100%; } .hero-facts { flex-direction: column; gap: 14px; } }
-    .trusted { display: flex; align-items: center; gap: 36px; padding: 44px 0 0; }
+    .trusted { display: flex; align-items: center; gap: 36px; padding: 56px 0 0; }
     .trusted-label { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); flex: none; }
     .client-logos { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: space-between; flex: 1; }
     @media (max-width: 860px) { .trusted { flex-direction: column; align-items: flex-start; gap: 18px; } .client-logos { justify-content: flex-start; } }
@@ -44,7 +44,8 @@
 
 
     /* ── How I can help: the two main offers (side-by-side, hover to expand) ── */
-    .help-section { display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 80px 0 0; text-align: center; }
+    
+    .help-section { display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 128px 0 0; text-align: center; }
     .help-title { font-size: 34px; font-weight: 400; line-height: 1.15; }
     .help-cards { display: flex; flex-direction: row; gap: 20px; width: 100%; text-align: left; }
     .help-card {
@@ -81,7 +82,7 @@
       .help-more { width: auto; opacity: 1; transform: none; }
       .help-card .btn-dark { margin-top: 10px; }
     }
-    @media (max-width: 860px) { .help-section { padding-top: 56px; } .help-title { font-size: 28px; } .help-card { padding: 32px 24px; border-radius: 24px; } .help-name { font-size: 34px; } .help-card .btn-dark { width: 100%; } }
+    @media (max-width: 860px) { .help-section { padding-top: 88px; } .help-title { font-size: 28px; } .help-card { padding: 32px 24px; border-radius: 24px; } .help-name { font-size: 34px; } .help-card .btn-dark { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .help-card, .help-more, .help-card::before, .help-card::after { transition: none !important; } }
     /* Editorial cards: two quiet surfaces (warm sand / cool ink), a fine texture each, and a pink-violet-blue gradient stroke that appears on hover */
     .help-card { --ink: #171717; --fg: #171717; --fg-soft: rgba(23,23,23,0.72); --line: rgba(23,23,23,0.12); --chip: rgba(23,23,23,0.06);
@@ -127,7 +128,7 @@
     .help-card { clip-path: inset(0 round 28px); } @media (max-width: 860px) { .help-card { clip-path: inset(0 round 24px); } }
 
     /* ── Who / for whom / how / contact blocks ── */
-    .sec-block { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 96px 0 0; text-align: center; scroll-margin-top: 70px; }
+    .sec-block { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 128px 0 0; text-align: center; scroll-margin-top: 70px; }
     .sec-sub { font-size: 18px; line-height: 1.6; color: var(--gray); max-width: 620px; }
     .hw-steps { list-style: none; padding: 0; margin: 20px 0 0; width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; text-align: left; counter-reset: hw; }
     .hw-steps li { border-top: 1.5px solid var(--dark); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
@@ -160,13 +161,14 @@
     .brief-form .bf-note { font-size: 13px; line-height: 1.5; color: var(--gray); }
     .brief-form .bf-note a { text-decoration: underline; text-underline-offset: 3px; color: var(--dark); }
     @media (max-width: 960px) { .hw-steps { grid-template-columns: repeat(2, 1fr); } .contact-block { grid-template-columns: 1fr; gap: 32px; padding: 36px 28px; } }
-    @media (max-width: 640px) { .hw-steps { grid-template-columns: 1fr; } .sec-block { padding-top: 64px; } .contact-copy h2 { font-size: 30px; } .brief-form .bf-row { grid-template-columns: 1fr; } .brief-form .btn-dark { width: 100%; } }
+    @media (max-width: 640px) { .hw-steps { grid-template-columns: 1fr; } .sec-block { padding-top: 88px; } .contact-copy h2 { font-size: 30px; } .brief-form .bf-row { grid-template-columns: 1fr; } .brief-form .btn-dark { width: 100%; } }
     html[data-theme="dark"] .brief-form input[type=text], html[data-theme="dark"] .brief-form input[type=email], html[data-theme="dark"] .brief-form textarea, html[data-theme="dark"] .bf-chips span { background: rgba(255,255,255,0.05); }
     html[data-theme="dark"] .bf-chips input:checked + span { background: var(--dark); color: var(--white, #fff); }
 
     /* ── Case Studies section ── */
-    .cs-section { display: flex; flex-direction: column; gap: 48px; align-items: center; padding: 80px 0 0; }
+    .cs-section { display: flex; flex-direction: column; gap: 48px; align-items: center; padding: 128px 0 0; }
     .cs-section-header { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+    @media (max-width: 860px) { .cs-section { padding-top: 88px; } }
     .cs-section-title { font-size: 34px; font-weight: 400; line-height: 1.15; color: var(--dark); text-align: center; }
     @media (max-width: 860px) { .cs-section-title { font-size: 28px; } }
     .cs-section-sub { font-size: 18px; font-weight: 400; line-height: 1.6; color: var(--gray); text-align: center; max-width: 620px; }
@@ -321,7 +323,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
-  <link rel="stylesheet" href="/theme.css?v=11" />
+  <link rel="stylesheet" href="/theme.css?v=12" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What types of products do you work on?", "acceptedAnswer": {"@type": "Answer", "text": "I work on SaaS platforms, AI-powered products, complex web applications, internal tools, and new digital products. My focus is on making complex functionality easier to understand and use, while ensuring the product supports real user needs and business goals."}}, {"@type": "Question", "name": "Can you help me build a product from scratch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I can help turn an early-stage idea into a structured product experience, from clarifying user needs and defining key workflows to designing the interface and preparing it for development. The scope depends on how far along you are and what you need to validate or build."}}, {"@type": "Question", "name": "Can you improve or redesign an existing product?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I can review an existing product, identify usability and workflow problems, simplify complex functionality, and redesign key experiences. I start by understanding the product, its users, and the business challenges before deciding what needs to change."}}, {"@type": "Question", "name": "What does the design process look like?", "acceptedAnswer": {"@type": "Answer", "text": "Every project starts with understanding the problem. I review the available product information, business requirements, user needs, and existing workflows. From there, I structure the experience, design user flows and interfaces, validate important decisions where appropriate, and prepare the design for implementation. The exact process depends on the project."}}, {"@type": "Question", "name": "Do you work with developers during implementation?", "acceptedAnswer": {"@type": "Answer", "text": "I prepare designs and specifications with implementation in mind and can collaborate with developers to clarify interactions, edge cases, and design decisions. The level of involvement during development is agreed on based on your team's needs and the project scope."}}, {"@type": "Question", "name": "How do you estimate the cost of a project?", "acceptedAnswer": {"@type": "Answer", "text": "The estimate depends on the product's complexity, the scope of work, existing research and documentation, and the level of involvement required. After an initial discussion, I can help define a realistic scope and provide an estimate based on the actual needs of the project."}}, {"@type": "Question", "name": "How is this different from a UX audit?", "acceptedAnswer": {"@type": "Answer", "text": "A traditional UX audit often evaluates usability and interface issues across a product. Behavioral CRO Diagnosis focuses on the barriers that may prevent users from taking a desired action. I examine how the value proposition, trust signals, user expectations, and conversion journey work together, then explain the likely causes of friction and recommend what to improve. The findings are grounded in the evidence available for your project."}}, {"@type": "Question", "name": "Do I need analytics data to get started?", "acceptedAnswer": {"@type": "Answer", "text": "Analytics data is valuable because it helps identify where users drop off and which journeys deserve closer attention. Access to tools such as GA4, Microsoft Clarity, or Hotjar can strengthen the diagnosis. If you don't have these tools or your tracking is incomplete, we can discuss what can be assessed with the information available and identify any limitations. I won't present assumptions as proven findings."}}, {"@type": "Question", "name": "What exactly will I receive?", "acceptedAnswer": {"@type": "Answer", "text": "You'll receive a structured diagnostic report outlining the key barriers identified, the evidence behind the findings, why each issue may affect user behavior, and actionable recommendations. The report helps you understand what needs attention and why, with priorities to guide your next steps."}}, {"@type": "Question", "name": "Will you implement the recommendations?", "acceptedAnswer": {"@type": "Answer", "text": "The core service focuses on diagnosis and recommendations, not implementation. You'll receive a clear direction for improvement that your internal team or development partner can act on. If you need design support to implement the recommendations, we can discuss that as a separate engagement."}}, {"@type": "Question", "name": "How do you prioritize improvements?", "acceptedAnswer": {"@type": "Answer", "text": "I prioritize issues based on their likely impact on the conversion journey, the strength of the supporting evidence, and the practical effort required to address them. The goal is to identify the changes most worth investigating or implementing first, rather than produce a long list of equally weighted observations."}}, {"@type": "Question", "name": "Can you guarantee an increase in conversion?", "acceptedAnswer": {"@type": "Answer", "text": "No responsible diagnosis can guarantee a specific conversion uplift. The service identifies evidence-based opportunities to reduce friction and improve the user experience, but actual results depend on implementation, traffic, audience behavior, and other factors. Where appropriate, recommendations can be tested and measured after implementation."}}]}</script>
 </head>
 <body class="home">
@@ -646,6 +648,7 @@
   </script>
   <script src="/js/access.js" defer></script>
   <script src="/js/theme.js" defer></script>
+  <script src="/js/reveal.js" defer></script>
   <script src="/js/magic-card.js" defer></script>
   <script src="/js/arc-carousel.js" defer></script>
   <script src="/js/faq-tabs.js" defer></script>
