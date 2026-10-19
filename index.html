@@ -271,10 +271,6 @@
     .faq-tab:hover { border-color: var(--gray); }
     .faq-tab:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
     .faq-tab[aria-selected="true"] { border-color: var(--dark); background: var(--bg-soft); box-shadow: inset 0 -3px 0 var(--dark); }
-    .faq-tab-ico { width: 46px; height: 46px; border-radius: 13px; flex: none; display: flex; align-items: center; justify-content: center; }
-    .faq-tab-ico--product { background: #1f1d1a; }
-    .faq-tab-ico--cro { background: #1d2124; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14); }
-    .faq-tab-ico img { width: 34px; height: 34px; display: block; }
     .faq-tab-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
     .faq-tab-text strong { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 500; line-height: 1.2; }
     .faq-tab-text span { font-size: 14.5px; line-height: 1.45; color: var(--gray); }
@@ -520,12 +516,10 @@
           <div class="faq" data-faq data-default="faq-tab-product">
             <div class="faq-tabs" role="tablist" aria-label="FAQ topics">
               <button type="button" class="faq-tab" role="tab" id="faq-tab-product" data-topic="product" aria-controls="faq-panel-product" aria-selected="true">
-                <span class="faq-tab-ico faq-tab-ico--product" aria-hidden="true"><img src="/images/icon-grid-white.gif" alt="" width="34" height="34" /></span>
                 <span class="faq-tab-text"><strong>Product Design</strong><span>Building a new product or improving an existing one.</span></span>
                 <span class="faq-tab-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,12.5 10,17.5 19,7.5"/></svg></span>
               </button>
               <button type="button" class="faq-tab" role="tab" id="faq-tab-cro" data-topic="cro" aria-controls="faq-panel-cro" aria-selected="false" tabindex="-1">
-                <span class="faq-tab-ico faq-tab-ico--cro" aria-hidden="true"><img src="/images/icon-shapes-white.gif" alt="" width="34" height="34" /></span>
                 <span class="faq-tab-text"><strong>Behavioral CRO Diagnosis</strong><span>Finding conversion barriers and deciding what to improve.</span></span>
                 <span class="faq-tab-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,12.5 10,17.5 19,7.5"/></svg></span>
               </button>
