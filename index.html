@@ -106,19 +106,8 @@
     html body .help-card .help-more p { color: rgba(255,255,255,0.86); }
     html body .help-card .help-tags li { background: rgba(255,255,255,0.16); color: #fff; border: 1px solid rgba(255,255,255,0.28); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
     html body .help-card .btn-dark { background: #fff !important; color: #17132b !important; border-color: transparent !important; box-shadow: 0 6px 18px -6px rgba(20,10,60,0.35); }
-    /* Animated line icons (white, top-left of each card) */
-    .help-icon { width: 46px; height: 46px; color: #fff; flex: none; margin-bottom: 10px; overflow: visible; }
-    .help-icon * { transform-box: view-box; }
-    .help-icon--grid .gi-v1 { animation: gi-v1 4.2s ease-in-out infinite; }
-    .help-icon--grid .gi-h  { transform-origin: 21.5px 10px; animation: gi-h 4.2s ease-in-out infinite; }
-    .help-icon--grid .gi-v2 { transform-origin: 15px 21.5px; animation: gi-v2 4.2s ease-in-out infinite; }
-    @keyframes gi-v1 { 0%, 8% { transform: translateX(0); } 32% { transform: translateX(3px); } 62% { transform: translateX(-2px); } 88%, 100% { transform: translateX(0); } }
-    @keyframes gi-h  { 0%, 8% { transform: translateY(0) scaleX(1); } 32% { transform: translateY(5.5px) scaleX(.78); } 62% { transform: translateY(-3px) scaleX(1.14); } 88%, 100% { transform: translateY(0) scaleX(1); } }
-    @keyframes gi-v2 { 0%, 8% { transform: translateX(0) scaleY(1); } 32% { transform: translateX(2px) scaleY(.54); } 62% { transform: translateX(-2px) scaleY(1.24); } 88%, 100% { transform: translateX(0) scaleY(1); } }
-    .help-icon--shapes .si { transform-box: fill-box; transform-origin: center; animation: si-spin 3.8s cubic-bezier(.6,0,.3,1) infinite; }
-    .help-icon--shapes .si-2 { animation-delay: .1s; } .help-icon--shapes .si-3 { animation-delay: .2s; } .help-icon--shapes .si-4 { animation-delay: .3s; }
-    @keyframes si-spin { 0%, 12% { transform: rotate(0) scale(1, 1); } 34% { transform: rotate(150deg) scale(.82, 1.12); } 56% { transform: rotate(300deg) scale(1.08, .8); } 70%, 100% { transform: rotate(360deg) scale(1, 1); } }
-    @media (prefers-reduced-motion: reduce) { .help-icon * { animation: none !important; } }
+    /* Animated icons (white GIFs, top-left of each card). The GIFs have built-in padding, so pull them in to line up with the text */
+    .help-icon { display: block; width: 64px; height: 64px; flex: none; margin: -10px 0 -4px -9px; user-select: none; -webkit-user-drag: none; }
     .help-card { clip-path: inset(0 round 28px); } @media (max-width: 860px) { .help-card { clip-path: inset(0 round 24px); } }
     @media (prefers-reduced-motion: reduce) { .help-bg { animation: none; } }
 
@@ -301,7 +290,7 @@
           <div class="help-cards">
             <div class="help-card help-card--product" data-magic>
               <span class="help-bg" aria-hidden="true"></span><span class="help-grain" aria-hidden="true"></span>
-              <svg class="help-icon help-icon--grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="19" height="19" rx="3.5"/><line class="gi-v1" x1="8.5" y1="2.5" x2="8.5" y2="21.5"/><line class="gi-h" x1="8.5" y1="10" x2="21.5" y2="10"/><line class="gi-v2" x1="15" y1="10" x2="15" y2="21.5"/></svg>
+              <img class="help-icon" src="/images/icon-grid-white.gif" alt="" width="64" height="64" />
               <h3 class="help-name">Product design</h3>
               <p class="help-headline">Complex products. Clear experiences.</p>
               <div class="help-more">
@@ -313,7 +302,7 @@
             </div>
             <div class="help-card help-card--cro" data-magic>
               <span class="help-bg" aria-hidden="true"></span><span class="help-grain" aria-hidden="true"></span>
-              <svg class="help-icon help-icon--shapes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path class="si si-1" d="M7 3.5l3.6 6.2H3.4z"/><rect class="si si-2" x="13.5" y="3.3" width="7.2" height="7.2" rx="2"/><path class="si si-3" d="M3.6 14.2l6.6 6.6M10.2 14.2l-6.6 6.6"/><circle class="si si-4" cx="17.1" cy="17.5" r="3.7"/></svg>
+              <img class="help-icon" src="/images/icon-shapes-white.gif" alt="" width="64" height="64" />
               <h3 class="help-name">Behavioral CRO Diagnosis</h3>
               <p class="help-headline">Understand why users hesitate, where conversion breaks down, and what to improve.</p>
               <div class="help-more">
