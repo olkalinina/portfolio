@@ -9,15 +9,15 @@ body:not(.is-protected) {
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --dark: #2a2925;      --gray: #6f6a60;      --light-gray: #e6e0d5;  --bg-soft: #f2eee6;
   --text: #2a2925;      --muted: #6f6a60;     --border: #e6e0d5;      --bg-card: #f2eee6;   --border-btn: #cfc8ba;
-  --ink: #2a2925;       --ink-muted: #6f6a60; --white: #faf8f4;
+  --ink: #2a2925;       --ink-muted: #6f6a60; --white: #ECE6E8;
   --strong: #111111;    --surface: #fffdf9;   --on-accent: #faf8f4;   --accent-bg: #111111;
   --shadow-nav: none;
-  background: #faf8f4;
+  background: #ECE6E8;
   color: #2a2925;
   font-family: 'Lora', Georgia, 'Times New Roman', serif;
 }
-html { background: #faf8f4; }
-body.home:not(.is-protected) { background: #faf8f4; }
+html { background: #ECE6E8; }
+body.home:not(.is-protected) { background: #ECE6E8; }
 
 /* ---- Headings ---- */
 body:not(.is-protected) :is(h1, h2) {
@@ -71,7 +71,7 @@ body:not(.is-protected) .cs-card, body:not(.is-protected) .svc-card, body:not(.i
   transform: none;
   justify-content: flex-start;
   padding: 14px max(20px, calc((100% - 1187px) / 2 + 40px));
-  background: rgba(250, 248, 244, 0.94);
+  background: rgba(236, 230, 232, 0.94);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   border: 0; border-bottom: 1px solid #e6e0d5;
   border-radius: 0; box-shadow: none;
@@ -104,7 +104,7 @@ body.is-protected .nav { background: rgba(255, 255, 255, 0.94); border-bottom-co
 ::view-transition-new(root) { z-index: 2; }
 
 /* ---- Mobile menu ---- */
-.mobile-menu { background: #faf8f4; backdrop-filter: none; -webkit-backdrop-filter: none; border: 1px solid #e6e0d5; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+.mobile-menu { background: #ECE6E8; backdrop-filter: none; -webkit-backdrop-filter: none; border: 1px solid #e6e0d5; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
 body.is-protected .mobile-menu { background: #fff; border-color: #ebebeb; }
 .mobile-menu-links a { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; border-bottom-color: #e6e0d5; }
 .mobile-menu-links a.active { font-weight: 400; }
