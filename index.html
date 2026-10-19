@@ -40,11 +40,6 @@
     .trusted-label { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); flex: none; }
     .client-logos { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: space-between; flex: 1; }
     @media (max-width: 860px) { .trusted { flex-direction: column; align-items: flex-start; gap: 18px; } .client-logos { justify-content: flex-start; } }
-    .who-grid { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 28px 64px; align-items: end; text-align: left; }
-    .who-grid p { font-size: 18px; line-height: 1.6; color: var(--gray); }
-    .who-chips { list-style: none; padding: 0; margin: 8px 0 0; width: 100%; display: flex; flex-wrap: wrap; gap: 10px; }
-    .who-chips li { font-size: 15.5px; padding: 11px 20px; border: 1.5px solid var(--light-gray); border-radius: 9999px; background: var(--bg-soft); }
-    @media (max-width: 860px) { .who-grid { grid-template-columns: 1fr; } }
     .client-logos img { height: 30px; width: auto; max-width: 104px; object-fit: contain; opacity: 0.5; filter: grayscale(1); flex-shrink: 0; }
 
 
@@ -204,6 +199,17 @@
     .cs-card-img-contained { margin: 16px 0 16px; padding: 0; overflow: hidden; border-radius: 12px; }
     .cs-card-img-contained img { width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; border-radius: 12px; border: 1px solid var(--light-gray); }
 
+    .work-on { width: 100%; text-align: left; border: 1px solid var(--light-gray); border-radius: 24px; padding: 36px 44px 40px; }
+    .work-on-eyebrow { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
+    .work-on-head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 72px; align-items: start; padding: 28px 0 34px; border-bottom: 1px solid var(--light-gray); }
+    .work-on-head h2 { font-size: 40px; font-weight: 400; line-height: 1.15; }
+    .work-on-head p { font-size: 18px; line-height: 1.65; color: var(--gray); }
+    .work-on-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 72px; padding-top: 34px; }
+    .work-on-grid li { display: flex; flex-direction: column; gap: 6px; }
+    .work-on-grid .n { font-size: 13px; letter-spacing: 0.14em; color: var(--gray); }
+    .work-on-grid strong { font-family: 'Playfair Display', Georgia, serif; font-size: 23px; font-weight: 500; line-height: 1.25; }
+    .work-on-grid .d { font-size: 16px; line-height: 1.55; color: var(--gray); }
+    @media (max-width: 860px) { .work-on { padding: 28px 24px 32px; } .work-on-head, .work-on-grid { grid-template-columns: 1fr; } .work-on-head h2 { font-size: 32px; } .work-on-grid { gap: 26px; } }
     /* ── Case studies: arc carousel ── */
     .arc { --arc-size: 300px; --step: 22deg; --pivot: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; }
     .arc-stage { position: relative; width: 100%; height: calc(var(--arc-size) + 90px); overflow: hidden; touch-action: pan-y; user-select: none;
@@ -306,10 +312,6 @@
     /* ── Blog ── */
     }
 
-    /* ── Clickable section-label badges ── */
-    a:has(.section-label) { display: inline-block; }
-    a:has(.section-label):hover .section-label { opacity: 0.7; transform: translateY(-1px); transition: opacity 0.2s, transform 0.2s; }
-    .section-label { transition: opacity 0.2s, transform 0.2s; cursor: pointer; }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -389,7 +391,7 @@
 
         <!-- HOW I CAN HELP -->
         <div class="help-section" id="services">
-          <span class="section-label">How I can help</span>
+          
           <h2 class="help-title">Two ways to work together.</h2>
           <div class="help-cards">
             <div class="help-card help-card--product" data-magic>
@@ -417,21 +419,26 @@
           </div>
         </div>
 
-        <!-- WHO IT'S FOR -->
+        <!-- WHAT I WORK ON -->
         <section class="sec-block" id="who" aria-labelledby="who-title">
-          <div class="who-grid">
-            <div style="display:flex;flex-direction:column;align-items:flex-start;gap:20px;">
-              <span class="section-label">Who it's for</span>
-              <h2 class="help-title" id="who-title">Product teams at different stages</h2>
+          <div class="work-on">
+            <p class="work-on-eyebrow">What I work on</p>
+            <div class="work-on-head">
+              <h2 id="who-title">Complex products, made clear.</h2>
+              <p>From early-stage concepts to established platforms, I help teams make digital products easier to understand, navigate and use.</p>
             </div>
-            <p>From early-stage startups to growing teams and established product teams, working across a range of industries and product types.</p>
+            <ul class="work-on-grid">
+              <li><span class="n" aria-hidden="true">01</span><strong>SaaS &amp; enterprise platforms</strong><span class="d">Complex workflows, dashboards, data-heavy tools</span></li>
+              <li><span class="n" aria-hidden="true">02</span><strong>AI-powered products</strong><span class="d">AI tools, copilots, interfaces for intelligent systems</span></li>
+              <li><span class="n" aria-hidden="true">03</span><strong>Web &amp; mobile applications</strong><span class="d">New products, redesigns, user journeys</span></li>
+              <li><span class="n" aria-hidden="true">04</span><strong>Digital services &amp; commerce</strong><span class="d">Marketplaces, e-commerce, customer-facing services</span></li>
+            </ul>
           </div>
-          <ul class="who-chips"><li>SaaS products</li><li>Web applications</li><li>Mobile apps</li><li>AI products</li><li>Marketplaces</li><li>E-commerce</li><li>Enterprise tools</li><li>Other digital services</li></ul>
         </section>
 
         <!-- HOW I WORK -->
         <section class="sec-block" id="how-i-work" aria-labelledby="hw-title">
-          <span class="section-label">How I work</span>
+          
           <h2 class="help-title" id="hw-title">Understand first. Design with intent.</h2>
           <p class="sec-sub">A clear process, whatever the size of the project.</p>
           <ol class="hw-steps">
@@ -445,12 +452,7 @@
         <!-- CASE STUDIES -->
         <section class="cs-section" id="work" aria-labelledby="cs-title">
           <div class="cs-section-header">
-            <a href="/case-studies" style="text-decoration:none;color:inherit;">
-            <span class="section-label">
-              <img src="images/case_study_icon.svg" alt="" />
-              Case Studies
-            </span>
-            </a>
+            
             <h2 class="cs-section-title" id="cs-title">20+ years in design.</h2>
             <p class="cs-section-sub">I turn complex products into intuitive experiences that convert.</p>
           </div>
@@ -487,7 +489,7 @@
 
         <!-- TESTIMONIALS -->
         <section class="sec-block" id="testimonials" aria-labelledby="tm-title">
-          <span class="section-label">Testimonials</span>
+          
           <h2 class="help-title" id="tm-title">What clients say.</h2>
           <div class="tm-marquee">
             <div class="tm-track">
@@ -499,7 +501,7 @@
 
         <!-- BLOG -->
         <section class="sec-block" id="blog" aria-labelledby="blog-title">
-          <a href="/blog" style="text-decoration:none;color:inherit;"><span class="section-label"><img src="images/PRO_blog_icon.svg" alt="" />PRO Blog</span></a>
+          
           <h2 class="help-title" id="blog-title">Product Design Notes</h2>
           <p class="sec-sub">Insights on SaaS, AI products, UX strategy, and building tools people actually use, for designers, founders, and product teams.</p>
           <div class="post-list">
@@ -533,7 +535,7 @@
 
         <!-- FAQ -->
         <section class="sec-block" id="faq" aria-labelledby="faq-title">
-          <span class="section-label">FAQ</span>
+          
           <h2 class="help-title" id="faq-title">Frequently asked questions</h2>
           <p class="sec-sub">Choose the topic that matches what you need help with.</p>
           <div class="faq" data-faq data-default="faq-tab-product">
@@ -570,7 +572,7 @@
         <section class="sec-block" id="contact" aria-labelledby="ct-title">
           <div class="contact-block">
             <div class="contact-copy">
-              <span class="section-label">Contact</span>
+              
               <h2 id="ct-title">Have a product challenge?</h2>
               <p>Tell me what you're working on: what you're building, where it gets stuck, and what you'd like to change. I'll reply personally.</p>
               <div class="contact-meta"><span>Tbilisi, Georgia &middot; UTC+4</span></div>
