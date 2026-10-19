@@ -201,16 +201,15 @@
 
     .work-on { width: 100%; text-align: left; border: 1px solid var(--light-gray); border-radius: 24px; padding: 36px 44px 44px; }
     .work-on-eyebrow { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
-    .work-on-body { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 72px; align-items: start; padding-top: 28px; }
-    .work-on-intro { display: flex; flex-direction: column; gap: 18px; }
+    .work-on-body { display: flex; flex-direction: column; gap: 40px; padding-top: 28px; }
+    .work-on-intro { display: flex; flex-direction: column; gap: 16px; }
     .work-on-intro h2 { font-size: 40px; font-weight: 400; line-height: 1.15; }
-    .work-on-intro p { font-size: 18px; line-height: 1.65; color: var(--gray); max-width: 440px; }
-    .work-on-list { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 26px; }
-    .work-on-list li { position: relative; display: flex; flex-direction: column; gap: 5px; padding-left: 30px; }
-    .work-on-list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: var(--dark); }
+    .work-on-intro p { font-size: 18px; line-height: 1.65; color: var(--gray); max-width: 560px; }
+    .work-on-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 72px; }
+    .work-on-list li { border-top: 1.5px solid var(--dark); padding-top: 16px; display: flex; flex-direction: column; gap: 6px; }
     .work-on-list strong { font-family: 'Playfair Display', Georgia, serif; font-size: 23px; font-weight: 500; line-height: 1.25; }
     .work-on-list .d { font-size: 16px; line-height: 1.55; color: var(--gray); }
-    @media (max-width: 860px) { .work-on { padding: 28px 24px 32px; } .work-on-body { grid-template-columns: 1fr; } .work-on-intro h2 { font-size: 32px; } }
+    @media (max-width: 860px) { .work-on { padding: 28px 24px 32px; } .work-on-intro h2 { font-size: 32px; } .work-on-list { grid-template-columns: 1fr; gap: 26px; } }
     /* ── Case studies: arc carousel ── */
     .arc { --arc-size: 300px; --step: 22deg; --pivot: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px; }
     .arc-stage { position: relative; width: 100%; height: calc(var(--arc-size) + 90px); overflow: hidden; touch-action: pan-y; user-select: none;
