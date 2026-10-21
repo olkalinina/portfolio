@@ -28,8 +28,7 @@
     .ab-banner img { display: block; width: 100%; height: clamp(260px, 40vw, 560px); object-fit: cover; object-position: 50% 42%; }
     .ab-intro { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; max-width: 760px; }
     .ab-intro p { font-size: 19px; line-height: 1.65; color: var(--dark); }
-    .ab-intro p + p { color: var(--gray); }
-    /* specialities */
+        /* specialities */
     .ab-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: var(--head-to-content); }
     .ab-card { background: var(--bg-soft); box-shadow: inset 0 0 0 1px var(--light-gray); display: flex; flex-direction: column; gap: 12px; }
     .ab-ico { width: 48px; height: 48px; border-radius: var(--r-md); background: #171717; color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
@@ -41,6 +40,16 @@
     .ab-col { border-top: 1.5px solid var(--dark); padding-top: 22px; display: flex; flex-direction: column; gap: 12px; }
     .ab-col h3 { margin: 0; }
     .ab-col p { font-size: 16px; line-height: 1.65; color: var(--gray); }
+    .ab-wave { display: inline-block; margin-right: 12px; transform-origin: 70% 75%; animation: ab-wave 3s ease-in-out infinite; }
+    @keyframes ab-wave { 0%, 55%, 100% { transform: rotate(0deg); } 8% { transform: rotate(16deg); } 16% { transform: rotate(-10deg); } 24% { transform: rotate(16deg); } 32% { transform: rotate(-6deg); } 40% { transform: rotate(12deg); } 48% { transform: rotate(0deg); } }
+    /* mentoring */
+    .ab-mentor { display: grid; grid-template-columns: 0.8fr 1.7fr; gap: 48px; align-items: center; margin-top: var(--head-to-content); }
+    .ab-stat { display: flex; flex-direction: column; gap: 6px; }
+    .ab-stat strong { font-family: 'Playfair Display', Georgia, serif; font-size: 88px; font-weight: 400; line-height: 1; color: var(--dark); }
+    .ab-stat span { font-size: 17px; line-height: 1.5; color: var(--gray); max-width: 260px; }
+    .ab-logos { display: flex; gap: 16px; flex-wrap: wrap; }
+    .ab-logo { display: block; height: 108px; border-radius: var(--r-lg); overflow: hidden; }
+    .ab-logo img { display: block; height: 100%; width: auto; }
     .tm-marquee { width: 100%; overflow: hidden; margin-top: var(--head-to-content); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
     .tm-track { display: flex; width: max-content; animation: tm-scroll 60s linear infinite; }
     .tm-marquee:hover .tm-track, .tm-marquee:focus-within .tm-track { animation-play-state: paused; }
@@ -72,10 +81,10 @@
     .ab-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
     @media (max-width: 960px) {
       .ab-intro { align-items: center; text-align: center; margin: 0 auto; }
-      .ab-cards { grid-template-columns: 1fr 1fr; } .ab-cols { grid-template-columns: 1fr; gap: 32px; } 
+      .ab-mentor { grid-template-columns: 1fr; gap: 32px; } .ab-cards { grid-template-columns: 1fr 1fr; } .ab-cols { grid-template-columns: 1fr; gap: 32px; } 
     }
-    @media (max-width: 640px) { .ab-cards { grid-template-columns: 1fr; } .ab-cta { padding: 48px 24px; } .ab-cta .btn-dark { width: 100%; } }
-    @media (prefers-reduced-motion: reduce) { .ab-gal-track { animation: none; } .ab-set[aria-hidden="true"] { display: none; } .ab-gallery { overflow-x: auto; } .tm-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .tm-track { animation: none; } .tm-set[aria-hidden="true"] { display: none; } }
+    @media (max-width: 640px) { .ab-logo { height: 84px; } .ab-stat strong { font-size: 68px; } .ab-cards { grid-template-columns: 1fr; } .ab-cta { padding: 48px 24px; } .ab-cta .btn-dark { width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { .ab-wave { animation: none; } .ab-gal-track { animation: none; } .ab-set[aria-hidden="true"] { display: none; } .ab-gallery { overflow-x: auto; } .tm-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .tm-track { animation: none; } .tm-set[aria-hidden="true"] { display: none; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -123,9 +132,8 @@
         <div class="ab">
 
           <section class="ab-intro">
-            <h1>Hi, I'm Olga, a product designer who loves a hard problem.</h1>
+            <h1><span class="ab-wave" aria-hidden="true">👋</span>Hi, I'm Olga, a product designer who loves a hard problem.</h1>
             <p>For 20+ years I've designed complex digital products: platforms, enterprise tools and AI-driven systems where structure and clarity do the heaviest work. The harder the problem, the more I enjoy it.</p>
-            <p>Away from the screen you'll find me with oil paints, in a swimming pool, or on a horse somewhere in the mountains.</p>
           </section>
 
           <section aria-labelledby="ab-expert">
@@ -146,6 +154,18 @@
               <div class="ab-col"><h3>In design</h3><p>The problems I find most interesting are structural ones. How does a product handle scale? How do you design for expert users without oversimplifying, and for new users without overwhelming them?</p></div>
               <div class="ab-col"><h3>In life</h3><p>In 2023 I rode horseback for three weeks along the Great Silk Road in Kyrgyzstan, up to around 4,000 metres. It was hard and beautiful, and it taught me a patience that turns out to be useful in design too.</p></div>
               <div class="ab-col"><h3>Always learning</h3><p>I moved from visual advertising to product systems, and I keep adding new ground: AI-driven products, behavioral analysis, and whatever the next problem asks for.</p></div>
+            </div>
+          </section>
+
+          <section aria-labelledby="ab-mentor">
+            <h2 id="ab-mentor">I help others grow.</h2>
+            <p class="ab-sub">I'm a design mentor at DesignLab Academy and Women In Tech Global.</p>
+            <div class="ab-mentor">
+              <div class="ab-stat"><strong>20+</strong><span>professionals mentored globally</span></div>
+              <div class="ab-logos">
+                <span class="ab-logo"><img src="/images/about/designlab-logo.png" alt="DesignLab" width="598" height="206" loading="lazy" /></span>
+                <span class="ab-logo"><img src="/images/about/women-in-tech-logo.png" alt="Women In Tech Global" width="872" height="400" loading="lazy" /></span>
+              </div>
             </div>
           </section>
 
@@ -237,6 +257,6 @@
     })();
   </script>
   <script src="/js/theme.js" defer></script>
-  <script src="/js/reveal.js?v=3" defer></script>
+  <script src="/js/reveal.js?v=4" defer></script>
 </body>
 </html>
