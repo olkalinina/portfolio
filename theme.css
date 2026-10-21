@@ -225,3 +225,69 @@ html[data-theme="dark"] .nav-links .nav-dd-item span { color: #a5a1a2; }
 .rv.in { animation: rv-in .85s cubic-bezier(.2,.7,.2,1) var(--rd, 0ms) both; }
 @keyframes rv-in { to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .rv, .rv.in { opacity: 1; transform: none; animation: none; } }
+
+/* =====================================================================
+   UI SYSTEM: one set of type, tag, button, radius and spacing rules for every public page.
+   Same role = same settings. Change a value here and it changes everywhere.
+   Protected NDA case studies (body.is-protected) keep their own look.
+   ===================================================================== */
+:root {
+  --r-xl: 32px;   /* hero and closing panels, contact panel, service cards, hero photo */
+  --r-lg: 24px;   /* cards and panels */
+  --r-md: 16px;   /* icon tiles, inputs, menus, small cards */
+  --r-sm: 12px;   /* menu items, inner images */
+  --card-pad: 32px;
+}
+@media (max-width: 860px) { :root { --r-xl: 24px; } }
+
+/* ---- Headings ---- */
+body:not(.is-protected) main h1:not(:where(.pg-section, .wf-title-bar) *), body:not(.is-protected) main h2:not(:where(.pg-section, .wf-title-bar) *), body:not(.is-protected) main h3:not(:where(.pg-section, .wf-title-bar) *) { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; letter-spacing: 0; }
+/* H1 page / article title */
+body:not(.is-protected) main h1:not(:where(.pg-section, .wf-title-bar) *) { font-size: 40px !important; font-weight: 400 !important; line-height: 1.15 !important; }
+/* H1 hero (Home, Product Design, CRO Audit) */
+body:not(.is-protected) main .hero > .hero-text > .hero-title, body:not(.is-protected) main .pd-hero h1 { font-size: 56px !important; line-height: 1.08 !important; }
+/* H2 article heading (about, privacy, blog posts, case studies) */
+body:not(.is-protected) main h2:not(:where(.pg-section, .wf-title-bar) *) { font-size: 28px !important; font-weight: 400 !important; line-height: 1.2 !important; }
+/* H2 section title (landing pages) */
+body:not(.is-protected) main h2.help-title, body:not(.is-protected) main h2.cs-section-title, body:not(.is-protected) main .pd h2, body:not(.is-protected) main .work-on-intro h2, body:not(.is-protected) main .contact-copy h2 { font-size: 36px !important; line-height: 1.15 !important; }
+/* H3 sub-heading inside articles */
+body:not(.is-protected) main h3:not(:where(.pg-section, .wf-title-bar) *) { font-size: 20px; font-weight: 500; line-height: 1.25; }
+/* H3 card, step and list titles */
+body:not(.is-protected) main .pd-card h3, body:not(.is-protected) main .pd-steps h3, body:not(.is-protected) main .hw-steps h3, body:not(.is-protected) main .pd-work h3, body:not(.is-protected) main .pd-cmp-col h3, body:not(.is-protected) main .arc-title, body:not(.is-protected) main h3.post-title, body:not(.is-protected) main h2.bcard-title, body:not(.is-protected) main .cs-card-title, body:not(.is-protected) main .work-on-list strong, body:not(.is-protected) main .pd-incl strong { font-family: 'Playfair Display', Georgia, serif; font-size: 24px !important; font-weight: 500 !important; line-height: 1.25 !important; }
+/* feature title (the two service cards) */
+body:not(.is-protected) main .help-name { font-size: 40px !important; font-weight: 500; line-height: 1.1; }
+@media (max-width: 960px) { body:not(.is-protected) main .hero > .hero-text > .hero-title, body:not(.is-protected) main .pd-hero h1 { font-size: 44px !important; } }
+@media (max-width: 860px) { body:not(.is-protected) main h2.help-title, body:not(.is-protected) main h2.cs-section-title, body:not(.is-protected) main .pd h2, body:not(.is-protected) main .work-on-intro h2, body:not(.is-protected) main .contact-copy h2 { font-size: 30px !important; } body:not(.is-protected) main .help-name { font-size: 34px !important; } }
+@media (max-width: 640px) { body:not(.is-protected) main h1:not(:where(.pg-section, .wf-title-bar) *) { font-size: 32px !important; } body:not(.is-protected) main .hero > .hero-text > .hero-title, body:not(.is-protected) main .pd-hero h1 { font-size: 36px !important; } body:not(.is-protected) main h2:not(:where(.pg-section, .wf-title-bar) *) { font-size: 24px !important; } body:not(.is-protected) main h2.help-title, body:not(.is-protected) main h2.cs-section-title, body:not(.is-protected) main .pd h2, body:not(.is-protected) main .work-on-intro h2, body:not(.is-protected) main .contact-copy h2 { font-size: 28px !important; } body:not(.is-protected) main h3:not(:where(.pg-section, .wf-title-bar) *) { font-size: 18px; } body:not(.is-protected) main .pd-card h3, body:not(.is-protected) main .pd-steps h3, body:not(.is-protected) main .hw-steps h3, body:not(.is-protected) main .pd-work h3, body:not(.is-protected) main .pd-cmp-col h3, body:not(.is-protected) main .arc-title, body:not(.is-protected) main h3.post-title, body:not(.is-protected) main h2.bcard-title, body:not(.is-protected) main .cs-card-title, body:not(.is-protected) main .work-on-list strong, body:not(.is-protected) main .pd-incl strong { font-size: 22px !important; } }
+
+/* ---- Eyebrow labels (small uppercase lines above titles, counters, tags above articles) ---- */
+body:not(.is-protected) main .hero-eyebrow, body:not(.is-protected) main .pd-eyebrow, body:not(.is-protected) main .work-on-eyebrow, body:not(.is-protected) main .pd-cmp-label, body:not(.is-protected) main .pd-cmp-cap, body:not(.is-protected) main .pd-tag, body:not(.is-protected) main .post .post-tag, body:not(.is-protected) main .bcard .btag, body:not(.is-protected) main .arc-count, body:not(.is-protected) main .arc-tag {
+  font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; }
+/* label pill (carousel project type) */
+body:not(.is-protected) main .arc-tag { padding: 6px 14px; border-width: 1px; }
+
+/* ---- Chips: filter tabs, info chips, form choices ---- */
+body:not(.is-protected) main .blog-tab, body:not(.is-protected) main .cs-tab, body:not(.is-protected) main .pd-chips li, body:not(.is-protected) main .bf-chips span { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 500; line-height: 1.3; padding: 9px 20px; border-width: 1.5px; border-style: solid; border-radius: 9999px; }
+body:not(.is-protected) main .blog-tab, body:not(.is-protected) main .cs-tab { border-color: var(--light-gray); }
+body:not(.is-protected) main .blog-tab.active, body:not(.is-protected) main .cs-tab.active { border-color: var(--dark); }
+
+/* ---- Buttons ---- */
+body:not(.is-protected) .btn-dark, body:not(.is-protected) .btn-outline-dark { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 500; line-height: 1.2; padding: 13px 26px; border: 1.5px solid transparent; border-radius: 9999px; box-sizing: border-box; }
+body:not(.is-protected) .btn-outline-dark { border-color: var(--dark); }
+
+/* ---- Body text ---- */
+body:not(.is-protected) main .hero-desc, body:not(.is-protected) main .pd-lead { font-size: 19px; line-height: 1.65; }
+body:not(.is-protected) main .sec-sub, body:not(.is-protected) main .pd-sub, body:not(.is-protected) main .cs-section-sub, body:not(.is-protected) main .blog-head-sub { font-size: 18px !important; line-height: 1.6; }
+body:not(.is-protected) main .pd-card p, body:not(.is-protected) main .hw-steps p, body:not(.is-protected) main .work-on-list .d, body:not(.is-protected) main .pd-incl .d, body:not(.is-protected) main .pd-steps p, body:not(.is-protected) main .arc-desc, body:not(.is-protected) main .post-excerpt, body:not(.is-protected) main .bcard-excerpt, body:not(.is-protected) main .cs-card-desc, body:not(.is-protected) main .pd-work p, body:not(.is-protected) main .help-more p, body:not(.is-protected) main .pd-cmp-col > p:not(.pd-cmp-label) { font-size: 16px; line-height: 1.6; }
+@media (max-width: 640px) { body:not(.is-protected) main .sec-sub, body:not(.is-protected) main .pd-sub, body:not(.is-protected) main .cs-section-sub, body:not(.is-protected) main .blog-head-sub { font-size: 17px !important; } }
+
+/* ---- Corner radius ---- */
+body:not(.is-protected) main .pd-hero, body:not(.is-protected) main .pd-cta, body:not(.is-protected) main .contact-block, body:not(.is-protected) main .hero-photo, body:not(.is-protected) main .help-card { border-radius: var(--r-xl); }
+body:not(.is-protected) main .help-card { clip-path: inset(0 round var(--r-xl)); }
+body:not(.is-protected) main .pd-card, body:not(.is-protected) main .tm-card, body:not(.is-protected) main .cs-card, body:not(.is-protected) main .work-on, body:not(.is-protected) main .pd-cmp-col, body:not(.is-protected) main .arc-card, body:not(.is-protected) main .pd-work .pic { border-radius: var(--r-lg); }
+body:not(.is-protected) main .help-icon-tile, body:not(.is-protected) main .pd-ico, body:not(.is-protected) main .pd-hero-tile, body:not(.is-protected) main .faq-tab, body:not(.is-protected) main .brief-form input[type=text], body:not(.is-protected) main .brief-form input[type=email], body:not(.is-protected) main .brief-form textarea, body:not(.is-protected) main .form-field input, body:not(.is-protected) main .form-field textarea { border-radius: var(--r-md); }
+body:not(.is-protected) .nav-dd-menu { border-radius: var(--r-md); }
+body:not(.is-protected) .nav-dd-item { border-radius: var(--r-sm); }
+
+/* ---- Card padding ---- */
+body:not(.is-protected) main .pd-card, body:not(.is-protected) main .tm-card, body:not(.is-protected) main .pd-cmp-col { padding: var(--card-pad); }
