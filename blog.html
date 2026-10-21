@@ -32,7 +32,7 @@
     .blog-tab {
       padding: 8px 20px;
       border-radius: var(--radius-pill);
-      border: none;
+      border: 1.5px solid var(--light-gray);
       background: transparent;
       font-size: 15px;
       font-weight: 500;
@@ -41,8 +41,8 @@
       font-family: var(--font);
       transition: background var(--transition), color var(--transition);
     }
-    .blog-tab:hover { color: var(--dark); }
-    .blog-tab.active { background: var(--dark); color: var(--white, #fff); }
+    .blog-tab:hover { color: var(--dark); border-color: var(--gray); }
+    .blog-tab.active { background: var(--dark); border-color: var(--dark); color: var(--white, #fff); }
 
     /* ── Blog list: same typography-first style as the Home page ── */
     .blog-head { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; padding: 8px 0 36px; }

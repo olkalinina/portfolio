@@ -32,7 +32,8 @@
     .btn-outline-dark { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border: 1.5px solid var(--dark); border-radius: var(--radius-pill); background: transparent; color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 500; transition: background var(--transition), transform var(--transition); }
     .btn-outline-dark:hover { background: var(--bg-soft); transform: translateY(-1px); }
     #services { scroll-margin-top: 70px; }
-    @media (max-width: 960px) { .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; } .hero-title { font-size: 44px; } .hero-photo { aspect-ratio: 4 / 3; } }
+    @media (max-width: 960px) { .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; } .hero-title { font-size: 44px; } .hero-photo { aspect-ratio: 4 / 3; }
+      .hero-text { align-items: center; text-align: center; } .hero-desc { margin-left: auto; margin-right: auto; } .hero-actions { justify-content: center; } }
     @media (max-width: 640px) { .hero-title { font-size: 36px; } .hero-actions { width: 100%; flex-direction: column; } .hero-actions .btn-dark, .hero-actions .btn-outline-dark { width: 100%; } }
     .trusted { display: flex; align-items: center; gap: 36px; padding: 56px 0 0; }
     .trusted-label { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); flex: none; }
@@ -40,7 +41,7 @@
     .logo-track { display: flex; width: max-content; animation: logos-scroll 40s linear infinite; }
     .logo-set { display: flex; align-items: center; gap: 56px; padding-right: 56px; flex: none; }
     @keyframes logos-scroll { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-    @media (max-width: 860px) { .trusted { flex-direction: column; align-items: flex-start; gap: 18px; } .client-logos { width: 100%; } }
+    @media (max-width: 860px) { .trusted { flex-direction: column; align-items: center; text-align: center; gap: 18px; } .client-logos { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } .logo-set[aria-hidden="true"] { display: none; } .client-logos { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } }
     .client-logos img { height: 39px; width: auto; max-width: 135px; object-fit: contain; opacity: 0.5; filter: grayscale(1); flex-shrink: 0; }
 
@@ -81,13 +82,23 @@
     .help-card .btn-dark span { display: inline-block; transition: transform .25s ease; }
     .help-card:hover .btn-dark span, .help-card:focus-within .btn-dark span { transform: translateX(4px); }
     .help-card .btn-dark::after { content: ""; position: absolute; inset: 0; z-index: 2; }  /* the whole card is clickable */
-    /* narrow screens and touch devices: stacked, everything visible */
+    /* phones and touch devices: stacked compact cards, tap a card to open its details (the button inside still goes to the service page) */
+    .help-toggle { display: none; }
     @media (max-width: 960px), (hover: none) {
-      .help-cards { flex-direction: column; gap: 20px; }
-      .help-card, .help-card:hover, .help-card:focus-within { flex-grow: 1; box-shadow: none; }
-      .help-more { width: auto; opacity: 1; transform: none; }
+      .help-cards { flex-direction: column; gap: 16px; }
+      .help-card, .help-card:hover, .help-card:focus-within { flex: none; flex-grow: 0; box-shadow: none; cursor: pointer; }
+      .help-more { width: auto; max-height: 0; overflow: hidden; opacity: 0; transform: none; margin-top: -14px; transition: max-height .45s ease, opacity .35s ease, margin-top .35s ease; }
+      .help-card:hover .help-more, .help-card:focus-within .help-more { opacity: 0; transform: none; transition: max-height .45s ease, opacity .35s ease, margin-top .35s ease; }
+      .help-card.is-open .help-more, .help-card.is-open:hover .help-more, .help-card.is-open:focus-within .help-more { max-height: 560px; opacity: 1; margin-top: 0; }
       .help-card .btn-dark { margin-top: 10px; }
+      .help-card .btn-dark::after { display: none; }
+      .help-num { display: none; }
+      .help-toggle { display: flex; position: absolute; top: 24px; right: 20px; z-index: 3; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--line, rgba(128,128,128,0.35)); background: transparent; color: var(--fg, inherit); cursor: pointer; }
+      .help-toggle svg { width: 18px; height: 18px; transition: transform .3s ease; }
+      .help-card.is-open .help-toggle svg { transform: rotate(180deg); }
+      .help-toggle:focus-visible { outline: 2px solid var(--fg, currentColor); outline-offset: 2px; }
     }
+    @media (prefers-reduced-motion: reduce) { .help-more, .help-toggle svg { transition: none !important; } }
     @media (max-width: 860px) { .help-section { padding-top: 88px; } .help-title { font-size: 28px; } .help-card { padding: 32px 24px; border-radius: 24px; } .help-name { font-size: 34px; } .help-card .btn-dark { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .help-card, .help-more, .help-card::before, .help-card::after { transition: none !important; } }
     /* Editorial cards: two quiet surfaces (warm sand / cool ink), a fine texture each, and a pink-violet-blue gradient stroke that appears on hover */
@@ -147,7 +158,6 @@
     .contact-copy { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
     .contact-copy h2 { font-size: 38px; font-weight: 500; line-height: 1.12; }
     .contact-copy p { font-size: 17px; line-height: 1.6; color: var(--gray); }
-    .contact-meta { margin-top: 8px; font-size: 15px; color: var(--dark); display: flex; flex-direction: column; gap: 6px; }
     .brief-form { display: flex; flex-direction: column; gap: 18px; }
     .brief-form .bf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .brief-form .bf-field { display: flex; flex-direction: column; gap: 8px; }
@@ -240,7 +250,8 @@
     :root { --sec-gap: 128px; --head-gap: 16px; --head-to-content: 56px; }
     @media (max-width: 860px) { :root { --sec-gap: 88px; --head-to-content: 40px; } }
     .help-section, .sec-block { padding-top: var(--sec-gap); gap: var(--head-gap); }
-    .cs-section { margin-top: var(--sec-gap); padding-top: calc(var(--sec-gap) * 0.75); padding-bottom: calc(var(--sec-gap) * 0.75); gap: var(--head-to-content); }
+    .cs-section { margin-top: var(--sec-gap); padding: calc(var(--sec-gap) * 0.75) 0 !important; gap: var(--head-to-content); }
+    @media (max-width: 768px) { .cs-section-title { font-size: 28px !important; } .cs-section-sub { font-size: 17px !important; } }
     .cs-section-header { gap: var(--head-gap); }
     .help-section .help-cards, .sec-block .hw-steps, .sec-block .tm-marquee, .sec-block .post-list, .sec-block .faq { margin-top: calc(var(--head-to-content) - var(--head-gap)); }
     .sec-block > .btn-outline-dark { margin-top: calc(var(--head-to-content) - var(--head-gap) - 8px); }
@@ -326,7 +337,7 @@
     .faq-panel.is-in { animation: faq-in .32s ease both; }
     @keyframes faq-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
     .faq-panel .faq-item:last-child { border-bottom: 1.5px solid var(--light-gray); }
-    @media (max-width: 700px) { .faq-tabs { grid-template-columns: 1fr; } .faq-item summary { font-size: 17.5px; } .faq-item p { padding-right: 0; } }
+    @media (max-width: 700px) { .faq-tabs { grid-template-columns: 1fr 1fr; gap: 10px; } .faq-tab { padding: 14px 34px 14px 14px; } .faq-tab-text strong { font-size: 17px; } .faq-tab-text span { font-size: 13px; } .faq-tab-check { top: 12px; right: 10px; width: 20px; height: 20px; } .faq-item summary { font-size: 17.5px; } .faq-item p { padding-right: 0; } }
     @media (prefers-reduced-motion: reduce) { .faq-panel.is-in { animation: none; } .faq-tab, .faq-tab-check { transition: none; } }
     @media (prefers-reduced-motion: reduce) { .faq-plus::before, .faq-plus::after { transition: none; } }
 
@@ -438,10 +449,10 @@
           <div class="help-cards">
             <div class="help-card help-card--product" data-magic>
               <span class="help-bg" aria-hidden="true"></span><span class="help-grain" aria-hidden="true"></span>
-              <span class="help-icon-tile"><img class="help-icon" src="/images/icon-grid-white.gif" alt="" width="45" height="45" /></span><span class="help-num" aria-hidden="true">01</span>
+              <span class="help-icon-tile"><img class="help-icon" src="/images/icon-grid-white.gif" alt="" width="45" height="45" /></span><span class="help-num" aria-hidden="true">01</span><button type="button" class="help-toggle" aria-expanded="false" aria-controls="more-product" aria-label="Show details: Product Design"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6,9 12,15 18,9"/></svg></button>
               <h3 class="help-name">Product Design</h3>
               <p class="help-headline">Create and improve digital products with thoughtful UX and clear user journeys.</p>
-              <div class="help-more">
+              <div class="help-more" id="more-product">
                 <p>From early-stage products to complex SaaS platforms and AI-powered tools, I turn business requirements and user needs into intuitive, build-ready experiences.</p>
                 <ul class="help-tags"><li>SaaS &amp; AI</li><li>Complex platforms</li><li>New products</li></ul>
               </div>
@@ -449,10 +460,10 @@
             </div>
             <div class="help-card help-card--cro" data-magic>
               <span class="help-bg" aria-hidden="true"></span><span class="help-grain" aria-hidden="true"></span>
-              <span class="help-icon-tile"><img class="help-icon" src="/images/icon-shapes-white.gif" alt="" width="45" height="45" /></span><span class="help-num" aria-hidden="true">02</span>
+              <span class="help-icon-tile"><img class="help-icon" src="/images/icon-shapes-white.gif" alt="" width="45" height="45" /></span><span class="help-num" aria-hidden="true">02</span><button type="button" class="help-toggle" aria-expanded="false" aria-controls="more-cro" aria-label="Show details: Behavioral CRO Diagnosis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6,9 12,15 18,9"/></svg></button>
               <h3 class="help-name">Behavioral CRO Diagnosis</h3>
               <p class="help-headline">Understand why users hesitate, where conversion breaks down, and what to improve.</p>
-              <div class="help-more">
+              <div class="help-more" id="more-cro">
                 <p>An evidence-based review of your website or digital product to uncover the behavioral barriers behind lost conversions, with clear explanations and actionable recommendations.</p>
                 <ul class="help-tags"><li>Value proposition</li><li>Trust and credibility</li><li>Conversion journey</li></ul>
               </div>
@@ -620,7 +631,6 @@
               
               <h2 id="ct-title">Have a product challenge?</h2>
               <p>Tell me what you're working on: what you're building, where it gets stuck, and what you'd like to change. I'll reply personally.</p>
-              <div class="contact-meta"><span>Tbilisi, Georgia &middot; UTC+4</span></div>
             </div>
             <form class="brief-form" action="https://formspree.io/f/xkjovqro" method="POST">
               <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
@@ -687,6 +697,7 @@
   <script src="/js/reveal.js?v=3" defer></script>
   <script src="/js/magic-card.js" defer></script>
   <script src="/js/arc-carousel.js" defer></script>
+  <script src="/js/service-cards.js" defer></script>
   <script src="/js/faq-tabs.js" defer></script>
 </body>
 </html>
