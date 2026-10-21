@@ -36,8 +36,12 @@
     @media (max-width: 640px) { .hero-title { font-size: 36px; } .hero-actions { width: 100%; flex-direction: column; } .hero-actions .btn-dark, .hero-actions .btn-outline-dark { width: 100%; } }
     .trusted { display: flex; align-items: center; gap: 36px; padding: 56px 0 0; }
     .trusted-label { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); flex: none; }
-    .client-logos { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: space-between; flex: 1; }
-    @media (max-width: 860px) { .trusted { flex-direction: column; align-items: flex-start; gap: 18px; } .client-logos { justify-content: flex-start; } }
+    .client-logos { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+    .logo-track { display: flex; width: max-content; animation: logos-scroll 48s linear infinite; }
+    .logo-set { display: flex; align-items: center; gap: 56px; padding-right: 56px; flex: none; }
+    @keyframes logos-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (max-width: 860px) { .trusted { flex-direction: column; align-items: flex-start; gap: 18px; } .client-logos { width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } .logo-set[aria-hidden="true"] { display: none; } .client-logos { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } }
     .client-logos img { height: 39px; width: auto; max-width: 135px; object-fit: contain; opacity: 0.5; filter: grayscale(1); flex-shrink: 0; }
 
 
@@ -406,13 +410,24 @@
         <div class="trusted">
           <span class="trusted-label">Trusted by teams at</span>
           <div class="client-logos">
-            <img src="images/UNESCAP_logo.svg" alt="UN ESCAP" />
-            <img src="images/Moonbug_logo.svg" alt="Moonbug" />
-            <img src="images/Decade_of_action_logo.svg" alt="Decade of Action" />
-            <img src="images/Think_blue_data_logo.svg" alt="Think Blue Data" />
-            <img src="images/United_Nations_logo.svg" alt="United Nations" />
-            <img src="images/Plantations_international_logo.svg" alt="Plantations International" />
-          </div>
+            <div class="logo-track">
+            <div class="logo-set">
+              <img src="images/UNESCAP_logo.svg" alt="UN ESCAP" />
+              <img src="images/Moonbug_logo.svg" alt="Moonbug" />
+              <img src="images/Decade_of_action_logo.svg" alt="Decade of Action" />
+              <img src="images/Think_blue_data_logo.svg" alt="Think Blue Data" />
+              <img src="images/United_Nations_logo.svg" alt="United Nations" />
+              <img src="images/Plantations_international_logo.svg" alt="Plantations International" />
+            </div>
+            <div class="logo-set" aria-hidden="true">
+              <img src="images/UNESCAP_logo.svg" alt="" />
+              <img src="images/Moonbug_logo.svg" alt="" />
+              <img src="images/Decade_of_action_logo.svg" alt="" />
+              <img src="images/Think_blue_data_logo.svg" alt="" />
+              <img src="images/United_Nations_logo.svg" alt="" />
+              <img src="images/Plantations_international_logo.svg" alt="" />
+            </div>
+          </div></div>
         </div>
 
         <!-- HOW I CAN HELP -->
