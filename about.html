@@ -85,12 +85,55 @@
     }
     @media (max-width: 640px) { .ab-logo { height: 84px; } .ab-stat strong { font-size: 68px; } .ab-cards { grid-template-columns: 1fr; } .ab-cta { padding: 48px 24px; } .ab-cta .btn-dark { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .ab-wave { animation: none; } .ab-gal-track { animation: none; } .ab-set[aria-hidden="true"] { display: none; } .ab-gallery { overflow-x: auto; } .tm-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .tm-track { animation: none; } .tm-set[aria-hidden="true"] { display: none; } }
+    /* ---- centred titles and subtitles ---- */
+    .ab h2, .ab-sub { text-align: center; }
+    .ab-sub { margin-left: auto; margin-right: auto; }
+    .ab-intro { align-items: center; text-align: center; margin: 0 auto; }
+    /* ---- dark band: I help others grow ---- */
+    .ab-band { --band: #171717; position: relative; padding: calc(var(--sec-gap) * 0.55) 0; background: var(--band); box-shadow: 0 0 0 100vmax var(--band); clip-path: inset(0 -100vmax); }
+    html[data-theme="dark"] .ab-band { --band: #2f2e2e; }
+    html body .ab-band h2 { color: #f7f5f5; }
+    html body .ab-band .ab-sub { color: rgba(247,245,245,0.72); }
+    html body .ab-band .ab-stat strong { color: #f7f5f5; }
+    html body .ab-band .ab-stat span { color: rgba(247,245,245,0.72); }
+    .ab-band .ab-mentor { grid-template-columns: auto auto; justify-content: center; gap: 64px; }
+    .ab-band .ab-logo { height: 54px; }
+    @media (max-width: 960px) { .ab-band .ab-mentor { grid-template-columns: 1fr; gap: 28px; justify-items: center; text-align: center; } .ab-band .ab-stat { align-items: center; } .ab-band .ab-logos { justify-content: center; } }
+    @media (max-width: 640px) { .ab-band .ab-logo { height: 42px; } }
+    /* ---- testimonials: manual row with arrows (same circles as the case-study carousel on Home) ---- */
+    .ab-tm .tm-marquee { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-mask-image: none; mask-image: none; -webkit-overflow-scrolling: touch; }
+    .ab-tm .tm-marquee::-webkit-scrollbar { display: none; }
+    .ab-tm .tm-track { animation: none; transform: none; width: max-content; }
+    .ab-tm .tm-card { scroll-snap-align: start; }
+    .ab-tm .tm-marquee:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; }
+    .ab-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 28px; }
+    .ab-count { font-size: 13px; letter-spacing: 0.18em; color: var(--gray); font-variant-numeric: tabular-nums; }
+    .ab-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--light-gray); background: transparent; color: var(--dark); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color .2s, opacity .2s; padding: 0; }
+    .ab-arrow:hover:not([disabled]), .ab-arrow.active:not([disabled]) { border-color: var(--dark); }
+    .ab-arrow[disabled] { opacity: .35; cursor: default; }
+    .ab-arrow svg { width: 20px; height: 20px; }
+    .ab-arrow:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
+    /* ---- closing card: dark, below the photo strip ---- */
+    .ab-end { padding-bottom: 96px; }
+    html body .ab-cta { background: #171717; box-shadow: none; }
+    html[data-theme="dark"] body .ab-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
+    html body .ab-cta h2 { color: #f7f5f5; }
+    html body .ab-cta p { color: rgba(247,245,245,0.72); }
+    html body .ab-cta .btn-dark { background: #ede8ea !important; color: #171717 !important; }
+    /* ---- gallery: room for the hover zoom ---- */
+    .ab-gallery { margin: calc(var(--sec-gap, 128px) - 56px) 0 calc(var(--sec-gap, 128px) - 56px); padding: 56px 0; }
+    .ab-tile { position: relative; }
+    .ab-tile .sq { transition: transform .45s cubic-bezier(.22,.7,.2,1), box-shadow .45s ease; }
+    .ab-tile:hover { z-index: 3; }
+    .ab-tile:hover .sq { transform: scale(1.3); box-shadow: 0 22px 44px -18px rgba(0,0,0,0.45); }
+    @media (hover: none) { .ab-tile:hover .sq { transform: none; box-shadow: none; } }
+    @media (prefers-reduced-motion: reduce) { .ab-tile .sq { transition: none; } .ab-tile:hover .sq { transform: none; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
-  <link rel="stylesheet" href="/theme.css?v=21" />
+  <link rel="stylesheet" href="/theme.css?v=22" />
 </head>
 <body>
     <nav class="nav">
@@ -157,7 +200,7 @@
             </div>
           </section>
 
-          <section aria-labelledby="ab-mentor">
+          <section class="ab-band pd-dark" aria-labelledby="ab-mentor">
             <h2 id="ab-mentor">I help others grow.</h2>
             <p class="ab-sub">I'm a design mentor at DesignLab Academy and Women In Tech Global.</p>
             <div class="ab-mentor">
@@ -169,21 +212,19 @@
             </div>
           </section>
 
-          <section aria-labelledby="ab-words">
+          <section class="ab-tm" aria-labelledby="ab-words">
             <h2 id="ab-words">Kind words.</h2>
             <p class="ab-sub">From people I've worked with.</p>
-            <div class="tm-marquee">
-            <div class="tm-track">
-              <div class="tm-set"><figure class="tm-card"><blockquote>&ldquo;Olga’s contributions drove our revenue growth and helped us reach new annual milestones. She played a key part in turning our custom development into our first SaaS product.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">P</span><span><strong>Paul Janecek, PhD</strong><em>CEO, Think Blue Data</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga is company Dr. House. She simplifies complex, seemingly impossible tasks and delivers elegant solutions. Her real strength is turning massive amounts of data into readable, user-friendly interfaces.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">D</span><span><strong>Dasha Timbush</strong><em>Founder &amp; CEO, CastingForm</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;A well-trained, uniquely gifted and emotionally intelligent expert in her field. Her knowledge and talent for big data visualisation are in high demand among DesignLab students.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">A</span><span><strong>Anna Sholina</strong><em>Founder, EMERGE</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Working with you was a solid experience. Delivered great UX work in a short timeframe and genuinely exceeded my expectations.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">J</span><span><strong>Jens Nystroem</strong><em>Founder, Stomp It</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Your ability to balance user needs with business goals is truly impactful.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">H</span><span><strong>Hemantha Hewa Ellewela</strong><em>Augmented Era</em></span></figcaption></figure></div>
-              <div class="tm-set" aria-hidden="true"><figure class="tm-card"><blockquote>&ldquo;Olga’s contributions drove our revenue growth and helped us reach new annual milestones. She played a key part in turning our custom development into our first SaaS product.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">P</span><span><strong>Paul Janecek, PhD</strong><em>CEO, Think Blue Data</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga is company Dr. House. She simplifies complex, seemingly impossible tasks and delivers elegant solutions. Her real strength is turning massive amounts of data into readable, user-friendly interfaces.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">D</span><span><strong>Dasha Timbush</strong><em>Founder &amp; CEO, CastingForm</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;A well-trained, uniquely gifted and emotionally intelligent expert in her field. Her knowledge and talent for big data visualisation are in high demand among DesignLab students.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">A</span><span><strong>Anna Sholina</strong><em>Founder, EMERGE</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Working with you was a solid experience. Delivered great UX work in a short timeframe and genuinely exceeded my expectations.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">J</span><span><strong>Jens Nystroem</strong><em>Founder, Stomp It</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Your ability to balance user needs with business goals is truly impactful.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">H</span><span><strong>Hemantha Hewa Ellewela</strong><em>Augmented Era</em></span></figcaption></figure></div>
+            <div class="tm-marquee" id="abTm" tabindex="0" role="group" aria-label="Testimonials">
+              <div class="tm-track">
+                <div class="tm-set"><figure class="tm-card"><blockquote>&ldquo;Olga’s contributions drove our revenue growth and helped us reach new annual milestones. She played a key part in turning our custom development into our first SaaS product.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">P</span><span><strong>Paul Janecek, PhD</strong><em>CEO, Think Blue Data</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga is company Dr. House. She simplifies complex, seemingly impossible tasks and delivers elegant solutions. Her real strength is turning massive amounts of data into readable, user-friendly interfaces.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">D</span><span><strong>Dasha Timbush</strong><em>Founder &amp; CEO, CastingForm</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;A well-trained, uniquely gifted and emotionally intelligent expert in her field. Her knowledge and talent for big data visualisation are in high demand among DesignLab students.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">A</span><span><strong>Anna Sholina</strong><em>Founder, EMERGE</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Working with you was a solid experience. Delivered great UX work in a short timeframe and genuinely exceeded my expectations.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">J</span><span><strong>Jens Nystroem</strong><em>Founder, Stomp It</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Your ability to balance user needs with business goals is truly impactful.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">H</span><span><strong>Hemantha Hewa Ellewela</strong><em>Augmented Era</em></span></figcaption></figure></div>
+              </div>
             </div>
-          </div>
-          </section>
-
-          <section class="ab-cta" aria-labelledby="ab-contact">
-            <h2 id="ab-contact">Have a challenge in mind?</h2>
-            <p>Tell me what you're working on, and I'll reply personally.</p>
-            <a href="/#contact" class="btn-dark">Discuss a Project</a>
+            <div class="ab-controls">
+              <button type="button" class="ab-arrow" id="abTmPrev" aria-label="Previous testimonials"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15,18 9,12 15,6"/></svg></button>
+              <span class="ab-count" id="abTmCount" aria-hidden="true">01 / 05</span>
+              <button type="button" class="ab-arrow active" id="abTmNext" aria-label="Next testimonials"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9,18 15,12 9,6"/></svg></button>
+            </div>
           </section>
 
         </div>
@@ -215,6 +256,14 @@
         </div>
         </div>
       </section>
+
+      <div class="container ab-end">
+        <section class="ab-cta pd-dark" aria-labelledby="ab-contact">
+            <h2 id="ab-contact">Have a challenge in mind?</h2>
+            <p>Tell me what you're working on, and I'll reply personally.</p>
+            <a href="/#contact" class="btn-dark">Discuss a Project</a>
+          </section>
+      </div>
     </main>
         <footer class="footer">
       <div class="footer-inner">
@@ -254,6 +303,24 @@
       var tr = document.getElementById('abTrack'); if (!tr) return;
       function speed() { var set = tr.querySelector('.ab-set'); if (set) tr.style.animationDuration = Math.round(set.getBoundingClientRect().width / 24) + 's'; }
       window.addEventListener('load', speed); window.addEventListener('resize', speed); speed();
+    })();
+  </script>
+  <script>
+    (function () {
+      var tr = document.getElementById('abTm'), pv = document.getElementById('abTmPrev'), nx = document.getElementById('abTmNext'), ct = document.getElementById('abTmCount');
+      if (!tr) return;
+      var cards = tr.querySelectorAll('.tm-card'), n = cards.length;
+      function step() { return cards[0].getBoundingClientRect().width + 20; }
+      function sync() {
+        var i = Math.min(n, Math.max(1, Math.round(tr.scrollLeft / step()) + 1));
+        ct.textContent = String(i).padStart(2, '0') + ' / ' + String(n).padStart(2, '0');
+        pv.disabled = tr.scrollLeft < 4; nx.disabled = tr.scrollLeft + tr.clientWidth >= tr.scrollWidth - 4;
+        pv.classList.toggle('active', !pv.disabled); nx.classList.toggle('active', !nx.disabled);
+      }
+      pv.addEventListener('click', function () { tr.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      nx.addEventListener('click', function () { tr.scrollBy({ left: step(), behavior: 'smooth' }); });
+      tr.addEventListener('scroll', sync, { passive: true }); window.addEventListener('resize', sync); sync();
+      tr.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { tr.scrollBy({ left: step(), behavior: 'smooth' }); e.preventDefault(); } else if (e.key === 'ArrowLeft') { tr.scrollBy({ left: -step(), behavior: 'smooth' }); e.preventDefault(); } });
     })();
   </script>
   <script src="/js/theme.js" defer></script>
