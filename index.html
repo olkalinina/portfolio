@@ -25,17 +25,15 @@
     .hero-eyebrow { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); }
     .hero-title { font-family: 'Playfair Display', Georgia, serif; font-size: 58px; font-weight: 400; line-height: 1.06; color: var(--dark); text-wrap: balance; }
     .hero-desc { font-size: 19px; line-height: 1.65; color: var(--gray); max-width: 520px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
     .hero-actions .btn-dark { display: inline-flex; align-items: center; gap: 8px; }
-    .hero-facts { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 14px 34px; }
-    .hero-facts li { font-size: 15px; line-height: 1.4; color: var(--dark); }
-    .hero-facts li + li { padding-left: 34px; border-left: 1px solid var(--light-gray); }
+    .btn-arrow { width: 16px; height: 16px; flex: none; }
     .hero-photo { width: 100%; height: auto; aspect-ratio: 4 / 4.3; border-radius: 33px; object-fit: cover; object-position: 50% 40%; display: block; background: var(--bg-soft); }
     .btn-outline-dark { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border: 1.5px solid var(--dark); border-radius: var(--radius-pill); background: transparent; color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 500; transition: background var(--transition), transform var(--transition); }
     .btn-outline-dark:hover { background: var(--bg-soft); transform: translateY(-1px); }
     #services { scroll-margin-top: 70px; }
     @media (max-width: 960px) { .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; } .hero-title { font-size: 44px; } .hero-photo { aspect-ratio: 4 / 3; } }
-    @media (max-width: 640px) { .hero-title { font-size: 36px; } .hero-actions { width: 100%; flex-direction: column; } .hero-actions .btn-dark, .hero-actions .btn-outline-dark { width: 100%; } .hero-facts { flex-direction: column; gap: 14px; } .hero-facts li + li { padding-left: 0; border-left: 0; } }
+    @media (max-width: 640px) { .hero-title { font-size: 36px; } .hero-actions { width: 100%; flex-direction: column; } .hero-actions .btn-dark, .hero-actions .btn-outline-dark { width: 100%; } }
     .trusted { display: flex; align-items: center; gap: 36px; padding: 56px 0 0; }
     .trusted-label { font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); flex: none; }
     .client-logos { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: space-between; flex: 1; }
@@ -397,13 +395,9 @@
             <h1 class="hero-title">Digital products that people understand and use</h1>
             <p class="hero-desc">Product design and conversion diagnosis for websites, apps and complex platforms. From early ideas to measurable improvements.</p>
             <div class="hero-actions">
-              <a href="#services" class="btn-dark">Explore services <span aria-hidden="true">&rarr;</span></a>
-              <a href="#contact" class="btn-outline-dark">Discuss a project</a>
+              <a href="#services" class="btn-dark">Explore Services <svg class="btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+              <a href="#contact" class="btn-outline-dark">Discuss a Project</a>
             </div>
-            <ul class="hero-facts" aria-label="At a glance">
-              <li>20+ years<br>in design</li>
-              <li>Products built<br>from 0 to 1</li>
-            </ul>
           </div>
           <img src="images/olga_hero.jpg" alt="Olga Kalinina, product designer" class="hero-photo" />
         </div>
@@ -436,7 +430,7 @@
                 <p>From early-stage products to complex SaaS platforms and AI-powered tools, I turn business requirements and user needs into intuitive, build-ready experiences.</p>
                 <ul class="help-tags"><li>SaaS &amp; AI</li><li>Complex platforms</li><li>New products</li></ul>
               </div>
-              <a href="/product-design" class="btn-dark">Explore product design <span aria-hidden="true">&rarr;</span></a>
+              <a href="/product-design" class="btn-dark">Explore Product Design <span aria-hidden="true">&rarr;</span></a>
             </div>
             <div class="help-card help-card--cro" data-magic>
               <span class="help-bg" aria-hidden="true"></span><span class="help-grain" aria-hidden="true"></span>
@@ -447,7 +441,7 @@
                 <p>An evidence-based review of your website or digital product to uncover the behavioral barriers behind lost conversions, with clear explanations and actionable recommendations.</p>
                 <ul class="help-tags"><li>Value proposition</li><li>Trust and credibility</li><li>Conversion journey</li></ul>
               </div>
-              <a href="/cro-audit" class="btn-dark">Explore the service <span aria-hidden="true">&rarr;</span></a>
+              <a href="/cro-audit" class="btn-dark">Explore the Service <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
         </div>
@@ -566,7 +560,7 @@
               <span class="post-more">Read article <span aria-hidden="true">&rarr;</span></span>
             </a>
           </div>
-          <a href="/blog" class="btn-outline-dark">All articles</a>
+          <a href="/blog" class="btn-outline-dark">All Articles</a>
         </section>
 
         <!-- FAQ -->
@@ -625,11 +619,11 @@
                 <div class="bf-chips">
                   <label><input type="radio" name="service" value="Product Design" /><span>Product Design</span></label>
                   <label><input type="radio" name="service" value="Behavioral CRO Diagnosis" /><span>Behavioral CRO Diagnosis</span></label>
-                  <label><input type="radio" name="service" value="Not sure yet" /><span>Not sure yet</span></label>
+                  <label><input type="radio" name="service" value="Not sure yet" /><span>Not Sure Yet</span></label>
                 </div>
               </fieldset>
               <div class="bf-field"><label for="bf-msg">Tell me about your product and the challenge <span class="req" aria-hidden="true">*</span></label><textarea id="bf-msg" name="message" required></textarea></div>
-              <button type="submit" class="btn-dark">Send brief</button>
+              <button type="submit" class="btn-dark">Send Brief</button>
               <p class="bf-note">Your message is sent through Formspree and used only to reply to you. <a href="/privacy">Privacy</a></p>
             </form>
           </div>

@@ -32,7 +32,7 @@
           '<div id="accessMsg" class="modal-msg" role="alert" aria-live="assertive"></div>' +
           '<div class="modal-actions">' +
             '<button type="button" class="modal-cancel" data-close>Cancel</button>' +
-            '<button type="submit" class="modal-submit" id="accessSubmit">View case study</button>' +
+            '<button type="submit" class="modal-submit" id="accessSubmit">View Case Study</button>' +
           '</div>' +
           '<p class="modal-hint">No code yet? <a href="/contacts">Ask me for access</a>. Each code works once.</p>' +
         '</form>' +
@@ -73,7 +73,7 @@
   function setBusy(busy) {
     submit.disabled = busy;
     input.readOnly = busy;
-    submit.textContent = busy ? 'Checking…' : 'View case study';
+    submit.textContent = busy ? 'Checking…' : 'View Case Study';
   }
 
   function open(slug, title, opts) {
