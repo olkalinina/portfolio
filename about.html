@@ -22,13 +22,13 @@
     .ab { --sec-gap: 128px; --head-gap: 16px; --head-to-content: 56px; display: flex; flex-direction: column; gap: var(--sec-gap); padding: 56px 0 0; }
     @media (max-width: 860px) { .ab { --sec-gap: 88px; --head-to-content: 40px; padding-top: 36px; } }
     .ab-sub { font-size: 18px; line-height: 1.6; color: var(--gray); max-width: 640px; margin-top: var(--head-gap); }
-    /* hero: the photo fills the panel and fades into charcoal at the bottom, where the text sits */
-    .ab-hero { position: relative; overflow: hidden; isolation: isolate; min-height: 700px; display: flex; align-items: flex-end; padding: 56px 64px 64px; background: #171717 url('/images/about/hero-riders.jpg') 50% 0 / cover no-repeat; }
-    .ab-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, #171717 0%, rgba(23,23,23,0.97) 40%, rgba(23,23,23,0.55) 56%, rgba(23,23,23,0) 76%); }
-    .ab-hero-text { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; width: min(100%, 640px); }
-    html body .ab-hero h1 { color: #f7f5f5; }
-    html body .ab-hero-text p { font-size: 18px; line-height: 1.65; color: rgba(247,245,245,0.92); }
-    html body .ab-hero-text p + p { color: rgba(247,245,245,0.76); }
+    /* hero: plain full-width photo, intro text below it */
+    .ab-banner { margin: -27px 0 0; }
+    @media (max-width: 768px) { .ab-banner { margin-top: -23px; } }
+    .ab-banner img { display: block; width: 100%; height: clamp(260px, 40vw, 560px); object-fit: cover; object-position: 50% 42%; }
+    .ab-intro { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; max-width: 760px; }
+    .ab-intro p { font-size: 19px; line-height: 1.65; color: var(--dark); }
+    .ab-intro p + p { color: var(--gray); }
     /* specialities */
     .ab-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: var(--head-to-content); }
     .ab-card { background: var(--bg-soft); box-shadow: inset 0 0 0 1px var(--light-gray); display: flex; flex-direction: column; gap: 12px; }
@@ -71,11 +71,10 @@
     .ab-tile .sq { aspect-ratio: 1 / 1; overflow: hidden; border-radius: var(--r-lg); background: var(--bg-soft); }
     .ab-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
     @media (max-width: 960px) {
-      .ab-hero { min-height: 0; padding: 300px 28px 44px; background-size: auto 340px; background-repeat: no-repeat; background-position: 50% 0; } .ab-hero::before { background: linear-gradient(to top, #171717 0%, #171717 62%, rgba(23,23,23,0) 100%); }
-      .ab-hero-text { align-items: center; text-align: center; margin: 0 auto; width: 100%; max-width: 560px; }
+      .ab-intro { align-items: center; text-align: center; margin: 0 auto; }
       .ab-cards { grid-template-columns: 1fr 1fr; } .ab-cols { grid-template-columns: 1fr; gap: 32px; } 
     }
-    @media (max-width: 640px) { .ab-cards { grid-template-columns: 1fr; } .ab-cta { padding: 48px 24px; } .ab-cta .btn-dark { width: 100%; } .ab-hero { padding: 260px 22px 36px; background-size: auto 300px; } }
+    @media (max-width: 640px) { .ab-cards { grid-template-columns: 1fr; } .ab-cta { padding: 48px 24px; } .ab-cta .btn-dark { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .ab-gal-track { animation: none; } .ab-set[aria-hidden="true"] { display: none; } .ab-gallery { overflow-x: auto; } .tm-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .tm-track { animation: none; } .tm-set[aria-hidden="true"] { display: none; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -118,15 +117,15 @@
 
   <div class="page-wrapper">
     <main class="page-content">
+      <div class="ab-banner"><img src="/images/about/hero-riders.jpg" alt="Riders on horseback crossing a green mountain slope in Kyrgyzstan" width="2000" height="1333" fetchpriority="high" /></div>
+
       <div class="container">
         <div class="ab">
 
-          <section class="ab-hero pd-dark">
-            <div class="ab-hero-text">
-              <h1>Hi, I'm Olga, a product designer who loves a hard problem.</h1>
-              <p>For 20+ years I've designed complex digital products: platforms, enterprise tools and AI-driven systems where structure and clarity do the heaviest work. The harder the problem, the more I enjoy it.</p>
-              <p>Away from the screen you'll find me with oil paints, in a swimming pool, or on a horse somewhere in the mountains.</p>
-            </div>
+          <section class="ab-intro">
+            <h1>Hi, I'm Olga, a product designer who loves a hard problem.</h1>
+            <p>For 20+ years I've designed complex digital products: platforms, enterprise tools and AI-driven systems where structure and clarity do the heaviest work. The harder the problem, the more I enjoy it.</p>
+            <p>Away from the screen you'll find me with oil paints, in a swimming pool, or on a horse somewhere in the mountains.</p>
           </section>
 
           <section aria-labelledby="ab-expert">
