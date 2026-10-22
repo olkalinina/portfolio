@@ -136,8 +136,8 @@
           <!-- Blog grid -->
           <div class="blog-grid" id="blogGrid">
 
-            <a class="bcard" href="/saas-free-trial-conversion" data-cat="CRO" style="--tagc:#92400e;">
-              <div class="bcard-meta"><span class="btag">CRO</span><span class="bcard-date">Oct 22, 2026</span></div>
+            <a class="bcard" href="/saas-free-trial-conversion" data-cat="CRO|SaaS" style="--tagc:#92400e;">
+              <div class="bcard-meta"><span class="btag">CRO · SaaS</span><span class="bcard-date">Oct 22, 2026</span></div>
               <h2 class="bcard-title">Why SaaS free trials don’t convert: a diagnostic framework</h2>
               <p class="bcard-excerpt">Low trial-to-paid conversion is a symptom, not a diagnosis. How to find where users drop off, which users fail to convert, and what the evidence says about why.</p>
               <span class="bcard-more">Read article <span aria-hidden="true">&rarr;</span></span>
@@ -241,7 +241,7 @@
         tab.classList.add('active');
         const cat = tab.dataset.cat;
         cards.forEach(c => {
-          c.style.display = (cat === 'All' || c.dataset.cat === cat) ? '' : 'none';
+          c.style.display = (cat === 'All' || c.dataset.cat.split('|').indexOf(cat) > -1) ? '' : 'none';
         });
       });
     });

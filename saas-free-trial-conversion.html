@@ -42,8 +42,10 @@
     .ax ul, .ax ol { padding-left: 1.2em; margin: 0 0 1.2em; }
     .ax li { margin-bottom: .45em; }
     .ax-head { margin-bottom: 40px; }
-    .ax-meta { margin-bottom: 16px; }
+    .ax-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
     .ax-tag { display: inline-flex; align-items: center; width: fit-content; padding: 4px 12px; border-radius: var(--radius-pill); background: #fef3c7; color: #92400e; font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; }
+    .ax-tag.is-saas { background: #dcfce7; color: #166534; }
+    html[data-theme="dark"] .ax-tag.is-saas { background: rgba(74,222,128,.16); color: #86efac; }
     html[data-theme="dark"] .ax-tag { background: rgba(251,191,36,.18); color: #fcd34d; }
     .ax .ax-lede { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 22px 0 0; padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
         /* reading progress */
@@ -226,7 +228,7 @@
 <article class="ax">
 
   <header class="ax-head">
-    <div class="ax-meta"><span class="ax-tag post-tag">CRO</span></div>
+    <div class="ax-meta"><span class="ax-tag post-tag">CRO</span><span class="ax-tag post-tag is-saas">SaaS</span></div>
     <h1>Why SaaS free trials don’t convert: a diagnostic framework</h1>
     <p class="ax-lede">Low trial-to-paid conversion is a symptom, not a diagnosis. Before redesigning onboarding, changing your pricing, or extending the trial, find out where users drop off, which users are failing to convert, and what the evidence says about why.</p>
   </header>
