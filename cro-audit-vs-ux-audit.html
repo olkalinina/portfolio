@@ -152,6 +152,12 @@
       .ax-fig, .ax-stat, .ax-toc, .ax-table th, .ax-tag, .ax-chain li::before, .ax svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .ax a { color: inherit; }
     }
+    .cp-related { display: block; margin: 56px 0 0; padding: 28px 30px; background: var(--bg-soft); border-radius: var(--r-lg); text-decoration: none !important; color: inherit; transition: transform .25s ease; }
+    .cp-related:hover { transform: translateY(-3px); }
+    .ax-eyebrow { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 10px; }
+    .cp-related strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .cp-related p:not(.ax-eyebrow) { margin: 0 0 12px; font-size: 16px; line-height: 1.6; color: var(--gray); }
+    .cp-related > span { font-size: 15px; color: var(--strong); }
     @keyframes axPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
     @keyframes axDash { to { stroke-dashoffset: -18; } }
     @media (max-width: 860px) { .ax-cta { padding: 48px 24px; } .ax-stats { grid-template-columns: 1fr; } .ax-stat b { font-size: 38px; } }
@@ -445,6 +451,13 @@
     <p>Telling UX, messaging, pricing and traffic apart is the work I do. Send me the symptom and I’ll tell you what kind of investigation it needs, including when the honest answer is “not an audit.”</p>
     <a class="btn-dark" href="/#contact">Let's Connect</a>
   </section>
+
+  <a class="cp-related" href="/cs-proffer">
+    <p class="ax-eyebrow">Related case study</p>
+    <strong>Why Visitors Leave a Platform That Promises No Agents</strong>
+    <p>A full behavioral conversion diagnosis, with a look inside the report. The property-marketplace example in this article comes from the same project.</p>
+    <span>Read case study <span aria-hidden="true">&rarr;</span></span>
+  </a>
 
   <section class="ax-about">
     <h2>About this article</h2>
