@@ -136,6 +136,22 @@
       .ax-js .ax-stats.is-in .ax-stat { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
       .ax-js .ax-stats.is-in .ax-stat:nth-child(2) { transition-delay: .12s; } .ax-js .ax-stats.is-in .ax-stat:nth-child(3) { transition-delay: .24s; }
     }
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      .nav, .mobile-menu, .mobile-menu-backdrop, .footer, .ax-toc, .ax-progress { display: none !important; }
+      html, body, body:not(.is-protected) { background: #fff !important; }
+      .page-wrapper, .page-content, .container { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+      .ax-layout { display: block; }
+      .ax { padding: 0; font-size: 11pt; line-height: 1.6; }
+      .ax * { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+      .ax svg * { opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+      .ax h2 { margin-top: 28pt; break-after: avoid; }
+      .ax h3 { break-after: avoid; }
+      .ax-fig, .ax-stat, .ax-table, .ax-chain li, .ax-questions li { break-inside: avoid; }
+      .ax-cta { break-inside: avoid; margin-top: 32pt; padding: 28pt 24pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax-fig, .ax-stat, .ax-toc, .ax-table th, .ax-tag, .ax-chain li::before, .ax svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax a { color: inherit; }
+    }
     @keyframes axPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
     @keyframes axDash { to { stroke-dashoffset: -18; } }
     @media (max-width: 860px) { .ax-cta { padding: 48px 24px; } .ax-stats { grid-template-columns: 1fr; } .ax-stat b { font-size: 38px; } }
