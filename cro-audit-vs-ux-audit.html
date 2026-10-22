@@ -33,7 +33,7 @@
     .ax-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
     .ax-tag, .ax-date { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); }
     .ax-date { letter-spacing: .04em; text-transform: none; }
-    .ax-lede { font-size: 21px; line-height: 1.55; color: var(--gray); margin: 18px 0 14px; }
+    .ax-lede { font-size: 21px; line-height: 1.55; color: var(--gray); margin: 22px 0 16px; }
     .ax-by { font-size: 14px; color: var(--gray); padding-bottom: 24px; border-bottom: 1.5px solid var(--light-gray); margin: 0; }
     .ax-toc { background: var(--bg-soft); border-radius: var(--r-lg); padding: 22px 28px; margin: 0 0 8px; font-size: 16px; }
     .ax-toc strong { display: block; margin-bottom: 8px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); font-weight: 500; }
@@ -56,13 +56,13 @@
     .ax-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0; }
     .ax-stat { background: var(--bg-soft); border-radius: var(--r-lg); padding: 24px 22px; }
     .ax-stat b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; color: var(--strong); margin-bottom: 10px; }
-    .ax-stat span { font-size: 14px; line-height: 1.5; color: var(--gray); display: block; }
+    .ax-stat > span { font-size: 14px; line-height: 1.5; color: var(--gray); display: block; }
+    .ax-stat b span { font: inherit; color: inherit; display: inline; }
     /* note, chain, questions */
-    .ax-note { border-left: 3px solid var(--ax-gold); background: var(--bg-soft); padding: 18px 24px; border-radius: 0 var(--r-md) var(--r-md) 0; margin: 30px 0; font-size: 16px; line-height: 1.65; }
-    .ax-note p:last-child { margin-bottom: 0; }
-    .ax-chain { list-style: none; counter-reset: step; margin: 30px 0 30px 14px; padding: 0; border-left: 1.5px solid var(--light-gray); }
+    .ax-chain { list-style: none; counter-reset: step; margin: 30px 0 30px 14px; padding: 0; }
     .ax-chain li { position: relative; padding: 0 0 24px 32px; margin: 0; counter-increment: step; }
-    .ax-chain li::before { content: counter(step); position: absolute; left: -15px; top: 2px; width: 29px; height: 29px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; line-height: 1; }
+    .ax-chain li:not(:last-child)::after { content: ""; position: absolute; left: -1px; top: 18px; bottom: -2px; width: 1.5px; background: var(--light-gray); }
+    .ax-chain li::before { z-index: 1; content: counter(step); position: absolute; left: -15px; top: 2px; width: 29px; height: 29px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; line-height: 1; }
     .ax-chain b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--gray); font-weight: 500; margin: 4px 0 4px; }
     .ax-chain span { display: block; font-size: 17px; line-height: 1.65; }
     .ax-questions { padding-left: 1.4em; }
@@ -292,7 +292,7 @@
   <p>Every analytics tool will show you where people leave. None of them tells you why. That gap is where most audits go wrong, in both directions.</p>
 
   <figure class="ax-fig ax-funnel" data-anim>
-    <svg viewBox="0 0 520 270" role="img" aria-labelledby="fun-t fun-d">
+    <svg viewBox="0 0 520 235" role="img" aria-labelledby="fun-t fun-d">
       <title id="fun-t">What a funnel shows and what it doesn’t</title>
       <desc id="fun-d">An illustrative funnel with four shrinking bars. A question mark between the second and third bar marks the point where the funnel shows where people leave but not why.</desc>
       <rect class="f-ghost" x="10" y="116" width="235" height="40" rx="10"/>
@@ -316,7 +316,6 @@
         <text class="t-strong" x="360" y="114">It doesn’t show</text>
         <text class="t-sub" x="360" y="132">why they leave.</text>
       </g>
-      <text class="t-foot" x="10" y="256">Illustration only. Not client data.</text>
     </svg>
     <figcaption>The “why” has to come from other evidence: recordings, surveys, interviews, tests.</figcaption>
   </figure>
@@ -371,10 +370,6 @@
     <li><b>Recommendation</b><span>Label each card by audience, show the 1% next to what buyers usually pay, and add a short “how it works.” Let people browse and save listings before asking them to register.</span></li>
     <li><b>Validation</b><span>A new visitor can say who pays what. Direct-traffic engagement rises over a two-week window. I set 30% as the target. That’s my threshold, not an industry benchmark.</span></li>
   </ol>
-
-  <aside class="ax-note">
-    <p>I don’t have measured results for any of the three examples in this article, so I’m not going to give you any. The reports end with recommendations and a way to check them, which is where an honest audit ends.</p>
-  </aside>
 
   <h2 id="which">Which one do you need?</h2>
   <p>It depends on the symptom. This is my starting point for common SaaS and B2B situations. Treat it as a first move, not a verdict.</p>
@@ -433,7 +428,7 @@
 
   <section class="ax-about">
     <h2>About this article</h2>
-    <p>I’m Olga Kalinina. I’ve spent 20+ years as a product designer and product owner, working on SaaS platforms, AI-enabled products and data-heavy systems. The diagnostic method in this article is how I work with teams today, under the name Rootwise. I call my version Behavioral Conversion Diagnosis.</p>
+    <p>I’m Olga Kalinina, a product designer and product owner with 20+ years of experience working on SaaS platforms, AI-enabled products, and data-heavy systems. My experience in product design, UX, and CRO has led me to develop my own methodology for diagnosing digital products, identifying why they lose users, and determining which problems matter most. I’m now developing Rootwise, my startup focused on evidence-based CRO diagnosis, where I’m turning this methodology into a structured approach called Behavioral Conversion Diagnosis.</p>
     <p>The three examples come from my own reports. I’ve anonymized them and kept the descriptions loose on purpose. What this article doesn’t have is measured results for those three, or a SaaS case with a controlled test. The examples are a marketplace, a store and a B2B services vendor. I think the method carries over, but I won’t present them as SaaS case studies.</p>
 
     <h3>Sources</h3>
