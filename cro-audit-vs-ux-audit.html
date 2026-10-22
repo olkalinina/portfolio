@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRO Audit vs. UX Audit: What’s the Difference? — Olga Kalinina</title>
+  <meta name="description" content="CRO and UX audits use many of the same tools. The real difference is the question each is built around. How to tell them apart, which one you need, and how to judge an audit proposal." />
+  <link rel="canonical" href="https://olgakalinina.me/cro-audit-vs-ux-audit" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="CRO Audit vs. UX Audit: What’s the Difference? — Olga Kalinina" />
+  <meta property="og:description" content="Same tools, different question. A practical guide for SaaS and AI product teams." />
+  <meta property="og:url" content="https://olgakalinina.me/cro-audit-vs-ux-audit" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CRO Audit vs. UX Audit: What’s the Difference? — Olga Kalinina" />
+  <meta name="twitter:description" content="Same tools, different question. A practical guide for SaaS and AI product teams." />
+  <meta name="twitter:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "CRO Audit vs. UX Audit: What’s the Difference?", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "image": "https://olgakalinina.me/images/og-default.jpg", "description": "CRO and UX audits use many of the same tools. The real difference is the question each is built around. How to tell them apart, which one you need, and how to judge an audit proposal.", "mainEntityOfPage": "https://olgakalinina.me/cro-audit-vs-ux-audit", "inLanguage": "en", "author": {"@id": "https://olgakalinina.me/#person"}}, {"@type": "Person", "@id": "https://olgakalinina.me/#person", "name": "Olga Kalinina", "jobTitle": "Product Designer & Behavioral CRO Expert", "url": "https://olgakalinina.me/", "image": "https://olgakalinina.me/images/olga_hero.jpg", "sameAs": ["https://www.linkedin.com/in/olga-kalinina-sundary/", "https://www.behance.net/kalininaolga", "https://substack.com/@olinproduct/"], "knowsAbout": ["Product design", "UX design", "Conversion rate optimisation", "SaaS", "AI products", "UX strategy"]}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---- Article page ---- */
+    .ax-layout { display: grid; grid-template-columns: 210px minmax(0, 720px); gap: 56px; justify-content: center; align-items: start; }
+    .ax-toc { position: sticky; top: 130px; align-self: start; padding-top: 48px; }
+    .ax-toc-title { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 16px; line-height: 1.4; }
+    .ax-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; border-left: 1.5px solid var(--light-gray); }
+    .ax-toc li { margin: 0; }
+    .ax-toc a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
+    .ax-toc a:hover { color: var(--strong); }
+    .ax-toc a.is-active { color: var(--strong); border-left-color: var(--strong); font-weight: 500; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (max-width: 1100px) { .ax-layout { grid-template-columns: minmax(0, 720px); } .ax-toc { display: none; } }
+    .ax { --ax-ink: var(--strong); --ax-on-ink: #f7f5f5; --ax-gold: #a8803a; --ax-gold-soft: rgba(168,128,58,.16); min-width: 0; padding: 48px 0 96px; font-size: 17px; line-height: 1.75; color: var(--dark); }
+    html[data-theme="dark"] .ax { --ax-on-ink: #171717; --ax-gold: #d9b36c; --ax-gold-soft: rgba(217,179,108,.18); }
+    .ax p { margin: 0 0 1.1em; }
+    .ax a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    .ax strong { font-weight: 600; color: var(--strong); }
+    .ax h2 { margin: 72px 0 16px; scroll-margin-top: 96px; }
+    .ax h3 { margin: 36px 0 8px; }
+    .ax ul, .ax ol { padding-left: 1.2em; margin: 0 0 1.2em; }
+    .ax li { margin-bottom: .45em; }
+    .ax-head { margin-bottom: 40px; }
+    .ax-meta { margin-bottom: 16px; }
+    .ax-tag { display: inline-flex; align-items: center; width: fit-content; padding: 4px 12px; border-radius: var(--radius-pill); background: #fef3c7; color: #92400e; font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; }
+    html[data-theme="dark"] .ax-tag { background: rgba(251,191,36,.18); color: #fcd34d; }
+    .ax .ax-lede { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 22px 0 0; padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
+        /* reading progress */
+    .ax-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--strong); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; pointer-events: none; }
+    /* tables */
+    .ax-table { overflow-x: auto; margin: 26px 0; border: 1.5px solid var(--light-gray); border-radius: var(--r-lg); }
+    .ax-table table { border-collapse: collapse; width: 100%; min-width: 580px; font-size: 16px; line-height: 1.5; }
+    .ax-table th, .ax-table td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--light-gray); }
+    .ax-table th { background: var(--bg-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; font-weight: 400; color: var(--gray); }
+    .ax-table tr:last-child td { border-bottom: 0; }
+    .ax-table td:first-child { font-weight: 600; color: var(--strong); }
+    .ax-table tbody tr { transition: background .25s ease; }
+    .ax-table tbody tr:hover { background: var(--bg-soft); }
+    /* stats */
+    .ax-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0; }
+    .ax-stat { background: var(--bg-soft); border-radius: var(--r-lg); padding: 24px 22px; }
+    .ax-stat b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; color: var(--strong); margin-bottom: 10px; }
+    .ax-stat > span { font-size: 16px; line-height: 1.6; color: var(--gray); display: block; }
+    .ax-stat b span { font: inherit; color: inherit; display: inline; }
+    /* note, chain, questions */
+    .ax-chain { list-style: none; counter-reset: step; margin: 30px 0 30px 14px; padding: 0; }
+    .ax-chain li { position: relative; padding: 0 0 24px 32px; margin: 0; counter-increment: step; }
+    .ax-chain li:not(:last-child)::after { content: ""; position: absolute; left: -1px; top: 18px; bottom: -2px; width: 1.5px; background: var(--light-gray); }
+    .ax-chain li::before { z-index: 1; content: counter(step); position: absolute; left: -15px; top: 2px; width: 29px; height: 29px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; line-height: 1; }
+    .ax-chain b { display: block; font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; color: var(--gray); font-weight: 400; margin: 4px 0 4px; }
+    .ax-chain span { display: block; font-size: 16px; line-height: 1.65; }
+    .ax-questions { padding-left: 1.4em; }
+    .ax-questions li { margin-bottom: .9em; padding-left: .2em; }
+    .ax-questions li::marker { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15em; color: var(--gray); }
+    /* closing card */
+    .ax-cta { background: #171717; border-radius: var(--r-xl); padding: 64px 40px; margin: 80px 0 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    html[data-theme="dark"] .ax-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
+    .ax .ax-cta h2 { margin: 0; color: #f7f5f5; }
+    .ax .ax-cta p { color: rgba(247,245,245,.72); max-width: 540px; margin: 0; font-size: 18px; line-height: 1.6; }
+    .ax .ax-cta .btn-dark { margin-top: 12px; background: #ede8ea !important; color: #171717 !important; text-decoration: none; font-size: 15px; font-weight: 500; font-family: 'Lora', Georgia, serif; padding: 13px 26px; }
+    .ax-about { margin-top: 64px; padding-top: 12px; border-top: 1.5px solid var(--light-gray); font-size: 16px; line-height: 1.7; }
+    .ax-about h2 { margin-top: 36px; }
+    .ax-sources { font-size: 15px; line-height: 1.6; color: var(--gray); }
+    .ax-sources li { margin-bottom: .6em; }
+    /* illustrations */
+    .ax-fig { margin: 40px 0; padding: 28px 24px 22px; background: var(--bg-soft); border-radius: var(--r-lg); }
+    .ax-fig svg { width: 100%; height: auto; display: block; overflow: visible; }
+    .ax-fig figcaption { font-size: 15px; line-height: 1.55; color: var(--gray); margin-top: 14px; text-align: center; }
+    .ax-fig svg text { font-family: 'Lora', Georgia, serif; fill: var(--dark); font-size: 13px; }
+    .ax-fig .t-head { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 500; fill: var(--strong); }
+    .ax-fig .t-sub { fill: var(--gray); font-size: 13px; }
+    .ax-fig .t-q { fill: var(--gray); font-size: 12.5px; font-style: italic; }
+    .ax-fig .t-strong { font-weight: 600; fill: var(--strong); }
+    .ax-fig .t-foot { fill: var(--gray); font-size: 11.5px; }
+    .ax-fig .t-tool { font-size: 12.5px; }
+    /* venn */
+    .v-c { stroke-width: 1.5; }
+    .v-c1 { fill: var(--ax-ink); fill-opacity: .07; stroke: var(--ax-ink); }
+    .v-c2 { fill: var(--ax-gold); fill-opacity: .14; stroke: var(--ax-gold); }
+    .v-lens { fill: var(--ax-ink); fill-opacity: .13; }
+    /* funnel */
+    .f-bar { fill: var(--ax-ink); }
+    .f-b1 { fill-opacity: .9; } .f-b2 { fill-opacity: .72; } .f-b3 { fill-opacity: .54; } .f-b4 { fill-opacity: .38; }
+    .ax-fig .f-labels text { fill: var(--ax-on-ink); font-size: 13.5px; font-weight: 500; }
+    .f-ghost { fill: var(--ax-gold-soft); stroke: var(--ax-gold); stroke-width: 1.5; stroke-dasharray: 5 4; }
+    .f-link { stroke: var(--ax-gold); stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+    .f-q circle { fill: var(--ax-gold); }
+    .ax-fig .f-q text { fill: var(--ax-on-ink); font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 500; }
+    /* evaluators */
+    .e-s1 { fill: var(--ax-ink); } .e-s2 { fill: var(--ax-ink); fill-opacity: .22; } .e-s3 { fill: var(--ax-gold); fill-opacity: .6; }
+    .ax-fig .e-labels text { font-size: 13px; } .ax-fig .e-labels .e-on { fill: var(--ax-on-ink); }
+    .ax-fig .e-labels .t-strong { font-size: 15px; }
+    /* motion: only when JS is on and motion is allowed */
+    @media (prefers-reduced-motion: no-preference) {
+      .ax-js .ax-fig [data-a], .ax-js .ax-fig .v-c, .ax-js .ax-fig .v-lens, .ax-js .ax-fig .v-l1, .ax-js .ax-fig .v-l2, .ax-js .ax-fig .v-tools, .ax-js .ax-fig .f-bar, .ax-js .ax-fig .f-labels, .ax-js .ax-fig .f-ghost, .ax-js .ax-fig .f-link, .ax-js .ax-fig .f-q, .ax-js .ax-fig .f-note, .ax-js .ax-fig .f-note2, .ax-js .ax-fig .e-seg, .ax-js .ax-fig .e-labels { opacity: 0; }
+      .ax-js .ax-fig .f-bar, .ax-js .ax-fig .e-seg { transform: scaleX(0); transform-box: fill-box; transform-origin: 0 50%; }
+      .ax-js .ax-fig .v-c1 { transform: translateX(-70px); } .ax-js .ax-fig .v-c2 { transform: translateX(70px); }
+      .ax-js .ax-fig .f-q { transform: scale(.4); transform-box: fill-box; transform-origin: 50% 50%; }
+      .ax-js .ax-fig .f-link { stroke-dashoffset: 60; }
+      .ax-js .ax-fig.is-in .v-c { opacity: 1; transform: none; transition: opacity .6s ease, transform 1s cubic-bezier(.2,.8,.2,1); }
+      .ax-js .ax-fig.is-in .v-lens { opacity: 1; transition: opacity .6s ease 1s; }
+      .ax-js .ax-fig.is-in .v-l1, .ax-js .ax-fig.is-in .v-l2 { opacity: 1; transition: opacity .6s ease .8s; }
+      .ax-js .ax-fig.is-in .v-tools { opacity: 1; transition: opacity .5s ease 1.1s; }
+      .ax-js .ax-fig.is-in .f-bar { opacity: 1; transform: none; transition: transform .8s cubic-bezier(.2,.8,.2,1), opacity .3s ease; transition-delay: calc(var(--i) * .22s); }
+      .ax-js .ax-fig.is-in .f-labels { opacity: 1; transition: opacity .5s ease .9s; }
+      .ax-js .ax-fig.is-in .f-ghost { opacity: 1; transition: opacity .6s ease 1.1s; }
+      .ax-js .ax-fig.is-in .f-link { opacity: 1; stroke-dashoffset: 0; transition: opacity .3s ease 1.3s, stroke-dashoffset .6s ease 1.3s; }
+      .ax-js .ax-fig.is-in .f-q { opacity: 1; transform: none; transition: opacity .4s ease 1.6s, transform .6s cubic-bezier(.3,1.5,.5,1) 1.6s; }
+      .ax-js .ax-fig.is-in .f-note, .ax-js .ax-fig.is-in .f-note2 { opacity: 1; transition: opacity .6s ease 1.9s; }
+      .ax-js .ax-fig.is-in .e-seg { opacity: 1; transform: none; transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .3s ease; transition-delay: calc(var(--i) * .35s); }
+      .ax-js .ax-fig.is-in .e-labels { opacity: 1; transition: opacity .6s ease 1.2s; }
+      .ax-js .ax-fig.is-in .f-q circle { animation: axPulse 2.4s ease-in-out 2.4s infinite; transform-box: fill-box; transform-origin: center; }
+      .ax-js .ax-fig.is-in .f-ghost { animation: axDash 1.6s linear 1.6s infinite; }
+      .ax-js .ax-fig .v-tools .t-tool { }
+      .ax-js .ax-stats .ax-stat { opacity: 0; transform: translateY(14px); }
+      .ax-js .ax-stats.is-in .ax-stat { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+      .ax-js .ax-stats.is-in .ax-stat:nth-child(2) { transition-delay: .12s; } .ax-js .ax-stats.is-in .ax-stat:nth-child(3) { transition-delay: .24s; }
+    }
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      .nav, .mobile-menu, .mobile-menu-backdrop, .footer, .ax-toc, .ax-progress { display: none !important; }
+      html, body, body:not(.is-protected) { background: #fff !important; }
+      .page-wrapper, .page-content, .container { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+      .ax-layout { display: block; }
+      .ax { padding: 0; font-size: 11pt; line-height: 1.6; }
+      .ax * { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+      .ax svg * { opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+      .ax h2 { margin-top: 28pt; break-after: avoid; }
+      .ax h3 { break-after: avoid; }
+      .ax-fig, .ax-stat, .ax-table, .ax-chain li, .ax-questions li { break-inside: avoid; }
+      .ax-cta { break-inside: avoid; margin-top: 32pt; padding: 28pt 24pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax-fig, .ax-stat, .ax-toc, .ax-table th, .ax-tag, .ax-chain li::before, .ax svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax a { color: inherit; }
+    }
+    @keyframes axPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    @keyframes axDash { to { stroke-dashoffset: -18; } }
+    @media (max-width: 860px) { .ax-cta { padding: 48px 24px; } .ax-stats { grid-template-columns: 1fr; } .ax-stat b { font-size: 38px; } }
+    @media (max-width: 640px) { .ax { padding-top: 24px; } .ax-lede { font-size: 17px; } .ax h2 { margin-top: 56px; } .ax-fig { padding: 20px 12px 16px; margin-left: -4px; margin-right: -4px; } .ax .ax-cta .btn-dark { width: 100%; } .ax-meta { flex-wrap: wrap; } }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=23" />
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="navServices">Services<svg viewBox="0 0 12 8" width="11" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1.5,1.75 6,6.25 10.5,1.75"/></svg></button><div class="nav-dd-menu" id="navServices"><a href="/product-design" class="nav-dd-item"><strong>Product Design</strong><span>Building a new product or improving an existing one.</span></a><a href="/cro-audit" class="nav-dd-item"><strong>Behavioral CRO Diagnosis</strong><span>Finding conversion barriers and deciding what to improve.</span></a></div></div>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <span class="mobile-menu-label">Services</span>
+      <a href="/product-design" class="mobile-sub">Product Design</a>
+      <a href="/cro-audit" class="mobile-sub">Behavioral CRO Diagnosis</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE ═══ -->
+  <div class="page-wrapper">
+    <main class="page-content">
+<div class="ax-progress" id="axProgress" aria-hidden="true"></div>
+<div class="container">
+<div class="ax-layout">
+  <aside class="cs-toc ax-toc" aria-label="On this page">
+    <p class="ax-toc-title">On this page</p>
+    <ul>
+      <li><a href="#short">The short answer</a></li>
+      <li><a href="#labels">Why the terminology varies</a></li>
+      <li><a href="#compare">What each one looks at</a></li>
+      <li><a href="#ux-conv">Where UX and conversion meet, and where they don’t</a></li>
+      <li><a href="#symptom">A symptom is not a cause</a></li>
+      <li><a href="#diagnosis">Checklist, expert review, diagnosis</a></li>
+      <li><a href="#which">Which one do you need?</a></li>
+      <li><a href="#testing">Where A/B testing fits</a></li>
+      <li><a href="#proposal">Seven questions to ask before you buy an audit</a></li>
+    </ul>
+  </aside>
+
+<article class="ax">
+
+  <header class="ax-head">
+    <div class="ax-meta"><span class="ax-tag post-tag">CRO</span></div>
+    <h1>CRO Audit vs. UX Audit: What’s the Difference?</h1>
+    <p class="ax-lede">Both start with many of the same tools. What separates them is the question they’re built around, and that decides what you get back.</p>
+  </header>
+
+  <h2 id="short">The short answer</h2>
+  <p>A CRO audit and a UX audit use mostly the same tools. Heuristic review, analytics, session recordings, surveys, user testing: either one can include any of them. What differs is the question the work is built around.</p>
+  <p>A CRO audit starts from a business event, like a signup, a trial turning into a paid plan, or a demo request, and asks why people who should complete it don’t. A UX audit starts from the person using the product and asks whether they can get what they came for without effort or confusion.</p>
+  <p>The two approaches often overlap, and the terms are not always used consistently. Their findings can also overlap, but the emphasis tends to differ: a CRO audit connects potential barriers to a defined business outcome, while a UX audit examines how effectively people can complete tasks and achieve their goals. In either case, the quality of the findings depends on the evidence behind them.</p>
+  <p>When choosing an audit, the label matters less than the questions it will investigate, the evidence it will use, and how its findings will inform decisions. That is the focus of this article.</p>
+
+  <figure class="ax-fig ax-venn" data-anim>
+    <svg viewBox="0 0 520 340" role="img" aria-labelledby="venn-t venn-d">
+      <title id="venn-t">Overlap between a CRO audit and a UX audit</title>
+      <desc id="venn-d">Two overlapping circles. The CRO audit is built around a conversion event. The UX audit is built around users reaching their goals. The overlap lists the shared tools: heuristics, analytics, recordings, surveys and testing.</desc>
+      <defs><clipPath id="vennClip"><circle cx="335" cy="170" r="130"/></clipPath></defs>
+      <circle class="v-c v-c1" cx="185" cy="170" r="130"/>
+      <circle class="v-c v-c2" cx="335" cy="170" r="130"/>
+      <circle class="v-lens" cx="185" cy="170" r="130" clip-path="url(#vennClip)"/>
+      <g class="v-l1">
+        <text class="t-head" x="126" y="128" text-anchor="middle">CRO audit</text>
+        <text class="t-sub" x="126" y="152" text-anchor="middle">built around a</text>
+        <text class="t-sub" x="126" y="169" text-anchor="middle">conversion event</text>
+        <text class="t-q" x="126" y="202" text-anchor="middle">“Why don’t they</text>
+        <text class="t-q" x="126" y="219" text-anchor="middle">complete it?”</text>
+      </g>
+      <g class="v-l2">
+        <text class="t-head" x="394" y="128" text-anchor="middle">UX audit</text>
+        <text class="t-sub" x="394" y="152" text-anchor="middle">built around users</text>
+        <text class="t-sub" x="394" y="169" text-anchor="middle">reaching goals</text>
+        <text class="t-q" x="394" y="202" text-anchor="middle">“Where do they</text>
+        <text class="t-q" x="394" y="219" text-anchor="middle">struggle, and why?”</text>
+      </g>
+      <g class="v-tools">
+        <text class="t-tool t-strong" x="260" y="126" text-anchor="middle">Shared tools</text>
+        <text class="t-tool" x="260" y="148" text-anchor="middle" style="--i:0">Heuristics</text>
+        <text class="t-tool" x="260" y="166" text-anchor="middle" style="--i:1">Analytics</text>
+        <text class="t-tool" x="260" y="184" text-anchor="middle" style="--i:2">Recordings</text>
+        <text class="t-tool" x="260" y="202" text-anchor="middle" style="--i:3">Surveys</text>
+        <text class="t-tool" x="260" y="220" text-anchor="middle" style="--i:4">User testing</text>
+      </g>
+    </svg>
+    <figcaption>Same toolbox, different starting question. What a particular provider actually includes varies, so check before you buy.</figcaption>
+  </figure>
+
+  <h2 id="labels">Why the terminology varies</h2>
+  <p>Neither term has a standard definition. Definitions vary across agencies and research firms. Some describe UX evaluation as one component of a broader CRO process; others position UX auditing as the primary diagnostic step before testing conversion-related changes. These differences reflect how individual providers define and package their services, rather than a universally agreed distinction between the two disciplines.</p>
+  <p>In practice, “CRO audit” can mean any of three things:</p>
+  <ul>
+    <li>a review of your pages against a list of best practices,</li>
+    <li>an analytics investigation of where your funnel leaks, or</li>
+    <li>a research project that combines both with customer evidence and ends in a testing plan.</li>
+  </ul>
+  <p>“UX audit” stretches just as far, from one expert looking at a handful of screens to a mixed-methods study with real users. Prices stretch with it. The public price lists I found run from low four figures to well into five.</p>
+  <p>So when a vendor says “audit,” the useful question isn’t which kind. It’s what they’ll actually look at, and how you’ll know that what they found is true.</p>
+
+  <h2 id="compare">What each one looks at</h2>
+  <p>Here is the default tendency of each, with one warning below the table.</p>
+  <div class="ax-table">
+    <table>
+      <thead><tr><th></th><th>CRO audit</th><th>UX audit</th></tr></thead>
+      <tbody>
+        <tr><td>Starts from</td><td>A defined conversion: signup, trial to paid, demo request</td><td>Users’ goals and tasks</td></tr>
+        <tr><td>Core question</td><td>Why don’t qualified people complete this step?</td><td>Where do people struggle, and why?</td></tr>
+        <tr><td>Usually covers</td><td>Funnel steps, key pages, messaging, objections, friction</td><td>The whole product or chosen journeys: navigation, flows, consistency, accessibility</td></tr>
+        <tr><td>Often leans on</td><td>Analytics, recordings, surveys, expert review</td><td>Expert review, usability testing, support tickets</td></tr>
+        <tr><td>Usually delivers</td><td>Prioritized findings, hypotheses, a test plan</td><td>Issues rated by severity, with fixes</td></tr>
+        <tr><td>Typical risk</td><td>Optimizing a conversion metric without accounting for downstream outcomes such as activation, retention, or customer quality</td><td>Identifying usability issues without establishing their relative importance to users or business goals</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The warning: this is a tendency, not a rule. A good UX audit can use analytics and tie every finding to a business goal. A good CRO audit can include proper usability testing. “CRO is numbers, UX is feelings” is a common shorthand, and it is too simple to be useful.</p>
+  <p>For reference, the standard definition of usability (ISO 9241-11) is about effectiveness, efficiency and satisfaction for specific users doing specific tasks. That’s the lens a UX audit is built on. A CRO audit adds one more: does this help the business get the outcome it’s measuring?</p>
+
+  <h2 id="ux-conv">Where UX and conversion meet, and where they don’t</h2>
+  <p>Usability problems do cost conversions. The best-studied case is e-commerce checkout. Baymard Institute has tracked cart abandonment for more than a decade, and the global average sits near 70%, calculated from roughly fifty published studies. Baymard also estimates that the average large store could lift conversion by about 35% through checkout design alone.</p>
+
+  <div class="ax-stats" data-anim>
+    <div class="ax-stat"><b><span data-count="70">70</span>%</b><span>average cart abandonment, averaged across about 50 studies (Baymard)</span></div>
+    <div class="ax-stat"><b><span data-count="42">42</span>%</b><span>of US shoppers in Baymard’s survey abandoned a cart because they were “just browsing”</span></div>
+    <div class="ax-stat"><b>2× to ~4×</b><span>more sign-ups with mild and aggressive dark patterns (Luguri &amp; Strahilevitz)</span></div>
+  </div>
+
+  <p>These figures need to be interpreted in context. Baymard’s estimate of potential conversion improvement is a modeled estimate based on checkout research, not a result that can be assumed for every business. Its survey also found that some shoppers abandon carts because they are browsing or are not ready to buy. This distinction matters beyond e-commerce: not every visitor who leaves a SaaS website has encountered a UX problem. Some are researching alternatives, evaluating pricing, or simply not ready to purchase. Improving the interface will not necessarily address these issues.</p>
+  <p>It runs the other way too. A perfectly usable interface can convert badly because the offer is unclear, the price is off, or the traffic is wrong. And a product can convert well while treating people badly.</p>
+  <p>Luguri and Strahilevitz ran randomized experiments on representative samples of US adults, offering what was in fact a dubious identity-theft-protection service inside a survey. Mild dark patterns more than doubled the share who signed up. Aggressive ones nearly quadrupled it, and also produced a strong backlash. Conversion went up. Nobody would call that a good experience. It was a survey scenario, not a SaaS product, but it makes the point: a metric moving doesn’t prove people were helped, and a team that optimizes one number can find that the wrong thing works.</p>
+
+  <h2 id="symptom">A symptom is not a cause</h2>
+  <p>Analytics can show where users drop off and how frequently it happens. On its own, however, it rarely explains the reasons behind that behavior. Understanding the cause usually requires additional evidence, such as session recordings, surveys, interviews, or usability testing. Without that evidence, teams risk treating an observed symptom as an established cause.</p>
+
+  <figure class="ax-fig ax-funnel" data-anim>
+    <svg viewBox="0 0 520 235" role="img" aria-labelledby="fun-t fun-d">
+      <title id="fun-t">What a funnel shows and what it doesn’t</title>
+      <desc id="fun-d">An illustrative funnel with four shrinking bars. A question mark between the second and third bar marks the point where the funnel shows where people leave but not why.</desc>
+      <rect class="f-ghost" x="10" y="116" width="235" height="40" rx="10"/>
+      <rect class="f-bar f-b1" x="10" y="16" width="320" height="40" rx="10" style="--i:0"/>
+      <rect class="f-bar f-b2" x="10" y="66" width="245" height="40" rx="10" style="--i:1"/>
+      <rect class="f-bar f-b3" x="10" y="116" width="128" height="40" rx="10" style="--i:2"/>
+      <rect class="f-bar f-b4" x="10" y="166" width="100" height="40" rx="10" style="--i:3"/>
+      <g class="f-labels">
+        <text x="26" y="41">Product page</text>
+        <text x="26" y="91">Starts configuring</text>
+        <text x="26" y="141">Adds to cart</text>
+        <text x="26" y="191">Orders</text>
+      </g>
+      <path class="f-link" d="M296 124 L252 134"/>
+      <g class="f-q"><circle cx="318" cy="120" r="24"/><text x="318" y="130" text-anchor="middle">?</text></g>
+      <g class="f-note">
+        <text class="t-strong" x="360" y="190">The funnel shows</text>
+        <text class="t-sub" x="360" y="208">where and how many.</text>
+      </g>
+      <g class="f-note2">
+        <text class="t-strong" x="360" y="114">It doesn’t show</text>
+        <text class="t-sub" x="360" y="132">why they leave.</text>
+      </g>
+    </svg>
+    <figcaption>The “why” has to come from other evidence: recordings, surveys, interviews, tests.</figcaption>
+  </figure>
+
+  <p>Here’s a case from my own work. A European store selling made-to-measure products had a funnel that fell apart at the configurator, the step where the buyer enters dimensions and shape. A standard checklist would likely have said what checklists say: add measurement guidance, add a sizing guide.</p>
+  <p>When I went through the site, the guidance already existed. It was good, with worked examples, a note on measuring the finished item rather than the thing it covers, and instructions for unusual shapes. It was sitting behind small pale info icons, a secondary tab, and a footer link.</p>
+  <p>The buyer’s real fear at that moment is “can I trust myself to measure this right?” A wrong order can’t be returned. The reassurance was in the building. It just wasn’t where they were standing.</p>
+  <p>Two more findings pointed the same way. Free samples and the wishlist, the tools that help an unsure buyer, both required an account. And the checkout was fine. I said so in the report, because knowing where the problem isn’t saves a client money.</p>
+  <p>The recommendation was to move the existing text into the configurator rather than write anything new. It’s worth being clear about what that diagnosis rests on: a close read of the site plus input from outside observers. It’s a well-grounded expert hypothesis. It hasn’t been tested yet, and I’d say so to the client.</p>
+
+  <h2 id="diagnosis">Checklist, expert review, diagnosis</h2>
+  <p>Think of these as rungs on a ladder. Each does a different job.</p>
+  <p>A <strong>checklist</strong> tells you whether common patterns are present or missing. It can’t tell you whether they matter for your product.</p>
+  <p>An <strong>expert review</strong> gives you plausible problems with reasons attached. It’s quick, cheap, and good at catching obvious defects. But it depends on who does it. Hertzum and Jacobsen reviewed the research on what’s called the evaluator effect and found that the average agreement between two evaluators examining the same system with the same method ranged from 5% to 65%. In one study, four evaluators analyzed the same four recorded usability sessions and logged 93 distinct problems between them. Only 20% were found by all four. Almost half, 46%, were found by one person only.</p>
+
+  <figure class="ax-fig ax-eval" data-anim>
+    <svg viewBox="0 0 520 150" role="img" aria-labelledby="ev-t ev-d">
+      <title id="ev-t">How often evaluators found the same problems</title>
+      <desc id="ev-d">A bar showing 93 problems found by four evaluators: 20 percent found by all four, 34 percent by two or three, 46 percent by only one.</desc>
+      <text class="t-strong" x="10" y="22">93 usability problems, four evaluators, the same recorded sessions</text>
+      <clipPath id="evClip"><rect x="10" y="40" width="500" height="56" rx="14"/></clipPath>
+      <g clip-path="url(#evClip)">
+        <rect class="e-seg e-s1" x="10" y="40" width="100" height="56" style="--i:0"/>
+        <rect class="e-seg e-s2" x="110" y="40" width="170" height="56" style="--i:1"/>
+        <rect class="e-seg e-s3" x="280" y="40" width="230" height="56" style="--i:2"/>
+      </g>
+      <g class="e-labels">
+        <text class="e-on" x="60" y="64" text-anchor="middle">All four</text>
+        <text class="e-on t-strong" x="60" y="82" text-anchor="middle">20%</text>
+        <text x="195" y="64" text-anchor="middle">Two or three</text>
+        <text class="t-strong" x="195" y="82" text-anchor="middle">34%</text>
+        <text x="395" y="64" text-anchor="middle">Only one evaluator</text>
+        <text class="t-strong" x="395" y="82" text-anchor="middle">46%</text>
+      </g>
+      <text class="t-foot" x="10" y="124">Source: Jacobsen, Hertzum and John (1998). The 34% is the remainder.</text>
+    </svg>
+    <figcaption>These were usability test sessions, not only expert reviews. The same problem applies when one person interprets user testing alone.</figcaption>
+  </figure>
+
+  <p>This does not make expert review unhelpful. It means that findings from a single reviewer should be treated as informed judgments rather than a complete or definitive account of usability problems. Confidence can be strengthened by involving additional evaluators, comparing findings with behavioral data, or observing real users performing relevant tasks. Hertzum and Jacobsen’s own advice is simply to involve more than one evaluator.</p>
+  <p><strong>Analytics</strong> helps establish where a problem occurs and how widespread it is. <strong>Research with users</strong> can help explain why it occurs. A sound <strong>diagnosis</strong> combines relevant evidence and makes clear which conclusions are well supported, which remain hypotheses, and what should be investigated next.</p>
+
+  <h3>The chain I use for every finding</h3>
+  <p>I use this six-step sequence to structure findings in my reports. The individual practices are established elements of diagnostic and research work; the way I combine them into this sequence is my own methodology, not a formal industry standard.</p>
+  <p>Here it is with a real finding, anonymized, from a property marketplace:</p>
+
+  <ol class="ax-chain">
+    <li><b>Observation</b><span>Visitors arriving directly, the biggest traffic group, engaged about 10% of the time. Visitors from organic search engaged about 73% of the time.</span></li>
+    <li><b>Evidence</b><span>The homepage showed two neighboring cards: zero commission for sellers, 1% commission for buyers, with nothing saying who each applied to. Saving a listing or making an offer also opened a registration popup straight away.</span></li>
+    <li><b>Interpretation</b><span>A first-time visitor can’t tell what the platform charges, and the page asks “how do I search?” before “why should I?” This is a hypothesis. Direct traffic is a mixed bucket in analytics, so I wouldn’t call it proven.</span></li>
+    <li><b>Potential impact</b><span>It sits in front of every visitor and the largest traffic group, so it comes first by reach.</span></li>
+    <li><b>Recommendation</b><span>Label each card by audience, show the 1% next to what buyers usually pay, and add a short “how it works.” Let people browse and save listings before asking them to register.</span></li>
+    <li><b>Validation</b><span>A new visitor can say who pays what. Direct-traffic engagement rises over a two-week window. I set 30% as the target. That’s my threshold, not an industry benchmark.</span></li>
+  </ol>
+
+  <h2 id="which">Which one do you need?</h2>
+  <p>The right starting point depends on the problem you are trying to understand. The table below offers an initial direction for common SaaS and B2B scenarios; the appropriate investigation will depend on what the first round of evidence reveals.</p>
+
+  <div class="ax-table">
+    <table>
+      <thead><tr><th>Symptom</th><th>Start with</th><th>What to check first</th></tr></thead>
+      <tbody>
+        <tr><td>Few visitors sign up</td><td>CRO audit, with traffic analysis</td><td>Split by source and intent before blaming the page</td></tr>
+        <tr><td>Many signups, few activate</td><td>Combined</td><td>In-product funnel, recordings, interviews with people who never activated</td></tr>
+        <tr><td>Low trial-to-paid</td><td>Combined, maybe pricing research</td><td>Did they reach value? Is price the objection? Ask them</td></tr>
+        <tr><td>Drop-off in onboarding</td><td>UX audit on onboarding</td><td>Find the step, then watch people go through it</td></tr>
+        <tr><td>Support tickets, repeated errors, lost users in a complex app</td><td>UX audit</td><td>Ticket themes plus usability testing</td></tr>
+        <tr><td>New feature nobody uses</td><td>Product research first</td><td>Hard to find, or not wanted?</td></tr>
+        <tr><td>Retention falling after strong signups</td><td>Product research, not mainly an audit</td><td>A promise at signup the product doesn’t keep? Interview people who left</td></tr>
+        <tr><td>Looks usable, still doesn’t convert</td><td>CRO audit on messaging and offer</td><td>Objections, trust, price, positioning</td></tr>
+        <tr><td>No idea which of UX, messaging, pricing or traffic</td><td>A scoped diagnostic</td><td>Segment the funnel, collect objections, then pick the depth</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Some problems aren’t audit problems</h3>
+  <p>The property marketplace is a good example. Its biggest constraint wasn’t on the page at all: almost no owners had listed a property, so a prospective seller had no proof the model worked. No copy change fixes that. It takes recruiting the first listings by hand. In the report I split the roadmap in two and said plainly that the last three items were “not primarily CRO problems.”</p>
+  <p>The other example is a B2B software-services vendor. Its homepage hero spoke to enterprise buyers, and the section right below spoke to startups and small businesses. The strongest proof, its ratings and partner status, was buried deep in the site, and published case studies still had placeholder text in them. A UX audit would have cleaned up those pages. The underlying issue was upstream of the interface: the company had not clearly defined its primary buyer. That is a positioning decision the company needs to make; a UX or CRO audit can surface the consequences, but cannot make that strategic choice on its behalf.</p>
+
+  <h2 id="testing">Where A/B testing fits</h2>
+  <p>A/B tests evaluate specific changes; they do not, by themselves, explain why the original experience underperforms. A useful sequence is to investigate the problem, form a hypothesis, and test the proposed change when the available traffic and experimental conditions make a reliable result feasible. Testing without a clear hypothesis risks spending time on changes that do not address the underlying problem.</p>
+  <p>Feasibility matters here. A common rule of thumb, popularized by Ron Kohavi, who led experimentation at Microsoft, puts the sample you need at about 16 × variance ÷ (smallest effect you want to detect)², per variant, for 80% power at the usual 5% significance level.</p>
+  <p>Plug in a 5% baseline conversion rate and a relative 5% lift, from 5.00% to 5.25%. That comes to roughly 120,000 visitors per variant. At a 2% baseline it’s about 310,000. That’s my arithmetic from the formula, so treat the figures as an order of magnitude. Still, many B2B funnels never see that kind of volume.</p>
+  <p>When you can’t test, there are options:</p>
+  <ul>
+    <li>Test bigger changes. Large effects need smaller samples.</li>
+    <li>Test higher in the funnel, where the traffic is.</li>
+    <li>Run usability sessions on the variants and watch real people use them.</li>
+    <li>Release in stages and compare cohorts before and after. This is weaker evidence, and the report should say so.</li>
+  </ul>
+  <p>Whatever you do, track a few guardrail metrics too, like trial quality, activation, retention and support load. Otherwise you can win a test and lose a customer.</p>
+  <p>An audit can’t promise a lift. Its recommendations are hypotheses with different levels of support behind them. If someone shows you a headline conversion number, ask whether it came from one controlled test or a before-and-after comparison, and what else changed at the same time. A money-back guarantee is a commercial term. It isn’t evidence about outcomes.</p>
+
+  <h2 id="proposal">Seven questions to ask before you buy an audit</h2>
+  <ol class="ax-questions">
+    <li><strong>Which business question will this answer?</strong> “Improve our UX” isn’t one. “Why do trial users stop before connecting their data?” is.</li>
+    <li><strong>What sits behind each finding?</strong> Analytics, recordings, real users, or one expert’s opinion? All of those can be fine, as long as the report says which.</li>
+    <li><strong>Will findings be labeled as observed fact or hypothesis, with a confidence level?</strong> If everything is stated with the same certainty, something is being overstated.</li>
+    <li><strong>How will issues be sized and ranked?</strong> Scoring models like ICE, PIE and PXL are conventions, not validated science. They’re fine as decision aids if the reasoning is visible.</li>
+    <li><strong>How many people will review it?</strong> Given the evaluator effect, one reviewer’s list deserves more caution.</li>
+    <li><strong>Will the report distinguish UX and conversion issues from problems that require a different response, such as positioning, pricing, acquisition quality, or product strategy?</strong></li>
+    <li><strong>How will we know a change worked?</strong> Ask for a validation method for each recommendation, including what happens if you can’t run an A/B test.</li>
+  </ol>
+
+  <section class="ax-cta pd-dark" aria-labelledby="ax-cta-t">
+    <h2 id="ax-cta-t">Looking at a drop-off and not sure what’s behind it?</h2>
+    <p>Telling UX, messaging, pricing and traffic apart is the work I do. Send me the symptom and I’ll tell you what kind of investigation it needs, including when the honest answer is “not an audit.”</p>
+    <a class="btn-dark" href="/#contact">Let's Connect</a>
+  </section>
+
+  <section class="ax-about">
+    <h2>About this article</h2>
+    <p>I’m Olga, a product designer and product owner with 20+ years of experience working across SaaS platforms, AI-enabled products, and data-heavy systems. I wrote this article because CRO and UX audits are often treated as interchangeable, even though teams may need very different kinds of investigation to understand what is going wrong. My work across product design, UX, and CRO has shaped the way I approach these problems: looking beyond visible symptoms to understand their underlying causes and identify which issues matter most. I’m developing this approach through Rootwise, my startup focused on evidence-based CRO diagnosis, where I’m bringing that experience together into a structured methodology called Behavioral Conversion Diagnosis.</p>
+
+    <h3>Sources</h3>
+    <ul class="ax-sources">
+      <li>Hertzum, M. &amp; Jacobsen, N. E., <a href="https://forskning.ruc.dk/da/publications/the-evaluator-effect-a-chilling-fact-about-usability-evaluation-m/" target="_blank" rel="noopener">The evaluator effect: A chilling fact about usability evaluation methods</a>, International Journal of Human-Computer Interaction.</li>
+      <li>Jacobsen, N. E., Hertzum, M. &amp; John, B. E., <a href="https://researchprofiles.ku.dk/da/publications/the-evaluator-effect-in-usability-studies-problem-detection-and-s/" target="_blank" rel="noopener">The evaluator effect in usability studies: Problem detection and severity judgments</a>, HFES 42nd Annual Meeting, 1998.</li>
+      <li>Luguri, J. &amp; Strahilevitz, L. J., <a href="https://academic.oup.com/jla/article/13/1/43/6180579" target="_blank" rel="noopener">Shining a Light on Dark Patterns</a>, Journal of Legal Analysis 13(1), 2021.</li>
+      <li>Baymard Institute, <a href="https://baymard.com/research-articles/ecommerce-checkout-usability-report-and-benchmark" target="_blank" rel="noopener">Reasons for Cart Abandonment</a> and <a href="https://baymard.com/lists/cart-abandonment-rate" target="_blank" rel="noopener">cart abandonment rate statistics</a>. The 70% figure is an average of published third-party studies; the 35% estimate is Baymard’s own model.</li>
+      <li>Kohavi, R., Deng, A. &amp; Vermeer, L., <a href="https://exp-platform.com/abtestingintuitionbusters/" target="_blank" rel="noopener">A/B Testing Intuition Busters</a>, KDD 2022. The sample-size rule of thumb is from Kohavi’s work on online controlled experiments; the worked numbers above are my own calculation.</li>
+    </ul>
+  </section>
+
+</article>
+</div>
+</div>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/product-design">Product Design</a>
+            <span class="footer-dot"></span>
+            <a href="/cro-audit">CRO Diagnosis</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/about">About</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="/privacy">Privacy</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">Behance</a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina</p>
+      </div>
+    </footer>
+  </div>
+
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bar = document.getElementById('axProgress');
+    if (bar && !still) {
+      var tick = 0;
+      var upd = function () { tick = 0; var h = document.documentElement.scrollHeight - window.innerHeight; bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')'; };
+      window.addEventListener('scroll', function () { if (!tick) tick = requestAnimationFrame(upd); }, { passive: true });
+      upd();
+    }
+    if (still || !('IntersectionObserver' in window)) return;
+    root.classList.add('ax-js');
+    var counters = document.querySelectorAll('[data-count]');
+    [].forEach.call(counters, function (c) { c.textContent = '0'; });
+    function count(el) {
+      var to = parseFloat(el.getAttribute('data-count')), t0 = null;
+      (function step(t) { if (t0 === null) t0 = t; var p = Math.min(1, (t - t0) / 1100); el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); })(performance.now());
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        [].forEach.call(e.target.querySelectorAll('[data-count]'), count);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.35 });
+    [].forEach.call(document.querySelectorAll('[data-anim]'), function (el) { io.observe(el); });
+  })();
+  </script>
+  <script src="/js/toc.js" defer></script>
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>
