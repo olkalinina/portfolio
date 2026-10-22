@@ -1,6 +1,6 @@
 // Files that live in the project but are not part of the website: they must never be downloadable.
 // (Everything in the project folder is published as a static file unless it is blocked here.)
-const BLOCKED = /^\/(?:wrangler\.toml|readme(?:\.md)?|\.gitignore|\.git|\.dev\.vars|\.env|\.wrangler|package(?:-lock)?\.json|migrations|tests|sample-content|private-content|node_modules|functions|admin)(?:\/|$)/i;
+const BLOCKED = /^\/(?:wrangler\.toml|readme(?:\.md)?|ui-system(?:\.md)?|\.gitignore|\.git|\.dev\.vars|\.env|\.wrangler|package(?:-lock)?\.json|migrations|tests|sample-content|private-content|node_modules|functions|admin)(?:\/|$)/i;
 
 export async function onRequest({ request, next }) {
   const url = new URL(request.url);

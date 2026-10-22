@@ -9,6 +9,8 @@
     "/admin%2F*",
     "/wrangler.toml",
     "/README.md",
+    "/UI-SYSTEM.md",
+    "/ui-system.md",
     "/readme.md",
     "/.gitignore",
     "/migrations/*",
