@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to find UX problems in your SaaS product using analytics — Olga Kalinina</title>
+  <meta name="description" content="Product analytics can show where users drop off, but rarely why. How to use funnels, segmentation, dashboards data and research to find UX problems in SaaS products and prioritize fixes with evidence." />
+  <link rel="canonical" href="https://olgakalinina.me/find-ux-problems-with-analytics" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="How to find UX problems in your SaaS product using analytics — Olga Kalinina" />
+  <meta property="og:description" content="Product analytics can show where users drop off, but rarely why. How to use funnels, segmentation, dashboards data and research to find UX problems in SaaS products and prioritize fixes with evidence." />
+  <meta property="og:url" content="https://olgakalinina.me/find-ux-problems-with-analytics" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to find UX problems in your SaaS product using analytics — Olga Kalinina" />
+  <meta name="twitter:description" content="Product analytics can show where users drop off, but rarely why. How to use funnels, segmentation, dashboards data and research to find UX problems in SaaS products and prioritize fixes with evidence." />
+  <meta name="twitter:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "How to find UX problems in your SaaS product using analytics", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "image": "https://olgakalinina.me/images/og-default.jpg", "description": "Product analytics can show where users drop off, but rarely why. How to use funnels, segmentation, dashboards data and research to find UX problems in SaaS products and prioritize fixes with evidence.", "mainEntityOfPage": "https://olgakalinina.me/find-ux-problems-with-analytics", "inLanguage": "en", "author": {"@id": "https://olgakalinina.me/#person"}}, {"@type": "Person", "@id": "https://olgakalinina.me/#person", "name": "Olga Kalinina", "jobTitle": "Product Designer & Behavioral CRO Expert", "url": "https://olgakalinina.me/", "image": "https://olgakalinina.me/images/olga_hero.jpg", "sameAs": ["https://www.linkedin.com/in/olga-kalinina-sundary/", "https://www.behance.net/kalininaolga", "https://substack.com/@olinproduct/"]}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ---- Article page ---- */
+    .ax-layout { display: grid; grid-template-columns: 210px minmax(0, 720px); gap: 56px; justify-content: center; align-items: start; }
+    .ax-toc { position: sticky; top: 130px; align-self: start; padding-top: 48px; }
+    .ax-toc-title { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 16px; line-height: 1.4; }
+    .ax-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; border-left: 1.5px solid var(--light-gray); }
+    .ax-toc li { margin: 0; }
+    .ax-toc a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
+    .ax-toc a:hover { color: var(--strong); }
+    .ax-toc a.is-active { color: var(--strong); border-left-color: var(--strong); font-weight: 500; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (max-width: 1100px) { .ax-layout { grid-template-columns: minmax(0, 720px); } .ax-toc { display: none; } }
+    .ax { --ax-ink: var(--strong); --ax-on-ink: #f7f5f5; --ax-gold: #a8803a; --ax-gold-soft: rgba(168,128,58,.16); min-width: 0; padding: 48px 0 96px; font-size: 17px; line-height: 1.75; color: var(--dark); }
+    html[data-theme="dark"] .ax { --ax-on-ink: #171717; --ax-gold: #d9b36c; --ax-gold-soft: rgba(217,179,108,.18); }
+    .ax p { margin: 0 0 1.1em; }
+    .ax a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    .ax strong { font-weight: 600; color: var(--strong); }
+    .ax h2 { margin: 72px 0 16px; scroll-margin-top: 96px; }
+    .ax h3 { margin: 36px 0 8px; }
+    .ax ul, .ax ol { padding-left: 1.2em; margin: 0 0 1.2em; }
+    .ax li { margin-bottom: .45em; }
+    .ax-head { margin-bottom: 40px; }
+    .ax-meta { margin-bottom: 16px; }
+    .ax-tag { display: inline-flex; align-items: center; width: fit-content; padding: 4px 12px; border-radius: var(--radius-pill); background: #fef3c7; color: #92400e; font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; }
+    html[data-theme="dark"] .ax-tag { background: rgba(251,191,36,.18); color: #fcd34d; }
+    .ax .ax-lede { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 22px 0 0; padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
+        /* reading progress */
+    .ax-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--strong); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; pointer-events: none; }
+    /* tables */
+    .ax-table { overflow-x: auto; margin: 26px 0; border: 1.5px solid var(--light-gray); border-radius: var(--r-lg); }
+    .ax-table table { border-collapse: collapse; width: 100%; min-width: 580px; font-size: 16px; line-height: 1.5; }
+    .ax-table th, .ax-table td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--light-gray); }
+    .ax-table th { background: var(--bg-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; font-weight: 400; color: var(--gray); }
+    .ax-table tr:last-child td { border-bottom: 0; }
+    .ax-table td:first-child { font-weight: 600; color: var(--strong); }
+    .ax-table tbody tr { transition: background .25s ease; }
+    .ax-table tbody tr:hover { background: var(--bg-soft); }
+    /* stats */
+    .ax-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0; }
+    .ax-stat { background: var(--bg-soft); border-radius: var(--r-lg); padding: 24px 22px; }
+    .ax-stat b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; color: var(--strong); margin-bottom: 10px; }
+    .ax-stat > span { font-size: 16px; line-height: 1.6; color: var(--gray); display: block; }
+    .ax-stat b span { font: inherit; color: inherit; display: inline; }
+    /* note, chain, questions */
+    .ax-chain { list-style: none; counter-reset: step; margin: 30px 0 30px 14px; padding: 0; }
+    .ax-chain li { position: relative; padding: 0 0 24px 32px; margin: 0; counter-increment: step; }
+    .ax-chain li:not(:last-child)::after { content: ""; position: absolute; left: -1px; top: 18px; bottom: -2px; width: 1.5px; background: var(--light-gray); }
+    .ax-chain li::before { z-index: 1; content: counter(step); position: absolute; left: -15px; top: 2px; width: 29px; height: 29px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; line-height: 1; }
+    .ax-chain b { display: block; font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; color: var(--gray); font-weight: 400; margin: 4px 0 4px; }
+    .ax-chain span { display: block; font-size: 16px; line-height: 1.65; }
+    .ax-questions { padding-left: 1.4em; }
+    .ax-questions li { margin-bottom: .9em; padding-left: .2em; }
+    .ax-questions li::marker { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15em; color: var(--gray); }
+    /* closing card */
+    .ax-cta { background: #171717; border-radius: var(--r-xl); padding: 64px 40px; margin: 80px 0 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    html[data-theme="dark"] .ax-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
+    .ax .ax-cta h2 { margin: 0; color: #f7f5f5; }
+    .ax .ax-cta p { color: rgba(247,245,245,.72); max-width: 540px; margin: 0; font-size: 18px; line-height: 1.6; }
+    .ax .ax-cta .btn-dark { margin-top: 12px; background: #ede8ea !important; color: #171717 !important; text-decoration: none; font-size: 15px; font-weight: 500; font-family: 'Lora', Georgia, serif; padding: 13px 26px; }
+    .ax-about { margin-top: 64px; padding-top: 12px; border-top: 1.5px solid var(--light-gray); font-size: 16px; line-height: 1.7; }
+    .ax-about h2 { margin-top: 36px; }
+    .ax-sources { font-size: 15px; line-height: 1.6; color: var(--gray); }
+    .ax-sources li { margin-bottom: .6em; }
+    /* motion: only when JS is on and motion is allowed */
+
+    .ax-eyebrow { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 10px; }
+    .cp-related { display: block; margin: 20px 0 0; padding: 26px 30px; background: var(--bg-soft); border-radius: var(--r-lg); text-decoration: none !important; color: inherit; transition: transform .25s ease; }
+    .cp-related:hover { transform: translateY(-3px); }
+    .cp-related strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .cp-related p:not(.ax-eyebrow) { margin: 0 0 12px; font-size: 16px; line-height: 1.6; color: var(--gray); }
+    .cp-related > span { font-size: 15px; color: var(--strong); }
+    .ax-related-wrap { margin-top: 56px; }
+    .ax-related-wrap > .ax-eyebrow { margin-bottom: 0; }
+    /* ---- Trial conversion article ---- */
+    .ax section[id] { scroll-margin-top: 96px; }
+    .tf-inv { border-left: 3px solid var(--ax-gold); padding: 2px 0 2px 18px; margin-left: 2px; font-size: 16px; line-height: 1.65; }
+    .ax-table td:first-child { white-space: normal; }
+    .tf-fig { margin: 40px 0; padding: 28px 24px 22px; background: var(--bg-soft); border-radius: var(--r-lg); }
+    .ax .tf-fig-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--strong); margin: 0 0 4px; }
+    .ax .tf-fig-sub { font-size: 14px; color: var(--gray); margin: 0 0 22px; }
+    .ax .tf-fig-note { font-size: 15px; line-height: 1.55; color: var(--dark); margin: 36px 0 0; padding-top: 22px; border-top: 1.5px solid var(--light-gray); }
+    .tf-fig figcaption { font-size: 15px; line-height: 1.55; color: var(--gray); margin-top: 14px; }
+    .tf-group { margin: 0 0 22px; }
+    .ax .tf-group-name { font-size: 16px; font-weight: 600; color: var(--strong); margin: 0 0 10px; }
+    .tf-bar-row { display: grid; grid-template-columns: 138px minmax(0, 1fr) 44px; align-items: center; gap: 12px; margin-bottom: 8px; font-size: 15px; }
+    .tf-bar-label { color: var(--gray); }
+    .tf-track { height: 26px; border-radius: 9px; background: var(--light-gray); overflow: hidden; }
+    .tf-bar { height: 100%; width: var(--w); border-radius: 9px; transform-origin: 0 50%; }
+    .tf-bar.is-signups { background: var(--ax-ink); }
+    .tf-bar.is-paying { background: var(--ax-gold); }
+    .tf-bar-val { font-weight: 600; color: var(--strong); text-align: right; }
+    .tf-matrix { display: grid; grid-template-columns: 92px minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin-top: 20px; }
+    .tf-col-head, .tf-row-head { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); align-self: end; padding-bottom: 2px; }
+    .tf-row-head { align-self: center; padding: 0; line-height: 1.4; }
+    .tf-cell { border-radius: var(--r-md); padding: 18px 18px 20px; font-size: 15px; line-height: 1.5; }
+    .tf-cell b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 18px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .tf-cell span { color: var(--dark); }
+    .tf-cell.is-a { background: var(--ax-gold-soft); }
+    .tf-cell.is-b { background: rgba(120,116,118,.16); }
+    .tf-cell.is-c { background: rgba(120,116,118,.10); }
+    .tf-cell.is-d { background: rgba(120,116,118,.16); }
+    .tf-steps { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-direction: column; gap: 8px; }
+    .tf-steps li { display: flex; align-items: center; gap: 14px; margin: 0; padding: 11px 16px; border-radius: var(--r-md); font-size: 16px; line-height: 1.4; color: var(--strong); }
+    .tf-n { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    .tf-steps li.is-a { background: rgba(120,116,118,.16); }
+    .tf-steps li.is-b { background: rgba(120,116,118,.10); }
+    .tf-steps li.is-c { background: var(--ax-gold-soft); }
+    .tf-steps li.is-d { background: rgba(120,116,118,.16); }
+    @media (prefers-reduced-motion: no-preference) {
+      .ax-js .tf-fig .tf-bar { transform: scaleX(0); }
+      .ax-js .tf-fig.is-in .tf-bar { transform: none; transition: transform 1s cubic-bezier(.2,.8,.2,1); }
+      .ax-js .tf-fig.is-in .tf-group:nth-of-type(2) .tf-bar { transition-delay: .35s; }
+      .ax-js .tf-fig.is-in .tf-bar.is-paying { transition-delay: .2s; }
+      .ax-js .tf-fig.is-in .tf-group:nth-of-type(2) .tf-bar.is-paying { transition-delay: .55s; }
+      .ax-js .tf-cell { opacity: 0; transform: translateY(12px); }
+      .ax-js .tf-fig.is-in .tf-cell { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+      .ax-js .tf-fig.is-in .tf-cell.is-b { transition-delay: .15s; } .ax-js .tf-fig.is-in .tf-cell.is-c { transition-delay: .3s; } .ax-js .tf-fig.is-in .tf-cell.is-d { transition-delay: .45s; }
+      .ax-js .tf-steps li { opacity: 0; transform: translateX(-14px); }
+      .ax-js .tf-fig.is-in .tf-steps li { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; transition-delay: calc(var(--i) * .1s); }
+    }
+    @media (max-width: 860px) { .ax-cta { padding: 48px 24px; } }
+    @media (max-width: 640px) { .ax { padding-top: 24px; } .ax-lede { font-size: 17px; } .ax h2 { margin-top: 56px; } .tf-fig { padding: 22px 16px 18px; } .tf-bar-row { grid-template-columns: 1fr 40px; } .tf-bar-label { grid-column: 1 / -1; } .tf-track { grid-column: 1; } .tf-matrix { grid-template-columns: 1fr; } .tf-corner, .tf-col-head { display: none; } .tf-row-head { padding-top: 8px; } .ax .ax-cta .btn-dark { width: 100%; } }
+    /* ---- Analytics article extras ---- */
+    .tf-fig-note + figcaption { margin-top: 10px; }
+    .an-fork-top { text-align: center; margin: 22px 0 0; }
+    .an-fork-top span { display: inline-block; padding: 12px 22px; border-radius: 9999px; background: var(--ax-ink); color: var(--ax-on-ink); font-size: 16px; font-weight: 500; }
+    .an-fork-line { height: 28px; width: 1.5px; background: var(--gray); margin: 0 auto; transform-origin: 50% 0; }
+    .an-fork-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; position: relative; padding-top: 18px; }
+    .an-fork-grid::before { content: ""; position: absolute; top: 0; left: 12.5%; right: 12.5%; height: 1.5px; background: var(--gray); transform-origin: 0 50%; }
+    .an-fork-grid > div { position: relative; background: var(--bg-soft); border-radius: var(--r-md); padding: 16px 14px; font-size: 14.5px; line-height: 1.45; box-shadow: inset 0 0 0 1.5px var(--light-gray); }
+    .an-fork-grid > div::before { content: ""; position: absolute; top: -18px; left: 50%; height: 18px; width: 1.5px; background: var(--gray); }
+    .an-fork-grid b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 17px; line-height: 1.25; color: var(--strong); margin-bottom: 6px; }
+    .an-fork-grid span { color: var(--gray); }
+    .an-dots { display: grid; grid-template-columns: repeat(20, 1fr); gap: 7px; max-width: 520px; margin: 4px 0 0; }
+    .an-dots i { aspect-ratio: 1; border-radius: 50%; background: var(--light-gray); display: block; }
+    .an-dots i.on { background: var(--ax-gold); }
+    .an-flow { list-style: none; counter-reset: fl; display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; padding: 0; margin: 24px 0; }
+    .an-flow li { counter-increment: fl; position: relative; background: var(--bg-soft); border-radius: var(--r-lg); padding: 24px 22px 22px; margin: 0; font-size: 16px; line-height: 1.55; }
+    .an-flow li::before { content: counter(fl); display: flex; width: 28px; height: 28px; border-radius: 50%; align-items: center; justify-content: center; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+    .an-flow li:not(:last-child)::after { content: ""; position: absolute; right: -27px; top: 50%; width: 20px; height: 20px; border-top: 2px solid var(--gray); border-right: 2px solid var(--gray); transform: translateY(-50%) rotate(45deg); }
+    .an-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+    .an-methods > div { background: var(--bg-soft); border-radius: var(--r-md); padding: 16px 16px 18px; box-shadow: inset 0 0 0 1.5px var(--light-gray); }
+    .an-methods b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 18px; line-height: 1.25; color: var(--strong); margin-bottom: 6px; }
+    .an-methods span { font-size: 14.5px; line-height: 1.45; color: var(--gray); }
+    .an-funnel { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
+    .an-fbar { width: var(--w); min-width: 250px; background: var(--ax-ink); color: var(--ax-on-ink); border-radius: 9999px; padding: 11px 20px; font-size: 15px; line-height: 1.3; transform-origin: 0 50%; }
+    .an-frow:nth-child(1) .an-fbar { background: var(--ax-ink); } .an-frow:nth-child(2) .an-fbar { background: color-mix(in srgb, var(--ax-ink) 92%, var(--bg-soft)); } .an-frow:nth-child(3) .an-fbar { background: color-mix(in srgb, var(--ax-ink) 84%, var(--bg-soft)); } .an-frow:nth-child(4) .an-fbar { background: color-mix(in srgb, var(--ax-ink) 76%, var(--bg-soft)); } .an-frow:nth-child(5) .an-fbar { background: color-mix(in srgb, var(--ax-ink) 68%, var(--bg-soft)); } .an-frow:nth-child(6) .an-fbar { background: color-mix(in srgb, var(--ax-ink) 60%, var(--bg-soft)); }
+    .ax ol.an-ladder { list-style: none; padding: 0; margin: 22px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: end; min-height: 250px; }
+    .an-ladder li { margin: 0; height: var(--h); min-height: 130px; background: var(--bg-soft); border-radius: var(--r-md); padding: 14px 14px 16px; font-size: 14.5px; line-height: 1.45; box-shadow: inset 0 0 0 1.5px var(--light-gray); transform-origin: 50% 100%; }
+    .an-ladder li:last-child { background: var(--ax-gold-soft); box-shadow: inset 0 0 0 1.5px var(--ax-gold); }
+    .an-step-n { display: inline-flex; width: 24px; height: 24px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 12px; font-weight: 600; align-items: center; justify-content: center; margin-bottom: 8px; }
+    .an-cards3, .an-cards4 { display: grid; gap: 12px; margin: 22px 0; }
+    .an-cards3 { grid-template-columns: repeat(3, 1fr); } .an-cards4 { grid-template-columns: repeat(2, 1fr); }
+    .an-card { background: var(--bg-soft); border-radius: var(--r-lg); padding: 22px 22px 24px; font-size: 16px; line-height: 1.55; }
+    .an-card strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 20px; line-height: 1.25; margin-bottom: 8px; }
+    .an-hyp { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
+    .an-h { border-radius: var(--r-md); padding: 16px 18px; font-size: 14.5px; line-height: 1.5; box-shadow: inset 0 0 0 1.5px var(--light-gray); background: var(--bg-soft); }
+    .an-h b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 18px; line-height: 1.25; color: var(--strong); margin-bottom: 6px; }
+    .an-h span { color: var(--gray); }
+    .an-h.is-win { background: var(--ax-gold-soft); box-shadow: inset 0 0 0 1.5px var(--ax-gold); }
+    .an-h.is-win span { color: var(--dark); }
+    .an-thirds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 20px; }
+    .an-thirds > div { padding: 22px 18px; font-size: 15px; line-height: 1.4; transform-origin: 0 50%; }
+    .an-thirds > div:first-child { border-radius: 9999px 0 0 9999px; } .an-thirds > div:last-child { border-radius: 0 9999px 9999px 0; }
+    .an-thirds b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 18px; margin-bottom: 4px; }
+    .an-thirds .is-win { background: var(--ax-ink); color: var(--ax-on-ink); }
+    .an-thirds .is-flat { background: var(--light-gray); color: var(--strong); }
+    .an-thirds .is-neg { background: var(--ax-gold); color: var(--ax-on-ink); }
+    .ax ol.an-steps9 { list-style: none; counter-reset: s9; padding: 0; margin: 22px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .an-steps9 li { counter-increment: s9; background: var(--bg-soft); border-radius: var(--r-md); padding: 16px 16px 18px; margin: 0; font-size: 15px; line-height: 1.5; }
+    .an-steps9 li::before { content: counter(s9); display: flex; width: 26px; height: 26px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 12px; font-weight: 600; align-items: center; justify-content: center; margin-bottom: 8px; }
+    .ax ul.an-mistakes { list-style: none; padding: 0; margin: 22px 0; display: grid; gap: 10px; }
+    .an-mistakes li { position: relative; margin: 0; background: var(--bg-soft); border-radius: var(--r-md); padding: 16px 18px 18px 56px; font-size: 16px; line-height: 1.55; }
+    .an-mistakes li::before { content: "\00d7"; position: absolute; left: 18px; top: 14px; width: 26px; height: 26px; border-radius: 50%; background: var(--ax-gold); color: var(--ax-on-ink); display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 1; }
+    .an-mistakes b { display: block; color: var(--strong); margin-bottom: 2px; }
+    .an-faq { border-top: 1.5px solid var(--light-gray); }
+    .an-faq:last-of-type { border-bottom: 1.5px solid var(--light-gray); }
+    .an-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 4px; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; line-height: 1.3; color: var(--strong); }
+    .an-faq summary::-webkit-details-marker { display: none; }
+    .an-faq .faq-plus { flex: none; position: relative; width: 18px; height: 18px; }
+    .an-faq .faq-plus::before, .an-faq .faq-plus::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; background: var(--strong); transition: transform .3s ease; }
+    .an-faq .faq-plus::after { transform: rotate(90deg); }
+    .an-faq[open] .faq-plus::after { transform: rotate(0deg); }
+    .an-faq p { padding: 0 4px 22px; margin: 0; max-width: 620px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .ax-js .an-fork-top, .ax-js .an-fork-grid > div, .ax-js .an-methods > div, .ax-js .an-node, .ax-js .an-h, .ax-js .an-card, .ax-js .an-flow li, .ax-js .an-frow, .ax-js .an-ladder li, .ax-js .an-thirds > div { opacity: 0; }
+      .ax-js .an-fork-line { transform: scaleY(0); } .ax-js .an-fork-grid::before { transform: scaleX(0); } .ax-js .an-fork-grid > div::before { transform: scaleY(0); transform-origin: 50% 100%; }
+      .ax-js .is-in .an-fork-top, .ax-js .is-in.an-fork .an-fork-top { opacity: 1; transition: opacity .5s ease; }
+      .ax-js .is-in .an-fork-line { transform: none; transition: transform .5s ease .4s; }
+      .ax-js .is-in .an-fork-grid::before { transform: none; transition: transform .6s ease .9s; }
+      .ax-js .is-in .an-fork-grid > div::before { transform: none; transition: transform .4s ease 1.4s; }
+      .ax-js .is-in .an-fork-grid > div { opacity: 1; transition: opacity .5s ease calc(1.4s + var(--i) * .12s); }
+      .ax-js .an-dots i.on { background: var(--light-gray); }
+      .ax-js .is-in .an-dots i.on { background: var(--ax-gold); transition: background .4s ease calc(var(--i) * .08s + .3s); }
+      .ax-js .is-in .an-methods > div { opacity: 1; transition: opacity .5s ease calc(var(--i) * .08s); }
+      .ax-js .an-flow li { transform: translateY(14px); }
+      .ax-js .is-in .an-flow li, .ax-js .an-flow.is-in li { opacity: 1; transform: none; transition: opacity .6s ease calc(var(--i) * .2s), transform .6s ease calc(var(--i) * .2s); }
+      .ax-js .an-frow .an-fbar { transform: scaleX(0); }
+      .ax-js .is-in .an-frow { opacity: 1; } .ax-js .is-in .an-frow .an-fbar { transform: none; transition: transform .9s cubic-bezier(.2,.8,.2,1) calc(var(--i) * .14s); }
+      .ax-js .an-ladder li { transform: scaleY(.2); }
+      .ax-js .is-in .an-ladder li { opacity: 1; transform: none; transition: opacity .4s ease calc(var(--i) * .2s), transform .7s cubic-bezier(.2,.8,.2,1) calc(var(--i) * .2s); }
+      .ax-js .an-card { transform: translateY(14px); }
+      .ax-js .is-in .an-card, .ax-js .an-cards3.is-in .an-card, .ax-js .an-cards4.is-in .an-card { opacity: 1; transform: none; transition: opacity .6s ease calc(var(--i) * .12s), transform .6s ease calc(var(--i) * .12s); }
+      .ax-js .an-h { transform: translateY(10px); }
+      .ax-js .is-in .an-h { opacity: 1; transform: none; transition: opacity .5s ease calc(var(--i) * .12s), transform .5s ease calc(var(--i) * .12s); }
+      .ax-js .is-in .an-h.is-out { opacity: .55; transition-delay: calc(var(--i) * .12s + .9s); transition-property: opacity; transition-duration: .6s; }
+      .ax-js .an-thirds > div { transform: scaleX(.3); }
+      .ax-js .is-in .an-thirds > div { opacity: 1; transform: none; transition: opacity .4s ease calc(var(--i) * .2s), transform .8s cubic-bezier(.2,.8,.2,1) calc(var(--i) * .2s); }
+    }
+    @media (max-width: 860px) { .an-fork-grid { grid-template-columns: repeat(2, 1fr); } .an-fork-grid::before, .an-fork-grid > div::before { display: none; } .an-fork-grid { padding-top: 0; } .an-flow { grid-template-columns: 1fr; gap: 22px; } .an-flow li:not(:last-child)::after { right: auto; left: 28px; top: auto; bottom: -17px; transform: rotate(135deg); } .an-methods, .an-cards3, .ax ol.an-steps9 { grid-template-columns: 1fr 1fr; } .an-hyp, .an-cards4 { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .an-fork-grid, .an-methods, .an-cards3, .ax ol.an-steps9 { grid-template-columns: 1fr; } .ax ol.an-ladder { grid-template-columns: 1fr; min-height: 0; } .an-ladder li { height: auto; min-height: 0; } .an-thirds { grid-template-columns: 1fr; } .an-thirds > div, .an-thirds > div:first-child, .an-thirds > div:last-child { border-radius: var(--r-md); } .an-dots { gap: 5px; } .an-fbar { min-width: 0; width: 100%; } .an-faq summary { font-size: 18px; } }
+    .ax-lede2 { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 14px 0 0; }
+    .ax .ax-lede { border-bottom: 0; padding-bottom: 0; margin: 22px 0 14px; }
+    .ax-head { padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      .nav, .mobile-menu, .mobile-menu-backdrop, .footer, .ax-toc, .ax-progress { display: none !important; }
+      html, body, body:not(.is-protected) { background: #fff !important; }
+      .page-wrapper, .page-content, .container { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+      .ax-layout { display: block; }
+      .ax { padding: 0; font-size: 11pt; line-height: 1.6; }
+      .ax * { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+      .ax svg * { opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+      .ax h2 { margin-top: 28pt; break-after: avoid; }
+      .ax h3 { break-after: avoid; }
+      .ax-fig, .ax-stat, .ax-table, .ax-chain li, .ax-questions li { break-inside: avoid; }
+      .ax-cta { break-inside: avoid; margin-top: 32pt; padding: 28pt 24pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax-fig, .ax-stat, .ax-toc, .ax-table th, .ax-tag, .ax-chain li::before, .ax svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax a { color: inherit; }
+    }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=25" />
+</head>
+<body>
+
+  <!-- NAV -->
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="navServices">Services<svg viewBox="0 0 12 8" width="11" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1.5,1.75 6,6.25 10.5,1.75"/></svg></button><div class="nav-dd-menu" id="navServices"><a href="/product-design" class="nav-dd-item"><strong>Product Design</strong><span>Building a new product or improving an existing one.</span></a><a href="/cro-audit" class="nav-dd-item"><strong>Behavioral CRO Diagnosis</strong><span>Finding conversion barriers and deciding what to improve.</span></a></div></div>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <span class="mobile-menu-label">Services</span>
+      <a href="/product-design" class="mobile-sub">Product Design</a>
+      <a href="/cro-audit" class="mobile-sub">Behavioral CRO Diagnosis</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page-wrapper">
+    <main class="page-content">
+<div class="ax-progress" id="axProgress" aria-hidden="true"></div>
+<div class="container">
+<div class="ax-layout">
+  <aside class="cs-toc ax-toc" aria-label="On this page">
+    <p class="ax-toc-title">On this page</p>
+    <ul>
+      <li><a href="#signals">What analytics can reveal</a></li>
+      <li><a href="#define-success">Define success first</a></li>
+      <li><a href="#methods">Analytics methods</a></li>
+      <li><a href="#ambiguous">Why the same metric can mean different things</a></li>
+      <li><a href="#dashboards">Dashboards and data-heavy products</a></li>
+      <li><a href="#empty-states">Empty states and onboarding</a></li>
+      <li><a href="#diagnostic-framework">A step-by-step framework</a></li>
+      <li><a href="#prioritize">Prioritize and validate</a></li>
+      <li><a href="#small-team">A practical approach for small teams</a></li>
+      <li><a href="#mistakes">Common mistakes</a></li>
+      <li><a href="#faq">Frequently asked questions</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </aside>
+<article class="ax">
+
+  <header class="ax-head">
+    <div class="ax-meta"><span class="ax-tag post-tag">User Research</span><span class="ax-tag post-tag is-saas">SaaS</span></div>
+    <h1>How to find UX problems in your SaaS product using analytics</h1>
+    <p class="ax-lede">Your product analytics can tell you where users abandon a workflow, repeat an action, struggle to find information, or fail to reach value. But the numbers rarely tell you why.</p>
+    <p class="ax-lede2">A drop-off on an integration page might indicate confusing UX. It might also mean that the user lacks admin permissions, is waiting for IT, or has no data to connect. Each explanation calls for a different solution.</p>
+    <p class="ax-lede2">This guide explains how to use product analytics to identify UX problems in SaaS platforms and dashboards, investigate their causes, and prioritize improvements based on evidence rather than assumptions.</p>
+  </header>
+
+  <figure class="tf-fig an-fork" data-anim>
+    <p class="tf-fig-title">One drop-off, several possible causes</p>
+    <p class="tf-fig-sub">Analytics shows where users stop. It rarely shows why.</p>
+    <div class="an-fork-top"><span>Users abandon the integration page</span></div>
+    <div class="an-fork-line" aria-hidden="true"></div>
+    <div class="an-fork-grid">
+      <div style="--i:0"><b>Confusing UX</b><span>Unclear instructions or flow</span></div>
+      <div style="--i:1"><b>No admin permissions</b><span>The user cannot connect the source</span></div>
+      <div style="--i:2"><b>Waiting for IT</b><span>Someone else has to act first</span></div>
+      <div style="--i:3"><b>No data to connect</b><span>Nothing relevant to import yet</span></div>
+    </div>
+    <p class="tf-fig-note">Each explanation calls for a different solution.</p>
+  </figure>
+
+  <section id="signals">
+    <h2>1. What can analytics reveal about your product's UX?</h2>
+
+    <p>
+      Product analytics records what users do: which pages they visit, which
+      actions they complete, where they stop, how often they return, and how
+      their behavior differs across segments. This makes analytics a powerful
+      starting point for UX diagnosis.
+    </p>
+
+    <p>
+      However, behavior is not the same as intent. A user who never opens a
+      feature might not know it exists, might not understand its purpose, might
+      find it difficult to use, or might simply have no reason to use it.
+      Analytics alone cannot reliably distinguish between these explanations.
+    </p>
+
+    <p>
+      Three recurring product problems are particularly worth investigating.
+    </p>
+
+    <h3>Problem 1: Features are built around internal assumptions</h3>
+
+    <p>
+      Product teams often make decisions based on business priorities,
+      technical possibilities, stakeholder requests, and internal opinions.
+      Over time, the platform accumulates functionality without enough evidence
+      that the features solve important user problems.
+    </p>
+
+    <p>
+      A 2019 Pendo analysis of 615 customer subscriptions found that an average
+      of 12% of features accounted for 80% of daily usage volume. This suggests
+      that usage can be heavily concentrated in a relatively small portion of
+      a product's functionality. However, Pendo's sample consisted of its own
+      customers, and the definition of a feature depended on what each customer
+      chose to track. The result should not be treated as a universal SaaS
+      benchmark.
+      <a href="https://www.pendo.io/resources/the-2019-feature-adoption-report/" target="_blank" rel="noopener">Source: Pendo</a>.
+    </p>
+
+    <figure class="tf-fig an-dotsfig" data-anim>
+    <p class="tf-fig-title">12% of features, 80% of daily usage</p>
+    <p class="tf-fig-sub">Pendo, 2019 Feature Adoption Report, 615 customer subscriptions (average)</p>
+    <div class="an-dots" role="img" aria-label="A grid of 100 dots. 12 are highlighted, representing the share of features that accounted for 80% of daily usage on average."><i class="on" style="--i:0"></i><i class="on" style="--i:1"></i><i class="on" style="--i:2"></i><i class="on" style="--i:3"></i><i class="on" style="--i:4"></i><i class="on" style="--i:5"></i><i class="on" style="--i:6"></i><i class="on" style="--i:7"></i><i class="on" style="--i:8"></i><i class="on" style="--i:9"></i><i class="on" style="--i:10"></i><i class="on" style="--i:11"></i><i class="" style="--i:12"></i><i class="" style="--i:13"></i><i class="" style="--i:14"></i><i class="" style="--i:15"></i><i class="" style="--i:16"></i><i class="" style="--i:17"></i><i class="" style="--i:18"></i><i class="" style="--i:19"></i><i class="" style="--i:20"></i><i class="" style="--i:21"></i><i class="" style="--i:22"></i><i class="" style="--i:23"></i><i class="" style="--i:24"></i><i class="" style="--i:25"></i><i class="" style="--i:26"></i><i class="" style="--i:27"></i><i class="" style="--i:28"></i><i class="" style="--i:29"></i><i class="" style="--i:30"></i><i class="" style="--i:31"></i><i class="" style="--i:32"></i><i class="" style="--i:33"></i><i class="" style="--i:34"></i><i class="" style="--i:35"></i><i class="" style="--i:36"></i><i class="" style="--i:37"></i><i class="" style="--i:38"></i><i class="" style="--i:39"></i><i class="" style="--i:40"></i><i class="" style="--i:41"></i><i class="" style="--i:42"></i><i class="" style="--i:43"></i><i class="" style="--i:44"></i><i class="" style="--i:45"></i><i class="" style="--i:46"></i><i class="" style="--i:47"></i><i class="" style="--i:48"></i><i class="" style="--i:49"></i><i class="" style="--i:50"></i><i class="" style="--i:51"></i><i class="" style="--i:52"></i><i class="" style="--i:53"></i><i class="" style="--i:54"></i><i class="" style="--i:55"></i><i class="" style="--i:56"></i><i class="" style="--i:57"></i><i class="" style="--i:58"></i><i class="" style="--i:59"></i><i class="" style="--i:60"></i><i class="" style="--i:61"></i><i class="" style="--i:62"></i><i class="" style="--i:63"></i><i class="" style="--i:64"></i><i class="" style="--i:65"></i><i class="" style="--i:66"></i><i class="" style="--i:67"></i><i class="" style="--i:68"></i><i class="" style="--i:69"></i><i class="" style="--i:70"></i><i class="" style="--i:71"></i><i class="" style="--i:72"></i><i class="" style="--i:73"></i><i class="" style="--i:74"></i><i class="" style="--i:75"></i><i class="" style="--i:76"></i><i class="" style="--i:77"></i><i class="" style="--i:78"></i><i class="" style="--i:79"></i><i class="" style="--i:80"></i><i class="" style="--i:81"></i><i class="" style="--i:82"></i><i class="" style="--i:83"></i><i class="" style="--i:84"></i><i class="" style="--i:85"></i><i class="" style="--i:86"></i><i class="" style="--i:87"></i><i class="" style="--i:88"></i><i class="" style="--i:89"></i><i class="" style="--i:90"></i><i class="" style="--i:91"></i><i class="" style="--i:92"></i><i class="" style="--i:93"></i><i class="" style="--i:94"></i><i class="" style="--i:95"></i><i class="" style="--i:96"></i><i class="" style="--i:97"></i><i class="" style="--i:98"></i><i class="" style="--i:99"></i></div>
+    <p class="tf-fig-note"><strong>Read with care.</strong> The sample was Pendo's own customers, and a feature meant whatever each customer chose to track. This is not a universal SaaS benchmark.</p>
+  </figure>
+
+    <p>
+      More importantly, low usage does not automatically mean a feature is
+      unnecessary. Research by McGrenere and Moore found that familiarity with
+      software functions and actual use were different things. Users could know
+      about functions without using them regularly, and dissatisfaction was
+      often associated with poor implementation, unpredictability, and
+      inconsistency rather than simply having too many features.
+      <a href="http://graphicsinterface.org/proceedings/gi2000/gi2000-25/" target="_blank" rel="noopener">Source: Graphics Interface</a>.
+    </p>
+
+    <p class="tf-inv"><strong>What to investigate:</strong> Is the feature difficult to
+      discover, hard to use, irrelevant to most users, or essential to a
+      smaller but important segment?
+    </p>
+
+    <h3>Problem 2: Users cannot understand the interface without help</h3>
+
+    <p>
+      Complex platforms frequently introduce unfamiliar terminology, data
+      structures, configuration options, and workflows. Users may not know
+      what a page is for, what a metric means, or what they are expected to do
+      next.
+    </p>
+
+    <p>
+      Teams often respond by adding tutorials, tooltips, documentation, and
+      onboarding tours. These can help, but they do not necessarily solve the
+      underlying problem.
+    </p>
+
+    <p>
+      In a Nielsen Norman Group usability test involving 70 users and four
+      mobile apps, participants who read tutorials did not outperform those
+      who skipped them: task success was 91% for the tutorial group and 94%
+      for the group that skipped tutorials. The study involved consumer mobile
+      apps, so it should not be treated as direct proof about enterprise
+      software. It does, however, challenge the assumption that more upfront
+      instruction automatically improves usability.
+      <a href="https://www.nngroup.com/articles/mobile-tutorials/" target="_blank" rel="noopener">Source: NN/g</a>.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">Task success with and without tutorials</p>
+    <p class="tf-fig-sub">Nielsen Norman Group, 70 users, four mobile apps</p>
+    <div class="tf-group">
+      <div class="tf-bar-row"><span class="tf-bar-label">Read tutorials</span><div class="tf-track"><div class="tf-bar is-signups" style="--w:91%"></div></div><span class="tf-bar-val">91%</span></div>
+      <div class="tf-bar-row"><span class="tf-bar-label">Skipped tutorials</span><div class="tf-track"><div class="tf-bar is-paying" style="--w:94%"></div></div><span class="tf-bar-val">94%</span></div>
+    </div>
+    <p class="tf-fig-note"><strong>Read with care.</strong> These were consumer mobile apps, so the result is not direct proof about enterprise software.</p>
+  </figure>
+
+    <p class="tf-inv"><strong>What to investigate:</strong> Do users need an explanation, a
+      clearer interface, better terminology, more relevant examples, or a
+      simpler workflow?
+    </p>
+
+    <h3>Problem 3: New users never experience the product's value</h3>
+
+    <p>
+      A user signs up, enters the platform, and sees an empty dashboard.
+      Before getting anything useful out of the product, they may need to
+      configure a workspace, connect a data source, request permissions,
+      invite colleagues, and learn unfamiliar concepts.
+    </p>
+
+    <p>
+      Every additional step can delay the first meaningful outcome. The user
+      may leave before understanding why the product is worth adopting.
+    </p>
+
+    <p>
+      Nielsen Norman Group recommends designing empty states in complex
+      applications to communicate system status, provide learning cues, and
+      give users direct paths to important tasks. Examples include offering
+      demo data or guiding users toward the first setup action.
+      <a href="https://www.nngroup.com/articles/empty-state-interface-design/" target="_blank" rel="noopener">Source: NN/g</a>.
+    </p>
+
+    <p class="tf-inv"><strong>What to investigate:</strong> How long does it take users to
+      reach a meaningful outcome, what blocks them, and can they understand
+      the product before completing every setup requirement?
+    </p>
+  </section>
+
+  <section id="define-success">
+    <h2>2. Define success before measuring it</h2>
+
+    <p>
+      Before opening an analytics dashboard, define what a successful user
+      experience means for the task you are investigating.
+    </p>
+
+    <p>
+      A common mistake is to measure feature usage instead of the outcome the
+      feature is supposed to support. For example, tracking how often users
+      apply filters is less useful than understanding whether they can
+      identify the information needed to make a decision.
+    </p>
+
+    <p>
+      The Goals–Signals–Metrics approach, introduced in research on Google's
+      HEART framework, provides a useful starting point:
+    </p>
+
+    <figure class="tf-fig an-gsm" data-anim>
+    <p class="tf-fig-title">Goal, signal, metric</p>
+    <ol class="an-flow"><li style="--i:0"><strong>Goal:</strong> What is the user trying to accomplish?</li><li style="--i:1"><strong>Signal:</strong> What observable behavior suggests success or difficulty?</li><li style="--i:2"><strong>Metric:</strong> How will that behavior be measured consistently?</li></ol>
+  </figure>
+
+    <p>For example:</p>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>Example: identifying at-risk accounts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>User goal</td>
+          <td>Find accounts that need attention and decide what to do.</td>
+        </tr>
+        <tr>
+          <td>Useful signals</td>
+          <td>Open an account, inspect relevant details, and record or initiate a follow-up action.</td>
+        </tr>
+        <tr>
+          <td>Potential metrics</td>
+          <td>Time to identify an account, task completion rate, and percentage of relevant accounts receiving an action.</td>
+        </tr>
+        <tr>
+          <td>Guardrails</td>
+          <td>Error rate, incorrect actions, and support requests.</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <p>
+      The right metric depends on the job the product performs. A monitoring
+      dashboard may be successful when a user checks it briefly and leaves
+      because nothing needs attention. A decision-support dashboard may
+      require a subsequent action. Treating both as successful only when users
+      interact extensively would produce misleading conclusions.
+    </p>
+
+    <p>
+      For workplace software, Nielsen Norman Group's CASTLE framework offers
+      a useful set of dimensions: Cognitive load, Advanced feature usage,
+      Satisfaction, Task efficiency, Learnability, and Errors.
+      <a href="https://www.nngroup.com/articles/castle-framework/" target="_blank" rel="noopener">Source: NN/g</a>.
+    </p>
+  </section>
+
+  <section id="methods">
+    <h2>3. Analytics methods for finding UX problems</h2>
+
+    <p>
+      Different analytical methods reveal different kinds of problems. The
+      most useful approach is to combine them around a specific user goal
+      instead of collecting as many metrics as possible.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">Nine methods, nine questions</p>
+    <div class="an-methods"><div style="--i:0"><b>Funnel analysis</b><span>Where does progress stop?</span></div><div style="--i:1"><b>Path analysis</b><span>Which loops and unexpected journeys appear?</span></div><div style="--i:2"><b>Cohort analysis</b><span>How does behavior change over time?</span></div><div style="--i:3"><b>Segmentation</b><span>What is hidden in the averages?</span></div><div style="--i:4"><b>Feature adoption</b><span>Is it discovery or value?</span></div><div style="--i:5"><b>Search analytics</b><span>What can users not find?</span></div><div style="--i:6"><b>Error and frustration signals</b><span>Where does the interface not respond as expected?</span></div><div style="--i:7"><b>Session replay</b><span>What do the metrics fail to explain?</span></div><div style="--i:8"><b>Qualitative research</b><span>Why does the pattern occur?</span></div></div>
+    <figcaption>Combine them around one specific user goal instead of collecting as many metrics as possible.</figcaption>
+  </figure>
+
+    <h3>Funnel analysis: find where progress stops</h3>
+
+    <p>
+      A funnel tracks the steps users take toward a defined outcome. For
+      example, a B2B platform might track:
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">A B2B funnel toward the first meaningful report</p>
+    <div class="an-funnel"><div class="an-frow" style="--i:0"><div class="an-fbar" style="--w:100%"><span>1. Create an account</span></div></div><div class="an-frow" style="--i:1"><div class="an-fbar" style="--w:82%"><span>2. Create a workspace</span></div></div><div class="an-frow" style="--i:2"><div class="an-fbar" style="--w:64%"><span>3. Connect a data source</span></div></div><div class="an-frow" style="--i:3"><div class="an-fbar" style="--w:50%"><span>4. Load or import data successfully</span></div></div><div class="an-frow" style="--i:4"><div class="an-fbar" style="--w:38%"><span>5. View the first meaningful report</span></div></div><div class="an-frow" style="--i:5"><div class="an-fbar" style="--w:30%"><span>6. Complete a relevant task using that report</span></div></div></div>
+    <figcaption>The shape is illustrative, not real data. The point is to find unexpected losses relative to the journey, the product's baseline, and comparable segments.</figcaption>
+  </figure>
+
+    <p>
+      The purpose is not simply to identify the step with the largest number
+      of exits. It is to identify unexpected losses relative to the journey,
+      the product's historical baseline, and comparable user segments.
+    </p>
+
+    <p>
+      A funnel should represent actual progress toward a goal, not merely a
+      sequence of page views. It should also account for B2B workflows that
+      may take days to complete or require an administrator to perform part
+      of the setup.
+    </p>
+
+    <h3>Path analysis: identify loops and unexpected journeys</h3>
+
+    <p>
+      Path analysis shows what users do before and after a particular event.
+      It can reveal repeated navigation between sections, detours, and
+      unexpected routes to a task.
+    </p>
+
+    <p>
+      For example, users may repeatedly move between a list page and a detail
+      page because they cannot compare items efficiently. Alternatively, this
+      may be a perfectly normal review workflow. The pattern identifies a
+      question to investigate, not a confirmed UX problem.
+    </p>
+
+    <h3>Cohort analysis: compare groups over time</h3>
+
+    <p>
+      Cohorts help establish whether user behavior changes after a product
+      release, an onboarding change, or a change in acquisition strategy.
+      Compare users who started during different periods, using the same
+      definitions of activation and successful usage.
+    </p>
+
+    <p>
+      In B2B products, account cohorts may be just as important as individual
+      user cohorts. An employee can be ready to use a platform while the
+      organization is still waiting for an integration or security approval.
+    </p>
+
+    <h3>Segmentation: discover problems hidden in averages</h3>
+
+    <p>
+      An overall conversion rate can conceal large differences between user
+      groups. Segment behavior by relevant dimensions such as:
+    </p>
+
+    <ul>
+      <li>User role and permission level.</li>
+      <li>Account size and account age.</li>
+      <li>Acquisition channel and signup route.</li>
+      <li>Plan, device, or experience level.</li>
+      <li>Integration status and availability of real data.</li>
+    </ul>
+
+    <p>
+      If experienced users complete a workflow successfully but new users
+      repeatedly abandon it, the problem may concern learnability rather than
+      the workflow's underlying functionality. If the problem occurs almost
+      exclusively for non-admin users, the actual barrier may be permissions.
+    </p>
+
+    <h3>Feature adoption analysis: separate discovery from value</h3>
+
+    <p>
+      Do not measure feature adoption using a single event such as opening a
+      page. Track the progression from exposure to meaningful use and repeat
+      use.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">From exposure to repeat use</p>
+    <ol class="an-ladder"><li style="--i:0;--h:34%"><span class="an-step-n">1</span><div><strong>Exposure:</strong> Did the user encounter the feature's entry point?</div></li><li style="--i:1;--h:56%"><span class="an-step-n">2</span><div><strong>First use:</strong> Did the user open it and attempt the core action?</div></li><li style="--i:2;--h:78%"><span class="an-step-n">3</span><div><strong>Successful use:</strong> Did the action achieve its intended outcome?</div></li><li style="--i:3;--h:100%"><span class="an-step-n">4</span><div><strong>Repeat use:</strong> Did the user return when the feature was relevant again?</div></li></ol>
+  </figure>
+
+    <p>
+      These stages help distinguish a feature that is difficult to discover
+      from one that users discover but cannot use successfully. They also
+      help reveal features that serve only a specific role or workflow.
+    </p>
+
+    <h3>Search analytics: find what users cannot locate</h3>
+
+    <p>
+      Internal search can expose gaps in navigation, information architecture,
+      and terminology. Useful signals include searches with no results,
+      repeated searches using different terms, and searches that do not lead
+      to a result click or successful task.
+    </p>
+
+    <p>
+      Search behavior is particularly useful in complex products where users
+      need to locate entities, settings, reports, documentation, or
+      configuration options. Search logs can also reveal the vocabulary users
+      expect, which may differ from the terminology used by the product team.
+    </p>
+
+    <h3>Error and frustration signals: look beyond the interface</h3>
+
+    <p>
+      Repeated clicks, failed submissions, duplicate actions, refreshes, and
+      repeated attempts can indicate that the interface is not responding as
+      expected. Session replay can help teams inspect what happened during
+      those sessions.
+    </p>
+
+    <p>
+      However, frustration signals have false positives. Rapid clicking may
+      be normal for pagination or other controls. A workflow may also fail
+      because of network latency, an API error, or a service outage.
+      Investigate frontend errors, backend failures, and performance data
+      before concluding that the interface is at fault.
+    </p>
+
+    <h3>Session replay: inspect what the metrics cannot explain</h3>
+
+    <p>
+      Session recordings are useful when analytics has already identified a
+      suspicious pattern. Review a targeted sample of sessions and look for
+      evidence related to your hypotheses: missed controls, repeated attempts,
+      navigation loops, error messages, or unexplained pauses.
+    </p>
+
+    <p>
+      Replays do not establish how common a problem is. They show what
+      happened in individual sessions, so use them alongside quantitative
+      data and respect privacy requirements when recording user behavior.
+    </p>
+
+    <h3>Qualitative research: establish why the pattern occurs</h3>
+
+    <p>
+      Interviews, usability testing, short in-product surveys, and support
+      ticket analysis help explain behavior that analytics cannot interpret
+      on its own.
+    </p>
+
+    <p>
+      A practical sequence is to identify an unusual pattern in analytics,
+      inspect a sample of affected sessions, and then speak with users who
+      experienced the problem. This is more targeted than asking users
+      general questions about whether they like the product.
+    </p>
+  </section>
+
+  <section id="ambiguous">
+    <h2>4. Why the same metric can mean different things</h2>
+
+    <p>
+      One of the most important skills in UX diagnosis is resisting the
+      temptation to jump directly from a metric to a design solution.
+    </p>
+
+    <p>
+      Consider the following examples.
+    </p>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr>
+          <th>Observed behavior</th>
+          <th>Possible explanations</th>
+          <th>What to investigate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>High abandonment on an integration page</td>
+          <td>Confusing instructions, missing permissions, waiting for IT, no relevant data, technical failure, or mismatched expectations.</td>
+          <td>Permission events, integration errors, account status, acquisition channel, and interviews with affected users.</td>
+        </tr>
+        <tr>
+          <td>Low feature adoption</td>
+          <td>The feature is undiscovered, difficult to understand, hard to use, naturally infrequent, or relevant to a small segment.</td>
+          <td>Exposure-to-use conversion, repeat use, role-based segmentation, and awareness interviews.</td>
+        </tr>
+        <tr>
+          <td>High dashboard views but little interaction</td>
+          <td>Users quickly confirm that everything is fine, cannot interpret the data, see no relevant information, or land on the wrong dashboard.</td>
+          <td>The dashboard's purpose, data availability, downstream actions, and users' interpretation of its contents.</td>
+        </tr>
+        <tr>
+          <td>Long time to complete a task</td>
+          <td>A difficult workflow, careful analysis, interruptions, multitasking, or slow system performance.</td>
+          <td>Active versus idle time, performance data, task observation, and the distribution of completion times.</td>
+        </tr>
+        <tr>
+          <td>More searches or actions per user</td>
+          <td>Higher engagement, more complex work, or repeated attempts to find the right answer.</td>
+          <td>Successful task completion, zero-result searches, retries, and errors per completed task.</td>
+        </tr>
+        <tr>
+          <td>Falling activation rate</td>
+          <td>A UX regression, a change in acquisition mix, an instrumentation problem, or a change in the activation definition.</td>
+          <td>Event volumes, tracking changes, release dates, and conversion by acquisition channel and user segment.</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <h3>When more activity is actually a bad sign</h3>
+
+    <p>
+      A well-known example from research on online experiments at Microsoft
+      illustrates how misleading engagement metrics can be. A bug in a Bing
+      experiment produced poor search results. Users conducted more queries,
+      while measured revenue per user also increased. The researchers reported
+      increases of more than 10% in distinct queries per user and more than
+      30% in revenue per user.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">When more activity is a bad sign</p>
+    <p class="tf-fig-sub">A bug in a Bing experiment produced poor search results</p>
+    <div class="tf-group">
+      <div class="tf-bar-row"><span class="tf-bar-label">Distinct queries per user</span><div class="tf-track"><div class="tf-bar is-signups" style="--w:33%"></div></div><span class="tf-bar-val">&gt;10%</span></div>
+      <div class="tf-bar-row"><span class="tf-bar-label">Revenue per user</span><div class="tf-track"><div class="tf-bar is-paying" style="--w:100%"></div></div><span class="tf-bar-val">&gt;30%</span></div>
+    </div>
+    <p class="tf-fig-note">Users searched more because their first results were worse. Increases reported by the researchers: more than 10% in distinct queries and more than 30% in revenue per user.</p>
+  </figure>
+
+    <p>
+      More activity looked positive, but users were searching more because
+      their initial results were worse. The experiment demonstrates why teams
+      must understand the meaning of a metric before treating an increase as
+      an improvement.
+      <a href="https://exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf" target="_blank" rel="noopener">Read the research</a>.
+    </p>
+
+    <p>
+      The same principle applies to SaaS platforms. More clicks, longer
+      sessions, repeated searches, and increased feature usage do not
+      necessarily mean that users are getting more value.
+    </p>
+
+    <h3>Check instrumentation before diagnosing UX</h3>
+
+    <p>
+      Sudden changes in analytics may indicate tracking problems rather than
+      changes in user behavior. Check instrumentation when you see:
+    </p>
+
+    <ul>
+      <li>A sharp metric change that coincides with a release.</li>
+      <li>A decline limited to one device, browser, or SDK version.</li>
+      <li>Impossible event sequences or duplicated events.</li>
+      <li>A sudden increase in anonymous users or missing account identifiers.</li>
+      <li>A mismatch between analytics events and backend records.</li>
+    </ul>
+
+    <p>
+      An incorrect event definition can make a healthy workflow appear broken.
+      Validate the data before proposing a redesign.
+    </p>
+  </section>
+
+  <section id="dashboards">
+    <h2>5. Finding UX problems in dashboards and data-heavy platforms</h2>
+
+    <p>
+      Dashboards require a more specific diagnostic approach than many
+      consumer applications. Users may come to them to monitor a situation,
+      investigate a problem, compare information, or make a decision. Each
+      purpose implies a different definition of success.
+    </p>
+
+    <h3>First, identify the job of the dashboard</h3>
+
+    <div class="an-cards3" data-anim><div class="an-card" style="--i:0"><strong>Monitoring and awareness:</strong> Users need to understand whether anything requires attention. A brief visit with few interactions can indicate success.</div><div class="an-card" style="--i:1"><strong>Operational decision-making:</strong> Users need to identify an issue and take a subsequent action, such as assigning a ticket or contacting an account owner.</div><div class="an-card" style="--i:2"><strong>Strategic analysis:</strong> Users need to explore data, compare segments, filter results, investigate trends, and share findings.</div></div>
+
+    <p>
+      Research by Sarikaya and colleagues analyzed 83 dashboards and found
+      that dashboards support a variety of purposes, from awareness to
+      decision-making and communication. The authors also identified
+      recurring challenges related to data literacy and the complexity of
+      dashboard interactions.
+      <a href="https://alper.datav.is/assets/publications/dashboards/dashboards-preprint.pdf" target="_blank" rel="noopener">Read the research</a>.
+    </p>
+
+    <h3>Measure whether users can interpret the information</h3>
+
+    <p>
+      A dashboard may display accurate data while failing to help users
+      understand what the data means or what they should do next.
+    </p>
+
+    <p>Look for signals such as:</p>
+
+    <ul>
+      <li>Repeated clicks on metric definitions or help icons.</li>
+      <li>Searches for unfamiliar metrics and terminology.</li>
+      <li>Support requests asking how a number is calculated.</li>
+      <li>Repeated filter changes without a clear next action.</li>
+      <li>Frequent exports to spreadsheets for additional analysis.</li>
+      <li>Screenshots used to explain dashboard findings outside the product.</li>
+    </ul>
+
+    <p>
+      These patterns are not proof of confusion. Exporting data, for example,
+      may be a legitimate part of an analyst's workflow. But they can reveal
+      situations in which users need additional context or capabilities.
+    </p>
+
+    <p>
+      Research by Tory and colleagues, based on interviews with 20 analysts
+      and dashboard users, found that people often moved data from dashboards
+      into other tools to manipulate and understand it. This suggests that
+      teams should investigate what users do after viewing a dashboard, not
+      just whether they open it.
+      <a href="https://doi.org/10.1109/mcg.2021.3136545" target="_blank" rel="noopener">Read the study</a>.
+    </p>
+
+    <h3>Track the connection between information and action</h3>
+
+    <p>
+      If a dashboard is intended to support decisions, instrument the
+      relationship between viewing information and taking the relevant action.
+      For example:
+    </p>
+
+    <ol class="an-flow" data-anim><li style="--i:0">A manager views a report of at-risk accounts.</li><li style="--i:1">The manager opens a specific account.</li><li style="--i:2">The manager records a follow-up action.</li></ol>
+
+    <p>
+      If many users view the report but few proceed to the next step, investigate
+      whether the information is unclear, irrelevant, incomplete, or difficult
+      to act on. Also check whether the action happens outside the platform.
+    </p>
+
+    <h3>Check whether the dashboard has enough data</h3>
+
+    <p>
+      An empty dashboard can be a sign of a new account, a missing integration,
+      an incomplete setup, or a legitimate lack of activity. It should not
+      automatically be interpreted as disengagement.
+    </p>
+
+    <p>
+      Segment dashboard behavior by data availability, account maturity, and
+      integration status. If users cannot access the information they need,
+      improving chart design will not solve the underlying problem.
+    </p>
+
+    <h3>Look for information overload, but do not assume it</h3>
+
+    <p>
+      A crowded dashboard can make it difficult to identify the most important
+      information. However, a high number of widgets or a low interaction rate
+      does not establish cognitive overload.
+    </p>
+
+    <p>
+      Combine behavioral evidence with task-based usability testing, interviews,
+      or a workload assessment. Ask users to explain what they notice first,
+      how they interpret the information, and what decision they would make.
+      If they cannot distinguish critical information from background data,
+      investigate hierarchy, labeling, grouping, and the amount of information
+      presented at once.
+    </p>
+  </section>
+
+  <section id="empty-states">
+    <h2>6. Why empty states and onboarding deserve special attention</h2>
+
+    <p>
+      The first experience inside a complex platform can determine whether
+      users discover its value or leave before reaching it.
+    </p>
+
+    <p>
+      An empty state is not simply a blank screen. It is a moment when the
+      system has little or no user-specific content to display, and the
+      interface must help users understand the situation and move forward.
+    </p>
+
+    <p>A useful empty state should answer three questions:</p>
+
+    <div class="an-cards3" data-anim><div class="an-card" style="--i:0"><strong>Why is this empty?</strong> Explain the current state of the system.</div><div class="an-card" style="--i:1"><strong>What can I do here?</strong> Make the available action clear.</div><div class="an-card" style="--i:2"><strong>What happens next?</strong> Explain the expected outcome or next step.</div></div>
+
+    <p>
+      Depending on the product, the right approach may include sample data,
+      a demo mode, a template, a guided setup, a clear integration action, or
+      an option to request access from an administrator.
+    </p>
+
+    <p>
+      The goal is not to add as many onboarding elements as possible. It is
+      to reduce the distance between entering the product and experiencing
+      a meaningful outcome.
+    </p>
+
+    <p>
+      If analytics shows that users repeatedly visit a page without completing
+      the next step, investigate whether the interface communicates the
+      purpose of the page and makes the next action obvious. If users already
+      understand what to do but cannot proceed because they lack permissions
+      or data, the solution needs to address that dependency instead.
+    </p>
+  </section>
+
+  <section id="diagnostic-framework">
+    <h2>7. A step-by-step framework for diagnosing UX problems</h2>
+
+    <p>
+      The following framework combines product analytics, UX research, and
+      experimentation into a repeatable process. It is designed to prevent
+      teams from jumping directly from an unusual metric to a proposed UI fix.
+    </p>
+
+    <ol class="ax-chain"><li><b>Define the job.</b><span>Establish whether the product or page is used for monitoring, decision-making, exploration, or another task. Determine whether use is mandatory or voluntary.</span></li><li><b>Define the user goal.</b><span>Describe the outcome the user is trying to achieve, not simply the feature they are expected to use.</span></li><li><b>Map the critical journey.</b><span>Identify the steps required to reach the outcome, including external dependencies such as IT approval, data imports, and team handoffs.</span></li><li><b>Validate the instrumentation.</b><span>Check event definitions, user and account identifiers, event ordering, and consistency with backend records.</span></li><li><b>Establish a baseline.</b><span>Measure completion, time between steps, errors, and relevant outcomes. Segment the data by role, account, acquisition channel, and other meaningful dimensions.</span></li><li><b>Find the unexpected pattern.</b><span>Look for unusual drop-offs, repeated attempts, navigation loops, errors, and differences between segments.</span></li><li><b>Write competing hypotheses.</b><span>List at least three plausible explanations and specify what evidence would support or contradict each one.</span></li><li><b>Collect discriminating evidence.</b><span>Start with existing event properties and error logs. Then inspect relevant session recordings, support tickets, and user feedback. Conduct interviews or usability sessions if the cause remains unclear.</span></li><li><b>State the root cause.</b><span>Describe the user problem in terms of what users cannot understand, access, find, or accomplish. Do not phrase the diagnosis as a solution.</span></li><li><b>Prioritize, test, and monitor.</b><span>Choose an intervention based on its expected impact, affected users, confidence in the diagnosis, and implementation effort. Define the success metric and guardrails before measuring the result.</span></li></ol>
+
+    <h3>Example: users abandon the integration step</h3>
+
+    <p>
+      Imagine that analytics shows 60% of new accounts never view a populated
+      report within 14 days. This is a hypothetical example, not a real
+      product case study.
+    </p>
+
+    <p><strong>Observation:</strong> Most new accounts fail to reach the first report.</p>
+
+    <p><strong>Initial hypotheses:</strong></p>
+
+    <ul>
+      <li>The integration instructions are confusing.</li>
+      <li>Users lack the permissions required to connect the data source.</li>
+      <li>The source contains no relevant data.</li>
+      <li>The integration is failing for technical reasons.</li>
+    </ul>
+
+    <p>
+      Segmenting the data reveals that the problem is concentrated among
+      self-serve accounts where the person who signed up is not an
+      administrator. Permission-denied events are common among stalled
+      accounts, and interviews confirm that users need to ask IT for help.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">The evidence narrows the hypotheses</p>
+    <p class="tf-fig-sub">Hypothetical example, not a real product case study</p>
+    <div class="an-hyp">
+      <div class="an-h is-out" style="--i:0"><b>Confusing instructions</b><span>Not the main cause here</span></div>
+      <div class="an-h is-win" style="--i:1"><b>Missing permissions</b><span>Concentrated among non-admin sign-ups. Permission-denied events are common. Interviews confirm users need IT.</span></div>
+      <div class="an-h is-out" style="--i:2"><b>No relevant data</b><span>Not the main cause here</span></div>
+      <div class="an-h is-out" style="--i:3"><b>Technical failure</b><span>Not the main cause here</span></div>
+    </div>
+  </figure>
+
+    <p>
+      <strong>Diagnosis:</strong> The first-value journey depends on an
+      administrator the initial user cannot easily involve.
+    </p>
+
+    <p>
+      <strong>Potential intervention:</strong> Add a clear request-access or
+      invite-admin flow, show setup status, and consider providing sample data
+      so users can explore the product before the integration is complete.
+    </p>
+
+    <p>
+      <strong>Validation:</strong> Compare the rate of successful integration
+      and first-report viewing across comparable cohorts. Monitor error rates
+      and support contacts to ensure the change does not introduce new
+      problems.
+    </p>
+
+    <p>
+      The important distinction is that the solution follows the evidence.
+      If the data had instead revealed repeated integration errors, the priority
+      would be technical reliability rather than onboarding copy.
+    </p>
+  </section>
+
+  <section id="prioritize">
+    <h2>8. Prioritize and validate improvements</h2>
+
+    <p>
+      Once the likely cause is understood, decide which problems deserve
+      attention first. A practical prioritization model considers:
+    </p>
+
+    <div class="an-cards4" data-anim><div class="an-card" style="--i:0"><strong>Reach:</strong> How many users or accounts are affected?</div><div class="an-card" style="--i:1"><strong>Impact:</strong> How seriously does the problem affect their ability to complete an important task?</div><div class="an-card" style="--i:2"><strong>Confidence:</strong> How strongly does the available evidence support the diagnosis?</div><div class="an-card" style="--i:3"><strong>Effort:</strong> What will it take to implement and maintain the intervention?</div></div>
+
+    <p>
+      Frameworks such as RICE and ICE can help structure these decisions, but
+      they are prioritization heuristics rather than scientifically validated
+      predictions of product success. A numerical score should not disguise
+      weak evidence.
+    </p>
+
+    <p>
+      Confidence should reflect the quality and diversity of evidence. A
+      suspicious analytics pattern alone offers limited confidence. Analytics
+      combined with error logs, user interviews, and a reproducible usability
+      failure provides a stronger basis for action.
+    </p>
+
+    <h3>Choose the right validation method</h3>
+
+    <p>
+      Use a controlled experiment when there is enough traffic to measure a
+      meaningful effect, randomization is feasible, and the intervention can
+      be tested safely. Define a primary metric and guardrail metrics before
+      the experiment begins.
+    </p>
+
+    <p>
+      In lower-traffic B2B products, an A/B test may be impractical. Alternatives
+      include usability testing before and after the change, comparisons of
+      similar account cohorts, or a staged rollout with monitoring. Account
+      differences, seasonal workflows, and changes in acquisition mix must
+      be considered when interpreting before-and-after results.
+    </p>
+
+    <p>
+      Validation is essential because a plausible solution is not necessarily
+      an effective one. Research on online experimentation at Microsoft
+      reported that only about one-third of well-designed experiments intended
+      to improve a key metric were successful; roughly one-third were flat and
+      one-third were negative. The finding comes from Microsoft's
+      experimentation context, not from a universal sample of SaaS UX
+      changes, but it is a useful reminder that intuition is not enough.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">What happens to well-designed experiments</p>
+    <p class="tf-fig-sub">Microsoft's experimentation context, roughly one-third each</p>
+    <div class="an-thirds">
+      <div class="is-win" style="--i:0"><b>About one-third</b><span>improved the key metric</span></div>
+      <div class="is-flat" style="--i:1"><b>About one-third</b><span>were flat</span></div>
+      <div class="is-neg" style="--i:2"><b>About one-third</b><span>were negative</span></div>
+    </div>
+    <figcaption>This is not a universal sample of SaaS UX changes, but it is a reminder that intuition is not enough.</figcaption>
+  </figure>
+  </section>
+
+  <section id="small-team">
+    <h2>9. How to find UX problems without an expensive analytics stack</h2>
+
+    <p>
+      A small product team does not need hundreds of tracked events or a
+      dedicated research department to begin diagnosing UX problems. It needs
+      reliable measurements of the most important user journeys.
+    </p>
+
+    <p>A practical starting point:</p>
+
+    <ol class="an-steps9"><li>Choose one important user goal and define what successful completion means.</li><li>Instrument the 15–30 events needed to understand the journey, rather than tracking everything indiscriminately.</li><li>Build a funnel and segment it by the most important user roles and account types.</li><li>Check error rates, integration status, and performance around the largest unexpected drop-off.</li><li>Review a targeted sample of session recordings, where appropriate and privacy-compliant.</li><li>Tag support tickets and customer-success feedback using a manageable set of problem categories.</li><li>Speak with a small number of representative users and observe them completing realistic tasks.</li><li>Document the diagnosis, evidence, competing explanations, proposed intervention, and success criteria.</li><li>Re-measure the outcome after the change and monitor it through a complete natural usage cycle.</li></ol>
+
+    <p>
+      Small usability studies are useful for discovering problems, but their
+      results should not be mistaken for precise estimates of how common those
+      problems are across the entire user base. Use production analytics to
+      estimate prevalence and qualitative research to understand the causes.
+    </p>
+  </section>
+
+  <section id="mistakes">
+    <h2>10. Common mistakes when diagnosing UX with analytics</h2>
+
+    <ul class="an-mistakes"><li><b>Assuming low usage means low value.</b><span>A feature may be undiscovered, difficult to use, relevant to a small group, or needed only occasionally.</span></li><li><b>Using engagement as a universal success metric.</b><span>More activity can mean that users are struggling. Less activity can mean that a task is easy or that a monitoring dashboard has done its job.</span></li><li><b>Using one blended conversion rate.</b><span>Differences in roles, permissions, account maturity, and acquisition channel can hide the real problem.</span></li><li><b>Redesigning before checking technical constraints.</b><span>Performance problems, API errors, and missing permissions can produce behavioral patterns that resemble poor usability.</span></li><li><b>Adding instructions before simplifying the experience.</b><span>Tutorials cannot compensate for every confusing workflow or unclear product concept.</span></li><li><b>Confusing correlation with causation.</b><span>An early action associated with retention may be a marker of user motivation rather than the reason users stay.</span></li><li><b>Measuring feature activity instead of user outcomes.</b><span>A feature is valuable when it helps users accomplish something important, not merely because they interact with it.</span></li></ul>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently asked questions</h2>
+
+    <details class="an-faq"><summary>How do you identify UX problems using product analytics?<span class="faq-plus" aria-hidden="true"></span></summary><p>Start with a defined user goal, map the steps required to achieve it, and use funnels, path analysis, segmentation, error data, and session recordings to locate unexpected behavior. Then investigate the cause using user feedback, interviews, support data, or usability testing.</p></details>
+
+    <details class="an-faq"><summary>How can I tell whether a feature is unused or undiscovered?<span class="faq-plus" aria-hidden="true"></span></summary><p>Track whether users encounter the feature's entry point, whether they try its core action, and whether they return to it when relevant. Combine these events with awareness questions and role-based analysis. Low usage alone cannot distinguish an undiscovered feature from an unnecessary one.</p></details>
+
+    <details class="an-faq"><summary>What is activation in a SaaS product?<span class="faq-plus" aria-hidden="true"></span></summary><p>Activation is the point at which a user or account reaches a defined early outcome that indicates meaningful product value. The event should reflect the product's purpose and be checked against later successful usage or retention. Signing up or opening a dashboard is not necessarily activation.</p></details>
+
+    <details class="an-faq"><summary>What is time to value?<span class="faq-plus" aria-hidden="true"></span></summary><p>Time to value measures how long it takes a user or account to experience a meaningful outcome. Define both the starting point and the value event carefully, and account for external dependencies such as integrations, permissions, and team approvals.</p></details>
+
+    <details class="an-faq"><summary>Which UX metrics matter most for B2B dashboards?<span class="faq-plus" aria-hidden="true"></span></summary><p>The most useful metrics depend on the dashboard's job. They may include task completion, time to a decision, error rates, successful downstream actions, learnability, and feature adoption within relevant user segments. A short visit or low interaction rate is not inherently bad.</p></details>
+  </section>
+
+  <section id="conclusion">
+    <h2>Conclusion: Diagnose the problem before designing the solution</h2>
+
+    <p>
+      Analytics is most useful when it helps teams ask better questions.
+      A drop-off, a low adoption rate, or a repeated action is a signal to
+      investigate, not a diagnosis in itself.
+    </p>
+
+    <p>
+      The strongest approach combines a clear definition of user success,
+      reliable instrumentation, segmented behavioral data, competing
+      hypotheses, and qualitative evidence. It also accounts for technical
+      reliability, permissions, organizational workflows, and the specific
+      job the product is supposed to perform.
+    </p>
+
+    <p>
+      Instead of asking, "Which screen should we redesign?", start with:
+      "What are users trying to accomplish, where does progress break down,
+      and what evidence would explain why?"
+    </p>
+
+    <p>
+      That shift helps teams avoid adding features or instructions to solve
+      the wrong problem. It turns UX improvement from a sequence of assumptions
+      into a process of diagnosis, prioritization, and validation.
+    </p>
+  </section>
+
+  <section class="ax-cta pd-dark" aria-labelledby="an-cta-t">
+    <h2 id="an-cta-t">Seeing a drop-off and not sure why?</h2>
+    <p>Telling UX, messaging, pricing and traffic apart is the work I do. Send me the symptom and I’ll tell you what kind of investigation it needs.</p>
+    <a class="btn-dark" href="/#contact">Let's Connect</a>
+  </section>
+
+  <div class="ax-related-wrap">
+    <p class="ax-eyebrow">Related reading</p>
+    <a class="cp-related" href="/saas-free-trial-conversion">
+      <strong>Why SaaS free trials don’t convert: a diagnostic framework</strong>
+      <p>How to find where trial users drop off, which users fail to convert, and what the evidence says about why.</p>
+      <span>Read article <span aria-hidden="true">&rarr;</span></span>
+    </a>
+    <a class="cp-related" href="/cro-audit-vs-ux-audit">
+      <strong>CRO audit vs. UX audit: what’s the difference?</strong>
+      <p>Why a diagnosis is not a checklist, and how to tell which kind of investigation you need.</p>
+      <span>Read article <span aria-hidden="true">&rarr;</span></span>
+    </a>
+  </div>
+
+  <section class="ax-about">
+    <h2>About the author</h2>
+    <p>I'm Olga Kalinina, a product designer and product owner with 20+ years of experience working across SaaS platforms, AI-enabled products, and data-heavy systems. My work focuses on making complex digital products more understandable and useful by connecting user needs, product behavior, and evidence-based design decisions.</p>
+    <p>I'm also developing Rootwise, a project through which I'm consolidating my approach to evidence-based conversion and product diagnosis.</p>
+    <p><a href="/p/digital-assets-management">Read my Moonbug UX case study</a> (password protected).</p>
+    <h3>Selected research and references</h3>
+    <ul class="ax-sources"> <li> <a href="https://www.pendo.io/resources/the-2019-feature-adoption-report/" target="_blank" rel="noopener"> Pendo — The 2019 Feature Adoption Report </a> </li> <li> <a href="http://graphicsinterface.org/proceedings/gi2000/gi2000-25/" target="_blank" rel="noopener"> McGrenere & Moore — Are We All in the Same "Bloat"? </a> </li> <li> <a href="https://www.nngroup.com/articles/castle-framework/" target="_blank" rel="noopener"> Nielsen Norman Group — CASTLE Framework for Workplace Applications </a> </li> <li> <a href="https://www.nngroup.com/articles/mobile-tutorials/" target="_blank" rel="noopener"> Nielsen Norman Group — Mobile Tutorials: Wasted Effort or Efficiency Boost? </a> </li> <li> <a href="https://www.nngroup.com/articles/empty-state-interface-design/" target="_blank" rel="noopener"> Nielsen Norman Group — Designing Empty States in Complex Applications </a> </li> <li> <a href="https://alper.datav.is/assets/publications/dashboards/dashboards-preprint.pdf" target="_blank" rel="noopener"> Sarikaya et al. — What Do We Talk About When We Talk About Dashboards? </a> </li> <li> <a href="https://doi.org/10.1109/mcg.2021.3136545" target="_blank" rel="noopener"> Tory et al. — Finding Their Data Voice: Practices and Challenges of Dashboard Users </a> </li> <li> <a href="https://exp-platform.com/Documents/puzzlingOutcomesInControlledExperiments.pdf" target="_blank" rel="noopener"> Kohavi et al. — Trustworthy Online Controlled Experiments: Five Puzzling Outcomes Explained </a> </li> <li> <a href="https://www.nngroup.com/articles/onboarding-tutorials/" target="_blank" rel="noopener"> Nielsen Norman Group — Onboarding Tutorials vs. Contextual Help </a> </li> </ul>
+  </section>
+
+</article>
+</div>
+</div>
+    </main>
+
+    <!-- FOOTER -->
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/product-design" data-text="Product Design">Product Design</a>
+            <span class="footer-dot"></span>
+            <a href="/cro-audit" data-text="CRO Diagnosis">CRO Diagnosis</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies" data-text="Case Studies">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog" data-text="Blog">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/about" data-text="About">About</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts" data-text="Contacts">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="/privacy" data-text="Privacy">Privacy</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">Behance</a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina</p>
+      </div>
+    </footer>
+  </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bar = document.getElementById('axProgress');
+    if (bar && !still) {
+      var tick = 0;
+      var upd = function () { tick = 0; var h = document.documentElement.scrollHeight - window.innerHeight; bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')'; };
+      window.addEventListener('scroll', function () { if (!tick) tick = requestAnimationFrame(upd); }, { passive: true });
+      upd();
+    }
+    if (still || !('IntersectionObserver' in window)) return;
+    root.classList.add('ax-js');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (!e.isIntersecting) return; e.target.classList.add('is-in'); io.unobserve(e.target); });
+    }, { threshold: 0.2 });
+    [].forEach.call(document.querySelectorAll('[data-anim]'), function (el) { io.observe(el); });
+  })();
+  </script>
+  <script src="/js/toc.js" defer></script>
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>
