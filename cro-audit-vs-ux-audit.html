@@ -20,7 +20,18 @@
   <link rel="stylesheet" href="style.css" />
   <style>
     /* ---- Article page ---- */
-    .ax { --ax-ink: var(--strong); --ax-on-ink: #f7f5f5; --ax-gold: #a8803a; --ax-gold-soft: rgba(168,128,58,.16); max-width: 720px; margin: 0 auto; padding: 40px 0 96px; font-size: 18px; line-height: 1.75; color: var(--dark); }
+    .ax-layout { display: grid; grid-template-columns: 210px minmax(0, 720px); gap: 56px; justify-content: center; align-items: start; }
+    .ax-toc { position: sticky; top: 130px; align-self: start; padding-top: 48px; }
+    .ax-toc-title { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 16px; line-height: 1.4; }
+    .ax-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; border-left: 1.5px solid var(--light-gray); }
+    .ax-toc li { margin: 0; }
+    .ax-toc a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
+    .ax-toc a:hover { color: var(--strong); }
+    .ax-toc a.is-active { color: var(--strong); border-left-color: var(--strong); font-weight: 500; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (max-width: 1100px) { .ax-layout { grid-template-columns: minmax(0, 720px); } .ax-toc { display: none; } }
+    .ax { --ax-ink: var(--strong); --ax-on-ink: #f7f5f5; --ax-gold: #a8803a; --ax-gold-soft: rgba(168,128,58,.16); min-width: 0; padding: 48px 0 96px; font-size: 17px; line-height: 1.75; color: var(--dark); }
     html[data-theme="dark"] .ax { --ax-on-ink: #171717; --ax-gold: #d9b36c; --ax-gold-soft: rgba(217,179,108,.18); }
     .ax p { margin: 0 0 1.1em; }
     .ax a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
@@ -29,25 +40,17 @@
     .ax h3 { margin: 36px 0 8px; }
     .ax ul, .ax ol { padding-left: 1.2em; margin: 0 0 1.2em; }
     .ax li { margin-bottom: .45em; }
-    .ax-head { margin-bottom: 36px; }
-    .ax-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
-    .ax-tag, .ax-date { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); }
-    .ax-date { letter-spacing: .04em; text-transform: none; }
-    .ax-lede { font-size: 21px; line-height: 1.55; color: var(--gray); margin: 22px 0 16px; }
-    .ax-by { font-size: 14px; color: var(--gray); padding-bottom: 24px; border-bottom: 1.5px solid var(--light-gray); margin: 0; }
-    .ax-toc { background: var(--bg-soft); border-radius: var(--r-lg); padding: 22px 28px; margin: 0 0 8px; font-size: 16px; }
-    .ax-toc strong { display: block; margin-bottom: 8px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); font-weight: 500; }
-    .ax-toc ol { margin: 0; padding-left: 1.3em; line-height: 1.9; }
-    .ax-toc li { margin: 0; }
-    .ax-toc a { text-decoration: none; }
-    .ax-toc a:hover { text-decoration: underline; }
-    /* reading progress */
+    .ax-head { margin-bottom: 40px; }
+    .ax-meta { margin-bottom: 16px; }
+    .ax-tag { font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
+    .ax .ax-lede { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 22px 0 0; padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
+        /* reading progress */
     .ax-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--strong); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; pointer-events: none; }
     /* tables */
     .ax-table { overflow-x: auto; margin: 26px 0; border: 1.5px solid var(--light-gray); border-radius: var(--r-lg); }
-    .ax-table table { border-collapse: collapse; width: 100%; min-width: 580px; font-size: 15px; line-height: 1.5; }
+    .ax-table table { border-collapse: collapse; width: 100%; min-width: 580px; font-size: 16px; line-height: 1.5; }
     .ax-table th, .ax-table td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--light-gray); }
-    .ax-table th { background: var(--bg-soft); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; font-weight: 500; color: var(--gray); }
+    .ax-table th { background: var(--bg-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; font-weight: 400; color: var(--gray); }
     .ax-table tr:last-child td { border-bottom: 0; }
     .ax-table td:first-child { font-weight: 600; color: var(--strong); }
     .ax-table tbody tr { transition: background .25s ease; }
@@ -56,15 +59,15 @@
     .ax-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0; }
     .ax-stat { background: var(--bg-soft); border-radius: var(--r-lg); padding: 24px 22px; }
     .ax-stat b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; color: var(--strong); margin-bottom: 10px; }
-    .ax-stat > span { font-size: 14px; line-height: 1.5; color: var(--gray); display: block; }
+    .ax-stat > span { font-size: 16px; line-height: 1.6; color: var(--gray); display: block; }
     .ax-stat b span { font: inherit; color: inherit; display: inline; }
     /* note, chain, questions */
     .ax-chain { list-style: none; counter-reset: step; margin: 30px 0 30px 14px; padding: 0; }
     .ax-chain li { position: relative; padding: 0 0 24px 32px; margin: 0; counter-increment: step; }
     .ax-chain li:not(:last-child)::after { content: ""; position: absolute; left: -1px; top: 18px; bottom: -2px; width: 1.5px; background: var(--light-gray); }
     .ax-chain li::before { z-index: 1; content: counter(step); position: absolute; left: -15px; top: 2px; width: 29px; height: 29px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; line-height: 1; }
-    .ax-chain b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--gray); font-weight: 500; margin: 4px 0 4px; }
-    .ax-chain span { display: block; font-size: 17px; line-height: 1.65; }
+    .ax-chain b { display: block; font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; color: var(--gray); font-weight: 400; margin: 4px 0 4px; }
+    .ax-chain span { display: block; font-size: 16px; line-height: 1.65; }
     .ax-questions { padding-left: 1.4em; }
     .ax-questions li { margin-bottom: .9em; padding-left: .2em; }
     .ax-questions li::marker { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15em; color: var(--gray); }
@@ -72,16 +75,16 @@
     .ax-cta { background: #171717; border-radius: var(--r-xl); padding: 64px 40px; margin: 80px 0 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
     html[data-theme="dark"] .ax-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
     .ax .ax-cta h2 { margin: 0; color: #f7f5f5; }
-    .ax .ax-cta p { color: rgba(247,245,245,.72); max-width: 540px; margin: 0; font-size: 17px; line-height: 1.6; }
+    .ax .ax-cta p { color: rgba(247,245,245,.72); max-width: 540px; margin: 0; font-size: 18px; line-height: 1.6; }
     .ax .ax-cta .btn-dark { margin-top: 12px; background: #ede8ea !important; color: #171717 !important; text-decoration: none; font-size: 15px; font-weight: 500; font-family: 'Lora', Georgia, serif; padding: 13px 26px; }
     .ax-about { margin-top: 64px; padding-top: 12px; border-top: 1.5px solid var(--light-gray); font-size: 16px; line-height: 1.7; }
     .ax-about h2 { margin-top: 36px; }
-    .ax-sources { font-size: 14px; line-height: 1.6; color: var(--gray); }
+    .ax-sources { font-size: 15px; line-height: 1.6; color: var(--gray); }
     .ax-sources li { margin-bottom: .6em; }
     /* illustrations */
     .ax-fig { margin: 40px 0; padding: 28px 24px 22px; background: var(--bg-soft); border-radius: var(--r-lg); }
     .ax-fig svg { width: 100%; height: auto; display: block; overflow: visible; }
-    .ax-fig figcaption { font-size: 14px; line-height: 1.55; color: var(--gray); margin-top: 14px; text-align: center; }
+    .ax-fig figcaption { font-size: 15px; line-height: 1.55; color: var(--gray); margin-top: 14px; text-align: center; }
     .ax-fig svg text { font-family: 'Lora', Georgia, serif; fill: var(--dark); font-size: 13px; }
     .ax-fig .t-head { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 500; fill: var(--strong); }
     .ax-fig .t-sub { fill: var(--gray); font-size: 13px; }
@@ -135,7 +138,7 @@
     @keyframes axPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
     @keyframes axDash { to { stroke-dashoffset: -18; } }
     @media (max-width: 860px) { .ax-cta { padding: 48px 24px; } .ax-stats { grid-template-columns: 1fr; } .ax-stat b { font-size: 38px; } }
-    @media (max-width: 640px) { .ax { font-size: 17px; padding-top: 24px; } .ax-lede { font-size: 19px; } .ax h2 { margin-top: 56px; } .ax-fig { padding: 20px 12px 16px; margin-left: -4px; margin-right: -4px; } .ax .ax-cta .btn-dark { width: 100%; } .ax-meta { flex-wrap: wrap; } }
+    @media (max-width: 640px) { .ax { padding-top: 24px; } .ax-lede { font-size: 17px; } .ax h2 { margin-top: 56px; } .ax-fig { padding: 20px 12px 16px; margin-left: -4px; margin-right: -4px; } .ax .ax-cta .btn-dark { width: 100%; } .ax-meta { flex-wrap: wrap; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -182,18 +185,10 @@
     <main class="page-content">
 <div class="ax-progress" id="axProgress" aria-hidden="true"></div>
 <div class="container">
-<article class="ax">
-
-  <header class="ax-head">
-    <div class="ax-meta"><span class="ax-tag">CRO</span><span class="ax-date">Oct 22, 2026 · 11 min read</span></div>
-    <h1>CRO Audit vs. UX Audit: What’s the Difference?</h1>
-    <p class="ax-lede">Both start with many of the same tools. What separates them is the question they’re built around, and that decides what you get back.</p>
-    <p class="ax-by">By Olga Kalinina · Product designer and UX consultant, 20+ years</p>
-  </header>
-
-  <nav class="ax-toc" aria-label="In this article">
-    <strong>In this article</strong>
-    <ol>
+<div class="ax-layout">
+  <aside class="cs-toc ax-toc" aria-label="On this page">
+    <p class="ax-toc-title">On this page</p>
+    <ul>
       <li><a href="#short">The short answer</a></li>
       <li><a href="#labels">Why the labels are so muddy</a></li>
       <li><a href="#compare">What each one looks at</a></li>
@@ -203,8 +198,16 @@
       <li><a href="#which">Which one do you need?</a></li>
       <li><a href="#testing">Where A/B testing fits</a></li>
       <li><a href="#proposal">Seven questions to ask before you buy an audit</a></li>
-    </ol>
-  </nav>
+    </ul>
+  </aside>
+
+<article class="ax">
+
+  <header class="ax-head">
+    <div class="ax-meta"><span class="ax-tag">CRO</span></div>
+    <h1>CRO Audit vs. UX Audit: What’s the Difference?</h1>
+    <p class="ax-lede">Both start with many of the same tools. What separates them is the question they’re built around, and that decides what you get back.</p>
+  </header>
 
   <h2 id="short">The short answer</h2>
   <p>A CRO audit and a UX audit use mostly the same tools. Heuristic review, analytics, session recordings, surveys, user testing: either one can include any of them. What differs is the question the work is built around.</p>
@@ -443,6 +446,7 @@
 
 </article>
 </div>
+</div>
     </main>
 
     <!-- ═══ FOOTER ═══ -->
@@ -512,6 +516,7 @@
     [].forEach.call(document.querySelectorAll('[data-anim]'), function (el) { io.observe(el); });
   })();
   </script>
+  <script src="/js/toc.js" defer></script>
   <script src="/js/theme.js" defer></script>
 </body>
 </html>
