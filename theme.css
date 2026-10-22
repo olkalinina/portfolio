@@ -291,3 +291,7 @@ body:not(.is-protected) .nav-dd-item { border-radius: var(--r-sm); }
 
 /* ---- Card padding ---- */
 body:not(.is-protected) main .pd-card, body:not(.is-protected) main .ab-card, body:not(.is-protected) main .ab-quote, body:not(.is-protected) main .tm-card, body:not(.is-protected) main .pd-cmp-col { padding: var(--card-pad); }
+
+/* ---- Hover and click: text keeps its colour and turns bold (never blue) ---- */
+.mobile-menu-links a:hover, .mobile-menu-links a:active, .mobile-menu-links a.active:hover { font-weight: 600; }
+.footer-links a:hover, .footer-links a:active { color: var(--gray); font-weight: 600; }
