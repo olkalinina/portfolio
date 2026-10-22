@@ -207,7 +207,7 @@
     <p class="ax-toc-title">On this page</p>
     <ul>
       <li><a href="#short">The short answer</a></li>
-      <li><a href="#labels">Why the labels are so muddy</a></li>
+      <li><a href="#labels">Why the terminology varies</a></li>
       <li><a href="#compare">What each one looks at</a></li>
       <li><a href="#ux-conv">Where UX and conversion meet, and where they don’t</a></li>
       <li><a href="#symptom">A symptom is not a cause</a></li>
@@ -229,8 +229,8 @@
   <h2 id="short">The short answer</h2>
   <p>A CRO audit and a UX audit use mostly the same tools. Heuristic review, analytics, session recordings, surveys, user testing: either one can include any of them. What differs is the question the work is built around.</p>
   <p>A CRO audit starts from a business event, like a signup, a trial turning into a paid plan, or a demo request, and asks why people who should complete it don’t. A UX audit starts from the person using the product and asks whether they can get what they came for without effort or confusion.</p>
-  <p>Those two questions overlap a lot, which is why the labels get muddy. They still lead to different reports. One ends in a ranked list of reasons your conversion is leaking. The other ends in a list of places where people struggle.</p>
-  <p>Knowing which label you’re buying matters less than knowing what evidence sits behind it. Most of this article is about that.</p>
+  <p>The two approaches often overlap, and the terms are not always used consistently. Their findings can also overlap, but the emphasis tends to differ: a CRO audit connects potential barriers to a defined business outcome, while a UX audit examines how effectively people can complete tasks and achieve their goals. In either case, the quality of the findings depends on the evidence behind them.</p>
+  <p>When choosing an audit, the label matters less than the questions it will investigate, the evidence it will use, and how its findings will inform decisions. That is the focus of this article.</p>
 
   <figure class="ax-fig ax-venn" data-anim>
     <svg viewBox="0 0 520 340" role="img" aria-labelledby="venn-t venn-d">
@@ -266,8 +266,8 @@
     <figcaption>Same toolbox, different starting question. What a particular provider actually includes varies, so check before you buy.</figcaption>
   </figure>
 
-  <h2 id="labels">Why the labels are so muddy</h2>
-  <p>Neither term has a standard definition. I read through how agencies and research firms describe these services, and they don’t agree. One treats the UX audit as one input into a larger CRO audit. Another says the reverse: the UX audit is the diagnosis, and conversion experiments are the treatment. Each is describing its own service and presenting it as the industry norm.</p>
+  <h2 id="labels">Why the terminology varies</h2>
+  <p>Neither term has a standard definition. Definitions vary across agencies and research firms. Some describe UX evaluation as one component of a broader CRO process; others position UX auditing as the primary diagnostic step before testing conversion-related changes. These differences reflect how individual providers define and package their services, rather than a universally agreed distinction between the two disciplines.</p>
   <p>In practice, “CRO audit” can mean any of three things:</p>
   <ul>
     <li>a review of your pages against a list of best practices,</li>
@@ -288,7 +288,7 @@
         <tr><td>Usually covers</td><td>Funnel steps, key pages, messaging, objections, friction</td><td>The whole product or chosen journeys: navigation, flows, consistency, accessibility</td></tr>
         <tr><td>Often leans on</td><td>Analytics, recordings, surveys, expert review</td><td>Expert review, usability testing, support tickets</td></tr>
         <tr><td>Usually delivers</td><td>Prioritized findings, hypotheses, a test plan</td><td>Issues rated by severity, with fixes</td></tr>
-        <tr><td>Typical weak spot</td><td>Pushing one metric up while quality or retention slips</td><td>A long list of observations with no link to business priority</td></tr>
+        <tr><td>Typical risk</td><td>Optimizing a conversion metric without accounting for downstream outcomes such as activation, retention, or customer quality</td><td>Identifying usability issues without establishing their relative importance to users or business goals</td></tr>
       </tbody>
     </table>
   </div>
@@ -304,12 +304,12 @@
     <div class="ax-stat"><b>2× to ~4×</b><span>more sign-ups with mild and aggressive dark patterns (Luguri &amp; Strahilevitz)</span></div>
   </div>
 
-  <p>Read those numbers carefully. The 35% is a modeled estimate from a firm that sells checkout research, and it comes from e-commerce. And the same Baymard survey found that 42% of US shoppers had abandoned a cart simply because they were just browsing or not ready to buy. That isn’t a design flaw. SaaS has its own version: visitors from the wrong audience, people comparing vendors, someone who only wanted to see the pricing page. If you blame the interface for all of it, you can redesign a page that was never the problem.</p>
+  <p>These figures need to be interpreted in context. Baymard’s estimate of potential conversion improvement is a modeled estimate based on checkout research, not a result that can be assumed for every business. Its survey also found that some shoppers abandon carts because they are browsing or are not ready to buy. This distinction matters beyond e-commerce: not every visitor who leaves a SaaS website has encountered a UX problem. Some are researching alternatives, evaluating pricing, or simply not ready to purchase. Improving the interface will not necessarily address these issues.</p>
   <p>It runs the other way too. A perfectly usable interface can convert badly because the offer is unclear, the price is off, or the traffic is wrong. And a product can convert well while treating people badly.</p>
   <p>Luguri and Strahilevitz ran randomized experiments on representative samples of US adults, offering what was in fact a dubious identity-theft-protection service inside a survey. Mild dark patterns more than doubled the share who signed up. Aggressive ones nearly quadrupled it, and also produced a strong backlash. Conversion went up. Nobody would call that a good experience. It was a survey scenario, not a SaaS product, but it makes the point: a metric moving doesn’t prove people were helped, and a team that optimizes one number can find that the wrong thing works.</p>
 
   <h2 id="symptom">A symptom is not a cause</h2>
-  <p>Every analytics tool will show you where people leave. None of them tells you why. That gap is where most audits go wrong, in both directions.</p>
+  <p>Analytics can show where users drop off and how frequently it happens. On its own, however, it rarely explains the reasons behind that behavior. Understanding the cause usually requires additional evidence, such as session recordings, surveys, interviews, or usability testing. Without that evidence, teams risk treating an observed symptom as an established cause.</p>
 
   <figure class="ax-fig ax-funnel" data-anim>
     <svg viewBox="0 0 520 235" role="img" aria-labelledby="fun-t fun-d">
@@ -375,8 +375,8 @@
     <figcaption>These were usability test sessions, not only expert reviews. The same problem applies when one person interprets user testing alone.</figcaption>
   </figure>
 
-  <p>That doesn’t make experts useless. It means one reviewer’s list is a set of hypotheses, and the way to firm it up is more evaluators, data, or real users. Hertzum and Jacobsen’s own advice is simply to involve more than one evaluator.</p>
-  <p><strong>Analytics</strong> tells you where and how much. <strong>Research with users</strong> tells you why. A <strong>diagnosis</strong> puts them together and says how sure it is.</p>
+  <p>This does not make expert review unhelpful. It means that findings from a single reviewer should be treated as informed judgments rather than a complete or definitive account of usability problems. Confidence can be strengthened by involving additional evaluators, comparing findings with behavioral data, or observing real users performing relevant tasks. Hertzum and Jacobsen’s own advice is simply to involve more than one evaluator.</p>
+  <p><strong>Analytics</strong> helps establish where a problem occurs and how widespread it is. <strong>Research with users</strong> can help explain why it occurs. A sound <strong>diagnosis</strong> combines relevant evidence and makes clear which conclusions are well supported and which remain hypotheses.</p>
 
   <h3>The chain I use for every finding</h3>
   <p>Each finding in my reports follows the same path. I should be straight about this: every step is common practice, but the six-step chain as a whole is my own way of putting them together. It isn’t a formal industry standard.</p>
