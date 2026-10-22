@@ -292,7 +292,7 @@
       </tbody>
     </table>
   </div>
-  <p>The warning: this is a tendency, not a rule. A good UX audit can use analytics and tie every finding to a business goal. A good CRO audit can include proper usability testing. “CRO is numbers, UX is feelings” is the version you’ll find on most agency blogs, and it’s too simple to be useful.</p>
+  <p>The warning: this is a tendency, not a rule. A good UX audit can use analytics and tie every finding to a business goal. A good CRO audit can include proper usability testing. “CRO is numbers, UX is feelings” is a common shorthand, and it is too simple to be useful.</p>
   <p>For reference, the standard definition of usability (ISO 9241-11) is about effectiveness, efficiency and satisfaction for specific users doing specific tasks. That’s the lens a UX audit is built on. A CRO audit adds one more: does this help the business get the outcome it’s measuring?</p>
 
   <h2 id="ux-conv">Where UX and conversion meet, and where they don’t</h2>
@@ -376,10 +376,10 @@
   </figure>
 
   <p>This does not make expert review unhelpful. It means that findings from a single reviewer should be treated as informed judgments rather than a complete or definitive account of usability problems. Confidence can be strengthened by involving additional evaluators, comparing findings with behavioral data, or observing real users performing relevant tasks. Hertzum and Jacobsen’s own advice is simply to involve more than one evaluator.</p>
-  <p><strong>Analytics</strong> helps establish where a problem occurs and how widespread it is. <strong>Research with users</strong> can help explain why it occurs. A sound <strong>diagnosis</strong> combines relevant evidence and makes clear which conclusions are well supported and which remain hypotheses.</p>
+  <p><strong>Analytics</strong> helps establish where a problem occurs and how widespread it is. <strong>Research with users</strong> can help explain why it occurs. A sound <strong>diagnosis</strong> combines relevant evidence and makes clear which conclusions are well supported, which remain hypotheses, and what should be investigated next.</p>
 
   <h3>The chain I use for every finding</h3>
-  <p>Each finding in my reports follows the same path. I should be straight about this: every step is common practice, but the six-step chain as a whole is my own way of putting them together. It isn’t a formal industry standard.</p>
+  <p>I use this six-step sequence to structure findings in my reports. The individual practices are established elements of diagnostic and research work; the way I combine them into this sequence is my own methodology, not a formal industry standard.</p>
   <p>Here it is with a real finding, anonymized, from a property marketplace:</p>
 
   <ol class="ax-chain">
@@ -392,7 +392,7 @@
   </ol>
 
   <h2 id="which">Which one do you need?</h2>
-  <p>It depends on the symptom. This is my starting point for common SaaS and B2B situations. Treat it as a first move, not a verdict.</p>
+  <p>The right starting point depends on the problem you are trying to understand. The table below offers an initial direction for common SaaS and B2B scenarios; the appropriate investigation will depend on what the first round of evidence reveals.</p>
 
   <div class="ax-table">
     <table>
@@ -413,11 +413,11 @@
 
   <h3>Some problems aren’t audit problems</h3>
   <p>The property marketplace is a good example. Its biggest constraint wasn’t on the page at all: almost no owners had listed a property, so a prospective seller had no proof the model worked. No copy change fixes that. It takes recruiting the first listings by hand. In the report I split the roadmap in two and said plainly that the last three items were “not primarily CRO problems.”</p>
-  <p>The other example is a B2B software-services vendor. Its homepage hero spoke to enterprise buyers, and the section right below spoke to startups and small businesses. The strongest proof, its ratings and partner status, was buried deep in the site, and published case studies still had placeholder text in them. A UX audit would have cleaned up those pages. The real problem sat upstream: nobody had decided who the primary buyer was. That’s a positioning decision, and only the company can make it.</p>
+  <p>The other example is a B2B software-services vendor. Its homepage hero spoke to enterprise buyers, and the section right below spoke to startups and small businesses. The strongest proof, its ratings and partner status, was buried deep in the site, and published case studies still had placeholder text in them. A UX audit would have cleaned up those pages. The underlying issue was upstream of the interface: the company had not clearly defined its primary buyer. That is a positioning decision the company needs to make; a UX or CRO audit can surface the consequences, but cannot make that strategic choice on its behalf.</p>
 
   <h2 id="testing">Where A/B testing fits</h2>
-  <p>Tests don’t find problems. They check ideas. So the order is: diagnose, form a hypothesis, then test it if you can. Testing without a diagnosis means testing whatever someone guessed.</p>
-  <p>“If you can” matters here. A common rule of thumb, popularized by Ron Kohavi, who led experimentation at Microsoft, puts the sample you need at about 16 × variance ÷ (smallest effect you want to detect)², per variant, for 80% power at the usual 5% significance level.</p>
+  <p>A/B tests evaluate specific changes; they do not, by themselves, explain why the original experience underperforms. A useful sequence is to investigate the problem, form a hypothesis, and test the proposed change when the available traffic and experimental conditions make a reliable result feasible. Testing without a clear hypothesis risks spending time on changes that do not address the underlying problem.</p>
+  <p>Feasibility matters here. A common rule of thumb, popularized by Ron Kohavi, who led experimentation at Microsoft, puts the sample you need at about 16 × variance ÷ (smallest effect you want to detect)², per variant, for 80% power at the usual 5% significance level.</p>
   <p>Plug in a 5% baseline conversion rate and a relative 5% lift, from 5.00% to 5.25%. That comes to roughly 120,000 visitors per variant. At a 2% baseline it’s about 310,000. That’s my arithmetic from the formula, so treat the figures as an order of magnitude. Still, many B2B funnels never see that kind of volume.</p>
   <p>When you can’t test, there are options:</p>
   <ul>
@@ -436,7 +436,7 @@
     <li><strong>Will findings be labeled as observed fact or hypothesis, with a confidence level?</strong> If everything is stated with the same certainty, something is being overstated.</li>
     <li><strong>How will issues be sized and ranked?</strong> Scoring models like ICE, PIE and PXL are conventions, not validated science. They’re fine as decision aids if the reasoning is visible.</li>
     <li><strong>How many people will review it?</strong> Given the evaluator effect, one reviewer’s list deserves more caution.</li>
-    <li><strong>What will you tell me is not a UX or conversion problem?</strong> If the answer is “nothing,” be wary.</li>
+    <li><strong>Will the report distinguish UX and conversion issues from problems that require a different response, such as positioning, pricing, acquisition quality, or product strategy?</strong></li>
     <li><strong>How will we know a change worked?</strong> Ask for a validation method for each recommendation, including what happens if you can’t run an A/B test.</li>
   </ol>
 
@@ -448,8 +448,7 @@
 
   <section class="ax-about">
     <h2>About this article</h2>
-    <p>I’m Olga Kalinina, a product designer and product owner with 20+ years of experience working on SaaS platforms, AI-enabled products, and data-heavy systems. My experience in product design, UX, and CRO has led me to develop my own methodology for diagnosing digital products, identifying why they lose users, and determining which problems matter most. I’m now developing Rootwise, my startup focused on evidence-based CRO diagnosis, where I’m turning this methodology into a structured approach called Behavioral Conversion Diagnosis.</p>
-    <p>The three examples come from my own reports. I’ve anonymized them and kept the descriptions loose on purpose. What this article doesn’t have is measured results for those three, or a SaaS case with a controlled test. The examples are a marketplace, a store and a B2B services vendor. I think the method carries over, but I won’t present them as SaaS case studies.</p>
+    <p>I’m Olga, a product designer and product owner with 20+ years of experience working across SaaS platforms, AI-enabled products, and data-heavy systems. I wrote this article because CRO and UX audits are often treated as interchangeable, even though teams may need very different kinds of investigation to understand what is going wrong. My work across product design, UX, and CRO has shaped the way I approach these problems: looking beyond visible symptoms to understand their underlying causes and identify which issues matter most. I’m developing this approach through Rootwise, my startup focused on evidence-based CRO diagnosis, where I’m bringing that experience together into a structured methodology called Behavioral Conversion Diagnosis.</p>
 
     <h3>Sources</h3>
     <ul class="ax-sources">
