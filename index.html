@@ -58,7 +58,7 @@
       display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
       transition: flex-grow .6s cubic-bezier(.22,.7,.2,1), box-shadow .5s ease;
     }
-    .help-card:hover, .help-card:focus-within { flex-grow: 1.7; box-shadow: 0 14px 36px rgba(47,46,46,0.07); }
+    .help-card:is(:hover, .is-hot), .help-card:focus-within { flex-grow: 1.7; box-shadow: 0 14px 36px rgba(47,46,46,0.07); }
     /* off-white spotlight that follows the cursor */
     .help-card::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: var(--glow); transition: opacity .4s ease;
       background: radial-gradient(520px circle at var(--mx) var(--my), rgba(255,255,255,0.92), rgba(255,255,255,0.35) 50%, transparent 78%); }
@@ -70,7 +70,7 @@
     .help-headline { font-size: 21px; line-height: 1.4; color: var(--dark); max-width: 460px; }
     .help-more { width: var(--more-w); flex: none; display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(8px);
       transition: opacity .25s ease, transform .25s ease; }
-    .help-card:hover .help-more, .help-card:focus-within .help-more { opacity: 1; transform: none; transition: opacity .45s ease .18s, transform .45s ease .18s; }
+    .help-card:is(:hover, .is-hot) .help-more, .help-card:focus-within .help-more { opacity: 1; transform: none; transition: opacity .45s ease .18s, transform .45s ease .18s; }
     .help-more p { font-size: 16px; line-height: 1.6; color: var(--gray); }
     .help-more .help-lead { font-size: 18px; line-height: 1.5; color: var(--dark); }
     .help-tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 0; }
@@ -80,15 +80,15 @@
     /* the whole card is the click target through the button's ::after, so the button itself must never move or change on hover (that made the hover flicker) */
     .help-card .btn-dark, .help-card .btn-dark:hover { position: static; transform: none !important; opacity: 1; }
     .help-card .btn-dark span { display: inline-block; transition: transform .25s ease; }
-    .help-card:hover .btn-dark span, .help-card:focus-within .btn-dark span { transform: translateX(4px); }
+    .help-card:is(:hover, .is-hot) .btn-dark span, .help-card:focus-within .btn-dark span { transform: translateX(4px); }
     .help-card .btn-dark::after { content: ""; position: absolute; inset: 0; z-index: 2; }  /* the whole card is clickable */
     /* phones and touch devices: stacked compact cards, tap a card to open its details (the button inside still goes to the service page) */
     .help-toggle { display: none; }
     @media (max-width: 960px), (hover: none) {
       .help-cards { flex-direction: column; gap: 16px; }
-      .help-card, .help-card:hover, .help-card:focus-within { flex: none; flex-grow: 0; box-shadow: none; cursor: pointer; }
+      .help-card, .help-card:is(:hover, .is-hot), .help-card:focus-within { flex: none; flex-grow: 0; box-shadow: none; cursor: pointer; }
       .help-more { width: auto; max-height: 0; overflow: hidden; opacity: 0; transform: none; margin-top: -14px; transition: max-height .45s ease, opacity .35s ease, margin-top .35s ease; }
-      .help-card:hover .help-more, .help-card:focus-within .help-more { opacity: 0; transform: none; transition: max-height .45s ease, opacity .35s ease, margin-top .35s ease; }
+      .help-card:is(:hover, .is-hot) .help-more, .help-card:focus-within .help-more { opacity: 0; transform: none; transition: max-height .45s ease, opacity .35s ease, margin-top .35s ease; }
       .help-card.is-open .help-more, .help-card.is-open:hover .help-more, .help-card.is-open:focus-within .help-more { max-height: 560px; opacity: 1; margin-top: 0; }
       .help-card .btn-dark { margin-top: 10px; }
       .help-card .btn-dark::after { display: none; }
@@ -119,9 +119,9 @@
     /* gradient stroke, hover and keyboard focus only */
     html body .help-card::after { inset: 0; padding: 1.5px; opacity: 0; transition: opacity .6s ease; background: linear-gradient(115deg, #ff5fa8, #8b5cf6 38%, #3b82f6 68%, #ff5fa8); background-size: 260% 100%;
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); animation: help-stroke 7s linear infinite; }
-    html body .help-card:hover::after, html body .help-card:focus-within::after { opacity: 1; }
+    html body .help-card:is(:hover, .is-hot)::after, html body .help-card:focus-within::after { opacity: 1; }
     @keyframes help-stroke { from { background-position: 0% 0; } to { background-position: 260% 0; } }
-    html body .help-card:hover, html body .help-card:focus-within { box-shadow: inset 0 0 0 1px transparent; }
+    html body .help-card:is(:hover, .is-hot), html body .help-card:focus-within { box-shadow: inset 0 0 0 1px transparent; }
     /* type and tags follow the surface */
     html body .help-card .help-name, html body .help-card .help-headline, html body .help-card .help-lead { color: var(--fg); }
     html body .help-card .help-more p { color: var(--fg-soft); }
@@ -712,7 +712,7 @@
   <script src="/js/reveal.js?v=4" defer></script>
   <script src="/js/magic-card.js" defer></script>
   <script src="/js/arc-carousel.js" defer></script>
-  <script src="/js/service-cards.js" defer></script>
+  <script src="/js/service-cards.js?v=3" defer></script>
   <script src="/js/faq-tabs.js" defer></script>
 </body>
 </html>
