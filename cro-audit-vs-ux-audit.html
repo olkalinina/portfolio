@@ -42,7 +42,8 @@
     .ax li { margin-bottom: .45em; }
     .ax-head { margin-bottom: 40px; }
     .ax-meta { margin-bottom: 16px; }
-    .ax-tag { font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
+    .ax-tag { display: inline-flex; align-items: center; width: fit-content; padding: 4px 12px; border-radius: var(--radius-pill); background: #fef3c7; color: #92400e; font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; }
+    html[data-theme="dark"] .ax-tag { background: rgba(251,191,36,.18); color: #fcd34d; }
     .ax .ax-lede { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 22px 0 0; padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
         /* reading progress */
     .ax-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--strong); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; pointer-events: none; }
@@ -204,7 +205,7 @@
 <article class="ax">
 
   <header class="ax-head">
-    <div class="ax-meta"><span class="ax-tag">CRO</span></div>
+    <div class="ax-meta"><span class="ax-tag post-tag">CRO</span></div>
     <h1>CRO Audit vs. UX Audit: What’s the Difference?</h1>
     <p class="ax-lede">Both start with many of the same tools. What separates them is the question they’re built around, and that decides what you get back.</p>
   </header>
