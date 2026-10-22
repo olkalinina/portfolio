@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why SaaS free trials don’t convert: a diagnostic framework — Olga Kalinina</title>
+  <meta name="description" content="Low trial-to-paid conversion is a symptom, not a diagnosis. How to find where SaaS trial users drop off, which users fail to convert, and what the evidence says about why." />
+  <link rel="canonical" href="https://olgakalinina.me/saas-free-trial-conversion" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="Why SaaS free trials don’t convert: a diagnostic framework — Olga Kalinina" />
+  <meta property="og:description" content="Low trial-to-paid conversion is a symptom, not a diagnosis. How to find where SaaS trial users drop off, which users fail to convert, and what the evidence says about why." />
+  <meta property="og:url" content="https://olgakalinina.me/saas-free-trial-conversion" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Why SaaS free trials don’t convert: a diagnostic framework — Olga Kalinina" />
+  <meta name="twitter:description" content="Low trial-to-paid conversion is a symptom, not a diagnosis. How to find where SaaS trial users drop off, which users fail to convert, and what the evidence says about why." />
+  <meta name="twitter:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Why SaaS free trials don’t convert: a diagnostic framework", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "image": "https://olgakalinina.me/images/og-default.jpg", "description": "Low trial-to-paid conversion is a symptom, not a diagnosis. How to find where SaaS trial users drop off, which users fail to convert, and what the evidence says about why.", "mainEntityOfPage": "https://olgakalinina.me/saas-free-trial-conversion", "inLanguage": "en", "author": {"@id": "https://olgakalinina.me/#person"}}, {"@type": "Person", "@id": "https://olgakalinina.me/#person", "name": "Olga Kalinina", "jobTitle": "Product Designer & Behavioral CRO Expert", "url": "https://olgakalinina.me/", "image": "https://olgakalinina.me/images/olga_hero.jpg", "sameAs": ["https://www.linkedin.com/in/olga-kalinina-sundary/", "https://www.behance.net/kalininaolga", "https://substack.com/@olinproduct/"]}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ---- Article page ---- */
+    .ax-layout { display: grid; grid-template-columns: 210px minmax(0, 720px); gap: 56px; justify-content: center; align-items: start; }
+    .ax-toc { position: sticky; top: 130px; align-self: start; padding-top: 48px; }
+    .ax-toc-title { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 16px; line-height: 1.4; }
+    .ax-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; border-left: 1.5px solid var(--light-gray); }
+    .ax-toc li { margin: 0; }
+    .ax-toc a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
+    .ax-toc a:hover { color: var(--strong); }
+    .ax-toc a.is-active { color: var(--strong); border-left-color: var(--strong); font-weight: 500; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (max-width: 1100px) { .ax-layout { grid-template-columns: minmax(0, 720px); } .ax-toc { display: none; } }
+    .ax { --ax-ink: var(--strong); --ax-on-ink: #f7f5f5; --ax-gold: #a8803a; --ax-gold-soft: rgba(168,128,58,.16); min-width: 0; padding: 48px 0 96px; font-size: 17px; line-height: 1.75; color: var(--dark); }
+    html[data-theme="dark"] .ax { --ax-on-ink: #171717; --ax-gold: #d9b36c; --ax-gold-soft: rgba(217,179,108,.18); }
+    .ax p { margin: 0 0 1.1em; }
+    .ax a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    .ax strong { font-weight: 600; color: var(--strong); }
+    .ax h2 { margin: 72px 0 16px; scroll-margin-top: 96px; }
+    .ax h3 { margin: 36px 0 8px; }
+    .ax ul, .ax ol { padding-left: 1.2em; margin: 0 0 1.2em; }
+    .ax li { margin-bottom: .45em; }
+    .ax-head { margin-bottom: 40px; }
+    .ax-meta { margin-bottom: 16px; }
+    .ax-tag { display: inline-flex; align-items: center; width: fit-content; padding: 4px 12px; border-radius: var(--radius-pill); background: #fef3c7; color: #92400e; font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; }
+    html[data-theme="dark"] .ax-tag { background: rgba(251,191,36,.18); color: #fcd34d; }
+    .ax .ax-lede { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 22px 0 0; padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
+        /* reading progress */
+    .ax-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--strong); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; pointer-events: none; }
+    /* tables */
+    .ax-table { overflow-x: auto; margin: 26px 0; border: 1.5px solid var(--light-gray); border-radius: var(--r-lg); }
+    .ax-table table { border-collapse: collapse; width: 100%; min-width: 580px; font-size: 16px; line-height: 1.5; }
+    .ax-table th, .ax-table td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--light-gray); }
+    .ax-table th { background: var(--bg-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; font-weight: 400; color: var(--gray); }
+    .ax-table tr:last-child td { border-bottom: 0; }
+    .ax-table td:first-child { font-weight: 600; color: var(--strong); }
+    .ax-table tbody tr { transition: background .25s ease; }
+    .ax-table tbody tr:hover { background: var(--bg-soft); }
+    /* stats */
+    .ax-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0; }
+    .ax-stat { background: var(--bg-soft); border-radius: var(--r-lg); padding: 24px 22px; }
+    .ax-stat b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; color: var(--strong); margin-bottom: 10px; }
+    .ax-stat > span { font-size: 16px; line-height: 1.6; color: var(--gray); display: block; }
+    .ax-stat b span { font: inherit; color: inherit; display: inline; }
+    /* note, chain, questions */
+    .ax-chain { list-style: none; counter-reset: step; margin: 30px 0 30px 14px; padding: 0; }
+    .ax-chain li { position: relative; padding: 0 0 24px 32px; margin: 0; counter-increment: step; }
+    .ax-chain li:not(:last-child)::after { content: ""; position: absolute; left: -1px; top: 18px; bottom: -2px; width: 1.5px; background: var(--light-gray); }
+    .ax-chain li::before { z-index: 1; content: counter(step); position: absolute; left: -15px; top: 2px; width: 29px; height: 29px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; line-height: 1; }
+    .ax-chain b { display: block; font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; color: var(--gray); font-weight: 400; margin: 4px 0 4px; }
+    .ax-chain span { display: block; font-size: 16px; line-height: 1.65; }
+    .ax-questions { padding-left: 1.4em; }
+    .ax-questions li { margin-bottom: .9em; padding-left: .2em; }
+    .ax-questions li::marker { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15em; color: var(--gray); }
+    /* closing card */
+    .ax-cta { background: #171717; border-radius: var(--r-xl); padding: 64px 40px; margin: 80px 0 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    html[data-theme="dark"] .ax-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
+    .ax .ax-cta h2 { margin: 0; color: #f7f5f5; }
+    .ax .ax-cta p { color: rgba(247,245,245,.72); max-width: 540px; margin: 0; font-size: 18px; line-height: 1.6; }
+    .ax .ax-cta .btn-dark { margin-top: 12px; background: #ede8ea !important; color: #171717 !important; text-decoration: none; font-size: 15px; font-weight: 500; font-family: 'Lora', Georgia, serif; padding: 13px 26px; }
+    .ax-about { margin-top: 64px; padding-top: 12px; border-top: 1.5px solid var(--light-gray); font-size: 16px; line-height: 1.7; }
+    .ax-about h2 { margin-top: 36px; }
+    .ax-sources { font-size: 15px; line-height: 1.6; color: var(--gray); }
+    .ax-sources li { margin-bottom: .6em; }
+    /* motion: only when JS is on and motion is allowed */
+
+    .ax-eyebrow { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 10px; }
+    .cp-related { display: block; margin: 20px 0 0; padding: 26px 30px; background: var(--bg-soft); border-radius: var(--r-lg); text-decoration: none !important; color: inherit; transition: transform .25s ease; }
+    .cp-related:hover { transform: translateY(-3px); }
+    .cp-related strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .cp-related p:not(.ax-eyebrow) { margin: 0 0 12px; font-size: 16px; line-height: 1.6; color: var(--gray); }
+    .cp-related > span { font-size: 15px; color: var(--strong); }
+    .ax-related-wrap { margin-top: 56px; }
+    .ax-related-wrap > .ax-eyebrow { margin-bottom: 0; }
+    /* ---- Trial conversion article ---- */
+    .ax section[id] { scroll-margin-top: 96px; }
+    .ax section + section { margin-top: 0; }
+    .ax h3 { margin: 40px 0 10px; }
+    .tf-inv { border-left: 3px solid var(--ax-gold); padding: 2px 0 2px 18px; margin-left: 2px; font-size: 16px; line-height: 1.65; }
+    .ax-table td:first-child { white-space: normal; }
+    .tf-fig { margin: 40px 0; padding: 30px 28px 24px; background: var(--bg-soft); border-radius: var(--r-lg); }
+    .tf-fig-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--strong); margin: 0 0 4px; }
+    .tf-fig-sub { font-size: 14px; color: var(--gray); margin: 0 0 22px; }
+    .tf-fig-note { font-size: 15px; line-height: 1.55; color: var(--dark); margin: 22px 0 0; padding-top: 18px; border-top: 1.5px solid var(--light-gray); }
+    .tf-fig figcaption { font-size: 15px; line-height: 1.55; color: var(--gray); margin-top: 14px; }
+    .tf-group { margin: 0 0 22px; }
+    .tf-group-name { font-size: 16px; font-weight: 600; color: var(--strong); margin: 0 0 10px; }
+    .tf-bar-row { display: grid; grid-template-columns: 138px minmax(0, 1fr) 44px; align-items: center; gap: 12px; margin-bottom: 8px; font-size: 15px; }
+    .tf-bar-label { color: var(--gray); }
+    .tf-track { height: 26px; border-radius: 9px; background: var(--light-gray); overflow: hidden; }
+    .tf-bar { height: 100%; width: var(--w); border-radius: 9px; transform-origin: 0 50%; }
+    .tf-bar.is-signups { background: var(--ax-ink); }
+    .tf-bar.is-paying { background: var(--ax-gold); }
+    .tf-bar-val { font-weight: 600; color: var(--strong); text-align: right; }
+    .tf-matrix { display: grid; grid-template-columns: 92px minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin-top: 20px; }
+    .tf-col-head, .tf-row-head { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); align-self: end; padding-bottom: 2px; }
+    .tf-row-head { align-self: center; padding: 0; line-height: 1.4; }
+    .tf-cell { border-radius: var(--r-md); padding: 18px 18px 20px; font-size: 15px; line-height: 1.5; }
+    .tf-cell b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 18px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .tf-cell span { color: var(--dark); }
+    .tf-cell.is-a { background: var(--ax-gold-soft); }
+    .tf-cell.is-b { background: rgba(120,116,118,.16); }
+    .tf-cell.is-c { background: rgba(120,116,118,.10); }
+    .tf-cell.is-d { background: rgba(120,116,118,.16); }
+    .tf-steps { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-direction: column; gap: 8px; }
+    .tf-steps li { display: flex; align-items: center; gap: 14px; margin: 0; padding: 11px 16px; border-radius: var(--r-md); font-size: 16px; line-height: 1.4; color: var(--strong); }
+    .tf-n { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    .tf-steps li.is-a { background: rgba(120,116,118,.16); }
+    .tf-steps li.is-b { background: rgba(120,116,118,.10); }
+    .tf-steps li.is-c { background: var(--ax-gold-soft); }
+    .tf-steps li.is-d { background: rgba(120,116,118,.16); }
+    @media (prefers-reduced-motion: no-preference) {
+      .ax-js .tf-fig .tf-bar { transform: scaleX(0); }
+      .ax-js .tf-fig.is-in .tf-bar { transform: none; transition: transform 1s cubic-bezier(.2,.8,.2,1); }
+      .ax-js .tf-fig.is-in .tf-group:nth-of-type(2) .tf-bar { transition-delay: .35s; }
+      .ax-js .tf-fig.is-in .tf-bar.is-paying { transition-delay: .2s; }
+      .ax-js .tf-fig.is-in .tf-group:nth-of-type(2) .tf-bar.is-paying { transition-delay: .55s; }
+      .ax-js .tf-cell { opacity: 0; transform: translateY(12px); }
+      .ax-js .tf-fig.is-in .tf-cell { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+      .ax-js .tf-fig.is-in .tf-cell.is-b { transition-delay: .15s; } .ax-js .tf-fig.is-in .tf-cell.is-c { transition-delay: .3s; } .ax-js .tf-fig.is-in .tf-cell.is-d { transition-delay: .45s; }
+      .ax-js .tf-steps li { opacity: 0; transform: translateX(-14px); }
+      .ax-js .tf-fig.is-in .tf-steps li { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; transition-delay: calc(var(--i) * .1s); }
+    }
+    @media (max-width: 860px) { .ax-cta { padding: 48px 24px; } }
+    @media (max-width: 640px) { .ax { padding-top: 24px; } .ax-lede { font-size: 17px; } .ax h2 { margin-top: 56px; } .tf-fig { padding: 22px 16px 18px; } .tf-bar-row { grid-template-columns: 1fr 40px; } .tf-bar-label { grid-column: 1 / -1; } .tf-track { grid-column: 1; } .tf-matrix { grid-template-columns: 1fr; } .tf-corner, .tf-col-head { display: none; } .tf-row-head { padding-top: 8px; } .ax .ax-cta .btn-dark { width: 100%; } }
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      .nav, .mobile-menu, .mobile-menu-backdrop, .footer, .ax-toc, .ax-progress { display: none !important; }
+      html, body, body:not(.is-protected) { background: #fff !important; }
+      .page-wrapper, .page-content, .container { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+      .ax-layout { display: block; }
+      .ax { padding: 0; font-size: 11pt; line-height: 1.6; }
+      .ax * { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+      .ax svg * { opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+      .ax h2 { margin-top: 28pt; break-after: avoid; }
+      .ax h3 { break-after: avoid; }
+      .ax-fig, .ax-stat, .ax-table, .ax-chain li, .ax-questions li { break-inside: avoid; }
+      .ax-cta { break-inside: avoid; margin-top: 32pt; padding: 28pt 24pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax-fig, .ax-stat, .ax-toc, .ax-table th, .ax-tag, .ax-chain li::before, .ax svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax a { color: inherit; }
+    }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=25" />
+</head>
+<body>
+
+  <!-- NAV -->
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="navServices">Services<svg viewBox="0 0 12 8" width="11" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1.5,1.75 6,6.25 10.5,1.75"/></svg></button><div class="nav-dd-menu" id="navServices"><a href="/product-design" class="nav-dd-item"><strong>Product Design</strong><span>Building a new product or improving an existing one.</span></a><a href="/cro-audit" class="nav-dd-item"><strong>Behavioral CRO Diagnosis</strong><span>Finding conversion barriers and deciding what to improve.</span></a></div></div>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <span class="mobile-menu-label">Services</span>
+      <a href="/product-design" class="mobile-sub">Product Design</a>
+      <a href="/cro-audit" class="mobile-sub">Behavioral CRO Diagnosis</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page-wrapper">
+    <main class="page-content">
+<div class="ax-progress" id="axProgress" aria-hidden="true"></div>
+<div class="container">
+<div class="ax-layout">
+  <aside class="cs-toc ax-toc" aria-label="On this page">
+    <p class="ax-toc-title">On this page</p>
+    <ul>
+      <li><a href="#quick-answer">The short answer</a></li>
+      <li><a href="#benchmarks">Are your conversion rates actually low?</a></li>
+      <li><a href="#models">How trial models affect conversion</a></li>
+      <li><a href="#diagnosis">Start with measurement, not redesign</a></li>
+      <li><a href="#intent-experience">Acquisition problem or product problem?</a></li>
+      <li><a href="#activation">Activation and time to value</a></li>
+      <li><a href="#causes">Nine reasons SaaS trials fail to convert</a></li>
+      <li><a href="#framework">A 10-step diagnostic framework</a></li>
+      <li><a href="#methods">Which research method should you use?</a></li>
+      <li><a href="#experiments">When to fix, research, or run an experiment</a></li>
+      <li><a href="#mistakes">Common trial-conversion mistakes</a></li>
+      <li><a href="#checklist">A practical checklist</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </aside>
+<article class="ax">
+
+  <header class="ax-head">
+    <div class="ax-meta"><span class="ax-tag post-tag">CRO</span></div>
+    <h1>Why SaaS free trials don’t convert: a diagnostic framework</h1>
+    <p class="ax-lede">Low trial-to-paid conversion is a symptom, not a diagnosis. Before redesigning onboarding, changing your pricing, or extending the trial, find out where users drop off, which users are failing to convert, and what the evidence says about why.</p>
+  </header>
+
+  <section id="quick-answer">
+    <h2>The short answer</h2>
+    <p>
+      SaaS free trials can fail to convert for several reasons: the wrong
+      users sign up, users cannot reach meaningful value, the product does
+      not solve an important enough problem, or the price and purchase
+      process do not match what customers are willing and able to buy.
+      In some cases, the problem is the trial model itself.
+    </p>
+    <p>
+      These causes can produce similar symptoms. A user who abandons
+      onboarding may be confused by the interface, may have no relevant data
+      to connect, or may never have intended to buy. A user who reaches the
+      product's core feature but does not upgrade may understand the product
+      perfectly well and simply decide that it is not worth the price.
+    </p>
+    <p>
+      The practical implication is straightforward: <strong>do not assume
+      that low trial conversion is a UX problem until you have evidence
+      that distinguishes it from acquisition, value, pricing, and measurement
+      problems.</strong>
+    </p>
+    <p>
+      This guide explains how to investigate those possibilities, choose
+      the right evidence, and decide whether to fix a product issue, change
+      your acquisition strategy, rethink the offer, or test an intervention.
+    </p>
+  </section>
+
+  <section id="benchmarks">
+    <h2>1. Are your SaaS free-trial conversion rates actually low?</h2>
+
+    <p>
+      Before trying to improve trial conversion, make sure you are measuring
+      it correctly. A conversion rate is meaningful only when you know
+      who is included in the denominator, what counts as a conversion, and
+      how long users have had to convert.
+    </p>
+
+    <p>
+      The <a href="https://chartmogul.com/reports/saas-conversion-report/" target="_blank" rel="noopener">
+      2026 SaaS Conversion Report from ChartMogul, Growth Unhinged, and
+      ProductLed</a> surveyed 200 software products and reported a median
+      free-to-paid conversion rate of 8% within six months. The report also
+      found a tenfold difference between the top and bottom 20% of
+      self-serve products.
+    </p>
+
+    <p>
+      That spread is a reason to investigate context rather than treat the
+      median as a target. The report's figures are based on survey responses
+      and estimates, not a universal measurement of all SaaS businesses.
+      Its definition includes leads or free signups that become paying
+      customers within six months.
+    </p>
+
+    <h3>Why published conversion benchmarks can be misleading</h3>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr>
+          <th>What differs</th>
+          <th>Why it matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Denominator</td>
+          <td>
+            Visitors, trial starters, free users, and qualified leads are
+            different populations. A rate calculated from leads cannot
+            automatically be compared with one calculated from trial starters.
+          </td>
+        </tr>
+        <tr>
+          <td>Observation window</td>
+          <td>
+            A seven-day conversion rate will not be directly comparable
+            with a six-month free-to-paid rate, especially for freemium
+            products and longer buying cycles.
+          </td>
+        </tr>
+        <tr>
+          <td>Trial model</td>
+          <td>
+            A trial that requires payment details filters users differently
+            from a trial that can be started without a credit card.
+          </td>
+        </tr>
+        <tr>
+          <td>Unit of measurement</td>
+          <td>
+            A user-level rate can differ from an account-level rate in
+            products where several teammates participate in a purchase.
+          </td>
+        </tr>
+        <tr>
+          <td>Attribution</td>
+          <td>
+            Sales-assisted conversions should not automatically be treated
+            as the result of the self-serve product experience alone.
+          </td>
+        </tr>
+        <tr>
+          <td>Data source</td>
+          <td>
+            Self-reported survey estimates and billing-system data have
+            different strengths and limitations.
+          </td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <p>
+      This is why the same company's reports can show different conversion
+      rates without actually contradicting each other. For example,
+      <a href="https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate" target="_blank" rel="noopener">
+      ChartMogul's billing-based trial-to-paid report</a> cites a median
+      around 3%, while its 2026 survey reports an 8% median free-to-paid
+      rate. The populations, definitions, and observation windows differ.
+    </p>
+
+    <p>
+      Before comparing your product with a benchmark, write down your own
+      definition: who enters the funnel, which event counts as payment,
+      and how long you wait before evaluating the cohort.
+    </p>
+  </section>
+
+  <section id="models">
+    <h2>2. How your free-trial model affects conversion</h2>
+
+    <p>
+      Not all free trials are designed to achieve the same thing. A
+      credit-card-required trial may produce a higher percentage of paying
+      users because it attracts a more committed audience and can convert
+      users automatically when the trial expires. A card-free trial lowers
+      the barrier to entry but can attract more people who are curious,
+      researching alternatives, or not ready to buy.
+    </p>
+
+    <p>
+      In the <a href="https://chartmogul.com/reports/saas-conversion-report/" target="_blank" rel="noopener">
+      2026 ChartMogul report</a>, card-required trials reported substantially
+      higher free-to-paid conversion rates than card-free trials. However,
+      the same report's visitor-level comparison shows why the percentage
+      alone does not tell the whole story.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">Reported outcomes per 1,000 visitors</p>
+    <p class="tf-fig-sub">ChartMogul SaaS Conversion Report, 2026</p>
+    <div class="tf-group">
+      <p class="tf-group-name">Card-required trial</p>
+      <div class="tf-bar-row"><span class="tf-bar-label">Signups</span><div class="tf-track"><div class="tf-bar is-signups" style="--w:77.8%"></div></div><span class="tf-bar-val">35</span></div>
+      <div class="tf-bar-row"><span class="tf-bar-label">Paying customers</span><div class="tf-track"><div class="tf-bar is-paying" style="--w:23.3%"></div></div><span class="tf-bar-val">10.5</span></div>
+    </div>
+    <div class="tf-group">
+      <p class="tf-group-name">Card-free trial</p>
+      <div class="tf-bar-row"><span class="tf-bar-label">Signups</span><div class="tf-track"><div class="tf-bar is-signups" style="--w:100%"></div></div><span class="tf-bar-val">45</span></div>
+      <div class="tf-bar-row"><span class="tf-bar-label">Paying customers</span><div class="tf-track"><div class="tf-bar is-paying" style="--w:8%"></div></div><span class="tf-bar-val">3.6</span></div>
+    </div>
+    <p class="tf-fig-note"><strong>What this means.</strong> A higher conversion percentage does not necessarily mean more paying customers per visitor. Compare both rates and total yield.</p>
+    <figcaption>The figures are reported in the 2026 ChartMogul research. They illustrate the trade-off between conversion among free users and the number of paying customers generated from website traffic. See the original report for definitions and limitations.</figcaption>
+  </figure>
+
+    <p>
+      This does not mean that one model is universally better. A card-required
+      trial may suit a product with clear, immediate value and high purchase
+      intent. A card-free trial may be more appropriate when users need
+      to explore the product before they can make a decision.
+    </p>
+
+    <p>
+      The important question is not simply, “Which model has the highest
+      conversion rate?” It is, “Which model generates valuable customers
+      for this product, at an acceptable acquisition cost, without creating
+      avoidable refunds or early cancellations?”
+    </p>
+
+    <h3>Choose the right measurement for your trial model</h3>
+
+    <ul>
+      <li>
+        <strong>Time-limited trial:</strong> track trial starts, activation,
+        conversion within a defined window, and retention after payment.
+      </li>
+      <li>
+        <strong>Freemium:</strong> measure how many users reach meaningful
+        usage, encounter relevant limits, and eventually upgrade. Allow
+        for a longer observation window.
+      </li>
+      <li>
+        <strong>Reverse trial:</strong> examine what happens when premium
+        access ends and which limits prompt users to upgrade or downgrade.
+      </li>
+      <li>
+        <strong>Sales-assisted trial:</strong> include sales activity,
+        account-level progress, stakeholders, and procurement in the analysis.
+      </li>
+      <li>
+        <strong>Interactive demo:</strong> measure demo completion and
+        progression to qualified evaluation rather than comparing it
+        directly with trial-to-paid conversion.
+      </li>
+    </ul>
+  </section>
+
+  <section id="diagnosis">
+    <h2>3. Start with measurement, not redesign</h2>
+
+    <p>
+      Before investigating why users do not convert, establish whether
+      the funnel data is trustworthy. Missing events, duplicated identities,
+      inconsistent definitions, or incomplete observation windows can make
+      a healthy product look broken—or hide a real problem.
+    </p>
+
+    <p>
+      Start by reconciling product analytics with billing data. Check
+      whether users who start a trial can be connected to the same identities
+      when they return, upgrade, or pay on another device. Verify that
+      the event called “activation” represents a meaningful product outcome
+      rather than a proxy such as opening a page.
+    </p>
+
+    <p>
+      Documentation from
+      <a href="https://amplitude.com/docs/data/data-assistant-user-solutions/activation-event-audit" target="_blank" rel="noopener">
+      Amplitude</a> warns that teams often choose activation events that
+      do not represent actual value. <a href="https://docs.mixpanel.com/docs/tracking-methods/id-management/migrating-to-simplified-id-merge-system" target="_blank" rel="noopener">
+      Mixpanel's identity-management documentation</a> explains how
+      unmerged identities can create duplicate users and fragment the
+      view of a customer journey.
+    </p>
+
+    <h3>Check these five things first</h3>
+
+    <ol>
+      <li>Is conversion defined as a successful payment, not merely an upgrade click?</li>
+      <li>Are you measuring users, accounts, or workspaces consistently?</li>
+      <li>Can you reconcile trial starts and payments with billing records?</li>
+      <li>Are recent cohorts old enough to have completed the conversion window?</li>
+      <li>Does your activation event represent a meaningful outcome for the user?</li>
+    </ol>
+
+    <p>
+      If these checks reveal a measurement problem, fix it before redesigning
+      the product. Otherwise, you risk making decisions based on a distorted
+      picture of user behavior.
+    </p>
+  </section>
+
+  <section id="intent-experience">
+    <h2>4. The first diagnostic split: acquisition or product experience?</h2>
+
+    <p>
+      Once the data is reliable, investigate whether the problem is concentrated
+      among particular users or occurs across the product's intended audience.
+      The first useful split is between acquisition intent and the experience
+      users encounter after signing up.
+    </p>
+
+    <p>
+      Segment trial users by acquisition channel, use case, persona, company
+      size, and other dimensions relevant to the product. Then compare three
+      outcomes: activation, conversion among activated users, and retention
+      after conversion.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">Diagnose the pattern, not just the drop-off</p>
+    <div class="tf-matrix">
+      <span class="tf-corner"></span>
+      <span class="tf-col-head">Product experience: poor</span>
+      <span class="tf-col-head">Product experience: good</span>
+      <span class="tf-row-head">User intent: high</span>
+      <div class="tf-cell is-a"><b>High intent, poor experience</b><span>Investigate setup, usability, integrations, and blockers. Validate with observed tasks.</span></div>
+      <div class="tf-cell is-b"><b>High intent, good experience</b><span>If users still do not pay, examine value, pricing, packaging, and purchase constraints.</span></div>
+      <span class="tf-row-head">User intent: low</span>
+      <div class="tf-cell is-c"><b>Low intent, poor experience</b><span>Both factors may contribute. Check acquisition quality first, then investigate the experience.</span></div>
+      <div class="tf-cell is-d"><b>Low intent, good experience</b><span>Check targeting, messaging, expectations, and whether the offer attracts likely buyers.</span></div>
+    </div>
+    <p class="tf-fig-note">Conceptual diagnostic aid, not a validated predictive model.</p>
+    <figcaption>Use this matrix to generate hypotheses. Actual intent and experience are not always directly observable, so validate the interpretation with behavioral data and user research.</figcaption>
+  </figure>
+
+    <h3>How to distinguish the two</h3>
+
+    <p>
+      Suppose users from one acquisition channel rarely activate, but the
+      users who do activate convert at a rate similar to those from other
+      channels. This pattern suggests that the channel may be attracting
+      users with different needs or expectations. The product experience
+      may still have problems, but it is not the only explanation.
+    </p>
+
+    <p>
+      Now suppose users from several channels repeatedly fail at the same
+      setup step. If session recordings and usability tests show that
+      qualified users cannot complete the task, there is stronger evidence
+      of a product-experience problem.
+    </p>
+
+    <p>
+      Finally, suppose users reach the product's core value but do not
+      upgrade. Investigate whether the product solves a sufficiently important
+      problem, whether the paid plan includes the expected functionality,
+      and whether the price and buying process fit the customer's situation.
+    </p>
+
+    <p>
+      These patterns are diagnostic clues, not proof on their own. Activated
+      users are often more motivated than users who never activate, so
+      conversion differences between those groups can reflect both experience
+      and pre-existing intent.
+    </p>
+  </section>
+
+  <section id="activation">
+    <h2>5. Activation and time to value: are users reaching the outcome they came for?</h2>
+
+    <p>
+      Activation is often treated as the key to trial conversion. It is
+      important, but the definition must fit the product.
+    </p>
+
+    <p>
+      A signup, page view, or completed onboarding checklist does not
+      necessarily mean that the user has experienced the product's value.
+      For one product, activation may mean connecting a data source and
+      generating a useful report. For another, it may mean completing a
+      workflow, inviting teammates, or publishing a first result.
+    </p>
+
+    <p>
+      A useful activation event should represent progress toward the outcome
+      that makes the product worth paying for. It should not be selected
+      simply because it is easy to track.
+    </p>
+
+    <h3>Separate three kinds of value</h3>
+
+    <ul>
+      <li>
+        <strong>Initial value:</strong> the first meaningful result the
+        user achieves.
+      </li>
+      <li>
+        <strong>Recurring value:</strong> repeated outcomes that make the
+        product useful in an ongoing workflow.
+      </li>
+      <li>
+        <strong>Business value:</strong> an outcome the buyer can connect
+        to a business need, such as reduced manual work, lower risk, or
+        better decisions.
+      </li>
+    </ul>
+
+    <p>
+      These stages may happen at different times. A user might see an
+      impressive result on the first day but need several weeks to establish
+      that the product fits an ongoing workflow. In B2B products, the person
+      exploring the trial may also be different from the person approving
+      the purchase.
+    </p>
+
+    <p>
+      Compare the time users need to reach meaningful value with the trial
+      duration. If many users need an integration, data import, or teammate
+      invitation before they can evaluate the product, a short trial may
+      expire before they have a fair opportunity to assess it.
+    </p>
+
+    <p>
+      However, extending the trial is not automatically the solution.
+      Research by Yoganarasimhan, Barzegary, and Pani, published in
+      <em>Management Science</em> in 2023, used a randomized field experiment
+      involving 337,724 users at a large SaaS company. In that setting,
+      a uniform seven-day trial increased subscriptions by 5.59% compared
+      with the existing trial policy. A separate randomized study of
+      680,588 users at a freemium image-editing SaaS product found different
+      effects when comparing three-day and seven-day trials.
+    </p>
+
+    <p>
+      The studies do not establish one universally optimal trial duration.
+      They show why duration should be evaluated in the context of the
+      product, user population, and trial model.
+    </p>
+
+    <p>
+      Sources:
+      <a href="https://arxiv.org/pdf/2006.13420" target="_blank" rel="noopener">
+      Yoganarasimhan et al., trial-duration experiment</a>;
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12217587/" target="_blank" rel="noopener">
+      Zhang and Duan, randomized freemium trial study</a>.
+    </p>
+  </section>
+
+  <section id="causes">
+    <h2>6. Nine reasons SaaS free trials fail to convert</h2>
+
+    <p>
+      The same conversion problem can have very different causes. Use the
+      symptoms below to identify what to investigate next, not to select
+      a solution before gathering evidence.
+    </p>
+
+    <h3>1. The wrong users are signing up</h3>
+    <p>
+      Your acquisition channels may attract people who are curious about
+      the product but unlikely to buy it. The landing page may promise
+      something different from what the product delivers, or the person
+      starting the trial may not be the buyer.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> activation and conversion by channel,
+      use case, and customer segment. Compare the promise made before signup
+      with what users attempt to do after entering the product.
+    </p>
+
+    <h3>2. Users never reach meaningful value</h3>
+    <p>
+      Users may complete signup but fail to produce a useful outcome.
+      The product might require configuration, integrations, data, or
+      collaboration before it becomes useful.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> the steps between signup and the first
+      meaningful outcome, including where users stall and how long each
+      dependency takes.
+    </p>
+
+    <h3>3. Onboarding creates unnecessary friction</h3>
+    <p>
+      Instructions may be unclear, setup may ask for too much too early,
+      or users may not understand what to do next. Empty states and generic
+      tours can also fail to help users complete the task they came to do.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> task completion with qualified users,
+      session recordings at known drop-off points, and recurring support
+      questions. Do not assume that every abandoned session was caused by
+      confusing UX.
+    </p>
+
+    <h3>4. The trial is too short for the product's value cycle</h3>
+    <p>
+      Some products deliver value immediately. Others need data imports,
+      team participation, or repeated use before customers can evaluate
+      the outcome. The trial may end before the user can make an informed
+      decision.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> time to first value, time to recurring
+      value, trial-extension requests, and the proportion of users who
+      reach key milestones before expiry.
+    </p>
+
+    <h3>5. Users understand the product but do not see enough value</h3>
+    <p>
+      A user can successfully use a product and still decide that the
+      outcome is not important enough to pay for. The product may be
+      convenient without being essential, or its value may not justify
+      the price.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> interviews with activated users who
+      did not convert, their current alternatives, the problem they were
+      trying to solve, and what would make switching worthwhile.
+    </p>
+
+    <h3>6. Pricing or packaging does not fit the buyer</h3>
+    <p>
+      Users may be unable to identify the right plan, discover that a
+      necessary feature is unavailable, or encounter a price that does
+      not match the perceived value. In B2B products, procurement or
+      budget approval may introduce additional delays.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> pricing-page behavior, checkout
+      abandonment, payment failures, plan-related support requests, and
+      feedback from activated non-converters. Distinguish price objections
+      from uncertainty about value.
+    </p>
+
+    <h3>7. The trial model filters or frustrates the wrong users</h3>
+    <p>
+      Requiring payment details, limiting features, or ending access after
+      a fixed period changes who signs up and how they evaluate the product.
+      A model that works for one audience may create friction for another.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> conversion per visitor as well as
+      conversion per trial starter, refund and cancellation rates, and
+      whether users can evaluate the product's paid value before the trial
+      ends.
+    </p>
+
+    <h3>8. Trust or organizational requirements block the purchase</h3>
+    <p>
+      In B2B and AI products, users may need to verify data handling,
+      reliability, security, integrations, or compliance before they can
+      recommend the product internally. A single user may be unable to
+      approve a purchase on behalf of the organization.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> sales and customer-success notes,
+      security-review requests, stakeholder involvement, and the stages
+      where enterprise evaluations stall.
+    </p>
+
+    <h3>9. Users convert but do not stay</h3>
+    <p>
+      A trial can generate payments without producing durable customers.
+      This is especially important when payment details are collected
+      upfront and a user converts automatically at the end of a trial.
+    </p>
+    <p class="tf-inv"><strong>Investigate:</strong> refunds, cancellation reasons, and
+      retention after the first one to three months. A conversion increase
+      that comes with a decline in customer quality may not be a business
+      improvement.
+    </p>
+  </section>
+
+  <section id="framework">
+    <h2>7. A 10-step framework for diagnosing low trial conversion</h2>
+
+    <p>
+      The following sequence is my research-informed synthesis of product
+      analytics, experimentation practices, and the evidence reviewed for
+      this article. It is not a formal industry standard. Its purpose is
+      to help teams move from an observed conversion problem to a defensible
+      decision about what to investigate or change.
+    </p>
+
+    <figure class="tf-fig" data-anim>
+    <p class="tf-fig-title">From conversion problem to evidence-based action</p>
+    <ol class="tf-steps"><li class="is-a" style="--i:0"><span class="tf-n">1</span>Define the conversion event and observation window</li><li class="is-a" style="--i:1"><span class="tf-n">2</span>Verify tracking, identities, and billing data</li><li class="is-a" style="--i:2"><span class="tf-n">3</span>Segment users by channel, persona, and use case</li><li class="is-b" style="--i:3"><span class="tf-n">4</span>Map the funnel from signup to payment and retention</li><li class="is-b" style="--i:4"><span class="tf-n">5</span>Locate the most consequential drop-off</li><li class="is-c" style="--i:5"><span class="tf-n">6</span>Form competing hypotheses about why it happens</li><li class="is-c" style="--i:6"><span class="tf-n">7</span>Gather behavioral and qualitative evidence</li><li class="is-c" style="--i:7"><span class="tf-n">8</span>Separate observations, hypotheses, and likely causes</li><li class="is-d" style="--i:8"><span class="tf-n">9</span>Prioritize by impact, evidence, effort, and risk</li><li class="is-d" style="--i:9"><span class="tf-n">10</span>Intervene and validate the outcome</li></ol>
+    <p class="tf-fig-note">Revisit earlier steps when new evidence changes the diagnosis.</p>
+    <figcaption>A proposed diagnostic workflow. The process is iterative: evidence may require revisiting the funnel definition, segments, or initial hypotheses.</figcaption>
+  </figure>
+
+    <h3>Step 1: Define the outcome</h3>
+    <p>
+      Decide what counts as conversion, whether the unit is a user or
+      account, and how long users have to convert. Include retention or
+      refund guardrails if the business model makes them relevant.
+    </p>
+
+    <h3>Step 2: Verify the data</h3>
+    <p>
+      Reconcile analytics events with billing records. Fix missing events,
+      identity-resolution issues, duplicate users, and inconsistent event
+      definitions before interpreting the funnel.
+    </p>
+
+    <h3>Step 3: Segment the audience</h3>
+    <p>
+      Compare acquisition channels, personas, use cases, company sizes,
+      and trial models. A product-wide average can hide a serious problem
+      in one segment or make a healthy segment look worse than it is.
+    </p>
+
+    <h3>Step 4: Map the full journey</h3>
+    <p>
+      Depending on the product, map signup, setup, activation, recurring
+      use, pricing evaluation, checkout, payment, and post-conversion
+      retention. Do not assume that every product follows the same sequence.
+    </p>
+
+    <h3>Step 5: Find the consequential drop-off</h3>
+    <p>
+      The largest percentage drop is not necessarily the most important
+      problem. Consider the number of users affected and the likely
+      downstream business impact.
+    </p>
+
+    <h3>Step 6: Form competing hypotheses</h3>
+    <p>
+      If users abandon an integration step, possible explanations include
+      a confusing interface, missing permissions, lack of access to data,
+      a low-intent audience, or an integration that does not support the
+      intended use case. Keep multiple explanations open until the evidence
+      distinguishes between them.
+    </p>
+
+    <h3>Step 7: Gather evidence</h3>
+    <p>
+      Use analytics to establish the scale and location of the problem.
+      Use recordings and observed tasks to understand what happens. Use
+      interviews, surveys, and support data to investigate users' stated
+      reasons and context.
+    </p>
+
+    <h3>Step 8: Separate symptoms from causes</h3>
+    <p>
+      A drop in activation is an observation, not necessarily the root
+      cause. Compare behavior across relevant segments and check whether
+      the proposed explanation fits the available evidence.
+    </p>
+
+    <h3>Step 9: Prioritize the next action</h3>
+    <p>
+      Consider potential impact, evidence strength, implementation effort,
+      reversibility, and risk. Frameworks such as RICE can help structure
+      the discussion, but their scores should not be mistaken for objective
+      predictions.
+    </p>
+
+    <h3>Step 10: Validate proportionately</h3>
+    <p>
+      Fix obvious defects, research uncertain causes, and use experiments
+      when the hypothesis and traffic support a reliable test. Monitor
+      downstream outcomes as well as the primary conversion metric.
+    </p>
+  </section>
+
+  <section id="methods">
+    <h2>8. Which research method should you use?</h2>
+
+    <p>
+      No single method answers every diagnostic question. The right approach
+      depends on whether you need to locate a problem, understand a behavior,
+      investigate motivation, or verify a business outcome.
+    </p>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Useful for</th>
+          <th>What it cannot establish alone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Funnel analysis</td>
+          <td>Locating drop-offs and measuring their scale</td>
+          <td>Why users abandon a step</td>
+        </tr>
+        <tr>
+          <td>Cohort analysis</td>
+          <td>Comparing channels, segments, and changes over time</td>
+          <td>Whether a difference was caused by a specific change</td>
+        </tr>
+        <tr>
+          <td>Session recordings</td>
+          <td>Observing behavior around a known problem</td>
+          <td>Users' motives or how representative the behavior is</td>
+        </tr>
+        <tr>
+          <td>Usability testing</td>
+          <td>Understanding task failure and comprehension</td>
+          <td>How frequently a problem occurs across the full user base</td>
+        </tr>
+        <tr>
+          <td>User interviews</td>
+          <td>Exploring motivations, alternatives, and buying context</td>
+          <td>Accurate behavioral frequencies or causal effects</td>
+        </tr>
+        <tr>
+          <td>Surveys</td>
+          <td>Collecting stated reasons and segment information</td>
+          <td>Whether reported reasons fully explain behavior</td>
+        </tr>
+        <tr>
+          <td>Support tickets and chat logs</td>
+          <td>Finding recurring blockers in users' own words</td>
+          <td>The prevalence of issues among users who never ask for help</td>
+        </tr>
+        <tr>
+          <td>Sales and win/loss analysis</td>
+          <td>Understanding buying constraints and organizational barriers</td>
+          <td>Detailed self-serve product behavior</td>
+        </tr>
+        <tr>
+          <td>A/B testing</td>
+          <td>Estimating the effect of a specific change under test conditions</td>
+          <td>Automatically explaining why the change worked or failed</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <h3>Combine observed behavior with stated reasons</h3>
+
+    <p>
+      A recording can show that users repeatedly abandon a workflow, but
+      it may not explain their motivation. An interview can reveal that
+      users consider the product too expensive, but stated reasons do not
+      always match actual behavior. Analytics can reveal that a segment
+      converts poorly, but not necessarily why.
+    </p>
+
+    <p>
+      A stronger diagnosis combines these sources where appropriate:
+      establish the pattern quantitatively, observe the behavior, and
+      investigate the user's context. Be explicit about which conclusions
+      are directly observed and which remain interpretations.
+    </p>
+
+    <p>
+      For smaller SaaS products with limited traffic, this does not require
+      an expensive research program. Start by checking instrumentation,
+      reviewing recordings at the largest drop-off, examining support
+      requests, and interviewing a small, deliberately selected group of
+      recent converters and non-converters. Treat the findings as evidence
+      for prioritizing the next step, not as statistically representative
+      estimates.
+    </p>
+  </section>
+
+  <section id="experiments">
+    <h2>9. When should you fix, research, or run an experiment?</h2>
+
+    <p>
+      Once you have identified a likely problem, the next decision is
+      how to respond. Not every finding requires an A/B test, and not
+      every problem should be solved by changing the interface.
+    </p>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr>
+          <th>What the evidence shows</th>
+          <th>Recommended next step</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Analytics and billing data do not agree</td>
+          <td>Fix measurement and identity resolution first.</td>
+        </tr>
+        <tr>
+          <td>A repeated, clearly observed defect blocks a key task</td>
+          <td>Fix the defect and monitor the relevant outcomes.</td>
+        </tr>
+        <tr>
+          <td>A drop-off is clear but its cause is uncertain</td>
+          <td>Investigate with recordings, usability testing, or interviews.</td>
+        </tr>
+        <tr>
+          <td>One acquisition channel has low activation but normal conversion among activated users</td>
+          <td>Investigate targeting, expectations, and messaging.</td>
+        </tr>
+        <tr>
+          <td>Activated users consistently report insufficient value</td>
+          <td>Revisit the value proposition, packaging, or pricing.</td>
+        </tr>
+        <tr>
+          <td>A plausible change can be isolated and there is sufficient traffic</td>
+          <td>Consider a controlled experiment.</td>
+        </tr>
+        <tr>
+          <td>Traffic is low and the change is reversible</td>
+          <td>Consider a staged rollout and qualitative validation.</td>
+        </tr>
+        <tr>
+          <td>A trial-model change could affect refunds or retention</td>
+          <td>Evaluate the change with appropriate longer-term guardrails.</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+    <h3>What A/B testing can and cannot tell you</h3>
+
+    <p>
+      A/B testing can help estimate whether a specific change improves
+      a defined outcome under the conditions of the experiment. It does
+      not automatically reveal the underlying reason for the original
+      problem, and it does not guarantee that the effect will persist
+      across segments or over time.
+    </p>
+
+    <p>
+      Before running a test, define the hypothesis, primary metric, guardrail
+      metrics, sample-size requirements, and the observation window. Check
+      for sample-ratio mismatch and other signs that the experiment may
+      not be valid.
+    </p>
+
+    <p>
+      Research by Ronny Kohavi and other experimentation specialists
+      emphasizes that a test requiring more traffic than a site receives
+      within a reasonable period may not be worth running. For low-volume
+      products, usability testing, direct observation, and carefully
+      monitored rollouts may provide more useful evidence than an
+      underpowered A/B test.
+    </p>
+
+    <p>
+      Sources:
+      <a href="https://exp-platform.com/Documents/2017-05-17EmetricsControlledExperimentsPitfallsKohaviNR.pdf" target="_blank" rel="noopener">
+      Kohavi et al., “Trustworthy A/B Tests: Pitfalls in Online Controlled
+      Experiments”</a>;
+      <a href="https://www.kameleoon.com/blog/ronny-kohavi-getting-results-you-trust" target="_blank" rel="noopener">
+      Ronny Kohavi on getting trustworthy experiment results</a>.
+    </p>
+
+    <h3>Measure the outcome that matters to the business</h3>
+
+    <p>
+      An intervention may increase signups while reducing paid conversions.
+      Highrise, a CRM product from 37signals, documented a marketing-site
+      experiment in which the team initially focused on total signups and
+      missed a decline in paid signups. After reverting the plans layout,
+      the company reported a 51.4% increase in paid signups and a 67.6%
+      increase in new revenue.
+    </p>
+
+    <p>
+      The example illustrates why trial conversion should not be optimized
+      in isolation from revenue and customer quality.
+      <a href="https://signalvnoise.com/svn3/behind-the-scenes-a-b-testing-at-highrise/" target="_blank" rel="noopener">
+      Read the Highrise experiment account</a>.
+    </p>
+  </section>
+
+  <section id="mistakes">
+    <h2>10. Common mistakes when diagnosing trial conversion</h2>
+
+    <ul>
+      <li>
+        <strong>Assuming low conversion is primarily a UX problem.</strong>
+        Acquisition quality, value, pricing, trial structure, and buying
+        constraints can produce similar symptoms.
+      </li>
+      <li>
+        <strong>Redesigning before checking analytics.</strong>
+        Missing events or fragmented user identities can make the funnel
+        unreliable.
+      </li>
+      <li>
+        <strong>Treating signup as activation.</strong>
+        An account can exist without the user experiencing meaningful value.
+      </li>
+      <li>
+        <strong>Copying another company's activation metric.</strong>
+        A useful milestone depends on how the specific product creates value.
+      </li>
+      <li>
+        <strong>Adding onboarding steps without evidence.</strong>
+        More instructions do not necessarily improve task completion.
+        Nielsen Norman Group's research on mobile tutorials found that
+        upfront tutorial decks did not improve task success in the studied
+        apps; the findings should not be generalized directly to every SaaS
+        product.
+        <a href="https://www.nngroup.com/articles/mobile-tutorials/" target="_blank" rel="noopener">
+        Read the NN/g research</a>.
+      </li>
+      <li>
+        <strong>Assuming correlation proves causation.</strong>
+        Users who activate or engage more may already have higher intent.
+        Their behavior does not, by itself, prove that forcing more users
+        through the same steps will improve conversion.
+      </li>
+      <li>
+        <strong>Extending every trial that converts poorly.</strong>
+        Trial duration effects vary by product and population. Investigate
+        when users reach value before changing the duration.
+      </li>
+      <li>
+        <strong>Testing changes without a clear hypothesis.</strong>
+        Experiments are more useful when they address a defined problem
+        and measure an outcome that matters.
+      </li>
+      <li>
+        <strong>Optimizing paid conversion while ignoring retention.</strong>
+        An increase in initial payments may be offset by refunds, early
+        cancellations, or poor customer fit.
+      </li>
+    </ul>
+  </section>
+
+  <section id="checklist">
+    <h2>A practical checklist before changing your trial</h2>
+
+    <p>
+      Before redesigning onboarding, changing the trial duration, or
+      adjusting pricing, answer these questions:
+    </p>
+
+    <ul>
+      <li>Do we have a consistent definition of trial-to-paid conversion?</li>
+      <li>Have we reconciled product analytics with actual payments?</li>
+      <li>Do we know which channels and user segments convert differently?</li>
+      <li>Can we identify where users first fail to reach meaningful value?</li>
+      <li>Have we distinguished low-intent signups from qualified users who struggle?</li>
+      <li>Do we know whether users who activate understand the product's value?</li>
+      <li>Have we investigated pricing, packaging, and purchase constraints?</li>
+      <li>Are we measuring retention and refunds alongside initial conversion?</li>
+      <li>Can we explain why the proposed intervention should solve the identified problem?</li>
+      <li>Have we chosen a validation method appropriate to our traffic and risk?</li>
+    </ul>
+
+    <p>
+      If several answers are unknown, the next step may not be another
+      product change. It may be a more focused investigation.
+    </p>
+  </section>
+
+  <section id="conclusion">
+    <h2>Conclusion: diagnose the cause before optimizing the funnel</h2>
+
+    <p>
+      A low SaaS trial-to-paid conversion rate does not tell you which
+      part of the business needs to change. It tells you that the current
+      combination of acquisition, product experience, value, pricing,
+      and buying process is not producing the outcome you want.
+    </p>
+
+    <p>
+      Start by verifying the data. Segment users to understand where the
+      problem is concentrated. Find the consequential drop-off, form
+      competing hypotheses, and gather evidence that can distinguish
+      between them. Then decide whether to fix a defect, improve the
+      experience, change the offer, adjust acquisition, or run an experiment.
+    </p>
+
+    <p>
+      The goal is not to make more users click an upgrade button at any
+      cost. It is to understand what prevents the right users from seeing
+      enough value to become customers—and to address that problem without
+      damaging retention or customer quality.
+    </p>
+  </section>
+
+  <section class="ax-cta pd-dark" aria-labelledby="tf-cta-t">
+    <h2 id="tf-cta-t">Low trial conversion and not sure why?</h2>
+    <p>Telling acquisition, onboarding, value and pricing problems apart is the work I do. Send me the symptom and I’ll tell you what kind of investigation it needs.</p>
+    <a class="btn-dark" href="/#contact">Let's Connect</a>
+  </section>
+
+  <div class="ax-related-wrap">
+    <p class="ax-eyebrow">Related reading</p>
+    <a class="cp-related" href="/cro-audit-vs-ux-audit">
+      <strong>CRO audit vs. UX audit: what’s the difference?</strong>
+      <p>Why a diagnosis is not a checklist, and how to tell which kind of investigation you need.</p>
+      <span>Read article <span aria-hidden="true">&rarr;</span></span>
+    </a>
+    <a class="cp-related" href="/cs-proffer">
+      <strong>Why visitors leave a platform that promises no agents</strong>
+      <p>A behavioral conversion diagnosis in practice, with a look inside the report.</p>
+      <span>Read case study <span aria-hidden="true">&rarr;</span></span>
+    </a>
+  </div>
+
+  <section class="ax-about">
+    <h2>About this article</h2>
+    <p>I'm Olga, a product designer and product owner with 20+ years of experience working across SaaS platforms, AI-enabled products, and data-heavy systems. I wrote this article because teams often respond to low trial conversion by changing onboarding or pricing before understanding what is actually preventing users from buying. My work in product design, UX, and CRO has shaped the diagnostic approach I’m developing through Rootwise, my startup focused on evidence-based CRO diagnosis. I call this approach Behavioral Conversion Diagnosis.</p>
+    <h3>Sources and further reading</h3>
+    <ol class="ax-sources"> <li> <a href="https://chartmogul.com/reports/saas-conversion-report/" target="_blank" rel="noopener"> ChartMogul, Growth Unhinged, and ProductLed — The SaaS Conversion Report (2026) </a> </li> <li> <a href="https://chartmogul.com/reports/saas-go-to-market-report/" target="_blank" rel="noopener"> ChartMogul — The SaaS Go-To-Market Report (2025) </a> </li> <li> <a href="https://help.chartmogul.com/article/219-chart-trial-to-paid-conversion-rate" target="_blank" rel="noopener"> ChartMogul Help Center — Trial-to-Paid Conversion Rate </a> </li> <li> <a href="https://arxiv.org/pdf/2006.13420" target="_blank" rel="noopener"> Yoganarasimhan, Barzegary, and Pani — Randomized field experiment on free-trial duration, published in Management Science (2023) </a> </li> <li> <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12217587/" target="_blank" rel="noopener"> Zhang and Duan — Randomized field experiment on trial duration in a freemium product (2025) </a> </li> <li> <a href="https://amplitude.com/docs/data/data-assistant-user-solutions/activation-event-audit" target="_blank" rel="noopener"> Amplitude — Activation event audit </a> </li> <li> <a href="https://docs.mixpanel.com/docs/tracking-methods/id-management/migrating-to-simplified-id-merge-system" target="_blank" rel="noopener"> Mixpanel — Identity management and ID merge documentation </a> </li> <li> <a href="https://exp-platform.com/Documents/2017-05-17EmetricsControlledExperimentsPitfallsKohaviNR.pdf" target="_blank" rel="noopener"> Kohavi et al. — Trustworthy A/B Tests: Pitfalls in Online Controlled Experiments </a> </li> <li> <a href="https://signalvnoise.com/svn3/behind-the-scenes-a-b-testing-at-highrise/" target="_blank" rel="noopener"> Highrise — Behind the scenes of an A/B testing experiment </a> </li> <li> <a href="https://www.nngroup.com/articles/mobile-tutorials/" target="_blank" rel="noopener"> Nielsen Norman Group — Mobile Tutorials: Wasted Effort or Efficiency Boost? </a> </li> <li> <a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-sales-survey-finds-61-percent-of-b2b-buyers-prefer-a-rep-free-buying-experience" target="_blank" rel="noopener"> Gartner — Research on B2B buyers' preferences for rep-free buying experiences </a> </li> </ol>
+  </section>
+
+</article>
+</div>
+</div>
+    </main>
+
+    <!-- FOOTER -->
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-social-row">
+          <nav class="footer-links">
+            <a href="/product-design" data-text="Product Design">Product Design</a>
+            <span class="footer-dot"></span>
+            <a href="/cro-audit" data-text="CRO Diagnosis">CRO Diagnosis</a>
+            <span class="footer-dot"></span>
+            <a href="/case-studies" data-text="Case Studies">Case Studies</a>
+            <span class="footer-dot"></span>
+            <a href="/blog" data-text="Blog">Blog</a>
+            <span class="footer-dot"></span>
+            <a href="/about" data-text="About">About</a>
+            <span class="footer-dot"></span>
+            <a href="/contacts" data-text="Contacts">Contacts</a>
+            <span class="footer-dot"></span>
+            <a href="/privacy" data-text="Privacy">Privacy</a>
+          </nav>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">Behance</a>
+          </div>
+        </div>
+        <p class="footer-copy">&#169; 2026 Olga Kalinina</p>
+      </div>
+    </footer>
+  </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bar = document.getElementById('axProgress');
+    if (bar && !still) {
+      var tick = 0;
+      var upd = function () { tick = 0; var h = document.documentElement.scrollHeight - window.innerHeight; bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')'; };
+      window.addEventListener('scroll', function () { if (!tick) tick = requestAnimationFrame(upd); }, { passive: true });
+      upd();
+    }
+    if (still || !('IntersectionObserver' in window)) return;
+    root.classList.add('ax-js');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (!e.isIntersecting) return; e.target.classList.add('is-in'); io.unobserve(e.target); });
+    }, { threshold: 0.25 });
+    [].forEach.call(document.querySelectorAll('[data-anim]'), function (el) { io.observe(el); });
+  })();
+  </script>
+  <script src="/js/toc.js" defer></script>
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>
