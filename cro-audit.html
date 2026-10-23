@@ -370,13 +370,13 @@
     @media (max-width: 860px) { .hx-suit-row { flex-direction: column; align-items: center; text-align: center; gap: 18px; padding-top: 0; } .hx-suit-scroll { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .hx-track { animation: none; } .hx-set[aria-hidden="true"] { display: none; } .hx-suit-scroll { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } }
     .hx-visual { min-width: 0; }
-    .hx-stage { position: relative; container-type: inline-size; aspect-ratio: 760 / 640; --gold: #a8803a; --gold-soft: rgba(168,128,58,.12); }
+    .hx-stage { position: relative; container-type: inline-size; aspect-ratio: 760 / 900; --gold: #a8803a; --gold-soft: rgba(168,128,58,.12); }
     html[data-theme="dark"] .hx-stage { --gold: #d9b36c; --gold-soft: rgba(217,179,108,.16); }
     .hx-stage > * { position: absolute; }
-    .hx-browser { left: 0; top: 2%; width: 74%; height: 80%; background: #fff; border-radius: 1.5cqw; box-shadow: 0 2cqw 5cqw rgba(23,23,23,.13), 0 0 0 1px rgba(23,23,23,.07); overflow: hidden; color: #171717; font-family: 'Inter', system-ui, sans-serif; }
+    .hx-browser { left: 0; top: 2%; width: 66%; height: 70%; background: #fff; border-radius: 1.5cqw; box-shadow: 0 2cqw 5cqw rgba(23,23,23,.13), 0 0 0 1px rgba(23,23,23,.07); overflow: hidden; color: #171717; font-family: 'Inter', system-ui, sans-serif; }
     .hx-bar { height: 3.6cqw; display: flex; align-items: center; gap: .7cqw; padding: 0 1.4cqw; background: #f5f5f6; border-bottom: 1px solid #ececee; }
     .hx-bar i { width: .9cqw; height: .9cqw; border-radius: 50%; background: #d9d9dc; }
-    .hx-bar span { margin-left: 3cqw; font-size: .95cqw; color: #8a8d93; background: #fff; border-radius: .6cqw; padding: .35cqw 1.8cqw; }
+    .hx-bar span { margin-left: 3cqw; font-size: .95cqw; color: #666a71; background: #fff; border-radius: .6cqw; padding: .35cqw 1.8cqw; }
     .hx-site { padding: 1.8cqw 2.4cqw 0; }
     .hx-nav { display: flex; align-items: center; gap: 1.8cqw; font-size: 1cqw; color: #5b5f66; }
     .hx-nav b { display: flex; align-items: center; gap: .6cqw; margin-right: auto; color: #171717; font-size: 1.35cqw; font-weight: 700; letter-spacing: -.01em; }
@@ -391,54 +391,54 @@
     .hx-cta { font-size: 1.2cqw; font-weight: 600; background: #4b3fe0; color: #fff; padding: 1.1cqw 2.1cqw; border-radius: .8cqw; box-shadow: 0 .5cqw 1.4cqw rgba(75,63,224,.28); display: inline-block; }
     .hx-ghost { display: inline-flex; align-items: center; gap: .6cqw; font-size: 1.2cqw; font-weight: 500; color: #2b2f36; background: #f1f1f3; padding: 1.1cqw 1.8cqw; border-radius: .8cqw; }
     .hx-ghost svg { width: .9cqw; height: .9cqw; fill: #2b2f36; }
-    .hx-micro { font-size: .95cqw; color: #8a8d93; margin-top: 1.1cqw; }
+    .hx-micro { font-size: .95cqw; color: #666a71; margin-top: 1.1cqw; }
     .hx-app { background: #f7f7f9; border-radius: 1.2cqw; box-shadow: 0 1cqw 2.4cqw rgba(15,17,21,.12), 0 0 0 1px rgba(15,17,21,.07); overflow: hidden; }
     .hx-app-bar { display: flex; align-items: center; gap: .8cqw; padding: .9cqw 1.2cqw; background: #fff; border-bottom: 1px solid #ececef; font-size: .95cqw; }
-    .hx-app-bar b { width: 1.1cqw; height: 1.1cqw; border-radius: .3cqw; background: #4b3fe0; } .hx-app-bar span { font-weight: 600; margin-right: auto; } .hx-app-bar i { font-style: normal; color: #8a8d93; }
+    .hx-app-bar b { width: 1.1cqw; height: 1.1cqw; border-radius: .3cqw; background: #4b3fe0; } .hx-app-bar span { font-weight: 600; margin-right: auto; } .hx-app-bar i { font-style: normal; color: #666a71; }
     .hx-app-body { display: grid; grid-template-columns: 2.6cqw 1fr; }
     .hx-side { background: #fff; border-right: 1px solid #ececef; padding: 1cqw .7cqw; display: flex; flex-direction: column; gap: .8cqw; align-items: center; }
     .hx-side i { width: 1.3cqw; height: 1.3cqw; border-radius: .4cqw; background: #e4e4e8; } .hx-side i.on { background: #4b3fe0; }
     .hx-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7cqw; padding: .9cqw; }
     .hx-col h6 { font-family: 'Inter', system-ui, sans-serif; font-size: .8cqw; font-weight: 600; color: #5b5f66; margin: 0 0 .6cqw; display: flex; justify-content: space-between; }
-    .hx-col h6 em { font-style: normal; color: #a0a3a9; }
+    .hx-col h6 em { font-style: normal; color: #70747b; }
     .hx-tk { background: #fff; border-radius: .6cqw; padding: .7cqw .7cqw .8cqw; margin-bottom: .6cqw; box-shadow: 0 0 0 1px #ececef; }
     .hx-tk p { font-size: .8cqw; line-height: 1.3; color: #2b2f36; margin-top: .45cqw; }
     .tg { font-size: .62cqw; font-weight: 600; padding: .15cqw .55cqw; border-radius: 9999px; display: inline-block; }
     .tg.a { background: #eeecfd; color: #4a3fb8; } .tg.b { background: #e3f4ea; color: #1b6b3b; } .tg.c { background: #fdeede; color: #a35a12; } .tg.d { background: #e3eefc; color: #1f4f9c; }
     .hx-trust2 { margin-top: 3.2cqw; padding-top: 1.8cqw; border-top: 1px solid #efeff1; text-align: center; }
-    .hx-trust2 p { font-size: .95cqw; color: #8a8d93; margin-bottom: 1.2cqw; }
+    .hx-trust2 p { font-size: .95cqw; color: #666a71; margin-bottom: 1.2cqw; }
     .hx-trust2 div { display: flex; justify-content: space-between; padding: 0 1.6cqw; }
-    .hx-trust2 b { font-size: 1.35cqw; font-weight: 700; letter-spacing: -.02em; color: #b3b5ba; }
+    .hx-trust2 b { font-size: 1.35cqw; font-weight: 700; letter-spacing: -.02em; color: #70747b; }
     .hx-feat { margin-top: 3cqw; text-align: center; } .hx-feat h5 { font-family: 'Inter', system-ui, sans-serif !important; font-weight: 700 !important; font-size: 1.9cqw !important; letter-spacing: -.02em !important; color: #0f1115 !important; margin: 0 0 1.8cqw !important; }
     .hx-feat div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4cqw; } .hx-feat span { background: #f7f7f9; border-radius: 1cqw; padding: 1.4cqw; text-align: left; display: block; }
     .hx-feat i { display: block; width: 2cqw; height: 2cqw; border-radius: .6cqw; background: #e0dcfb; margin-bottom: .9cqw; } .hx-feat strong { display: block; font-size: 1.2cqw; margin-bottom: .3cqw; } .hx-feat small { font-size: .95cqw; color: #6b6f76; }
     /* markers and connectors */
     .hx-mark { z-index: 6; width: 2.6cqw; height: 2.6cqw; margin: -1.3cqw 0 0 -1.3cqw; pointer-events: none; opacity: 0; transition: opacity .4s ease; }
     .hx-stage.on1 .m1, .hx-stage.on2 .m2, .hx-stage.on3 .m3, .hx-stage.on2 .m1, .hx-stage.on3 .m1, .hx-stage.on3 .m2, .hx-stage.all .hx-mark { opacity: 1; }
-    .hx-mark b { position: absolute; inset: 0; border-radius: 50%; background: #fff; color: var(--gold); font: 700 1.3cqw/2.6cqw 'Inter', system-ui, sans-serif; text-align: center; box-shadow: 0 0 0 .2cqw var(--gold), 0 .5cqw 1.2cqw rgba(0,0,0,.18); transition: background .4s ease, color .4s ease; }
+    .hx-mark b { position: absolute; inset: 0; border-radius: 50%; background: #fff; color: #8a6420; font: 700 1.3cqw/2.6cqw 'Inter', system-ui, sans-serif; text-align: center; box-shadow: 0 0 0 .2cqw var(--gold), 0 .5cqw 1.2cqw rgba(0,0,0,.18); transition: background .4s ease, color .4s ease; }
     .hx-ring { position: absolute; inset: -.55cqw; border-radius: 50%; border: .18cqw solid var(--gold); opacity: 0; }
     .hx-hl { z-index: 5; border-radius: .7cqw; border: .16cqw dashed var(--gold); background: var(--gold-soft); pointer-events: none; opacity: 0; transition: opacity .5s ease; }
     .hx-lines { left: 0; top: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 7; }
     .hx-lines path { fill: none; stroke: var(--gold); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; vector-effect: non-scaling-stroke; }
-    .hx-cards { right: 0; top: 1%; width: 33%; height: 96%; z-index: 8; pointer-events: none; }
-    .hx-card { position: absolute; left: 0; right: 0; background: #fff; border-radius: 1.2cqw; padding: 1.5cqw 1.6cqw; box-shadow: 0 1.2cqw 3cqw rgba(23,23,23,.14), 0 0 0 1px rgba(23,23,23,.06); color: #171717; font-family: 'Inter', system-ui, sans-serif; opacity: 0; transform: translateX(1cqw); transition: opacity .5s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+    .hx-cards { right: 0; top: 1%; width: 44%; height: 97%; z-index: 8; pointer-events: none; }
+    .hx-card { position: absolute; left: 0; right: 0; background: #fff; border-radius: 1.2cqw; padding: max(1.5cqw, 12px) max(1.6cqw, 13px); box-shadow: 0 1.2cqw 3cqw rgba(23,23,23,.14), 0 0 0 1px rgba(23,23,23,.06); color: #171717; font-family: 'Inter', system-ui, sans-serif; opacity: 0; transform: translateX(1cqw); transition: opacity .5s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
     .hx-card.c1 { top: 0; } .hx-card.c2 { top: 33%; } .hx-card.c3 { top: 66%; }
     .hx-card header { display: flex; gap: 1cqw; align-items: flex-start; }
     .hx-card header b { flex: none; width: 2.2cqw; height: 2.2cqw; border-radius: 50%; background: var(--gold); color: #fff; font-size: 1.15cqw; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-    .hx-card small { display: block; font-size: .95cqw; letter-spacing: .1em; text-transform: uppercase; color: #8a8d93; margin-bottom: .3cqw; }
-    .hx-card h3 { font-family: 'Inter', system-ui, sans-serif !important; font-size: 1.5cqw !important; line-height: 1.25 !important; font-weight: 600 !important; letter-spacing: -.005em !important; color: #171717 !important; margin: 0 !important; }
+    .hx-card small { display: block; font-size: max(.95cqw, 11px); letter-spacing: .1em; text-transform: uppercase; color: #5b5f66; margin-bottom: .3cqw; }
+    .hx-card h3 { font-family: 'Inter', system-ui, sans-serif !important; font-size: max(1.5cqw, 13px) !important; line-height: 1.25 !important; font-weight: 600 !important; letter-spacing: -.005em !important; color: #171717 !important; margin: 0 !important; }
     .hx-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .7s cubic-bezier(.2,.8,.2,1); }
     .hx-body > div { overflow: hidden; min-height: 0; }
-    .hx-body p { font-size: 1.22cqw; line-height: 1.45; color: #3a3e45; margin: 1.1cqw 0 0; }
-    .hx-body em { display: block; font-style: normal; font-size: .95cqw; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: .25cqw; }
+    .hx-body p { font-size: max(1.22cqw, 12px); line-height: 1.45; color: #34383e; margin: max(1.1cqw, 8px) 0 0; }
+    .hx-body em { display: block; font-style: normal; font-size: max(.95cqw, 11px); letter-spacing: .08em; text-transform: uppercase; color: #7a5a1c; font-weight: 600; margin-bottom: .25cqw; }
     /* analytics */
-    .hx-an { left: 2%; top: 71%; width: 44%; background: #fff; border-radius: 1.3cqw; padding: 1.5cqw 1.6cqw 1.4cqw; box-shadow: 0 1.4cqw 3.4cqw rgba(23,23,23,.16), 0 0 0 1px rgba(23,23,23,.06); z-index: 9; color: #171717; font-family: 'Inter', system-ui, sans-serif; }
-    .hx-an p { font-size: 1.2cqw; font-weight: 600; margin-bottom: 1cqw; display: flex; align-items: center; gap: .8cqw; }
-    .hx-an p em { font-style: normal; font-weight: 500; font-size: .85cqw; letter-spacing: .06em; text-transform: uppercase; color: #8a8d93; border: 1px solid #dcdde0; border-radius: 9999px; padding: .15cqw .7cqw; }
-    .hx-an svg { width: 100%; height: 7cqw; display: block; overflow: visible; }
+    .hx-an { left: 2%; top: 72%; width: 52%; background: #fff; border-radius: 1.3cqw; padding: 1.5cqw 1.6cqw 1.4cqw; box-shadow: 0 1.4cqw 3.4cqw rgba(23,23,23,.16), 0 0 0 1px rgba(23,23,23,.06); z-index: 9; color: #171717; font-family: 'Inter', system-ui, sans-serif; }
+    .hx-an p { font-size: max(1.2cqw, 11px); font-weight: 600; margin-bottom: max(3.4cqw, 26px); display: flex; align-items: center; gap: .8cqw; white-space: nowrap; }
+    .hx-an p em { font-style: normal; font-weight: 500; font-size: max(.85cqw, 11px); letter-spacing: .06em; text-transform: uppercase; color: #5b5f66; border: 1px solid #dcdde0; border-radius: 9999px; padding: .15cqw .7cqw; }
+    .hx-an svg { width: 100%; height: max(7cqw, 52px); display: block; overflow: visible; }
     .hx-an .area { fill: var(--gold-soft); } .hx-an .ln { fill: none; stroke: #171717; stroke-width: 1.6; stroke-dasharray: 1; vector-effect: non-scaling-stroke; } .hx-an circle { fill: var(--gold); stroke: #fff; stroke-width: 2; }
-    .hx-an-x { display: flex; justify-content: space-between; font-size: .9cqw; color: #8a8d93; margin-top: .7cqw; }
-    .hx-drop { position: absolute; left: 36%; top: 3.2cqw; background: #171717; color: #fff; font-size: .95cqw; line-height: 1.3; padding: .6cqw 1cqw; border-radius: .6cqw; white-space: nowrap; }
+    .hx-an-x { display: flex; justify-content: space-between; font-size: max(.9cqw, 11px); color: #5b5f66; margin-top: .7cqw; }
+    .hx-drop { position: absolute; left: 30%; top: max(3.6cqw, 28px); background: #171717; color: #fff; font-size: max(.95cqw, 11px); line-height: 1.3; padding: .6cqw 1cqw; border-radius: .6cqw; white-space: nowrap; }
     /* sequence states (set by script; .all = full state) */
     .hx-stage.on1 .hx-hl.h1, .hx-stage.on2 .hx-hl.h2, .hx-stage.on3 .hx-hl.h3, .hx-stage.all .hx-hl { opacity: 1; }
     .hx-stage.on1 .m1 b, .hx-stage.on2 .m2 b, .hx-stage.on3 .m3 b, .hx-stage.all .hx-mark b { background: var(--gold); color: #fff; }
@@ -593,6 +593,23 @@
     .cr-sticky { position: fixed !important; right: 24px; bottom: 24px; z-index: 40; box-shadow: 0 14px 40px rgba(23,23,23,.28); opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .35s ease, transform .35s ease, --cg .4s ease, color .4s ease; }
     .cr-sticky.show { opacity: 1; transform: none; pointer-events: auto; }
     @media (max-width: 640px) { .cr-sticky { left: 16px; right: 16px; bottom: 16px; width: auto; justify-content: center; } }
+  
+    /* ============ polish: legibility, contrast and small-screen fixes ============ */
+    .pd.cr .cr-q-note { display: block; max-width: 600px; }
+    .pd.cr .cr-q-note svg { display: inline-block; vertical-align: -4px; margin: 0 10px 0 0; }
+    .cr .pd-sub { max-width: 640px; }
+    .cr-ph { overflow-wrap: anywhere; }
+    .cr-req .cr-ph, .cv .cr-ph { color: #ffe2b0; background: rgba(245,158,11,.24); border-color: #f2a53a; }
+    .cr-form .cr-submit { white-space: nowrap; }
+    .cr-form input[type=email], .cr-form input[type=text], .cr-form textarea { border-color: rgba(255,255,255,.55); }
+    .cr-chips span { border-color: rgba(255,255,255,.5); }
+    .cr-form input::placeholder, .cr-form textarea::placeholder { color: rgba(247,245,245,.6); }
+      .pd.cr .cr-cause-grid em { color: #7a5a1c; }
+    html[data-theme="dark"] .pd.cr .cr-cause-grid em { color: #d9b36c; }
+    .pd.cr .cr-who p { max-width: 640px; }
+    .pd.cr .pd-note { max-width: 640px; }
+    .cr .pd-faq p { max-width: 600px; }
+    .cr-ph { padding: max(4px, .3em) max(8px, .5em); }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -694,22 +711,22 @@
                   <article class="hx-card c1" data-i="1">
                     <header><b>1</b><div><small>Headline</small><h3>It doesn’t say what the product does</h3></div></header>
                     <div class="hx-body"><div>
-                      <p><em>Why it matters</em>A first-time visitor can’t tell in seconds whether this is for them, so the rest of the page has to do the explaining.</p>
-                      <p><em>Diagnostic direction</em>Test whether naming the outcome and the audience lets visitors qualify themselves earlier.</p>
+                      <p><em>Why it matters</em>A first-time visitor can’t tell in seconds whether this is for them.</p>
+                      <p><em>Diagnostic direction</em>Test naming the outcome and the audience.</p>
                     </div></div>
                   </article>
                   <article class="hx-card c2" data-i="2">
                     <header><b>2</b><div><small>Primary button</small><h3>It asks for a trial before showing the value</h3></div></header>
                     <div class="hx-body"><div>
-                      <p><em>Why it matters</em>The commitment comes first. The only lower-effort option is a demo, which is the weaker button.</p>
-                      <p><em>Diagnostic direction</em>Look at what a visitor needs to see before this ask feels reasonable.</p>
+                      <p><em>Why it matters</em>The commitment comes first. The only softer option is the weaker demo button.</p>
+                      <p><em>Diagnostic direction</em>Look at what a visitor must see before this ask feels reasonable.</p>
                     </div></div>
                   </article>
                   <article class="hx-card c3" data-i="3">
                     <header><b>3</b><div><small>Trust strip</small><h3>Logos with nothing behind them</h3></div></header>
                     <div class="hx-body"><div>
-                      <p><em>Why it matters</em>Unattributed logos read as decoration, so they add little credibility at the moment of decision.</p>
-                      <p><em>Diagnostic direction</em>Check whether a named customer, a result, or a short quote can sit next to the first claim.</p>
+                      <p><em>Why it matters</em>Unattributed logos read as decoration and add little credibility.</p>
+                      <p><em>Diagnostic direction</em>Check whether a named customer, a result, or a quote can sit next to the claim.</p>
                     </div></div>
                   </article>
                 </div>
@@ -1083,6 +1100,10 @@
       if (small()) return;
       var sr = stage.getBoundingClientRect(), W = sr.width, H = sr.height, unit = W / 100;
       svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      var chEl = stage.querySelector('.hx-cards'), chH = chEl.getBoundingClientRect().height, hs = [];
+      cards.forEach(function (c) { var cs = getComputedStyle(c); hs.push(c.querySelector('header').offsetHeight + c.querySelector('.hx-body > div').scrollHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom)); });
+      var tot = hs.reduce(function (x, y) { return x + y; }, 0), gp = Math.max(10, (chH - tot) / (cards.length - 1)), yy = 0;
+      cards.forEach(function (c, i) { c.style.top = yy + 'px'; yy += hs[i] + gp; });
       var navR = stage.querySelector('.hx-nav').getBoundingClientRect(), appR = stage.querySelector('.hx-app').getBoundingClientRect(), trR = document.getElementById('hxTrust').getBoundingClientRect();
       var laneTop = (navR.bottom + appR.top) / 2 - sr.top, laneBottom = (appR.bottom + trR.top) / 2 - sr.top;
       targets.forEach(function (id, i) {
