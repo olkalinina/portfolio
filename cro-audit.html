@@ -342,6 +342,102 @@
       .cr-map-head { display: none; } .cr-map { grid-template-columns: 1fr; } .cr-bar, .cr-bar.b1, .cr-bar.b2, .cr-bar.b3, .cr-bar.b4 { grid-column: 1; width: 100%; height: auto; min-height: 44px; padding: 10px 18px; white-space: normal; }
       .cr-pkg { padding: 26px 22px; } .cr-after .btn-outline-dark { width: 100%; }
     }
+  
+    /* ============ hero v2 ============ */
+    .hx { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: 36px; align-items: center; padding: 8px 0 0; }
+    .hx-eyebrow { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--gray); margin-bottom: 26px; }
+    .hx h1 { font-size: 66px !important; line-height: 1.02 !important; font-weight: 400 !important; letter-spacing: -.02em !important; text-wrap: balance; margin-bottom: 30px; }
+    .hx-lede { font-size: 21px; line-height: 1.6; color: var(--dark); max-width: 560px; }
+    .hx-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 36px; }
+    .hx-actions .btn-dark { padding: 17px 32px !important; font-size: 17px !important; display: inline-flex; align-items: center; gap: 12px; }
+    .hx-actions .btn-arrow { width: 20px; height: 20px; }
+    .hx-link { font-size: 18px; color: var(--dark); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+    .hx-trust { list-style: none; padding: 0; margin: 40px 0 0; display: flex; flex-wrap: wrap; gap: 18px 26px; }
+    .hx-trust li { display: flex; align-items: center; gap: 12px; font-size: 15.5px; line-height: 1.35; max-width: 175px; }
+    .hx-ico { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-soft); box-shadow: inset 0 0 0 1px var(--light-gray); display: flex; align-items: center; justify-content: center; }
+    .hx-ico svg { width: 22px; height: 22px; }
+    .hx-suit { margin-top: 38px; font-size: 12.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--gray); }
+    .hx-chips { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .hx-chips li { padding: 10px 18px; border-radius: 9999px; background: var(--bg-soft); box-shadow: inset 0 0 0 1px var(--light-gray); font-size: 15px; }
+    .hx-visual { min-width: 0; }
+    .hx-cap { margin-top: 14px; font-size: 13px; color: var(--gray); text-align: right; }
+    .hx-stage { position: relative; container-type: inline-size; aspect-ratio: 760 / 640; }
+    .hx-stage > * { position: absolute; }
+    .hx-browser { left: 0; top: 3%; width: 76%; height: 82%; background: #fff; border-radius: 1.6cqw; box-shadow: 0 2.4cqw 6cqw rgba(23,23,23,.14), 0 0 0 1px rgba(23,23,23,.06); overflow: hidden; color: #171717; font-family: 'Inter', sans-serif; }
+    .hx-bar { height: 4.6%; min-height: 12px; display: flex; align-items: center; gap: .8cqw; padding: 0 1.6cqw; background: #f6f6f7; }
+    .hx-bar i { width: 1cqw; height: 1cqw; border-radius: 50%; background: #ff5f57; } .hx-bar i:nth-child(2) { background: #febc2e; } .hx-bar i:nth-child(3) { background: #28c840; }
+    .hx-site { padding: 2.4cqw 3cqw 0; }
+    .hx-nav { display: flex; align-items: center; gap: 2cqw; font-size: .95cqw; color: #55595f; }
+    .hx-nav b { display: flex; align-items: center; gap: .7cqw; margin-right: auto; color: #171717; font-size: 1.15cqw; font-weight: 600; }
+    .hx-nav u { width: 1.7cqw; height: 1.7cqw; border-radius: .4cqw; border: .2cqw solid #171717; display: block; }
+    .hx-nav em { font-style: normal; color: #171717; } .hx-nav strong { background: #171717; color: #fff; padding: .7cqw 1.4cqw; border-radius: .6cqw; font-weight: 500; }
+    .hx-hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3cqw; align-items: center; margin-top: 4cqw; }
+    .hx-copy small { display: block; font-size: .8cqw; letter-spacing: .14em; color: #6b6f76; margin-bottom: 1.2cqw; }
+    .hx-copy h4 { font-family: 'Inter', system-ui, sans-serif !important; letter-spacing: -.01em !important; font-weight: 600; font-size: 3cqw; line-height: 1.12; letter-spacing: -.01em; margin-bottom: 1.4cqw; color: #171717; }
+    .hx-copy p { font-size: 1cqw; line-height: 1.5; color: #55595f; margin-bottom: 1.8cqw; }
+    .hx-b { display: flex; gap: 1cqw; } .hx-b strong, .hx-b span { font-size: .95cqw; padding: 1cqw 2cqw; border-radius: .6cqw; } .hx-b strong { background: #171717; color: #fff; font-weight: 500; } .hx-b span { background: #f0f0f1; }
+    .hx-img { position: relative; aspect-ratio: 1 / 1.08; border-radius: 1cqw; background: linear-gradient(160deg, #efe3d3, #d9b98f 60%, #b88b5b); overflow: hidden; }
+    .hx-img::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34%; background: linear-gradient(0deg, rgba(120,80,40,.5), transparent); }
+    .hx-play { position: absolute; left: 50%; top: 50%; width: 4.2cqw; height: 4.2cqw; margin: -2.1cqw 0 0 -2.1cqw; border-radius: 50%; background: #fff; box-shadow: 0 .6cqw 2cqw rgba(0,0,0,.18); z-index: 1; }
+    .hx-play::before { content: ""; position: absolute; left: 53%; top: 50%; transform: translate(-50%, -50%); border-left: 1.2cqw solid #171717; border-top: .8cqw solid transparent; border-bottom: .8cqw solid transparent; }
+    .hx-logos { display: flex; justify-content: space-between; margin: 4cqw 0 0; padding: 2cqw 2cqw 0; border-top: 1px solid #eee; }
+    .hx-logos i { width: 7.5cqw; height: 1.2cqw; border-radius: .6cqw; background: #d9dadd; }
+    .hx-site h5 { text-align: center; font-family: 'Inter', system-ui, sans-serif !important; font-weight: 600; font-size: 1.8cqw; line-height: 1.3; margin: 3cqw 0 2cqw; color: #171717; }
+    .hx-feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4cqw; } .hx-feats i { height: 7cqw; border-radius: 1cqw; background: #f3f3f4; }
+    .hx-line { left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 3; }
+    .hx-line path { fill: none; stroke: #ee4b4b; stroke-width: 1.4; stroke-dasharray: 1; stroke-dashoffset: 0; }
+    .hx-dot { left: 43%; top: 23%; width: 1.7cqw; height: 1.7cqw; margin: -.85cqw 0 0 -.85cqw; border-radius: 50%; background: #ee4b4b; box-shadow: 0 0 0 .5cqw rgba(238,75,75,.22); z-index: 4; }
+    .hx-metric { left: 4%; top: 68%; width: 47%; padding: 2cqw 2cqw 2cqw; background: #fff; border-radius: 1.6cqw; box-shadow: 0 1.6cqw 4cqw rgba(23,23,23,.16), 0 0 0 1px rgba(23,23,23,.05); z-index: 5; color: #171717; }
+    .hx-metric p { font-size: 1.15cqw; color: #55595f; margin-bottom: 1cqw; }
+    .hx-metric svg { width: 100%; height: 8.6cqw; display: block; overflow: visible; }
+    .hx-metric .area { fill: rgba(238,75,75,.1); } .hx-metric .ln { fill: none; stroke: #ee4b4b; stroke-width: 1.6; stroke-dasharray: 1; vector-effect: non-scaling-stroke; } .hx-metric circle { fill: #ee4b4b; stroke: #fff; stroke-width: 2; }
+    .hx-tag { position: absolute; right: -4cqw; top: 3.8cqw; background: #a23232; color: #fff; font-size: 1.05cqw; line-height: 1.3; padding: .9cqw 1.4cqw; border-radius: .8cqw; max-width: 15cqw; box-shadow: 0 1cqw 2cqw rgba(0,0,0,.16); }
+    .hx-notes { left: 69%; top: 3%; width: 31%; display: flex; flex-direction: column; align-items: stretch; z-index: 6; }
+    .hx-notes article { border-radius: 1.2cqw; padding: 1.6cqw 1.8cqw 1.8cqw; font-family: 'Inter', sans-serif; box-shadow: 0 .8cqw 2.4cqw rgba(23,23,23,.1); color: #171717; }
+    .hx-notes h3 { font-family: 'Inter', sans-serif !important; font-size: 1.5cqw !important; font-weight: 600 !important; line-height: 1.2 !important; margin: 0 0 .8cqw; }
+    .hx-notes p { font-size: 1.3cqw; line-height: 1.45; color: #2a2d31; }
+    .hx-notes .n1 { background: #fde8e6; box-shadow: 0 .8cqw 2.4cqw rgba(23,23,23,.1), inset 0 0 0 1px #f3a9a3; } .hx-notes .n1 h3 { color: #b42318; }
+    .hx-notes .n2 { background: #e8effc; box-shadow: 0 .8cqw 2.4cqw rgba(23,23,23,.1), inset 0 0 0 1px #b6c9ee; } .hx-notes .n2 h3 { color: #1e3a8a; }
+    .hx-notes .n3 { background: #e5f4ea; box-shadow: 0 .8cqw 2.4cqw rgba(23,23,23,.1), inset 0 0 0 1px #a7d6b6; } .hx-notes .n3 h3 { color: #166534; }
+    .hx-arr { display: block; height: 5cqw; position: relative; }
+    .hx-arr::before { content: ""; position: absolute; left: 50%; top: .8cqw; bottom: .8cqw; width: .18cqw; background: var(--dark); transform: translateX(-50%); }
+    .hx-arr::after { content: ""; position: absolute; left: 50%; bottom: .8cqw; width: 1cqw; height: 1cqw; border-right: .18cqw solid var(--dark); border-bottom: .18cqw solid var(--dark); transform: translate(-50%, 0) rotate(45deg); }
+    html[data-theme="dark"] .hx h1 { color: #f7f5f5; }
+    html[data-theme="dark"] .hx-arr::before { background: #ede8ea; } html[data-theme="dark"] .hx-arr::after { border-color: #ede8ea; }
+    @media (prefers-reduced-motion: no-preference) {
+      .cr-js .hx-browser, .cr-js .hx-metric, .cr-js .hx-notes article, .cr-js .hx-arr, .cr-js .hx-dot, .cr-js .hx-tag { opacity: 0; }
+      .cr-js .hx-browser { transform: translateY(24px); } .cr-js .hx-metric { transform: translate(-16px, 16px); } .cr-js .hx-notes article { transform: translateX(18px); }
+      .cr-js .hx-line path { stroke-dashoffset: 1; } .cr-js .hx-metric .ln { stroke-dashoffset: 1; }
+      .cr-js .is-in .hx-browser { opacity: 1; transform: none; transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+      .cr-js .is-in .hx-metric { opacity: 1; transform: none; transition: opacity .7s ease .5s, transform .7s ease .5s; }
+      .cr-js .is-in .hx-metric .ln { stroke-dashoffset: 0; transition: stroke-dashoffset 1.4s ease .9s; }
+      .cr-js .is-in .hx-tag { opacity: 1; transition: opacity .5s ease 2.1s; }
+      .cr-js .is-in .hx-dot { opacity: 1; transition: opacity .4s ease 1.3s; animation: hxPulse 2.2s ease-in-out 2s infinite; }
+      @keyframes hxPulse { 0%, 100% { box-shadow: 0 0 0 .5cqw rgba(238,75,75,.22); } 50% { box-shadow: 0 0 0 1.1cqw rgba(238,75,75,.1); } }
+      .cr-js .is-in .hx-line path { stroke-dashoffset: 0; transition: stroke-dashoffset .8s ease 1.5s; }
+      .cr-js .is-in .hx-notes article { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+      .cr-js .is-in .hx-notes .n1 { transition-delay: 1.5s; } .cr-js .is-in .hx-notes .n2 { transition-delay: 2.3s; } .cr-js .is-in .hx-notes .n3 { transition-delay: 3.1s; }
+      .cr-js .is-in .hx-arr { opacity: 1; transition: opacity .4s ease 2s; } .cr-js .is-in .hx-arr + .n2 { }
+      .cr-js .hx-arr:nth-of-type(1) { }
+    }
+    @media (max-width: 1100px) {
+      .hx { grid-template-columns: 1fr; gap: 44px; }
+      .hx h1 { font-size: 60px !important; }
+      .hx-visual { max-width: 760px; }
+    }
+    @media (max-width: 760px) {
+      .hx h1 { font-size: 44px !important; } .hx-lede { font-size: 18px; }
+      .hx-trust { grid-template-columns: 1fr; gap: 14px; } .hx-trust li { max-width: none; }
+      .hx-actions { gap: 18px; } .hx-actions .btn-dark { width: 100%; justify-content: center; }
+      .hx-stage { aspect-ratio: auto; container-type: normal; display: flex; flex-direction: column; gap: 22px; }
+      .hx-stage > * { position: relative; left: auto !important; top: auto !important; width: 100% !important; height: auto; }
+      .hx-browser { height: auto; padding-bottom: 14px; } .hx-site { padding: 16px 16px 0; } .hx-line, .hx-dot, .hx-metric { display: none; }
+      .hx-nav { font-size: 9px; gap: 10px; } .hx-nav b { font-size: 11px; } .hx-nav span { display: none; }
+      .hx-hero { margin-top: 20px; gap: 14px; } .hx-copy h4 { font-size: 18px; } .hx-copy p, .hx-copy small, .hx-b strong, .hx-b span { font-size: 9px; } .hx-logos, .hx-site h5, .hx-feats { display: none; }
+      .hx-notes { width: 100% !important; } .hx-notes h3 { font-size: 16px !important; } .hx-notes p { font-size: 15px; } .hx-notes article { padding: 16px 18px; border-radius: 14px; } .hx-arr { height: 34px; }
+      .hx-arr::before { top: 4px; bottom: 4px; width: 2px; } .hx-arr::after { bottom: 4px; width: 10px; height: 10px; border-width: 2px; }
+      .hx-cap { text-align: left; }
+    }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -387,24 +483,56 @@
         <div class="pd cr">
 
           <!-- 1. HERO -->
-          <section class="pd-hero pd-dark" id="top">
-            <div class="pd-hero-tile" aria-hidden="true"><img src="/images/icon-shapes-white.gif" alt="" width="46" height="46" /></div>
-            <p class="pd-eyebrow">CRO audit · Behavioral CRO Diagnosis</p>
-            <h1>CRO audit: find where your conversion journey breaks, and why</h1>
-            <p class="pd-lead">I look at your website or digital product the way a first-time visitor does: what they understand, what makes them hesitate, and where the path to conversion loses them.</p>
-            <p class="pd-lead">You get a diagnosis, not a checklist of generic best practices. Every finding is tied to something you can see in your own product, with an explanation of why it matters and what to address first.</p>
-            <div class="pd-actions"><a href="/contacts" class="btn-dark">Request a CRO Audit</a><a href="#deliverable" class="cr-herolink">See What You Receive</a></div>
-            <p class="cr-fine">Expert-led by me, drawing on 20+ years of product design. The audit evaluates the experience within the agreed scope. It doesn’t promise a specific conversion lift or replace implementation.</p>
-            <div class="cr-journey" data-anim aria-label="A visitor journey with one broken step" role="img">
-              <div class="cr-j-step" style="--i:0"><span>Entry</span></div>
-              <i class="cr-j-line" style="--i:0"></i>
-              <div class="cr-j-step" style="--i:1"><span>Landing page</span></div>
-              <i class="cr-j-line" style="--i:1"></i>
-              <div class="cr-j-step" style="--i:2"><span>Offer</span></div>
-              <i class="cr-j-line is-break" style="--i:2"><b>?</b></i>
-              <div class="cr-j-step is-off" style="--i:3"><span>Sign-up</span></div>
-              <i class="cr-j-line is-off" style="--i:3"></i>
-              <div class="cr-j-step is-off" style="--i:4"><span>First value</span></div>
+          <section class="hx" id="top" aria-labelledby="hx-title">
+            <div class="hx-text">
+              <p class="hx-eyebrow">CRO audit · Behavioral CRO Diagnosis</p>
+              <h1 id="hx-title">Your visitors are leaving. Find out why.</h1>
+              <p class="hx-lede">I investigate your website or product experience to find where the conversion journey breaks, and show you what to fix first.</p>
+              <div class="hx-actions"><a href="/contacts" class="btn-dark">Request a CRO Audit<svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="#difference" class="hx-link">See an Example</a></div>
+              <ul class="hx-trust">
+                <li><span class="hx-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9M10 20V4M16 20v-8M22 20H2"/></svg></span>Evidence-based diagnosis</li>
+                <li><span class="hx-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.9-4.9"/></svg></span>Clear priorities and explanations</li>
+                <li><span class="hx-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>20+ years in product design</li>
+              </ul>
+              <p class="hx-suit">Suitable for</p>
+              <ul class="hx-chips"><li>SaaS products</li><li>AI-powered products</li><li>B2B websites</li><li>B2C products</li><li>E-commerce</li><li>Marketplaces</li><li>Landing pages</li><li>Mobile apps</li></ul>
+            </div>
+            <div class="hx-visual">
+              <div class="hx-stage" data-anim role="img" aria-label="Illustration: a product website with an annotated issue, why it matters, and a diagnostic direction">
+                <div class="hx-browser">
+                  <div class="hx-bar"><i></i><i></i><i></i></div>
+                  <div class="hx-site">
+                    <div class="hx-nav"><b><u></u>YourProduct</b><span>Product</span><span>Pricing</span><span>Resources</span><em>Log in</em><strong>Sign up</strong></div>
+                    <div class="hx-hero">
+                      <div class="hx-copy">
+                        <small>ALL-IN-ONE SOLUTION</small>
+                        <h4>Manage your work in one place</h4>
+                        <p>Plan, track and collaborate with your team. Get started for free.</p>
+                        <div class="hx-b"><strong>Sign up</strong><span>Watch demo</span></div>
+                      </div>
+                      <div class="hx-img"><span class="hx-play"></span></div>
+                    </div>
+                    <div class="hx-logos"><i></i><i></i><i></i><i></i><i></i></div>
+                    <h5>Everything you need to work better</h5>
+                    <div class="hx-feats"><i></i><i></i><i></i></div>
+                  </div>
+                </div>
+                <svg class="hx-line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M43 23 L52 20 L70 13" pathLength="1" vector-effect="non-scaling-stroke"/></svg>
+                <span class="hx-dot" aria-hidden="true"></span>
+                <div class="hx-metric">
+                  <p>Sign-up conversion rate</p>
+                  <svg viewBox="0 0 220 70" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0 8 L40 12 L70 22 L100 26 L120 44 L150 48 L220 62 L220 70 L0 70Z"/><path class="ln" pathLength="1" d="M0 8 L40 12 L70 22 L100 26 L120 44 L150 48 L220 62"/><circle cx="120" cy="44" r="4"/></svg>
+                  <span class="hx-tag">Drop-off after landing page</span>
+                </div>
+                <div class="hx-notes">
+                  <article class="n1"><h3>Issue</h3><p>The value proposition is unclear before sign-up.</p></article>
+                  <i class="hx-arr" aria-hidden="true"></i>
+                  <article class="n2"><h3>Why it matters</h3><p>Visitors are asked to commit before they understand the value, which leads to drop-offs at this stage.</p></article>
+                  <i class="hx-arr" aria-hidden="true"></i>
+                  <article class="n3"><h3>Diagnostic direction</h3><p>Clarify the core value in the hero section and show key benefits before asking for sign-up.</p></article>
+                </div>
+              </div>
+              <p class="hx-cap">Illustrative example, not client data.</p>
             </div>
           </section>
 
