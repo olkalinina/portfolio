@@ -930,6 +930,7 @@
     .cr-card-top { display: flex; align-items: center; gap: 12px; }
     .cr-card b { font-size: 15.5px; font-weight: 500; color: var(--dark); line-height: 1.25; }
     .cr-card small { font-size: 13px; line-height: 1.5; color: var(--gray); padding-left: 30px; }
+    .cr-card-time { padding-left: 30px; font-size: 12.5px; color: var(--dark); font-weight: 500; margin-top: 2px; }
     .cr-card-price { margin: 6px 0 0 30px; padding-top: 8px; position: relative; font-size: 17px; font-family: 'Playfair Display', Georgia, serif; color: var(--dark); font-variant-numeric: tabular-nums; }
     .cr-card-price::before { content: ""; position: absolute; left: 0; top: 0; width: 28px; border-top: 1px solid var(--light-gray); }
     .cr-row { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; column-gap: 16px; align-items: center; padding: 11px 0 11px 18px; }
@@ -1316,20 +1317,20 @@
                   <fieldset class="cr-step">
                     <legend><span class="cr-step-n" aria-hidden="true">1</span><span class="cr-step-q">What would you like to audit?</span><span class="cr-step-h">Choose the main focus of your audit.</span></legend>
                     <div class="cr-scope3">
-                      <label class="cr-card"><input type="radio" name="calc-scope" value="single" /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Single page</b></span><small>One landing page, product page or homepage.</small><span class="cr-card-price" data-price="scope.single"></span></label>
-                      <label class="cr-card"><input type="radio" name="calc-scope" value="flow" checked /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Full conversion flow</b></span><small>End-to-end flow, for example from landing to sign-up or purchase.</small><span class="cr-card-price" data-price="scope.flow"></span></label>
-                      <label class="cr-card"><input type="radio" name="calc-scope" value="ecommerce" /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>E-commerce flow</b></span><small>From product discovery to purchase, including key pages.</small><span class="cr-card-price" data-price="scope.ecommerce"></span></label>
+                      <label class="cr-card"><input type="radio" name="calc-scope" value="single" /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Single page</b></span><small>One landing page, product page or homepage, one device.</small><span class="cr-card-time">Ready in 48 hours</span><span class="cr-card-price" data-price="scope.single"></span></label>
+                      <label class="cr-card"><input type="radio" name="calc-scope" value="flow" checked /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Full conversion flow</b></span><small>End-to-end flow of up to 6 steps, for example from landing to sign-up, one device.</small><span class="cr-card-time">Ready in 3–5 business days</span><span class="cr-card-price" data-price="scope.flow"></span></label>
+                      <label class="cr-card"><input type="radio" name="calc-scope" value="ecommerce" /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>E-commerce purchase journey</b></span><small>The path from catalog to purchase, including key pages, one device.</small><span class="cr-card-time">Ready in 3–5 business days</span><span class="cr-card-price" data-price="scope.ecommerce"></span></label>
                     </div>
                   </fieldset>
 
                   <fieldset class="cr-step" id="calcSaas">
                     <legend><span class="cr-step-n" aria-hidden="true">2</span><span class="cr-step-q">Is this a SaaS product?</span><span class="cr-step-h">Add a review of the in-product experience.</span></legend>
-                    <label class="cr-row"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>Include the product experience (SaaS)</b><small>I go through the full user journey inside your product, from sign-up to first value.</small></span><span class="cr-row-price" data-price="addons.saasProduct"></span></label>
+                    <label class="cr-row"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>SaaS in-product experience</b><small>An add-on to the audit: I go through the product after sign-up, up to the first value.</small></span><span class="cr-row-price" data-price="addons.saasProduct"></span></label>
                   </fieldset>
 
                   <fieldset class="cr-step">
                     <legend><span class="cr-step-n" aria-hidden="true">3</span><span class="cr-step-q">Other materials to include</span><span class="cr-step-h">Add marketing touchpoints to your audit.</span></legend>
-                    <label class="cr-row"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>Marketing emails</b><small>Key emails to prospects or users who are not paying yet: cold outreach, activation, upgrade.</small></span><span class="cr-row-price" data-price="addons.marketingEmails"></span></label>
+                    <label class="cr-row"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>Marketing emails</b><small>Up to 5 emails to prospects or users who are not paying yet: cold outreach, activation, upgrade.</small></span><span class="cr-row-price" data-price="addons.marketingEmails"></span></label>
                   </fieldset>
 
                   <fieldset class="cr-step">
@@ -1345,7 +1346,7 @@
                 <aside class="cr-calc-sum" aria-label="Estimate summary">
                   <p class="cr-sum-label">Estimated price</p>
                   <strong class="cr-sum-total" id="calcTotal" aria-live="polite"></strong>
-                  <p class="cr-sum-ph">Placeholder amount, not a confirmed price</p>
+                  <p class="cr-sum-ph">Estimate for planning</p>
                   <p class="cr-sum-label cr-sum-label--2">Your selection</p>
                   <ul class="cr-sum-lines" id="calcLines"></ul>
                   <div class="cr-sum-inc">
@@ -1373,7 +1374,7 @@
                 <li><span>2</span><div><b>I check the fit</b><small>I tell you which scope fits and what I’d need.</small></div></li>
                 <li><span>3</span><div><b>Confirm and begin</b><small>After you agree on scope, price, and start date, I send <span class="cr-ph">PAYMENT STEP — CONFIRM</span> and the access details.</small></div></li>
               </ol>
-              <p class="cr-req-meta"><strong>Start:</strong> <span class="cr-ph">START DATE / TURNAROUND — CONFIRM</span> · <strong>Confidentiality:</strong> <span class="cr-ph">POLICY — CONFIRM</span></p>
+              <p class="cr-req-meta"><strong>Turnaround:</strong> 48 hours for a single page, 3 to 5 business days for a flow. <strong>Start:</strong> <span class="cr-ph">START DATE — CONFIRM</span> · <strong>Confidentiality:</strong> <span class="cr-ph">POLICY — CONFIRM</span></p>
             </div>
             <form class="cr-form" action="https://formspree.io/f/xkjovqro" method="POST">
               <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
@@ -1625,20 +1626,21 @@
     var root = document.getElementById('crCalc'); if (!root) return;
 
     /* ============================================================
-       PRICES: temporary placeholder values. Change them here only.
+       PRICES AND TERMS: change them here only.
        The page reads everything below, nothing is hard-coded in the layout.
        ============================================================ */
     var PRICING = {
       currency: '$',
-      scope: { single: 1000, flow: 2500, ecommerce: 3000 },      /* base price per audit scope */
-      addons: { saasProduct: 1200, marketingEmails: 600 },        /* optional add-ons */
+      scope: { single: 490, flow: 990, ecommerce: 1290 },          /* base price per audit scope (includes one device) */
+      addons: { saasProduct: 490, marketingEmails: 290 },          /* optional add-ons */
+      terms: { single: '48 hours', flow: '3\u20135 business days', ecommerce: '3\u20135 business days' }, /* turnaround per scope */
       /* Mobile + desktop: two separate reviews and reports.
          mode 'percent' = the extra review costs this % of the scope's base price.
          mode 'fixed'   = the extra review adds this fixed amount. */
-      bothDevices: { mode: 'percent', value: 80 }
+      bothDevices: { mode: 'percent', value: 40 }
     };
     var LABELS = {
-      scope: { single: 'Single page audit', flow: 'Full conversion flow audit', ecommerce: 'E-commerce flow audit' },
+      scope: { single: 'Single-page diagnosis', flow: 'Full conversion flow', ecommerce: 'E-commerce purchase journey' },
       device: { mobile: 'Mobile only', desktop: 'Desktop only', both: 'Mobile + Desktop' }
     };
 
@@ -1653,9 +1655,10 @@
         total: total,
         lines: [
           { label: LABELS.scope[st.scope], right: money(base), priced: true },
-          { label: 'Product experience (SaaS)', sub: saas ? '' : 'Not included', right: saas ? '+' + money(PRICING.addons.saasProduct) : '\u2014', priced: saas, none: !saas },
+          { label: 'SaaS in-product experience', sub: saas ? '' : 'Not included', right: saas ? '+' + money(PRICING.addons.saasProduct) : '\u2014', priced: saas, none: !saas },
           { label: 'Marketing emails', sub: st.emails ? '' : 'Not included', right: st.emails ? '+' + money(PRICING.addons.marketingEmails) : '\u2014', priced: st.emails, none: !st.emails },
-          { label: 'Platform', sub: LABELS.device[st.device], right: extra ? '+' + money(extra) : '\u2014', priced: !!extra }
+          { label: 'Platform', sub: LABELS.device[st.device], right: extra ? '+' + money(extra) : '\u2014', priced: !!extra },
+          { label: 'Turnaround', right: PRICING.terms[st.scope], priced: true, term: true }
         ]
       };
     }
@@ -1694,7 +1697,7 @@
       var radio = document.querySelector('.cr-chips input[value="' + map[st.scope] + '"]'); if (radio) radio.checked = true;
       var msg = document.getElementById('rq-msg');
       if (msg && (!msg.value || msg.getAttribute('data-auto') === '1')) {
-        msg.value = 'Estimate I explored: ' + r.lines.filter(function (l) { return !l.none; }).map(function (l) { return l.sub ? l.sub : l.label; }).join(', ') + ' (' + money(r.total) + ', placeholder).'; msg.setAttribute('data-auto', '1');
+        msg.value = 'Estimate I explored: ' + r.lines.filter(function (l) { return !l.none; }).map(function (l) { return l.sub ? l.sub : l.label; }).join(', ') + ' (' + money(r.total) + ').'; msg.setAttribute('data-auto', '1');
       }
     });
   })();
