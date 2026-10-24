@@ -370,10 +370,10 @@
     @media (max-width: 860px) { .hx-suit-row { flex-direction: column; align-items: center; text-align: center; gap: 18px; padding-top: 0; } .hx-suit-scroll { width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .hx-track { animation: none; } .hx-set[aria-hidden="true"] { display: none; } .hx-suit-scroll { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } }
     .hx-visual { min-width: 0; }
-    .hx-stage { position: relative; container-type: inline-size; aspect-ratio: 760 / 900; --gold: #a8803a; --gold-soft: rgba(168,128,58,.12); }
+    .hx-stage { position: relative; container-type: inline-size; aspect-ratio: 760 / 950; --gold: #a8803a; --gold-soft: rgba(168,128,58,.12); }
     html[data-theme="dark"] .hx-stage { --gold: #d9b36c; --gold-soft: rgba(217,179,108,.16); }
     .hx-stage > * { position: absolute; }
-    .hx-browser { left: 0; top: 2%; width: 66%; height: 70%; background: #fff; border-radius: 1.5cqw; box-shadow: 0 2cqw 5cqw rgba(23,23,23,.13), 0 0 0 1px rgba(23,23,23,.07); overflow: hidden; color: #171717; font-family: 'Inter', system-ui, sans-serif; }
+    .hx-browser { left: 0; top: 2%; width: 66%; height: 66%; background: #fff; border-radius: 1.5cqw; box-shadow: 0 2cqw 5cqw rgba(23,23,23,.13), 0 0 0 1px rgba(23,23,23,.07); overflow: hidden; color: #171717; font-family: 'Inter', system-ui, sans-serif; }
     .hx-bar { height: 3.6cqw; display: flex; align-items: center; gap: .7cqw; padding: 0 1.4cqw; background: #f5f5f6; border-bottom: 1px solid #ececee; }
     .hx-bar i { width: .9cqw; height: .9cqw; border-radius: 50%; background: #d9d9dc; }
     .hx-bar span { margin-left: 3cqw; font-size: .95cqw; color: #666a71; background: #fff; border-radius: .6cqw; padding: .35cqw 1.8cqw; }
@@ -432,13 +432,32 @@
     .hx-body p { font-size: max(1.22cqw, 12px); line-height: 1.45; color: #34383e; margin: max(1.1cqw, 8px) 0 0; }
     .hx-body em { display: block; font-style: normal; font-size: max(.95cqw, 11px); letter-spacing: .08em; text-transform: uppercase; color: #7a5a1c; font-weight: 600; margin-bottom: .25cqw; }
     /* analytics */
-    .hx-an { left: 2%; top: 72%; width: 52%; background: #fff; border-radius: 1.3cqw; padding: 1.5cqw 1.6cqw 1.4cqw; box-shadow: 0 1.4cqw 3.4cqw rgba(23,23,23,.16), 0 0 0 1px rgba(23,23,23,.06); z-index: 9; color: #171717; font-family: 'Inter', system-ui, sans-serif; }
-    .hx-an p { font-size: max(1.2cqw, 11px); font-weight: 600; margin-bottom: max(3.4cqw, 26px); display: flex; align-items: center; gap: .8cqw; white-space: nowrap; }
-    .hx-an p em { font-style: normal; font-weight: 500; font-size: max(.85cqw, 11px); letter-spacing: .06em; text-transform: uppercase; color: #5b5f66; border: 1px solid #dcdde0; border-radius: 9999px; padding: .15cqw .7cqw; }
-    .hx-an svg { width: 100%; height: max(7cqw, 52px); display: block; overflow: visible; }
-    .hx-an .area { fill: var(--gold-soft); } .hx-an .ln { fill: none; stroke: #171717; stroke-width: 1.6; stroke-dasharray: 1; vector-effect: non-scaling-stroke; } .hx-an circle { fill: var(--gold); stroke: #fff; stroke-width: 2; }
-    .hx-an-x { display: flex; justify-content: space-between; font-size: max(.9cqw, 11px); color: #5b5f66; margin-top: .7cqw; }
-    .hx-drop { position: absolute; left: 30%; top: max(3.6cqw, 28px); background: #171717; color: #fff; font-size: max(.95cqw, 11px); line-height: 1.3; padding: .6cqw 1cqw; border-radius: .6cqw; white-space: nowrap; }
+    .hx-an { left: 2%; top: 64%; width: 52%; background: #fff; border-radius: 1.6cqw; padding: max(1.5cqw, 12px) max(1.7cqw, 14px) max(1.4cqw, 11px); box-shadow: 0 1.6cqw 4cqw rgba(23,23,23,.16), 0 0 0 1px rgba(23,23,23,.06); z-index: 9; color: #171717; font-family: 'Inter', system-ui, sans-serif; }
+    .hx-an-pill { position: absolute; left: max(1.4cqw, 10px); top: max(-1.9cqw, -13px); background: rgba(255,255,255,.92); border-radius: 9999px; padding: .5cqw 1.3cqw; font-size: max(.95cqw, 11px); color: #5b5f66; box-shadow: 0 .5cqw 1.6cqw rgba(23,23,23,.1), 0 0 0 1px rgba(23,23,23,.06); white-space: nowrap; }
+    .hx-an-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: max(1cqw, 8px); }
+    .hx-an-head b { font-size: max(1.45cqw, 12.5px); font-weight: 700; letter-spacing: -.01em; }
+    .hx-an-more { display: inline-flex; gap: .3cqw; align-items: center; justify-content: center; width: max(2.4cqw, 20px); height: max(2.4cqw, 20px); border-radius: 50%; background: #f2f2f4; }
+    .hx-an-more i { width: .3cqw; height: .3cqw; min-width: 3px; min-height: 3px; border-radius: 50%; background: #5b5f66; }
+    .hx-an-tabs { display: grid; grid-template-columns: repeat(3, 1fr); background: #f4f4f6; border-radius: 9999px; padding: .35cqw; margin-bottom: max(1.1cqw, 9px); }
+    .hx-an-tabs span { text-align: center; font-size: max(1cqw, 11px); font-weight: 600; padding: max(.55cqw, 4px) 0; border-radius: 9999px; color: #3a3e45; }
+    .hx-an-tabs span.on { background: #fff; box-shadow: 0 .2cqw .8cqw rgba(23,23,23,.12); }
+    .hx-an-stat { display: flex; align-items: center; gap: max(.9cqw, 8px); margin-bottom: max(1.2cqw, 10px); }
+    .hx-an-ico { display: inline-flex; gap: .25cqw; align-items: flex-end; height: max(2.6cqw, 20px); }
+    .hx-an-ico i { width: max(.7cqw, 5px); border-radius: 2px; background: #c9722a; } .hx-an-ico i:nth-child(1) { height: 55%; } .hx-an-ico i:nth-child(2) { height: 80%; } .hx-an-ico i:nth-child(3) { height: 100%; }
+    .hx-an-stat strong { display: block; font-size: max(2.5cqw, 18px); line-height: 1; font-weight: 700; letter-spacing: -.02em; }
+    .hx-an-stat small { display: block; font-size: max(.95cqw, 11px); color: #5b5f66; margin-top: .3cqw; }
+    .hx-an-badge { margin-left: auto; display: inline-flex; align-items: center; gap: .5cqw; font-size: max(.95cqw, 11px); font-weight: 500; padding: .5cqw 1.1cqw; border-radius: 9999px; background: #fff; box-shadow: 0 .3cqw 1.2cqw rgba(23,23,23,.12), 0 0 0 1px rgba(23,23,23,.05); white-space: nowrap; }
+    .hx-an-badge svg { width: max(1cqw, 10px); height: max(1cqw, 10px); }
+    .hx-an-chart { position: relative; height: max(8.5cqw, 66px); margin: 0 max(.7cqw, 6px); }
+    .hx-an-chart svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .hx-an .gl { fill: none; stroke: #ececef; stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .hx-an .area { fill: url(#hxFade); fill: rgba(201,114,42,.09); }
+    .hx-an .ln { fill: none; stroke: #171717; stroke-width: 1.7; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; vector-effect: non-scaling-stroke; }
+    .hx-an .dot { position: absolute; width: max(1.2cqw, 9px); height: max(1.2cqw, 9px); margin: calc(max(1.2cqw, 9px) / -2) 0 0 calc(max(1.2cqw, 9px) / -2); border-radius: 50%; background: #fff; box-shadow: 0 0 0 max(.3cqw, 2px) #171717; }
+    .hx-an .dot.hot { background: #a8803a; box-shadow: 0 0 0 max(.35cqw, 3px) #fff, 0 0 0 max(.6cqw, 4.5px) #a8803a; }
+    .hx-an-x { position: relative; height: max(1.6cqw, 15px); margin: max(.7cqw, 6px) max(.7cqw, 6px) 0; font-size: max(.9cqw, 11px); color: #5b5f66; }
+    .hx-an-x span { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; } .hx-an-x span:first-child { transform: none; } .hx-an-x span:last-child { transform: translateX(-100%); }
+    .hx-drop { position: absolute; left: 66%; top: 62%; transform: translate(-50%, calc(-100% - max(1.1cqw, 9px))); background: #171717; color: #fff; font-size: max(.95cqw, 11px); line-height: 1.3; padding: .55cqw 1cqw; border-radius: .6cqw; white-space: nowrap; }
     /* sequence states (set by script; .all = full state) */
     .hx-stage.on1 .hx-hl.h1, .hx-stage.on2 .hx-hl.h2, .hx-stage.on3 .hx-hl.h3, .hx-stage.all .hx-hl { opacity: 1; }
     .hx-stage.on1 .m1 b, .hx-stage.on2 .m2 b, .hx-stage.on3 .m3 b, .hx-stage.all .hx-mark b { background: var(--gold); color: #fff; }
@@ -452,11 +471,12 @@
     .hx-stage.js-seq .hx-browser, .hx-stage.js-seq .hx-an { opacity: 0; transform: translateY(1.4cqw); }
     .hx-stage.js-seq.ready .hx-browser { opacity: 1; transform: none; transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
     .hx-stage.js-seq.ready .hx-an { opacity: 1; transform: none; transition: opacity .7s ease .5s, transform .7s ease .5s; }
-    .hx-an .ln { stroke-dashoffset: 0; }
     .hx-stage.js-seq .hx-an .ln { stroke-dashoffset: 1; }
     .hx-stage.js-seq.ready .hx-an .ln { stroke-dashoffset: 0; transition: stroke-dashoffset 1.3s ease .9s; }
-    .hx-stage.js-seq .hx-an .hx-drop, .hx-stage.js-seq .hx-an circle { opacity: 0; }
-    .hx-stage.js-seq.ready .hx-an .hx-drop, .hx-stage.js-seq.ready .hx-an circle { opacity: 1; transition: opacity .5s ease 2s; }
+    .hx-stage.js-seq .hx-an .hx-drop, .hx-stage.js-seq .hx-an .dot, .hx-stage.js-seq .hx-an .area { opacity: 0; }
+    .hx-stage.js-seq.ready .hx-an .dot { opacity: 1; transition: opacity .4s ease calc(.9s + var(--k, 0) * .35s); }
+    .hx-stage.js-seq.ready .hx-an .area { opacity: 1; transition: opacity .8s ease 1.6s; }
+    .hx-stage.js-seq.ready .hx-an .hx-drop { opacity: 1; transition: opacity .5s ease 2.4s; }
     @media (max-width: 1180px) { .hx { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-top: 12px; } body:not(.is-protected) main .hx > .hx-text > h1 { font-size: 44px !important; } .hx-visual { max-width: 760px; margin: 0 auto; width: 100%; }
       .hx-text { align-items: center; text-align: center; } .hx-lede { margin-left: auto; margin-right: auto; } .hx-actions { justify-content: center; } .hx-trust { justify-content: center; } .hx-chips { justify-content: center; } }
     @media (max-width: 760px) {
@@ -732,10 +752,20 @@
                 </div>
 
                 <div class="hx-an" aria-hidden="true">
-                  <p>Conversion overview <em>Illustrative</em></p>
-                  <svg viewBox="0 0 240 84" preserveAspectRatio="none"><path class="area" d="M4 12 L64 16 L124 52 L184 60 L236 66 L236 84 L4 84Z"/><path class="ln" pathLength="1" d="M4 12 L64 16 L124 52 L184 60 L236 66"/><circle cx="124" cy="52" r="4"/></svg>
-                  <div class="hx-an-x"><span>Visit</span><span>Hero</span><span>Sign-up</span><span>Account</span></div>
-                  <span class="hx-drop">Visitors leave before sign-up</span>
+                  <span class="hx-an-pill">Illustrative example</span>
+                  <div class="hx-an-head"><b>Conversion journey</b><span class="hx-an-more"><i></i><i></i><i></i></span></div>
+                  <div class="hx-an-tabs"><span class="on">Overview</span><span>Journey</span><span>Sign-up</span></div>
+                  <div class="hx-an-stat">
+                    <span class="hx-an-ico"><i></i><i></i><i></i></span>
+                    <div><strong>Sign-up</strong><small>Largest drop-off</small></div>
+                    <span class="hx-an-badge"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 3.5l3.2 3.2 2-2L10.5 8.5M10.5 5.5v3h-3"/></svg>Diagnosing</span>
+                  </div>
+                  <div class="hx-an-chart">
+                    <svg viewBox="0 0 100 100" preserveAspectRatio="none"><path class="gl" d="M0 25H100M0 55H100M0 85H100"/><path class="area" d="M0 14 C14 14 22 16 34 20 S54 58 66 62 S88 78 100 82 L100 100 L0 100Z"/><path class="ln" pathLength="1" d="M0 14 C14 14 22 16 34 20 S54 58 66 62 S88 78 100 82"/></svg>
+                    <i class="dot" style="--k:0;left:0%;top:14%"></i><i class="dot" style="--k:1;left:34%;top:20%"></i><i class="dot hot" style="--k:2;left:66%;top:62%"></i><i class="dot" style="--k:3;left:100%;top:82%"></i>
+                    <span class="hx-drop">Visitors leave before sign-up</span>
+                  </div>
+                  <div class="hx-an-x"><span style="left:0%">Visit</span><span style="left:34%">Hero</span><span style="left:66%">Sign-up</span><span style="left:100%">Account</span></div>
                 </div>
               </div>
             </div>
