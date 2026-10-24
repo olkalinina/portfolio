@@ -847,9 +847,9 @@
     .cr-sample-text { display: flex; flex-direction: column; gap: 12px; }
     .cr-sample-text .pd-sub { margin-top: 0 !important; }
     .cr-book { display: flex; flex-direction: column; align-items: center; gap: 22px; min-width: 0; }
-    .cr-book-stage { position: relative; width: 100%; height: 520px; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; perspective: 1600px; outline: none; }
+    .cr-book-stage { position: relative; width: 100%; height: 580px; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; perspective: 1600px; outline: none; }
     .cr-book-stage:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 16px; }
-    .cr-pg { position: absolute; top: 0; left: 50%; width: 368px; max-width: none; height: auto; border-radius: 12px; border: 1.5px solid var(--light-gray); background: #fff; box-shadow: 0 18px 50px rgba(23,23,23,.14); transition: transform .6s cubic-bezier(.22,.7,.2,1), opacity .5s ease; pointer-events: none; will-change: transform; }
+    .cr-pg { position: absolute; top: 18px; left: 50%; width: 368px; max-width: none; height: auto; border-radius: 12px; border: 1.5px solid var(--light-gray); background: #fff; box-shadow: 0 18px 50px rgba(23,23,23,.14); transition: transform .6s cubic-bezier(.22,.7,.2,1), opacity .5s ease; pointer-events: none; will-change: transform; }
     .cr-pg.is-near { pointer-events: auto; cursor: pointer; }
     .cr-pg.is-cur { cursor: default; }
     .cr-book-controls { display: flex; align-items: center; gap: 18px; }
@@ -857,9 +857,23 @@
     .cr-book .carousel-btn { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--light-gray); background: var(--white, #fff); color: var(--dark); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color .2s; padding: 0; }
     .cr-book .carousel-btn:hover, .cr-book .carousel-btn.active { border-color: var(--dark); }
     .cr-book .carousel-btn svg { width: 20px; height: 20px; }
-    @media (max-width: 960px) { .pd.cr .cr-sample { grid-template-columns: 1fr; gap: 28px; } .cr-book-stage { height: 420px; } .cr-pg { width: 296px; } .pd.cr .cr-sample { padding: 32px 24px; margin-top: 88px; } }
-    @media (max-width: 520px) { .cr-book-stage { height: 350px; } .cr-pg { width: 240px; } }
+    @media (max-width: 960px) { .pd.cr .cr-sample { grid-template-columns: 1fr; gap: 28px; } .cr-book-stage { height: 480px; } .cr-pg { width: 296px; } .pd.cr .cr-sample { padding: 32px 24px; margin-top: 88px; } }
+    @media (max-width: 520px) { .cr-book-stage { height: 400px; } .cr-pg { width: 240px; } }
     @media (prefers-reduced-motion: reduce) { .cr-pg { transition: none; } }
+    /* smoother shadows: several soft layers instead of one hard one */
+    :root { --sh-soft: 0 1px 2px rgba(23,23,23,.04), 0 4px 10px rgba(23,23,23,.04), 0 12px 28px rgba(23,23,23,.05), 0 32px 64px rgba(23,23,23,.06); --sh-deep: 0 1px 2px rgba(0,0,0,.2), 0 6px 14px rgba(0,0,0,.16), 0 18px 40px rgba(0,0,0,.18), 0 40px 80px rgba(0,0,0,.2); }
+    .cr-pg { box-shadow: var(--sh-soft); }
+    .pd.cr .cr-t-right { box-shadow: inset 0 0 0 1.5px var(--dark), var(--sh-soft); }
+    .pd.cr .cr-transform .cr-t-right { box-shadow: inset 0 0 0 1.5px #d9b36c, var(--sh-deep); }
+    .cr-sheets i { box-shadow: inset 0 1px 0 rgba(255,255,255,.1), var(--sh-deep); }
+    .cv-out { box-shadow: var(--sh-deep); }
+    .cr-sticky { box-shadow: 0 1px 2px rgba(23,23,23,.1), 0 6px 14px rgba(23,23,23,.1), 0 16px 32px rgba(23,23,23,.12); }
+    .cr-cs3 .cs-card:hover { box-shadow: inset 0 0 0 1px var(--light-gray), var(--sh-soft); }
+    @media (min-width: 761px) {
+      .hx-browser { box-shadow: 0 0 0 1px rgba(23,23,23,.07), var(--sh-soft); }
+      .hx-card { box-shadow: inset 0 0 0 1px rgba(255,255,255,.75), 0 1px 2px rgba(23,23,23,.04), 0 6px 14px rgba(23,23,23,.05), 0 18px 36px rgba(23,23,23,.07); }
+      .hx-an { box-shadow: inset 0 0 0 1px var(--light-gray), var(--sh-soft); }
+    }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
