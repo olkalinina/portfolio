@@ -905,50 +905,50 @@
     .cr-calc-head .pd-sub { margin: 0 !important; max-width: 760px; font-size: 16px !important; line-height: 1.5 !important; }
     .cr-calc { display: grid; grid-template-columns: minmax(0, 1fr) 360px; border: 1.5px solid var(--light-gray); border-radius: var(--r-xl, 32px); background: var(--white, #fff); overflow: hidden; }
     .cr-calc-form { min-width: 0; }
-    .cr-blk { border: 0; margin: 0; min-width: 0; padding: 22px 32px 24px; position: relative; }
+    .cr-blk { margin: 0; min-width: 0; padding: 30px 34px 32px; position: relative; }
     .cr-blk + .cr-blk::before { content: ""; position: absolute; left: 0; right: 0; top: 0; border-top: 1.5px solid var(--light-gray); }
-    .cr-blk legend { padding: 0; margin-bottom: 12px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; line-height: 1.2; color: var(--dark); }
+    body:not(.is-protected) main .cr-calc .cr-blk-h { margin: 0 0 18px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 400; line-height: 1.2; letter-spacing: 0; color: var(--dark); }
     .cr-opt-mark { width: 20px; height: 20px; border: 1.5px solid var(--gray); border-radius: 50%; display: block; position: relative; flex: none; transition: border-color .2s ease, background .2s ease; }
     .cr-opt-mark--sq { border-radius: 5px; }
     .cr-tier input, .cr-line input { position: absolute; opacity: 0; width: 1px; height: 1px; }
     .cr-tier:has(input:checked) .cr-opt-mark, .cr-line:has(input[type=radio]:checked) .cr-opt-mark { border-color: var(--dark); }
     .cr-tier:has(input:checked) .cr-opt-mark::after, .cr-line:has(input[type=radio]:checked) .cr-opt-mark::after { content: ""; position: absolute; inset: 3.5px; border-radius: 50%; background: var(--dark); }
     .cr-line:has(input[type=checkbox]:checked) .cr-opt-mark { border-color: var(--dark); background: var(--dark); }
-    .cr-line:has(input[type=checkbox]:checked) .cr-opt-mark::after { content: ""; position: absolute; left: 5.5px; top: 1.5px; width: 5px; height: 9px; border-right: 2px solid var(--white, #fff); border-bottom: 2px solid var(--white, #fff); transform: rotate(40deg); }
+    .cr-line:has(input[type=checkbox]:checked) .cr-opt-mark::after { content: ""; position: absolute; inset: 0; background: var(--white, #fff); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.4l3 3 6-6.4' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.4l3 3 6-6.4' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat; }
     .cr-tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .cr-tier { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 12px; row-gap: 6px; align-items: center; padding: 16px 18px; border: 1.5px solid var(--light-gray); border-radius: var(--r-md, 16px); cursor: pointer; transition: border-color .2s ease; }
+    .cr-tier { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 12px; row-gap: 8px; align-items: center; padding: 18px 20px; border: 1.5px solid var(--light-gray); border-radius: var(--r-md, 16px); cursor: pointer; transition: border-color .2s ease; }
     .cr-tier:hover { border-color: var(--gray); }
     .cr-tier:has(input:checked) { border-color: var(--dark); box-shadow: inset 0 0 0 1px var(--dark); }
     .cr-tier b { font-size: 16px; font-weight: 500; color: var(--dark); line-height: 1.25; }
     .cr-tier-price { grid-column: 2; font-family: 'Playfair Display', Georgia, serif; font-size: 26px; line-height: 1.1; color: var(--dark); font-variant-numeric: tabular-nums; }
-    .cr-detail { margin-top: 14px; }
+    .cr-detail { margin-top: 20px; }
     .cr-tier-price--s { font-family: inherit; font-size: 14.5px; color: var(--gray); }
-    .cr-detail-note { margin: 10px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--gray); }
+    .cr-detail-note { margin: 14px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--gray); }
     .cr-detail[hidden] { display: none; }
-    .cr-detail p { margin: 0 0 8px; font-size: 15px; color: var(--gray); }
+    .cr-detail p { margin: 0 0 10px; font-size: 15px; color: var(--gray); }
     .cr-detail dl { margin: 0; }
-    .cr-detail dl > div { display: flex; justify-content: space-between; gap: 16px; padding: 7px 0; border-top: 1px solid var(--light-gray); font-size: 15px; }
+    .cr-detail dl > div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-top: 1px solid var(--light-gray); font-size: 15px; }
     .cr-detail dt { color: var(--dark); } .cr-detail dd { margin: 0; color: var(--gray); }
     .cr-lines { display: flex; flex-direction: column; }
-    .cr-line { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; column-gap: 14px; align-items: start; padding: 10px 0; border-top: 1px solid var(--light-gray); cursor: pointer; }
+    .cr-line { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; column-gap: 14px; align-items: start; padding: 16px 0; border-top: 1px solid var(--light-gray); cursor: pointer; }
     .cr-line:first-child { border-top: 0; padding-top: 0; }
     .cr-line:last-child { padding-bottom: 0; }
-    .cr-line .cr-opt-mark { margin-top: 1px; }
+    .cr-line .cr-opt-mark { margin-top: 0; }
     .cr-line-body b { display: block; font-size: 16px; font-weight: 500; color: var(--dark); line-height: 1.3; }
-    .cr-line-body small { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.45; color: var(--gray); }
+    .cr-line-body small { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.45; color: var(--gray); }
     .cr-line-price { font-size: 15.5px; color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
     .cr-line:has(input:focus-visible), .cr-tier:has(input:focus-visible) { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 8px; }
     #calcSaas.is-off .cr-line--saas { opacity: .5; cursor: not-allowed; }
-    .cr-calc-sum { padding: 26px 30px 30px; border-left: 1.5px solid var(--light-gray); display: flex; flex-direction: column; background: var(--bg-soft); }
-    .cr-calc-sum h3 { font-size: 22px; font-weight: 400; margin: 0 0 14px; }
-    .cr-sum-lines { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .cr-calc-sum { padding: 30px 32px 32px; border-left: 1.5px solid var(--light-gray); display: flex; flex-direction: column; background: var(--bg-soft); }
+    .cr-calc-sum h3 { font-size: 22px; font-weight: 400; margin: 0 0 18px; }
+    .cr-sum-lines { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
     .cr-sum-lines li { display: flex; justify-content: space-between; gap: 14px; font-size: 15px; line-height: 1.35; color: var(--gray); }
     .cr-sum-lines li span:last-child { color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
     .cr-sum-lines li em { display: block; font-style: normal; font-size: 13px; color: var(--gray); }
-    .cr-sum-totalrow { margin-top: 16px; padding-top: 16px; border-top: 1.5px solid var(--light-gray); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .cr-sum-totalrow { margin-top: 22px; padding-top: 22px; border-top: 1.5px solid var(--light-gray); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
     .cr-sum-totalrow span { font-size: 15px; color: var(--dark); }
     .cr-sum-totalrow strong { font-family: 'Playfair Display', Georgia, serif; font-size: 40px; font-weight: 500; line-height: 1; color: var(--dark); font-variant-numeric: tabular-nums; }
-    .cr-sum-note { margin: 14px 0 20px; font-size: 13px; line-height: 1.5; color: var(--gray); }
+    .cr-sum-note { margin: 16px 0 0; font-size: 13px; line-height: 1.5; color: var(--gray); }
     .cr-calc-sum .btn-dark { display: inline-flex; width: 100%; justify-content: center; align-items: center; gap: 10px; margin-top: auto; }
     @media (max-width: 960px) { .cr-calc { grid-template-columns: minmax(0, 1fr); } .cr-calc-sum { border-left: 0; border-top: 1.5px solid var(--light-gray); } }
     @media (max-width: 640px) { .cr-tiers { grid-template-columns: 1fr; } .cr-blk { padding: 22px 18px 24px; } .cr-calc-sum { padding: 22px 18px 24px; } .cr-calc-head h2 { font-size: 30px; } }
@@ -1296,8 +1296,7 @@
               <div class="cr-calc" id="crCalc">
                 <div class="cr-calc-form">
 
-                  <fieldset class="cr-blk">
-                    <legend>Audit scope</legend>
+                  <div class="cr-blk" role="group" aria-labelledby="crBlk1"><h3 class="cr-blk-h" id="crBlk1">Audit scope</h3>
                     <div class="cr-tiers">
                       <label class="cr-tier"><input type="radio" name="calc-scope" value="single" /><span class="cr-opt-mark" aria-hidden="true"></span><b>Single page</b><span class="cr-tier-price" data-price="scope.single"></span></label>
                       <label class="cr-tier"><input type="radio" name="calc-scope" value="flow" checked /><span class="cr-opt-mark" aria-hidden="true"></span><b>Full conversion flow</b><span class="cr-tier-price" data-price="scope.flow"></span></label>
@@ -1315,25 +1314,23 @@
                       <p>The path from catalog to purchase, including the key pages.</p>
                       <dl><div><dt>Delivery time</dt><dd>3–5 business days</dd></div><div><dt>Coverage</dt><dd>Catalog to purchase</dd></div><div><dt>Devices</dt><dd>One included</dd></div></dl>
                     </div>
-                  </fieldset>
+                  </div>
 
-                  <fieldset class="cr-blk">
-                    <legend>Platforms</legend>
+                  <div class="cr-blk" role="group" aria-labelledby="crBlk2"><h3 class="cr-blk-h" id="crBlk2">Platforms</h3>
                     <div class="cr-tiers">
                       <label class="cr-tier"><input type="radio" name="calc-device" value="mobile" /><span class="cr-opt-mark" aria-hidden="true"></span><b>Mobile only</b><span class="cr-tier-price cr-tier-price--s">Included</span></label>
                       <label class="cr-tier"><input type="radio" name="calc-device" value="desktop" checked /><span class="cr-opt-mark" aria-hidden="true"></span><b>Desktop only</b><span class="cr-tier-price cr-tier-price--s">Included</span></label>
                       <label class="cr-tier"><input type="radio" name="calc-device" value="both" /><span class="cr-opt-mark" aria-hidden="true"></span><b>Mobile + Desktop</b><span class="cr-tier-price cr-tier-price--s" data-device-price="both"></span></label>
                     </div>
                     <p class="cr-detail-note">Mobile + Desktop means two separate reviews and two reports, not a responsiveness check.</p>
-                  </fieldset>
+                  </div>
 
-                  <fieldset class="cr-blk" id="calcSaas">
-                    <legend>Add-ons</legend>
+                  <div class="cr-blk" id="calcSaas" role="group" aria-labelledby="crBlk3"><h3 class="cr-blk-h" id="crBlk3">Add-ons</h3>
                     <div class="cr-lines">
                       <label class="cr-line cr-line--saas"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-line-body"><b>SaaS in-product experience</b><small>The product after sign-up, up to the first value. Full conversion flow only.</small></span><span class="cr-line-price cr-row-price" data-price="addons.saasProduct"></span></label>
                       <label class="cr-line"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-line-body"><b>Marketing emails</b><small>Up to 5 emails to prospects or users who are not paying yet.</small></span><span class="cr-line-price" data-price="addons.marketingEmails"></span></label>
                     </div>
-                  </fieldset>
+                  </div>
                 </div>
 
                 <aside class="cr-calc-sum" aria-label="Estimate summary">
@@ -1341,7 +1338,6 @@
                   <ul class="cr-sum-lines" id="calcLines"></ul>
                   <div class="cr-sum-totalrow"><span>Estimated total</span><strong id="calcTotal" aria-live="polite"></strong></div>
                   <p class="cr-sum-note">An estimate for planning, not a binding quote. Final scope and cost are confirmed with you before any payment.</p>
-                  <a class="btn-dark" href="#request" id="calcCta">Get a tailored quote <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                 </aside>
               </div>
             </div>
@@ -1669,15 +1665,6 @@
     root.addEventListener('change', render);
     render();
 
-    /* the CTA carries the choice into the request form, nothing is sent */
-    document.getElementById('calcCta').addEventListener('click', function () {
-      var st = state(), r = calc(st), map = { single: 'Single landing page', flow: st.saas ? 'SaaS platform and activation' : 'Full conversion journey', ecommerce: 'Not sure yet' };
-      var radio = document.querySelector('.cr-chips input[value="' + map[st.scope] + '"]'); if (radio) radio.checked = true;
-      var msg = document.getElementById('rq-msg');
-      if (msg && (!msg.value || msg.getAttribute('data-auto') === '1')) {
-        msg.value = 'Estimate I explored: ' + r.lines.filter(function (l) { return l.label !== 'Delivery time'; }).map(function (l) { return l.label; }).join(', ') + ' (' + money(r.total) + ').'; msg.setAttribute('data-auto', '1');
-      }
-    });
   })();
   </script>
   <script src="/js/theme.js" defer></script>
