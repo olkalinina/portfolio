@@ -899,79 +899,76 @@
     .cr-who2-tags { position: absolute; right: 0; top: -4px; list-style: none; margin: 0; padding: 0; font-family: 'Reenie Beanie', 'Segoe Script', cursive; font-size: 25px; line-height: 1.1; color: var(--gray); transform: rotate(-6deg); transform-origin: right top; text-align: left; }
     @media (max-width: 860px) { .cr-who2 { grid-template-columns: 1fr; padding: 32px 24px; } .cr-who2-art { height: 340px; } body:not(.is-protected) main .pd.cr .cr-who2-text h3 { font-size: 32px; } }
     /* ---- price calculator (prototype) ---- */
-    .cr-calc { background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 24px 28px 28px; box-shadow: inset 0 0 0 1px var(--light-gray); }
-    .cr-calc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 14px; }
+    .cr-calc { background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 20px 26px 24px; box-shadow: inset 0 0 0 1px var(--light-gray); }
+    @media (min-width: 1200px) { .cr-calc { width: min(1340px, calc(100vw - 48px)); margin-left: calc(50% - min(670px, 50vw - 24px)); } }
+    .cr-calc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 12px; }
     .cr-calc-eyebrow { margin: 0; font-family: 'Lora', Georgia, serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
-    .cr-calc-head h2 { font-size: 34px; line-height: 1.12; margin: 0; max-width: none; }
-    .cr-calc-head .pd-sub { margin: 0 !important; max-width: 640px; font-size: 15.5px !important; line-height: 1.45 !important; }
-    .cr-calc-proto { margin: 0 0 0 10px; padding: 2px 10px; letter-spacing: 0; text-transform: none; font-family: inherit; border: 1.5px dashed #b45309; border-radius: 9999px; background: rgba(245,158,11,.12); color: #92400e; font-size: 13.5px; line-height: 1.4; }
-    html[data-theme="dark"] .cr-calc-proto { color: #fcd34d; border-color: #d97706; background: rgba(245,158,11,.14); }
-    .cr-calc-body { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start; }
-    .cr-calc-form { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-    .cr-step { border: 0; margin: 0; min-width: 0; padding: 12px 16px 14px; border-radius: var(--r-lg, 24px); background: color-mix(in srgb, var(--white, #fff) 55%, transparent); display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 14px; }
+    .cr-calc-head h2 { font-size: 36px; line-height: 1.1; margin: 0; max-width: none; }
+    .cr-calc-head .pd-sub { margin: 0 !important; max-width: 980px; font-size: 16px !important; line-height: 1.45 !important; }
+    .cr-calc-body { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 14px; align-items: start; }
+    .cr-calc-form { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .cr-step { border: 0; margin: 0; min-width: 0; padding: 10px 16px 11px; border-radius: var(--r-lg, 24px); background: color-mix(in srgb, var(--white, #fff) 55%, transparent); display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 14px; }
     .cr-step legend { display: contents; }
-    .cr-step-n { grid-column: 1; grid-row: 1 / span 2; width: 34px; height: 34px; border-radius: 50%; background: var(--light-gray); color: var(--dark); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; }
-    .cr-step-q { grid-column: 2; font-family: 'Playfair Display', Georgia, serif; font-size: 19px; line-height: 1.2; color: var(--dark); }
-    .cr-step-h { grid-column: 2; font-size: 13.5px; line-height: 1.4; color: var(--gray); margin-top: 2px; }
-    .cr-step > :not(legend):not(.cr-step-n) { grid-column: 2; margin-top: 10px; }
+    .cr-step-n { grid-column: 1; grid-row: 1 / span 2; width: 36px; height: 36px; border-radius: 50%; background: var(--light-gray); color: var(--dark); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; }
+    .cr-step-q { grid-column: 2; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; line-height: 1.2; color: var(--dark); }
+    .cr-step-h { grid-column: 2; font-size: 13.5px; line-height: 1.35; color: var(--gray); }
+    .cr-step > :not(legend) { grid-column: 2; margin-top: 6px; }
     .cr-opt-mark { width: 18px; height: 18px; border: 1.5px solid var(--gray); border-radius: 50%; display: block; position: relative; flex: none; transition: border-color .2s ease, background .2s ease; }
-    .cr-opt-mark--sq { border-radius: 5px; }
-    input:checked + .cr-opt-mark, .cr-card-top input:checked ~ .cr-opt-mark { border-color: var(--dark); }
+    .cr-opt-mark--sq { border-radius: 4px; }
     .cr-card input, .cr-row input, .cr-dev input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .cr-card:has(input:checked) .cr-opt-mark, .cr-dev:has(input:checked) .cr-opt-mark { border-color: var(--dark); }
     .cr-card:has(input:checked) .cr-opt-mark::after, .cr-dev:has(input:checked) .cr-opt-mark::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--dark); }
     .cr-row:has(input:checked) .cr-opt-mark { border-color: var(--dark); background: var(--dark); }
     .cr-row:has(input:checked) .cr-opt-mark::after { content: ""; position: absolute; left: 4.5px; top: 1px; width: 4px; height: 8px; border-right: 2px solid var(--white, #fff); border-bottom: 2px solid var(--white, #fff); transform: rotate(40deg); }
-    .cr-scope3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .cr-card, .cr-dev, .cr-row { position: relative; cursor: pointer; border: 1.5px solid var(--light-gray); border-radius: var(--r-md, 16px); background: color-mix(in srgb, var(--white, #fff) 40%, transparent); transition: border-color .2s ease, background .2s ease; }
     .cr-card:hover, .cr-dev:hover, .cr-row:hover { border-color: var(--gray); }
     .cr-card:has(input:checked), .cr-dev:has(input:checked) { border-color: #d99aa0; background: rgba(232,192,200,.28); }
     html[data-theme="dark"] .cr-card:has(input:checked), html[data-theme="dark"] .cr-dev:has(input:checked) { border-color: rgba(230,130,140,.55); background: rgba(190,110,125,.2); }
     .cr-row:has(input:checked) { border-color: var(--dark); }
     .cr-card:has(input:focus-visible), .cr-dev:has(input:focus-visible), .cr-row:has(input:focus-visible) { outline: 2px solid var(--dark); outline-offset: 3px; }
-    .cr-card { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px 12px; }
-    .cr-card-top { display: flex; align-items: center; gap: 10px; }
+    .cr-scope3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .cr-card { display: flex; flex-direction: column; gap: 4px; padding: 10px 14px 10px; }
+    .cr-card-top { display: flex; align-items: center; gap: 12px; }
     .cr-card b { font-size: 15.5px; font-weight: 500; color: var(--dark); line-height: 1.25; }
-    .cr-card small { font-size: 13px; line-height: 1.4; color: var(--gray); min-height: 0; padding-left: 28px; }
-    .cr-card-price { margin: 2px 0 0 28px; padding-top: 8px; border-top: 1px solid var(--light-gray); font-size: 17px; font-family: 'Playfair Display', Georgia, serif; color: var(--dark); font-variant-numeric: tabular-nums; }
-    .cr-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-    .cr-row { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; column-gap: 10px; row-gap: 2px; align-items: center; padding: 10px 14px; }
-    .cr-row-body { display: contents; }
-    .cr-row-body b { grid-column: 2; grid-row: 1; }
-    .cr-row-body small { grid-column: 2 / span 2; grid-row: 2; }
-    .cr-row .cr-opt-mark { grid-column: 1; grid-row: 1; }
-    .cr-row-body b { display: block; font-size: 15px; font-weight: 500; color: var(--dark); line-height: 1.3; }
+    .cr-card small { font-size: 13px; line-height: 1.4; color: var(--gray); padding-left: 30px; }
+    .cr-card-price { margin: 2px 0 0 30px; padding-top: 6px; position: relative; font-size: 17px; font-family: 'Playfair Display', Georgia, serif; color: var(--dark); font-variant-numeric: tabular-nums; }
+    .cr-card-price::before { content: ""; position: absolute; left: 0; top: 0; width: 28px; border-top: 1px solid var(--light-gray); }
+    .cr-row { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; column-gap: 14px; align-items: center; padding: 8px 0 8px 16px; }
+    .cr-row-body b { display: block; font-size: 15.5px; font-weight: 500; color: var(--dark); line-height: 1.3; }
     .cr-row-body small { display: block; font-size: 13px; line-height: 1.4; color: var(--gray); margin-top: 1px; }
-    .cr-row-price { grid-column: 3; grid-row: 1; font-size: 15px; color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .cr-row-price { align-self: stretch; display: flex; align-items: center; padding: 0 22px; border-left: 1px solid var(--light-gray); font-size: 17px; color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
     .cr-step.is-off .cr-row { opacity: .55; cursor: not-allowed; }
     .cr-step.is-off .cr-row:hover { border-color: var(--light-gray); }
-    .cr-seg3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-    .cr-dev { display: grid; grid-template-columns: 18px auto minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 10px 12px; }
+    .cr-seg3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .cr-dev { display: grid; grid-template-columns: 18px auto minmax(0, 1fr) auto; column-gap: 8px; align-items: center; padding: 8px 0 8px 12px; }
+    .cr-dev:not(:has(.cr-dev-price)) { grid-template-columns: 18px auto minmax(0, 1fr); padding-right: 12px; }
     .cr-dev-ico { color: var(--dark); display: flex; gap: 2px; }
     .cr-dev-ico svg { width: 24px; height: 24px; }
-    .cr-dev-body b { display: block; font-size: 14.5px; font-weight: 500; color: var(--dark); line-height: 1.25; }
+    .cr-dev-ico--2 svg { width: 20px; height: 20px; }
+    .cr-dev-body b { display: block; font-size: 15px; font-weight: 500; color: var(--dark); line-height: 1.25; }
     .cr-dev-body small { display: block; font-size: 12px; line-height: 1.3; color: var(--gray); margin-top: 1px; }
-    .cr-dev-price { align-self: stretch; display: flex; align-items: center; padding-left: 8px; border-left: 1px solid var(--light-gray); font-size: 14px; color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
-    .cr-dev:not(:has(.cr-dev-price)) { grid-template-columns: 18px auto minmax(0, 1fr); }
-    .cr-calc-sum { background: color-mix(in srgb, var(--white, #fff) 55%, transparent); border-radius: var(--r-lg, 24px); padding: 16px 20px 18px; }
+    .cr-dev-price { align-self: stretch; display: flex; align-items: center; padding: 0 12px; margin-left: 2px; border-left: 1px solid var(--light-gray); font-size: 15px; color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .cr-calc-sum { background: color-mix(in srgb, var(--white, #fff) 55%, transparent); border-radius: var(--r-lg, 24px); padding: 18px 22px 20px; }
     .cr-sum-label { margin: 0; font-family: 'Lora', Georgia, serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
-    .cr-sum-label--2 { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--light-gray); }
-    .cr-sum-total { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 50px; font-weight: 400; line-height: 1.05; color: var(--dark); margin-top: 6px; font-variant-numeric: tabular-nums; }
-    .cr-sum-ph { margin: 2px 0 0; font-size: 12.5px; color: #92400e; }
+    .cr-sum-label--2 { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--light-gray); }
+    .cr-sum-total { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 58px; font-weight: 400; line-height: 1.05; color: var(--dark); margin-top: 8px; padding-bottom: 6px; font-variant-numeric: tabular-nums; }
+    .cr-sum-ph { margin: 0; font-size: 12.5px; color: #92400e; }
     html[data-theme="dark"] .cr-sum-ph { color: #fcd34d; }
     .cr-sum-lines { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-    .cr-sum-lines li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; line-height: 1.35; color: var(--dark); }
-    .cr-sum-lines li span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
-    .cr-sum-lines li.is-none, .cr-sum-lines li.is-none span { color: var(--gray); }
+    .cr-sum-lines li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; line-height: 1.3; color: var(--dark); }
+    .cr-sum-lines li span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--gray); }
+    .cr-sum-lines li:first-child span:last-child { color: var(--dark); }
+    .cr-sum-lines li.has-price span:last-child { color: var(--dark); }
     .cr-sum-lines li em { display: block; font-style: normal; font-size: 12.5px; color: var(--gray); }
-    .cr-sum-inc { margin-top: 10px; padding: 10px 14px; border-radius: var(--r-md, 16px); background: rgba(232,192,200,.22); }
+    .cr-sum-inc { margin-top: 12px; padding: 12px 14px; border-radius: var(--r-md, 16px); background: rgba(232,192,200,.22); }
     html[data-theme="dark"] .cr-sum-inc { background: rgba(190,110,125,.16); }
-    .cr-sum-inc p { margin: 0 0 4px; font-size: 13.5px; color: var(--dark); }
-    .cr-sum-inc ul { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.5; color: var(--dark); }
+    .cr-sum-inc p { margin: 0 0 4px; font-size: 14px; color: var(--dark); display: flex; align-items: center; gap: 8px; }
+    .cr-sum-info { display: inline-flex; color: var(--dark); }
+    .cr-sum-inc ul { margin: 0; padding-left: 28px; font-size: 12.5px; line-height: 1.5; color: var(--dark); }
     .cr-sum-note { margin: 10px 0 12px; font-size: 12.5px; line-height: 1.45; color: var(--gray); }
     .cr-calc-sum .btn-dark { display: inline-flex; width: 100%; justify-content: center; align-items: center; gap: 10px; }
-    @media (min-width: 1200px) { .cr-calc { width: min(1340px, calc(100vw - 48px)); margin-left: calc(50% - min(670px, 50vw - 24px)); } }
-    @media (max-width: 1100px) { .cr-calc-body { grid-template-columns: minmax(0, 1fr); } .cr-scope3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    @media (max-width: 760px) { .cr-pair { grid-template-columns: 1fr; } .cr-calc { padding: 20px 14px; } .cr-calc-head h2 { font-size: 30px; } .cr-scope3, .cr-seg3 { grid-template-columns: 1fr; } .cr-card small { min-height: 0; } .cr-step { grid-template-columns: 30px minmax(0, 1fr); padding: 12px 12px 14px; column-gap: 10px; } .cr-step-n { width: 30px; height: 30px; } .cr-sum-total { font-size: 44px; } }
+    @media (max-width: 1100px) { .cr-calc-body { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 760px) { .cr-calc { padding: 20px 14px; } .cr-calc-head h2 { font-size: 30px; } .cr-scope3, .cr-seg3 { grid-template-columns: 1fr; } .cr-step { grid-template-columns: 30px minmax(0, 1fr); padding: 12px 12px 14px; column-gap: 10px; } .cr-step-n { width: 30px; height: 30px; } .cr-sum-total { font-size: 44px; } .cr-row { padding-right: 0; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -1286,9 +1283,9 @@
           <section id="pricing" aria-labelledby="cr-pricing">
             <div class="cr-calc" id="crCalc">
               <header class="cr-calc-head">
-                <p class="cr-calc-eyebrow">Estimate your audit <span class="cr-calc-proto"><strong>Prototype</strong> placeholder prices</span></p>
+                <p class="cr-calc-eyebrow">Estimate your audit</p>
                 <h2 id="cr-pricing">Estimate the cost of your CRO audit</h2>
-                <p class="pd-sub">Choose the scope and see how it shapes the price.</p>
+                <p class="pd-sub">Get a price estimate based on the scope of your project. Final details are confirmed after we discuss your needs.</p>
               </header>
               <div class="cr-calc-body">
                 <div class="cr-calc-form">
@@ -1297,29 +1294,27 @@
                     <legend><span class="cr-step-n" aria-hidden="true">1</span><span class="cr-step-q">What would you like to audit?</span><span class="cr-step-h">Choose the main focus of your audit.</span></legend>
                     <div class="cr-scope3">
                       <label class="cr-card"><input type="radio" name="calc-scope" value="single" /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Single page</b></span><small>One landing page, product page or homepage.</small><span class="cr-card-price" data-price="scope.single"></span></label>
-                      <label class="cr-card"><input type="radio" name="calc-scope" value="flow" checked /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Full conversion flow</b></span><small>End-to-end flow, for example from landing to sign-up.</small><span class="cr-card-price" data-price="scope.flow"></span></label>
+                      <label class="cr-card"><input type="radio" name="calc-scope" value="flow" checked /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Full conversion flow</b></span><small>End-to-end flow, for example from landing to sign-up or purchase.</small><span class="cr-card-price" data-price="scope.flow"></span></label>
                       <label class="cr-card"><input type="radio" name="calc-scope" value="ecommerce" /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>E-commerce flow</b></span><small>From product discovery to purchase, including key pages.</small><span class="cr-card-price" data-price="scope.ecommerce"></span></label>
                     </div>
                   </fieldset>
 
-                  <div class="cr-pair">
                   <fieldset class="cr-step" id="calcSaas">
-                    <legend><span class="cr-step-n" aria-hidden="true">2</span><span class="cr-step-q">Is this a SaaS product?</span><span class="cr-step-h">In-product review, from sign-up to first value.</span></legend>
-                    <label class="cr-row"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>Include the product experience (SaaS)</b><small>I go through the user journey inside your product, after sign-up.</small></span><span class="cr-row-price" data-price="addons.saasProduct"></span></label>
+                    <legend><span class="cr-step-n" aria-hidden="true">2</span><span class="cr-step-q">Is this a SaaS product?</span><span class="cr-step-h">Add a review of the in-product experience.</span></legend>
+                    <label class="cr-row"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>Include the product experience (SaaS)</b><small>I go through the full user journey inside your product, from sign-up to first value.</small></span><span class="cr-row-price" data-price="addons.saasProduct"></span></label>
                   </fieldset>
 
                   <fieldset class="cr-step">
-                    <legend><span class="cr-step-n" aria-hidden="true">3</span><span class="cr-step-q">Other materials to include</span><span class="cr-step-h">Add marketing touchpoints.</span></legend>
-                    <label class="cr-row"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>Marketing emails</b><small>Cold outreach, activation and upgrade emails to users who are not paying yet.</small></span><span class="cr-row-price" data-price="addons.marketingEmails"></span></label>
+                    <legend><span class="cr-step-n" aria-hidden="true">3</span><span class="cr-step-q">Other materials to include</span><span class="cr-step-h">Add marketing touchpoints to your audit.</span></legend>
+                    <label class="cr-row"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>Marketing emails</b><small>Key emails to prospects or users who are not paying yet: cold outreach, activation, upgrade.</small></span><span class="cr-row-price" data-price="addons.marketingEmails"></span></label>
                   </fieldset>
-                  </div>
 
                   <fieldset class="cr-step">
-                    <legend><span class="cr-step-n" aria-hidden="true">4</span><span class="cr-step-q">Which platforms should be reviewed?</span><span class="cr-step-h">Mobile + desktop means two separate reviews and reports, not a responsiveness check.</span></legend>
+                    <legend><span class="cr-step-n" aria-hidden="true">4</span><span class="cr-step-q">Which platforms should be reviewed?</span><span class="cr-step-h">Mobile + desktop means two separate reviews, not a responsiveness check.</span></legend>
                     <div class="cr-seg3">
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="mobile" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.5h2"/></svg></span><span class="cr-dev-body"><b>Mobile only</b><small>Focus on the mobile experience.</small></span></label>
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="desktop" checked /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.8"/><path d="M2.5 19.5h19"/></svg></span><span class="cr-dev-body"><b>Desktop only</b><small>Focus on the desktop experience.</small></span></label>
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="both" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="7" height="13" rx="1.6"/><path d="M5.4 16.8h1.2"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="11.5" y="8" width="10" height="7.5" rx="1.4"/><path d="M10.5 18h12"/></svg></span><span class="cr-dev-body"><b>Mobile + desktop</b><small>Two separate reports.</small></span><span class="cr-dev-price" data-device-price="both"></span></label>
+                      <label class="cr-dev"><input type="radio" name="calc-device" value="mobile" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7.5" y="3" width="9" height="18" rx="2"/><path d="M11 18h2"/></svg></span><span class="cr-dev-body"><b>Mobile only</b><small>Focus on the mobile experience.</small></span></label>
+                      <label class="cr-dev"><input type="radio" name="calc-device" value="desktop" checked /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="5.5" width="15" height="10.5" rx="1.6"/><path d="M2.5 19h19"/></svg></span><span class="cr-dev-body"><b>Desktop only</b><small>Focus on the desktop experience.</small></span></label>
+                      <label class="cr-dev"><input type="radio" name="calc-device" value="both" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico cr-dev-ico--2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7.5" y="3" width="9" height="18" rx="2"/><path d="M11 18h2"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="5.5" width="15" height="10.5" rx="1.6"/><path d="M2.5 19h19"/></svg></span><span class="cr-dev-body"><b>Mobile + desktop</b><small>Two separate reports.</small></span><span class="cr-dev-price" data-device-price="both"></span></label>
                     </div>
                   </fieldset>
                 </div>
@@ -1327,15 +1322,15 @@
                 <aside class="cr-calc-sum" aria-label="Estimate summary">
                   <p class="cr-sum-label">Estimated price</p>
                   <strong class="cr-sum-total" id="calcTotal" aria-live="polite"></strong>
-                  <p class="cr-sum-ph">Placeholder amount</p>
+                  <p class="cr-sum-ph">Placeholder amount, not a confirmed price</p>
                   <p class="cr-sum-label cr-sum-label--2">Your selection</p>
                   <ul class="cr-sum-lines" id="calcLines"></ul>
                   <div class="cr-sum-inc">
-                    <p><b>What the report includes</b></p>
+                    <p><span class="cr-sum-info"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span><b>What the report includes</b></p>
                     <ul><li>Findings, each with its evidence</li><li>Priorities, in order</li><li>A roadmap your team can act on</li><li>Notes on confidence and limitations</li></ul>
                   </div>
-                  <p class="cr-sum-note">An estimate for planning, not a binding quote. Analytics data you share (GA4, Hotjar, Clarity) supports the findings and does not change the price.</p>
-                  <a class="btn-dark" href="#request" id="calcCta">Discuss your project <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                  <p class="cr-sum-note">This is an estimated price for planning, not a binding quote. Final scope and cost are confirmed with you before any payment. Analytics access does not change the price.</p>
+                  <a class="btn-dark" href="#request" id="calcCta">Get in touch to discuss your project <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                 </aside>
               </div>
             </div>
@@ -1657,10 +1652,10 @@
       return {
         total: total,
         lines: [
-          { label: LABELS.scope[st.scope], right: money(base) },
-          { label: 'Product experience (SaaS)', right: saas ? '+' + money(PRICING.addons.saasProduct) : 'Not included', none: !saas },
-          { label: 'Marketing emails', right: st.emails ? '+' + money(PRICING.addons.marketingEmails) : 'Not included', none: !st.emails },
-          { label: 'Platform', sub: LABELS.device[st.device], right: extra ? '+' + money(extra) : 'Included' }
+          { label: LABELS.scope[st.scope], right: money(base), priced: true },
+          { label: 'Product experience (SaaS)', sub: saas ? '' : 'Not included', right: saas ? '+' + money(PRICING.addons.saasProduct) : '\u2014', priced: saas, none: !saas },
+          { label: 'Marketing emails', sub: st.emails ? '' : 'Not included', right: st.emails ? '+' + money(PRICING.addons.marketingEmails) : '\u2014', priced: st.emails, none: !st.emails },
+          { label: 'Platform', sub: LABELS.device[st.device], right: extra ? '+' + money(extra) : '\u2014', priced: !!extra }
         ]
       };
     }
@@ -1686,7 +1681,7 @@
       root.querySelector('[data-device-price="both"]').textContent = '+ ' + money(bothExtra(st.scope));
       var r = calc(state());
       linesEl.innerHTML = r.lines.map(function (l) {
-        return '<li' + (l.none ? ' class="is-none"' : '') + '><span>' + l.label + (l.sub ? '<em>' + l.sub + '</em>' : '') + '</span><span>' + l.right + '</span></li>';
+        return '<li' + (l.priced ? ' class="has-price"' : '') + '><span>' + l.label + (l.sub ? '<em>' + l.sub + '</em>' : '') + '</span><span>' + l.right + '</span></li>';
       }).join('');
       totalEl.textContent = money(r.total);
     }
