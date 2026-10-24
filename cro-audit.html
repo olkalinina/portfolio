@@ -921,7 +921,10 @@
     .cr-tier:has(input:checked) { border-color: var(--dark); box-shadow: inset 0 0 0 1px var(--dark); }
     .cr-tier b { font-size: 16px; font-weight: 500; color: var(--dark); line-height: 1.25; }
     .cr-tier-price { grid-column: 2; font-family: 'Playfair Display', Georgia, serif; font-size: 26px; line-height: 1.1; color: var(--dark); font-variant-numeric: tabular-nums; }
-    .cr-detail { margin-top: 20px; }
+    .cr-detail { margin-top: 20px; padding: 18px 22px 10px; border-radius: var(--r-md, 16px); background: var(--bg-soft); animation: crDetailIn .4s ease both; }
+    .cr-detail-h { margin: 0 0 4px !important; font-size: 17px !important; font-weight: 600; color: var(--dark) !important; }
+    @keyframes crDetailIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .cr-detail { animation: none; } }
     .cr-tier-price--s { font-family: inherit; font-size: 14.5px; color: var(--gray); }
     .cr-detail-note { margin: 14px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--gray); }
     .cr-detail[hidden] { display: none; }
@@ -1303,14 +1306,17 @@
                       <label class="cr-tier"><input type="radio" name="calc-scope" value="ecommerce" /><span class="cr-opt-mark" aria-hidden="true"></span><b>E-commerce journey</b><span class="cr-tier-price" data-price="scope.ecommerce"></span></label>
                     </div>
                     <div class="cr-detail" data-detail="single" hidden>
+                      <p class="cr-detail-h">Single page</p>
                       <p>One landing page, product page or homepage.</p>
                       <dl><div><dt>Delivery time</dt><dd>48 hours</dd></div><div><dt>Coverage</dt><dd>One page</dd></div><div><dt>Devices</dt><dd>One included</dd></div></dl>
                     </div>
                     <div class="cr-detail" data-detail="flow">
+                      <p class="cr-detail-h">Full conversion flow</p>
                       <p>End-to-end flow on your website, for example from landing to sign-up.</p>
                       <dl><div><dt>Delivery time</dt><dd>3–5 business days</dd></div><div><dt>Coverage</dt><dd>Up to 6 steps</dd></div><div><dt>Devices</dt><dd>One included</dd></div></dl>
                     </div>
                     <div class="cr-detail" data-detail="ecommerce" hidden>
+                      <p class="cr-detail-h">E-commerce journey</p>
                       <p>The path from catalog to purchase, including the key pages.</p>
                       <dl><div><dt>Delivery time</dt><dd>3–5 business days</dd></div><div><dt>Coverage</dt><dd>Catalog to purchase</dd></div><div><dt>Devices</dt><dd>One included</dd></div></dl>
                     </div>
@@ -1329,6 +1335,7 @@
                     <div class="cr-lines">
                       <label class="cr-line cr-line--saas"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-line-body"><b>SaaS in-product experience</b><small>The product after sign-up, up to the first value. Full conversion flow only.</small></span><span class="cr-line-price cr-row-price" data-price="addons.saasProduct"></span></label>
                       <label class="cr-line"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-line-body"><b>Marketing emails</b><small>Up to 5 emails to prospects or users who are not paying yet.</small></span><span class="cr-line-price" data-price="addons.marketingEmails"></span></label>
+                      <label class="cr-line"><input type="checkbox" name="calc-rush" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-line-body"><b>Rush delivery</b><small data-rush-text></small></span><span class="cr-line-price" data-rush-price></span></label>
                     </div>
                   </div>
                 </div>
@@ -1619,7 +1626,9 @@
       /* Mobile + desktop: two separate reviews and reports.
          mode 'percent' = the extra review costs this % of the scope's base price.
          mode 'fixed'   = the extra review adds this fixed amount. */
-      bothDevices: { mode: 'percent', value: 40 }
+      bothDevices: { mode: 'percent', value: 40 },
+      /* Rush delivery: the extra is this % of the scope's base price. Only the percentage is shown on the option. */
+      rush: { percent: 40, label: { single: 'Tomorrow', flow: '1\u20132 days', ecommerce: '1\u20132 days' } }
     };
     var LABELS = {
       scope: { single: 'Single-page diagnosis', flow: 'Full conversion flow', ecommerce: 'E-commerce purchase journey' },
@@ -1631,11 +1640,14 @@
       var base = PRICING.scope[st.scope], total = base, saas = st.saas && st.scope === 'flow';
       var extra = st.device === 'both' ? bothExtra(st.scope) : 0;
       total += extra;
+      var rushExtra = st.rush ? Math.round(base * PRICING.rush.percent / 100) : 0;
+      total += rushExtra;
       var lines = [{ label: LABELS.scope[st.scope], right: money(base) }];
       lines.push({ label: LABELS.device[st.device], right: extra ? '+' + money(extra) : 'Included' });
       if (saas) { total += PRICING.addons.saasProduct; lines.push({ label: 'SaaS in-product experience', right: '+' + money(PRICING.addons.saasProduct) }); }
       if (st.emails) { total += PRICING.addons.marketingEmails; lines.push({ label: 'Marketing emails', right: '+' + money(PRICING.addons.marketingEmails) }); }
-      lines.push({ label: 'Delivery time', right: PRICING.terms[st.scope] });
+      if (rushExtra) lines.push({ label: 'Rush delivery', right: '+' + money(rushExtra) });
+      lines.push({ label: 'Delivery time', right: st.rush ? PRICING.rush.label[st.scope] : PRICING.terms[st.scope] });
       return { total: total, lines: lines };
     }
     function bothExtra(scope) {
@@ -1645,8 +1657,8 @@
 
     /* ui */
     function val(name) { var c = root.querySelector('input[name="' + name + '"]:checked'); return c ? c.value : null; }
-    var saasBox = root.querySelector('input[name="calc-saas"]'), emailBox = root.querySelector('input[name="calc-emails"]');
-    function state() { return { scope: val('calc-scope'), device: val('calc-device'), saas: saasBox.checked, emails: emailBox.checked }; }
+    var saasBox = root.querySelector('input[name="calc-saas"]'), emailBox = root.querySelector('input[name="calc-emails"]'), rushBox = root.querySelector('input[name="calc-rush"]');
+    function state() { return { scope: val('calc-scope'), device: val('calc-device'), saas: saasBox.checked, emails: emailBox.checked, rush: rushBox.checked }; }
     var linesEl = document.getElementById('calcLines'), totalEl = document.getElementById('calcTotal'), saasBlk = document.getElementById('calcSaas');
     function get(path) { return path.split('.').reduce(function (o, k) { return o[k]; }, PRICING); }
     [].forEach.call(root.querySelectorAll('[data-price]'), function (el) { el.textContent = (el.getAttribute('data-price').indexOf('addons') === 0 ? '+ ' : '') + money(get(el.getAttribute('data-price'))); });
@@ -1657,6 +1669,8 @@
       saasBox.disabled = !flow;
       if (!flow) saasBox.checked = false;
       [].forEach.call(root.querySelectorAll('[data-detail]'), function (d) { d.hidden = d.getAttribute('data-detail') !== st.scope; });
+      root.querySelector('[data-rush-price]').textContent = '+' + PRICING.rush.percent + '%';
+      root.querySelector('[data-rush-text]').textContent = st.scope === 'single' ? 'Delivered tomorrow instead of in 48 hours.' : 'Delivered in 1\u20132 days instead of 3\u20135 business days.';
       root.querySelector('[data-device-price="both"]').textContent = '+ ' + money(bothExtra(st.scope));
       var r = calc(state());
       linesEl.innerHTML = r.lines.map(function (l) { return '<li><span>' + l.label + '</span><span>' + l.right + '</span></li>'; }).join('');
