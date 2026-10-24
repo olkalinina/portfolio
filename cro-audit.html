@@ -899,21 +899,17 @@
     .cr-who2-tags { position: absolute; right: 0; top: -4px; list-style: none; margin: 0; padding: 0; font-family: 'Reenie Beanie', 'Segoe Script', cursive; font-size: 25px; line-height: 1.1; color: var(--gray); transform: rotate(-6deg); transform-origin: right top; text-align: left; }
     @media (max-width: 860px) { .cr-who2 { grid-template-columns: 1fr; padding: 32px 24px; } .cr-who2-art { height: 340px; } body:not(.is-protected) main .pd.cr .cr-who2-text h3 { font-size: 32px; } }
     /* ---- price calculator (prototype) ---- */
-    .cr-calc { --band: #171717; --dark: #f7f5f5; --gray: rgba(247,245,245,.68); --light-gray: rgba(255,255,255,.16); --white: #2c2b2b; --bg-soft: #262525; background: var(--band); color: var(--dark); border-radius: var(--r-xl, 32px); padding: 22px 26px 26px; box-shadow: var(--sh-deep, none); }
-    html[data-theme="dark"] .cr-calc { --band: #2f2e2e; --white: #3b3a3a; --bg-soft: #353434; }
-    html body .cr-calc h2 { color: #f7f5f5; }
-    html body .cr-calc .cr-calc-sum .btn-dark { background: #f7f5f5 !important; color: #171717 !important; background-image: none !important; }
-    html body .cr-calc .cr-calc-sum .btn-dark:hover { background: #ffffff !important; }
-    @media (min-width: 1200px) { .cr-calc { width: min(1340px, calc(100vw - 48px)); margin-left: calc(50% - min(670px, 50vw - 24px)); } }
-    .cr-calc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 12px; }
+    .cr-calc { background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 22px 26px 26px; box-shadow: inset 0 0 0 1px var(--light-gray); }
+    @media (min-width: 1200px) { .cr-calc-wrap { width: min(1340px, calc(100vw - 48px)); margin-left: calc(50% - min(670px, 50vw - 24px)); } }
+    .cr-calc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 20px; }
     .cr-calc-eyebrow { margin: 0; font-family: 'Lora', Georgia, serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
     .cr-calc-head h2 { font-size: 36px; line-height: 1.1; margin: 0; max-width: none; }
     .cr-calc-head .pd-sub { margin: 0 !important; max-width: 980px; font-size: 16px !important; line-height: 1.45 !important; }
     .cr-calc-body { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 14px; align-items: start; }
-    .cr-calc-form { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .cr-calc-form { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
     .cr-step { border: 0; margin: 0; min-width: 0; padding: 10px 16px 11px; border-radius: var(--r-lg, 24px); background: color-mix(in srgb, var(--white, #fff) 55%, var(--bg-soft)); display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 14px; }
     .cr-step legend { display: contents; }
-    .cr-step-n { grid-column: 1; grid-row: 1 / span 2; width: 36px; height: 36px; border-radius: 50%; background: var(--light-gray); color: var(--dark); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; }
+    .cr-step-n { grid-column: 1; grid-row: 1 / span 2; width: 36px; height: 36px; border-radius: 50%; background: var(--light-gray); color: var(--dark); display: flex; align-items: center; justify-content: center; align-self: start; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 16px; line-height: 1; padding-bottom: 1px; }
     .cr-step-q { grid-column: 2; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; line-height: 1.2; color: var(--dark); }
     .cr-step-h { grid-column: 2; font-size: 13.5px; line-height: 1.35; color: var(--gray); }
     .cr-step > :not(legend) { grid-column: 2; margin-top: 6px; }
@@ -926,7 +922,7 @@
     .cr-row:has(input:checked) .cr-opt-mark::after { content: ""; position: absolute; left: 4.5px; top: 1px; width: 4px; height: 8px; border-right: 2px solid var(--white, #fff); border-bottom: 2px solid var(--white, #fff); transform: rotate(40deg); }
     .cr-card, .cr-dev, .cr-row { position: relative; cursor: pointer; border: 1.5px solid var(--light-gray); border-radius: var(--r-md, 16px); background: color-mix(in srgb, var(--white, #fff) 40%, transparent); transition: border-color .2s ease, background .2s ease; }
     .cr-card:hover, .cr-dev:hover, .cr-row:hover { border-color: var(--gray); }
-    .cr-card:has(input:checked), .cr-dev:has(input:checked) { border-color: var(--dark); background: rgba(255,255,255,.1); }
+    .cr-card:has(input:checked), .cr-dev:has(input:checked) { border-color: var(--dark); background: var(--white, #fff); }
     .cr-row:has(input:checked) { border-color: var(--dark); }
     .cr-card:has(input:focus-visible), .cr-dev:has(input:focus-visible), .cr-row:has(input:focus-visible) { outline: 2px solid var(--dark); outline-offset: 3px; }
     .cr-scope3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
@@ -955,7 +951,8 @@
     .cr-sum-label { margin: 0; font-family: 'Lora', Georgia, serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
     .cr-sum-label--2 { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--light-gray); }
     .cr-sum-total { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 58px; font-weight: 400; line-height: 1.05; color: var(--dark); margin-top: 8px; padding-bottom: 6px; font-variant-numeric: tabular-nums; }
-    .cr-sum-ph { margin: 0; font-size: 12.5px; color: #fcd34d; }
+    .cr-sum-ph { margin: 0; font-size: 12.5px; color: #92400e; }
+    html[data-theme="dark"] .cr-sum-ph { color: #fcd34d; }
     html[data-theme="dark"] .cr-sum-ph { color: #fcd34d; }
     .cr-sum-lines { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
     .cr-sum-lines li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; line-height: 1.3; color: var(--dark); }
@@ -963,7 +960,7 @@
     .cr-sum-lines li:first-child span:last-child { color: var(--dark); }
     .cr-sum-lines li.has-price span:last-child { color: var(--dark); }
     .cr-sum-lines li em { display: block; font-style: normal; font-size: 12.5px; color: var(--gray); }
-    .cr-sum-inc { margin-top: 12px; padding: 12px 14px; border-radius: var(--r-md, 16px); background: rgba(255,255,255,.07); }
+    .cr-sum-inc { margin-top: 12px; padding: 12px 14px; border-radius: var(--r-md, 16px); background: color-mix(in srgb, var(--dark) 5%, transparent); }
     .cr-sum-inc p { margin: 0 0 4px; font-size: 14px; color: var(--dark); display: flex; align-items: center; gap: 8px; }
     .cr-sum-info { display: inline-flex; color: var(--dark); }
     .cr-sum-inc ul { margin: 0; padding-left: 28px; font-size: 12.5px; line-height: 1.5; color: var(--dark); }
@@ -1281,14 +1278,38 @@
             </div>
           </section>
 
+          <!-- 13. FAQ -->
+          <section class="pd-split" aria-labelledby="pd-faq" id="faq">
+            <div class="pd-split-head">
+              <h2 id="pd-faq">Questions before you start</h2>
+            </div>
+            <div class="pd-faq">
+              <details><summary>What is a CRO audit?<span class="pl" aria-hidden="true"></span></summary><p>A structured review of a website or digital product to find what keeps visitors from completing a desired action. It covers the journey, messaging, trust, and the behavioral evidence available, and ends in prioritized recommendations.</p></details>
+              <details><summary>What is included, and what is not?<span class="pl" aria-hidden="true"></span></summary><div class="cr-faq-lists"><div><h3>Included</h3><ul><li>Evidence tied to your product</li><li>An explanation of each problem and why it matters</li><li>Priorities and effort signals</li><li>Notes on confidence and limitations</li></ul></div><div><h3>Not included</h3><ul><li>Final copy or design files</li><li>Implementation of the changes</li><li>Results verification after changes</li><li>Ongoing optimization</li><li>Product or pricing strategy</li><li>A guaranteed uplift</li></ul></div></div></details>
+              <details><summary>What does the audit not promise?<span class="pl" aria-hidden="true"></span></summary><p>The audit doesn’t guarantee a conversion lift, calculate a financial return, provide final copy or design files, or implement changes. It evaluates how pricing is presented, not the underlying pricing strategy or business model.</p></details>
+              <details><summary>How is a CRO audit different from a UX audit?<span class="pl" aria-hidden="true"></span></summary><p>A UX audit looks at usability and the overall experience. A CRO audit looks at the barriers to a specific outcome, such as sign-ups, purchases, or demo requests. The two overlap. <a class="pd-link" href="/cro-audit-vs-ux-audit">Read the full comparison</a>.</p></details>
+              <details><summary>Do I need to give you analytics access?<span class="pl" aria-hidden="true"></span></summary><p>No. Analytics such as GA4 can strengthen the diagnosis: they show where people leave and which areas deserve a closer look, so share them if you have them. Without them, I examine the journey and the product experience directly and report what the evidence supports. Findings reflect the evidence available.</p></details>
+              <details><summary>Will you tell me how much my conversion will rise?<span class="pl" aria-hidden="true"></span></summary><p>No. I don’t promise a specific uplift or invent projections. I identify and explain conversion barriers within the agreed scope.</p></details>
+              <details><summary>Will you rewrite my copy or redesign my pages?<span class="pl" aria-hidden="true"></span></summary><p>Not as part of the audit. The report gives direction and priorities. If you want help with the redesign, see my <a class="pd-link" href="/product-design">product design services</a>.</p></details>
+              <details><summary>Will you implement the changes or check the results?<span class="pl" aria-hidden="true"></span></summary><p>No. Implementation and post-change measurement are outside the audit. Your team can use the report to decide what to change and test.</p></details>
+              <details><summary>Do you advise on product strategy, pricing, or market fit?<span class="pl" aria-hidden="true"></span></summary><p>No. I examine how the product presents its offer, including how pricing is presented, not the underlying business model or market fit.</p></details>
+              <details><summary>What kinds of products do you take on?<span class="pl" aria-hidden="true"></span></summary><p>SaaS products, AI-powered products, digital platforms, marketplaces, e-commerce, and other digital services.</p></details>
+              <details><summary>Does it work for a product with low traffic?<span class="pl" aria-hidden="true"></span></summary><p>Yes, for what it examines. A diagnosis can still find messaging, trust, and usability problems, although limited traffic restricts what analytics can confirm.</p></details>
+              <details><summary>What if part of my product is behind a login?<span class="pl" aria-hidden="true"></span></summary><p><span class="cr-ph">PROCESS — CONFIRM: test account or supplied screens.</span> The report states what I couldn’t observe and how that limits the findings.</p></details>
+              <details><summary>Is a call or revision round included?<span class="pl" aria-hidden="true"></span></summary><p><span class="cr-ph">CONFIRM</span></p></details>
+              <details><summary>How is my information kept confidential?<span class="pl" aria-hidden="true"></span></summary><p><span class="cr-ph">CONFIRM</span></p></details>
+              <details><summary>Can I get a refund?<span class="pl" aria-hidden="true"></span></summary><p><span class="cr-ph">CONFIRM</span></p></details>
+            </div>
+          </section>
+
           <!-- PRICE CALCULATOR (prototype) -->
           <section id="pricing" aria-labelledby="cr-pricing">
-            <div class="cr-calc" id="crCalc">
+            <div class="cr-calc-wrap">
               <header class="cr-calc-head">
-                <p class="cr-calc-eyebrow">Estimate your audit</p>
                 <h2 id="cr-pricing">Estimate the cost of your CRO audit</h2>
                 <p class="pd-sub">Get a price estimate based on the scope of your project. Final details are confirmed after we discuss your needs.</p>
               </header>
+            <div class="cr-calc" id="crCalc">
               <div class="cr-calc-body">
                 <div class="cr-calc-form">
 
@@ -1336,29 +1357,6 @@
                 </aside>
               </div>
             </div>
-          </section>
-
-          <!-- 13. FAQ -->
-          <section class="pd-split" aria-labelledby="pd-faq" id="faq">
-            <div class="pd-split-head">
-              <h2 id="pd-faq">Questions before you start</h2>
-            </div>
-            <div class="pd-faq">
-              <details><summary>What is a CRO audit?<span class="pl" aria-hidden="true"></span></summary><p>A structured review of a website or digital product to find what keeps visitors from completing a desired action. It covers the journey, messaging, trust, and the behavioral evidence available, and ends in prioritized recommendations.</p></details>
-              <details><summary>What is included, and what is not?<span class="pl" aria-hidden="true"></span></summary><div class="cr-faq-lists"><div><h3>Included</h3><ul><li>Evidence tied to your product</li><li>An explanation of each problem and why it matters</li><li>Priorities and effort signals</li><li>Notes on confidence and limitations</li></ul></div><div><h3>Not included</h3><ul><li>Final copy or design files</li><li>Implementation of the changes</li><li>Results verification after changes</li><li>Ongoing optimization</li><li>Product or pricing strategy</li><li>A guaranteed uplift</li></ul></div></div></details>
-              <details><summary>What does the audit not promise?<span class="pl" aria-hidden="true"></span></summary><p>The audit doesn’t guarantee a conversion lift, calculate a financial return, provide final copy or design files, or implement changes. It evaluates how pricing is presented, not the underlying pricing strategy or business model.</p></details>
-              <details><summary>How is a CRO audit different from a UX audit?<span class="pl" aria-hidden="true"></span></summary><p>A UX audit looks at usability and the overall experience. A CRO audit looks at the barriers to a specific outcome, such as sign-ups, purchases, or demo requests. The two overlap. <a class="pd-link" href="/cro-audit-vs-ux-audit">Read the full comparison</a>.</p></details>
-              <details><summary>Do I need to give you analytics access?<span class="pl" aria-hidden="true"></span></summary><p>No. Analytics such as GA4 can strengthen the diagnosis: they show where people leave and which areas deserve a closer look, so share them if you have them. Without them, I examine the journey and the product experience directly and report what the evidence supports. Findings reflect the evidence available.</p></details>
-              <details><summary>Will you tell me how much my conversion will rise?<span class="pl" aria-hidden="true"></span></summary><p>No. I don’t promise a specific uplift or invent projections. I identify and explain conversion barriers within the agreed scope.</p></details>
-              <details><summary>Will you rewrite my copy or redesign my pages?<span class="pl" aria-hidden="true"></span></summary><p>Not as part of the audit. The report gives direction and priorities. If you want help with the redesign, see my <a class="pd-link" href="/product-design">product design services</a>.</p></details>
-              <details><summary>Will you implement the changes or check the results?<span class="pl" aria-hidden="true"></span></summary><p>No. Implementation and post-change measurement are outside the audit. Your team can use the report to decide what to change and test.</p></details>
-              <details><summary>Do you advise on product strategy, pricing, or market fit?<span class="pl" aria-hidden="true"></span></summary><p>No. I examine how the product presents its offer, including how pricing is presented, not the underlying business model or market fit.</p></details>
-              <details><summary>What kinds of products do you take on?<span class="pl" aria-hidden="true"></span></summary><p>SaaS products, AI-powered products, digital platforms, marketplaces, e-commerce, and other digital services.</p></details>
-              <details><summary>Does it work for a product with low traffic?<span class="pl" aria-hidden="true"></span></summary><p>Yes, for what it examines. A diagnosis can still find messaging, trust, and usability problems, although limited traffic restricts what analytics can confirm.</p></details>
-              <details><summary>What if part of my product is behind a login?<span class="pl" aria-hidden="true"></span></summary><p><span class="cr-ph">PROCESS — CONFIRM: test account or supplied screens.</span> The report states what I couldn’t observe and how that limits the findings.</p></details>
-              <details><summary>Is a call or revision round included?<span class="pl" aria-hidden="true"></span></summary><p><span class="cr-ph">CONFIRM</span></p></details>
-              <details><summary>How is my information kept confidential?<span class="pl" aria-hidden="true"></span></summary><p><span class="cr-ph">CONFIRM</span></p></details>
-              <details><summary>Can I get a refund?<span class="pl" aria-hidden="true"></span></summary><p><span class="cr-ph">CONFIRM</span></p></details>
             </div>
           </section>
 
