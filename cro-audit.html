@@ -794,6 +794,17 @@
     .pd.cr #difference .cr-table { margin-top: 28px; }
     .pd.cr #difference .cr-transform { margin-top: 128px; }
     @media (max-width: 860px) { .pd.cr #difference .cr-transform { margin-top: 88px; } }
+    /* real finding: checklist note on a red card against the diagnosis on a white card */
+    .cr-t-grid { grid-template-columns: 1fr 1.45fr; gap: 24px; align-items: stretch; }
+    .cr-t-old { display: flex; flex-direction: column; background: #f6e6e7; border: 1.5px solid #e3b4b8; border-radius: var(--r-lg, 24px); padding: var(--card-pad, 32px); }
+    html[data-theme="dark"] .cr-t-old { background: rgba(220,100,100,.13); border-color: rgba(230,130,130,.38); }
+    .cr-t-right { background: var(--white, #fff); border-radius: var(--r-lg, 24px); padding: var(--card-pad, 32px); }
+    .cr-t-col { font-family: 'Lora', Georgia, serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 22px; }
+    .cr-t-old blockquote { margin: 0; }
+    .cr-t-old .cr-t-col { text-decoration: none; font-family: 'Lora', Georgia, serif; font-size: 12.5px; line-height: 1.4; color: var(--gray); }
+    .cr-t-old p:not(.cr-t-col) { font-size: 32px; line-height: 1.2; text-decoration-color: #b4535b; text-decoration-thickness: 2px; }
+    .cr-t-old figcaption { margin-top: 18px; }
+    @media (max-width: 860px) { .cr-t-grid { grid-template-columns: 1fr; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -1000,14 +1011,14 @@
             <div class="cr-transform" data-anim>
               <p class="cr-t-label">A real finding, from a case study</p>
               <div class="cr-t-grid">
-                <figure class="cr-t-old"><blockquote><p>“The value proposition is unclear.”</p></blockquote><figcaption>Checklist-style note</figcaption></figure>
-                <ol class="cr-t-chain">
+                <figure class="cr-t-old"><p class="cr-t-col">Typical checklist audit</p><blockquote><p>“The value proposition is unclear.”</p></blockquote><figcaption>Checklist-style note</figcaption></figure>
+                <div class="cr-t-right"><p class="cr-t-col">My diagnosis</p><ol class="cr-t-chain">
                   <li style="--i:0"><b>Observable issue</b><span>Two neighboring homepage cards say “zero commission” and “1% commission”, and nothing says who each applies to.</span></li>
                   <li style="--i:1"><b>Visitor perception</b><span>The platform can’t clearly explain what it charges.</span></li>
                   <li style="--i:2"><b>Decision barrier</b><span>Trust in the core promise of no agent fees is weakened before anything else is evaluated.</span></li>
                   <li style="--i:3"><b>Conversion consequence</b><span>Direct visitors leave early. The report treats this as a plausible driver, not a proven one.</span></li>
                   <li style="--i:4"><b>Direction</b><span>Name the audience on each card and set the 1% against the typical agent fee.</span></li>
-                </ol>
+                </ol></div>
               </div>
               <a class="pd-link" href="/cs-proffer">Read the full case study</a>
             </div>
