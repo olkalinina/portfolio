@@ -788,6 +788,12 @@
     html body .pd.cr #problem .cr-prob-panel p.cr-prob-root { color: #f7f5f5; }
     html body .pd.cr #problem .cr-prob-panel li { border-top-color: rgba(255,255,255,.14); }
     html body .pd.cr #problem .cr-prob-panel em { color: #d9b36c; }
+    /* Not a checklist: centred head, tighter to the table, and the finding below sits a full section away */
+    #difference > h2, #difference > .pd-sub { text-align: center; margin-left: auto; margin-right: auto; }
+    .pd.cr #difference > .pd-sub { margin-top: 14px; }
+    .pd.cr #difference .cr-table { margin-top: 28px; }
+    .pd.cr #difference .cr-transform { margin-top: 128px; }
+    @media (max-width: 860px) { .pd.cr #difference .cr-transform { margin-top: 88px; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
