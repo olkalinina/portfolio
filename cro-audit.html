@@ -883,7 +883,7 @@
     .cr-principles .pd-card { padding-top: var(--card-pad, 32px); }
     /* who does the work: card with portrait, second picture and handwritten tags */
     @font-face { font-family: "Reenie Beanie"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/reenie-beanie-latin.woff2") format("woff2"); }
-    .cr-who2 { margin-top: 56px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: center; background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 48px 48px 48px 56px; box-shadow: inset 0 0 0 1px var(--light-gray); overflow: hidden; }
+    .cr-who2 { margin-top: 0; display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: center; background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 48px 48px 48px 56px; box-shadow: inset 0 0 0 1px var(--light-gray); overflow: hidden; }
     .cr-who2-text { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
     .cr-who2-eyebrow { font-family: 'Lora', Georgia, serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--dark); margin: 0; }
     body:not(.is-protected) main .pd.cr .cr-who2-text h3 { font-size: 40px; line-height: 1.12; font-weight: 400; margin: 0; }
@@ -1175,6 +1175,23 @@
               <article class="pd-card" style="--i:4"><span class="cr-pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6M14 7h6M4 12h2M10 12h10M4 17h10M18 17h2"/><circle cx="12" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="17" r="2"/></svg></span><h3>Confidence matches the evidence</h3><p>Where evidence is incomplete, the report says so and says what that limits.</p></article>
               <article class="pd-card" style="--i:5"><span class="cr-pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h10M10 12h10M10 18h10"/><path d="M3.5 6l1.5 1.5L7.5 5M3.5 12l1.5 1.5 2.5-2.5M3.5 18l1.5 1.5 2.5-2.5"/></svg></span><h3>Priorities your team can act on</h3><p>An ordered roadmap with effort signals helps a small team focus its capacity.</p></article>
             </div>
+          </section>
+
+          <!-- 6. PROCESS -->
+          <section id="process" aria-labelledby="cr-process">
+            <h2 id="cr-process">A clear process, from first message to report</h2>
+            <p class="pd-sub">You share the context and access for the agreed scope. I examine the experience, synthesize what I find, and deliver a structured report.</p>
+            <ol class="pd-steps cr-steps" data-anim>
+              <li style="--i:0"><span class="n">01</span><h3>Intake</h3><p><strong>You:</strong> share URLs, entry points, the conversion that matters, device contexts, and any concerns. Analytics are welcome but optional.</p><p><strong>Me:</strong> treat your concerns as hypotheses to examine, not conclusions to confirm.</p></li>
+              <li style="--i:1"><span class="n">02</span><h3>Investigation</h3><p><strong>Me:</strong> examine the product as a first-time visitor would meet it, across the surfaces in your scope, and note what I could and couldn’t observe.</p></li>
+              <li style="--i:2"><span class="n">03</span><h3>Diagnosis</h3><p><strong>Me:</strong> combine related observations into a small set of diagnosed problems, organized around the main breakdown, and review them before delivery.</p></li>
+              <li style="--i:3"><span class="n">04</span><h3>Delivery</h3><p><strong>You:</strong> receive a structured report <span class="cr-ph">FORMAT: document, portal, or both — CONFIRM</span>.</p></li>
+            </ol>
+            <p class="pd-note"><strong>Turnaround:</strong> <span class="cr-ph">TIMING — CONFIRM</span></p>
+          </section>
+
+          <!-- ABOUT -->
+          <section id="about-me" aria-label="Who does the work">
             <div class="cr-who2">
               <div class="cr-who2-text">
                 <p class="cr-who2-eyebrow">The person behind the audit</p>
@@ -1190,19 +1207,6 @@
                 <ul class="cr-who2-tags" aria-label="Areas of work"><li>Product design</li><li>CRO</li><li>SaaS platforms</li><li>AI products</li></ul>
               </div>
             </div>
-          </section>
-
-          <!-- 6. PROCESS -->
-          <section id="process" aria-labelledby="cr-process">
-            <h2 id="cr-process">A clear process, from first message to report</h2>
-            <p class="pd-sub">You share the context and access for the agreed scope. I examine the experience, synthesize what I find, and deliver a structured report.</p>
-            <ol class="pd-steps cr-steps" data-anim>
-              <li style="--i:0"><span class="n">01</span><h3>Intake</h3><p><strong>You:</strong> share URLs, entry points, the conversion that matters, device contexts, and any concerns. Analytics are welcome but optional.</p><p><strong>Me:</strong> treat your concerns as hypotheses to examine, not conclusions to confirm.</p></li>
-              <li style="--i:1"><span class="n">02</span><h3>Investigation</h3><p><strong>Me:</strong> examine the product as a first-time visitor would meet it, across the surfaces in your scope, and note what I could and couldn’t observe.</p></li>
-              <li style="--i:2"><span class="n">03</span><h3>Diagnosis</h3><p><strong>Me:</strong> combine related observations into a small set of diagnosed problems, organized around the main breakdown, and review them before delivery.</p></li>
-              <li style="--i:3"><span class="n">04</span><h3>Delivery</h3><p><strong>You:</strong> receive a structured report <span class="cr-ph">FORMAT: document, portal, or both — CONFIRM</span>.</p></li>
-            </ol>
-            <p class="pd-note"><strong>Turnaround:</strong> <span class="cr-ph">TIMING — CONFIRM</span></p>
           </section>
 
           <!-- 9. SCOPES -->
