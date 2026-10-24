@@ -898,77 +898,60 @@
     .cr-who2-sub { right: 2%; bottom: 0; width: 42%; height: 52%; }
     .cr-who2-tags { position: absolute; right: 0; top: -4px; list-style: none; margin: 0; padding: 0; font-family: 'Reenie Beanie', 'Segoe Script', cursive; font-size: 25px; line-height: 1.1; color: var(--gray); transform: rotate(-6deg); transform-origin: right top; text-align: left; }
     @media (max-width: 860px) { .cr-who2 { grid-template-columns: 1fr; padding: 32px 24px; } .cr-who2-art { height: 340px; } body:not(.is-protected) main .pd.cr .cr-who2-text h3 { font-size: 32px; } }
-    /* ---- price calculator (prototype) ---- */
-    .cr-calc { background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 24px 28px 26px; box-shadow: inset 0 0 0 1px var(--light-gray); }
-    @media (min-width: 1200px) { .cr-calc-wrap { width: min(1340px, calc(100vw - 48px)); margin-left: calc(50% - min(670px, 50vw - 24px)); } }
-    .cr-calc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 20px; }
-    .cr-calc-eyebrow { margin: 0; font-family: 'Lora', Georgia, serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
+    /* ---- price calculator (prototype): simple, one card, two parts ---- */
+    @media (min-width: 1200px) { .cr-calc-wrap { width: min(1180px, calc(100vw - 48px)); margin-left: calc(50% - min(590px, 50vw - 24px)); } }
+    .cr-calc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 24px; }
     .cr-calc-head h2 { font-size: 36px; line-height: 1.1; margin: 0; max-width: none; }
-    .cr-calc-head .pd-sub { margin: 0 !important; max-width: 980px; font-size: 16px !important; line-height: 1.45 !important; }
-    .cr-calc-body { display: grid; grid-template-columns: minmax(0, 1fr) 372px; gap: 20px; align-items: start; }
-    .cr-calc-form { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-    .cr-step { border: 0; margin: 0; min-width: 0; padding: 14px 18px 16px; border-radius: var(--r-lg, 24px); background: color-mix(in srgb, var(--white, #fff) 55%, var(--bg-soft)); display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 16px; }
-    .cr-step legend { display: contents; }
-    .cr-step-n { grid-column: 1; grid-row: 1 / span 2; width: 36px; height: 36px; border-radius: 50%; background: var(--light-gray); color: var(--dark); display: flex; align-items: center; justify-content: center; align-self: start; font-family: 'Lora', Georgia, serif; font-weight: 500; font-size: 16px; line-height: 1; padding-bottom: 1px; }
-    .cr-step-q { grid-column: 2; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; line-height: 1.2; color: var(--dark); }
-    .cr-step-h { grid-column: 2; font-size: 13.5px; line-height: 1.4; color: var(--gray); margin-top: 3px; }
-    .cr-step > :not(legend) { grid-column: 2; margin-top: 12px; }
-    .cr-opt-mark { width: 18px; height: 18px; border: 1.5px solid var(--gray); border-radius: 50%; display: block; position: relative; flex: none; transition: border-color .2s ease, background .2s ease; }
-    .cr-opt-mark--sq { border-radius: 4px; }
-    .cr-card input, .cr-row input, .cr-dev input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-    .cr-card:has(input:checked) .cr-opt-mark, .cr-dev:has(input:checked) .cr-opt-mark { border-color: var(--dark); }
-    .cr-card:has(input:checked) .cr-opt-mark::after, .cr-dev:has(input:checked) .cr-opt-mark::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--dark); }
-    .cr-row:has(input:checked) .cr-opt-mark { border-color: var(--dark); background: var(--dark); }
-    .cr-row:has(input:checked) .cr-opt-mark::after { content: ""; position: absolute; left: 4.5px; top: 1px; width: 4px; height: 8px; border-right: 2px solid var(--white, #fff); border-bottom: 2px solid var(--white, #fff); transform: rotate(40deg); }
-    .cr-card, .cr-dev, .cr-row { position: relative; cursor: pointer; border: 1.5px solid var(--light-gray); border-radius: var(--r-md, 16px); background: color-mix(in srgb, var(--white, #fff) 40%, transparent); transition: border-color .2s ease, background .2s ease; }
-    .cr-card:hover, .cr-dev:hover, .cr-row:hover { border-color: var(--gray); }
-    .cr-card:has(input:checked), .cr-dev:has(input:checked) { border-color: var(--dark); background: var(--white, #fff); }
-    .cr-row:has(input:checked) { border-color: var(--dark); }
-    .cr-card:has(input:focus-visible), .cr-dev:has(input:focus-visible), .cr-row:has(input:focus-visible) { outline: 2px solid var(--dark); outline-offset: 3px; }
-    .cr-scope3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .cr-card { display: flex; flex-direction: column; gap: 5px; padding: 14px 16px 12px; }
-    .cr-card-top { display: flex; align-items: center; gap: 12px; }
-    .cr-card b { font-size: 15.5px; font-weight: 500; color: var(--dark); line-height: 1.25; }
-    .cr-card small { font-size: 13px; line-height: 1.5; color: var(--gray); padding-left: 30px; }
-    .cr-card-time { padding-left: 30px; font-size: 12.5px; color: var(--dark); font-weight: 500; margin-top: 2px; }
-    .cr-card-price { margin: 6px 0 0 30px; padding-top: 8px; position: relative; font-size: 17px; font-family: 'Playfair Display', Georgia, serif; color: var(--dark); font-variant-numeric: tabular-nums; }
-    .cr-card-price::before { content: ""; position: absolute; left: 0; top: 0; width: 28px; border-top: 1px solid var(--light-gray); }
-    .cr-row { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; column-gap: 16px; align-items: center; padding: 11px 0 11px 18px; }
-    .cr-row-body b { display: block; font-size: 15.5px; font-weight: 500; color: var(--dark); line-height: 1.3; }
-    .cr-row-body small { display: block; font-size: 13px; line-height: 1.5; color: var(--gray); margin-top: 4px; }
-    .cr-row-price { align-self: stretch; display: flex; align-items: center; padding: 0 22px; border-left: 1px solid var(--light-gray); font-size: 17px; color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
-    .cr-step.is-off .cr-row { opacity: .55; cursor: not-allowed; }
-    .cr-step.is-off .cr-row:hover { border-color: var(--light-gray); }
-    .cr-seg3 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.5fr); gap: 12px; }
-    .cr-dev { display: grid; grid-template-columns: 18px auto minmax(0, 1fr) auto; column-gap: 10px; align-items: center; padding: 9px 0 9px 14px; }
-    .cr-dev:not(:has(.cr-dev-price)) { grid-template-columns: 18px auto minmax(0, 1fr); padding-right: 12px; }
-    .cr-dev-ico { color: var(--dark); display: flex; gap: 2px; }
-    .cr-dev-ico svg { width: 24px; height: 24px; }
-    .cr-dev-ico--2 svg { width: 20px; height: 20px; }
-    .cr-dev-body b { display: block; font-size: 15px; font-weight: 500; color: var(--dark); line-height: 1.25; white-space: nowrap; }
-    .cr-dev-body small { display: block; font-size: 12.5px; line-height: 1.35; color: var(--gray); margin-top: 2px; }
-    .cr-dev-price { align-self: stretch; display: flex; align-items: center; padding: 0 16px 0 14px; margin-left: 2px; border-left: 1px solid var(--light-gray); font-size: 15px; color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
-    .cr-calc-sum { background: color-mix(in srgb, var(--white, #fff) 55%, var(--bg-soft)); border-radius: var(--r-lg, 24px); padding: 20px 24px 22px; }
-    .cr-sum-label { margin: 0; font-family: 'Lora', Georgia, serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
-    .cr-sum-label--2 { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--light-gray); }
-    .cr-sum-total { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 58px; font-weight: 400; line-height: 1.05; color: var(--dark); margin-top: 10px; padding-bottom: 6px; font-variant-numeric: tabular-nums; }
-    .cr-sum-ph { margin: 0; font-size: 12.5px; color: #92400e; }
-    html[data-theme="dark"] .cr-sum-ph { color: #fcd34d; }
-    html[data-theme="dark"] .cr-sum-ph { color: #fcd34d; }
-    .cr-sum-lines { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
-    .cr-sum-lines li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; line-height: 1.3; color: var(--dark); }
-    .cr-sum-lines li span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--gray); }
-    .cr-sum-lines li:first-child span:last-child { color: var(--dark); }
-    .cr-sum-lines li.has-price span:last-child { color: var(--dark); }
-    .cr-sum-lines li em { display: block; font-style: normal; font-size: 12.5px; color: var(--gray); margin-top: 2px; }
-    .cr-sum-inc { margin-top: 16px; padding: 14px 16px; border-radius: var(--r-md, 16px); background: color-mix(in srgb, var(--dark) 5%, transparent); }
-    .cr-sum-inc p { margin: 0 0 8px; font-size: 14px; color: var(--dark); display: flex; align-items: center; gap: 8px; }
-    .cr-sum-info { display: inline-flex; color: var(--dark); }
-    .cr-sum-inc ul { margin: 0; padding-left: 28px; font-size: 12.5px; line-height: 1.65; color: var(--dark); }
-    .cr-sum-note { margin: 12px 0 14px; font-size: 12.5px; line-height: 1.45; color: var(--gray); }
-    .cr-calc-sum .btn-dark { display: inline-flex; width: 100%; justify-content: center; align-items: center; gap: 10px; }
-    @media (max-width: 1100px) { .cr-calc-body { grid-template-columns: minmax(0, 1fr); } }
-    @media (max-width: 760px) { .cr-calc { padding: 20px 14px; } .cr-calc-head h2 { font-size: 30px; } .cr-scope3, .cr-seg3 { grid-template-columns: 1fr; } .cr-step { grid-template-columns: 30px minmax(0, 1fr); padding: 12px 12px 14px; column-gap: 10px; } .cr-step-n { width: 30px; height: 30px; } .cr-sum-total { font-size: 44px; } .cr-row { padding-right: 0; } }
+    .cr-calc-head .pd-sub { margin: 0 !important; max-width: 760px; font-size: 16px !important; line-height: 1.5 !important; }
+    .cr-calc { display: grid; grid-template-columns: minmax(0, 1fr) 360px; border: 1.5px solid var(--light-gray); border-radius: var(--r-xl, 32px); background: var(--white, #fff); overflow: hidden; }
+    .cr-calc-form { min-width: 0; }
+    .cr-blk { border: 0; margin: 0; min-width: 0; padding: 22px 32px 24px; position: relative; }
+    .cr-blk + .cr-blk::before { content: ""; position: absolute; left: 0; right: 0; top: 0; border-top: 1.5px solid var(--light-gray); }
+    .cr-blk legend { padding: 0; margin-bottom: 12px; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; line-height: 1.2; color: var(--dark); }
+    .cr-opt-mark { width: 20px; height: 20px; border: 1.5px solid var(--gray); border-radius: 50%; display: block; position: relative; flex: none; transition: border-color .2s ease, background .2s ease; }
+    .cr-opt-mark--sq { border-radius: 5px; }
+    .cr-tier input, .cr-line input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .cr-tier:has(input:checked) .cr-opt-mark, .cr-line:has(input[type=radio]:checked) .cr-opt-mark { border-color: var(--dark); }
+    .cr-tier:has(input:checked) .cr-opt-mark::after, .cr-line:has(input[type=radio]:checked) .cr-opt-mark::after { content: ""; position: absolute; inset: 3.5px; border-radius: 50%; background: var(--dark); }
+    .cr-line:has(input[type=checkbox]:checked) .cr-opt-mark { border-color: var(--dark); background: var(--dark); }
+    .cr-line:has(input[type=checkbox]:checked) .cr-opt-mark::after { content: ""; position: absolute; left: 5.5px; top: 1.5px; width: 5px; height: 9px; border-right: 2px solid var(--white, #fff); border-bottom: 2px solid var(--white, #fff); transform: rotate(40deg); }
+    .cr-tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .cr-tier { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 12px; row-gap: 6px; align-items: center; padding: 16px 18px; border: 1.5px solid var(--light-gray); border-radius: var(--r-md, 16px); cursor: pointer; transition: border-color .2s ease; }
+    .cr-tier:hover { border-color: var(--gray); }
+    .cr-tier:has(input:checked) { border-color: var(--dark); box-shadow: inset 0 0 0 1px var(--dark); }
+    .cr-tier b { font-size: 16px; font-weight: 500; color: var(--dark); line-height: 1.25; }
+    .cr-tier-price { grid-column: 2; font-family: 'Playfair Display', Georgia, serif; font-size: 26px; line-height: 1.1; color: var(--dark); font-variant-numeric: tabular-nums; }
+    .cr-detail { margin-top: 14px; }
+    .cr-tier-price--s { font-family: inherit; font-size: 14.5px; color: var(--gray); }
+    .cr-detail-note { margin: 10px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--gray); }
+    .cr-detail[hidden] { display: none; }
+    .cr-detail p { margin: 0 0 8px; font-size: 15px; color: var(--gray); }
+    .cr-detail dl { margin: 0; }
+    .cr-detail dl > div { display: flex; justify-content: space-between; gap: 16px; padding: 7px 0; border-top: 1px solid var(--light-gray); font-size: 15px; }
+    .cr-detail dt { color: var(--dark); } .cr-detail dd { margin: 0; color: var(--gray); }
+    .cr-lines { display: flex; flex-direction: column; }
+    .cr-line { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; column-gap: 14px; align-items: start; padding: 10px 0; border-top: 1px solid var(--light-gray); cursor: pointer; }
+    .cr-line:first-child { border-top: 0; padding-top: 0; }
+    .cr-line:last-child { padding-bottom: 0; }
+    .cr-line .cr-opt-mark { margin-top: 1px; }
+    .cr-line-body b { display: block; font-size: 16px; font-weight: 500; color: var(--dark); line-height: 1.3; }
+    .cr-line-body small { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.45; color: var(--gray); }
+    .cr-line-price { font-size: 15.5px; color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .cr-line:has(input:focus-visible), .cr-tier:has(input:focus-visible) { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 8px; }
+    #calcSaas.is-off .cr-line--saas { opacity: .5; cursor: not-allowed; }
+    .cr-calc-sum { padding: 26px 30px 30px; border-left: 1.5px solid var(--light-gray); display: flex; flex-direction: column; background: var(--bg-soft); }
+    .cr-calc-sum h3 { font-size: 22px; font-weight: 400; margin: 0 0 14px; }
+    .cr-sum-lines { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .cr-sum-lines li { display: flex; justify-content: space-between; gap: 14px; font-size: 15px; line-height: 1.35; color: var(--gray); }
+    .cr-sum-lines li span:last-child { color: var(--dark); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .cr-sum-lines li em { display: block; font-style: normal; font-size: 13px; color: var(--gray); }
+    .cr-sum-totalrow { margin-top: 16px; padding-top: 16px; border-top: 1.5px solid var(--light-gray); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .cr-sum-totalrow span { font-size: 15px; color: var(--dark); }
+    .cr-sum-totalrow strong { font-family: 'Playfair Display', Georgia, serif; font-size: 40px; font-weight: 500; line-height: 1; color: var(--dark); font-variant-numeric: tabular-nums; }
+    .cr-sum-note { margin: 14px 0 20px; font-size: 13px; line-height: 1.5; color: var(--gray); }
+    .cr-calc-sum .btn-dark { display: inline-flex; width: 100%; justify-content: center; align-items: center; gap: 10px; margin-top: auto; }
+    @media (max-width: 960px) { .cr-calc { grid-template-columns: minmax(0, 1fr); } .cr-calc-sum { border-left: 0; border-top: 1.5px solid var(--light-gray); } }
+    @media (max-width: 640px) { .cr-tiers { grid-template-columns: 1fr; } .cr-blk { padding: 22px 18px 24px; } .cr-calc-sum { padding: 22px 18px 24px; } .cr-calc-head h2 { font-size: 30px; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -1310,54 +1293,57 @@
                 <h2 id="cr-pricing">Estimate the cost of your CRO audit</h2>
                 <p class="pd-sub">Get a price estimate based on the scope of your project. Final details are confirmed after we discuss your needs.</p>
               </header>
-            <div class="cr-calc" id="crCalc">
-              <div class="cr-calc-body">
+              <div class="cr-calc" id="crCalc">
                 <div class="cr-calc-form">
 
-                  <fieldset class="cr-step">
-                    <legend><span class="cr-step-n" aria-hidden="true">1</span><span class="cr-step-q">What would you like to audit?</span><span class="cr-step-h">Choose the main focus of your audit.</span></legend>
-                    <div class="cr-scope3">
-                      <label class="cr-card"><input type="radio" name="calc-scope" value="single" /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Single page</b></span><small>One landing page, product page or homepage, one device.</small><span class="cr-card-time">Ready in 48 hours</span><span class="cr-card-price" data-price="scope.single"></span></label>
-                      <label class="cr-card"><input type="radio" name="calc-scope" value="flow" checked /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>Full conversion flow</b></span><small>End-to-end flow of up to 6 steps, for example from landing to sign-up, one device.</small><span class="cr-card-time">Ready in 3–5 business days</span><span class="cr-card-price" data-price="scope.flow"></span></label>
-                      <label class="cr-card"><input type="radio" name="calc-scope" value="ecommerce" /><span class="cr-card-top"><span class="cr-opt-mark" aria-hidden="true"></span><b>E-commerce purchase journey</b></span><small>The path from catalog to purchase, including key pages, one device.</small><span class="cr-card-time">Ready in 3–5 business days</span><span class="cr-card-price" data-price="scope.ecommerce"></span></label>
+                  <fieldset class="cr-blk">
+                    <legend>Audit scope</legend>
+                    <div class="cr-tiers">
+                      <label class="cr-tier"><input type="radio" name="calc-scope" value="single" /><span class="cr-opt-mark" aria-hidden="true"></span><b>Single page</b><span class="cr-tier-price" data-price="scope.single"></span></label>
+                      <label class="cr-tier"><input type="radio" name="calc-scope" value="flow" checked /><span class="cr-opt-mark" aria-hidden="true"></span><b>Full conversion flow</b><span class="cr-tier-price" data-price="scope.flow"></span></label>
+                      <label class="cr-tier"><input type="radio" name="calc-scope" value="ecommerce" /><span class="cr-opt-mark" aria-hidden="true"></span><b>E-commerce journey</b><span class="cr-tier-price" data-price="scope.ecommerce"></span></label>
+                    </div>
+                    <div class="cr-detail" data-detail="single" hidden>
+                      <p>One landing page, product page or homepage.</p>
+                      <dl><div><dt>Delivery time</dt><dd>48 hours</dd></div><div><dt>Coverage</dt><dd>One page</dd></div><div><dt>Devices</dt><dd>One included</dd></div></dl>
+                    </div>
+                    <div class="cr-detail" data-detail="flow">
+                      <p>End-to-end flow on your website, for example from landing to sign-up.</p>
+                      <dl><div><dt>Delivery time</dt><dd>3–5 business days</dd></div><div><dt>Coverage</dt><dd>Up to 6 steps</dd></div><div><dt>Devices</dt><dd>One included</dd></div></dl>
+                    </div>
+                    <div class="cr-detail" data-detail="ecommerce" hidden>
+                      <p>The path from catalog to purchase, including the key pages.</p>
+                      <dl><div><dt>Delivery time</dt><dd>3–5 business days</dd></div><div><dt>Coverage</dt><dd>Catalog to purchase</dd></div><div><dt>Devices</dt><dd>One included</dd></div></dl>
                     </div>
                   </fieldset>
 
-                  <fieldset class="cr-step" id="calcSaas">
-                    <legend><span class="cr-step-n" aria-hidden="true">2</span><span class="cr-step-q">Is this a SaaS product?</span><span class="cr-step-h">Add a review of the in-product experience.</span></legend>
-                    <label class="cr-row"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>SaaS in-product experience</b><small>An add-on to the audit: I go through the product after sign-up, up to the first value.</small></span><span class="cr-row-price" data-price="addons.saasProduct"></span></label>
+                  <fieldset class="cr-blk">
+                    <legend>Platforms</legend>
+                    <div class="cr-tiers">
+                      <label class="cr-tier"><input type="radio" name="calc-device" value="mobile" /><span class="cr-opt-mark" aria-hidden="true"></span><b>Mobile only</b><span class="cr-tier-price cr-tier-price--s">Included</span></label>
+                      <label class="cr-tier"><input type="radio" name="calc-device" value="desktop" checked /><span class="cr-opt-mark" aria-hidden="true"></span><b>Desktop only</b><span class="cr-tier-price cr-tier-price--s">Included</span></label>
+                      <label class="cr-tier"><input type="radio" name="calc-device" value="both" /><span class="cr-opt-mark" aria-hidden="true"></span><b>Mobile + Desktop</b><span class="cr-tier-price cr-tier-price--s" data-device-price="both"></span></label>
+                    </div>
+                    <p class="cr-detail-note">Mobile + Desktop means two separate reviews and two reports, not a responsiveness check.</p>
                   </fieldset>
 
-                  <fieldset class="cr-step">
-                    <legend><span class="cr-step-n" aria-hidden="true">3</span><span class="cr-step-q">Other materials to include</span><span class="cr-step-h">Add marketing touchpoints to your audit.</span></legend>
-                    <label class="cr-row"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-row-body"><b>Marketing emails</b><small>Up to 5 emails to prospects or users who are not paying yet: cold outreach, activation, upgrade.</small></span><span class="cr-row-price" data-price="addons.marketingEmails"></span></label>
-                  </fieldset>
-
-                  <fieldset class="cr-step">
-                    <legend><span class="cr-step-n" aria-hidden="true">4</span><span class="cr-step-q">Which platforms should be reviewed?</span><span class="cr-step-h">Mobile + Desktop means two separate reviews, not a responsiveness check.</span></legend>
-                    <div class="cr-seg3">
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="mobile" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span><span class="cr-dev-body"><b>Mobile only</b><small>Mobile experience.</small></span></label>
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="desktop" checked /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="cr-dev-body"><b>Desktop only</b><small>Desktop experience.</small></span></label>
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="both" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"/><path d="M10 19v-3"/><path d="M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg></span><span class="cr-dev-body"><b>Mobile + Desktop</b><small>Two separate reviews and reports.</small></span><span class="cr-dev-price" data-device-price="both"></span></label>
+                  <fieldset class="cr-blk" id="calcSaas">
+                    <legend>Add-ons</legend>
+                    <div class="cr-lines">
+                      <label class="cr-line cr-line--saas"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-line-body"><b>SaaS in-product experience</b><small>The product after sign-up, up to the first value. Full conversion flow only.</small></span><span class="cr-line-price cr-row-price" data-price="addons.saasProduct"></span></label>
+                      <label class="cr-line"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark cr-opt-mark--sq" aria-hidden="true"></span><span class="cr-line-body"><b>Marketing emails</b><small>Up to 5 emails to prospects or users who are not paying yet.</small></span><span class="cr-line-price" data-price="addons.marketingEmails"></span></label>
                     </div>
                   </fieldset>
                 </div>
 
                 <aside class="cr-calc-sum" aria-label="Estimate summary">
-                  <p class="cr-sum-label">Estimated price</p>
-                  <strong class="cr-sum-total" id="calcTotal" aria-live="polite"></strong>
-                  <p class="cr-sum-ph">Estimate for planning</p>
-                  <p class="cr-sum-label cr-sum-label--2">Your selection</p>
+                  <h3>Your estimate</h3>
                   <ul class="cr-sum-lines" id="calcLines"></ul>
-                  <div class="cr-sum-inc">
-                    <p><span class="cr-sum-info"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span><b>What the report includes</b></p>
-                    <ul><li>Findings, each with its evidence</li><li>Priorities, in order</li><li>A roadmap your team can act on</li><li>Notes on confidence and limitations</li></ul>
-                  </div>
-                  <p class="cr-sum-note">This is an estimated price for planning, not a binding quote. Final scope and cost are confirmed with you before any payment. Analytics access does not change the price.</p>
+                  <div class="cr-sum-totalrow"><span>Estimated total</span><strong id="calcTotal" aria-live="polite"></strong></div>
+                  <p class="cr-sum-note">An estimate for planning, not a binding quote. Final scope and cost are confirmed with you before any payment.</p>
                   <a class="btn-dark" href="#request" id="calcCta">Get a tailored quote <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                 </aside>
               </div>
-            </div>
             </div>
           </section>
 
@@ -1644,23 +1630,17 @@
       device: { mobile: 'Mobile only', desktop: 'Desktop only', both: 'Mobile + Desktop' }
     };
 
-    /* pure pricing logic: state in, lines and total out */
+    /* pure pricing logic: state in, lines and total out. Only chosen items appear. */
     function calc(st) {
       var base = PRICING.scope[st.scope], total = base, saas = st.saas && st.scope === 'flow';
       var extra = st.device === 'both' ? bothExtra(st.scope) : 0;
       total += extra;
-      if (saas) total += PRICING.addons.saasProduct;
-      if (st.emails) total += PRICING.addons.marketingEmails;
-      return {
-        total: total,
-        lines: [
-          { label: LABELS.scope[st.scope], right: money(base), priced: true },
-          { label: 'SaaS in-product experience', sub: saas ? '' : 'Not included', right: saas ? '+' + money(PRICING.addons.saasProduct) : '\u2014', priced: saas, none: !saas },
-          { label: 'Marketing emails', sub: st.emails ? '' : 'Not included', right: st.emails ? '+' + money(PRICING.addons.marketingEmails) : '\u2014', priced: st.emails, none: !st.emails },
-          { label: 'Platform', sub: LABELS.device[st.device], right: extra ? '+' + money(extra) : '\u2014', priced: !!extra },
-          { label: 'Turnaround', right: PRICING.terms[st.scope], priced: true, term: true }
-        ]
-      };
+      var lines = [{ label: LABELS.scope[st.scope], right: money(base) }];
+      lines.push({ label: LABELS.device[st.device], right: extra ? '+' + money(extra) : 'Included' });
+      if (saas) { total += PRICING.addons.saasProduct; lines.push({ label: 'SaaS in-product experience', right: '+' + money(PRICING.addons.saasProduct) }); }
+      if (st.emails) { total += PRICING.addons.marketingEmails; lines.push({ label: 'Marketing emails', right: '+' + money(PRICING.addons.marketingEmails) }); }
+      lines.push({ label: 'Delivery time', right: PRICING.terms[st.scope] });
+      return { total: total, lines: lines };
     }
     function bothExtra(scope) {
       var b = PRICING.bothDevices; return b.mode === 'fixed' ? b.value : Math.round(PRICING.scope[scope] * b.value / 100);
@@ -1671,21 +1651,19 @@
     function val(name) { var c = root.querySelector('input[name="' + name + '"]:checked'); return c ? c.value : null; }
     var saasBox = root.querySelector('input[name="calc-saas"]'), emailBox = root.querySelector('input[name="calc-emails"]');
     function state() { return { scope: val('calc-scope'), device: val('calc-device'), saas: saasBox.checked, emails: emailBox.checked }; }
-    var linesEl = document.getElementById('calcLines'), totalEl = document.getElementById('calcTotal'), saasStep = document.getElementById('calcSaas'), saasPrice = saasStep.querySelector('.cr-row-price');
+    var linesEl = document.getElementById('calcLines'), totalEl = document.getElementById('calcTotal'), saasBlk = document.getElementById('calcSaas');
     function get(path) { return path.split('.').reduce(function (o, k) { return o[k]; }, PRICING); }
     [].forEach.call(root.querySelectorAll('[data-price]'), function (el) { el.textContent = (el.getAttribute('data-price').indexOf('addons') === 0 ? '+ ' : '') + money(get(el.getAttribute('data-price'))); });
     function render() {
       var st = state(), flow = st.scope === 'flow';
       /* the in-product add-on only makes sense with the full conversion flow audit */
-      saasStep.classList.toggle('is-off', !flow);
+      saasBlk.classList.toggle('is-off', !flow);
       saasBox.disabled = !flow;
       if (!flow) saasBox.checked = false;
-      saasPrice.textContent = flow ? '+ ' + money(PRICING.addons.saasProduct) : 'Flow audit only';
+      [].forEach.call(root.querySelectorAll('[data-detail]'), function (d) { d.hidden = d.getAttribute('data-detail') !== st.scope; });
       root.querySelector('[data-device-price="both"]').textContent = '+ ' + money(bothExtra(st.scope));
       var r = calc(state());
-      linesEl.innerHTML = r.lines.map(function (l) {
-        return '<li' + (l.priced ? ' class="has-price"' : '') + '><span>' + l.label + (l.sub ? '<em>' + l.sub + '</em>' : '') + '</span><span>' + l.right + '</span></li>';
-      }).join('');
+      linesEl.innerHTML = r.lines.map(function (l) { return '<li><span>' + l.label + '</span><span>' + l.right + '</span></li>'; }).join('');
       totalEl.textContent = money(r.total);
     }
     root.addEventListener('change', render);
@@ -1697,7 +1675,7 @@
       var radio = document.querySelector('.cr-chips input[value="' + map[st.scope] + '"]'); if (radio) radio.checked = true;
       var msg = document.getElementById('rq-msg');
       if (msg && (!msg.value || msg.getAttribute('data-auto') === '1')) {
-        msg.value = 'Estimate I explored: ' + r.lines.filter(function (l) { return !l.none; }).map(function (l) { return l.sub ? l.sub : l.label; }).join(', ') + ' (' + money(r.total) + ').'; msg.setAttribute('data-auto', '1');
+        msg.value = 'Estimate I explored: ' + r.lines.filter(function (l) { return l.label !== 'Delivery time'; }).map(function (l) { return l.label; }).join(', ') + ' (' + money(r.total) + ').'; msg.setAttribute('data-auto', '1');
       }
     });
   })();
