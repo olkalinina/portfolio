@@ -630,6 +630,95 @@
     .pd.cr .pd-note { max-width: 640px; }
     .cr .pd-faq p { max-width: 600px; }
     .cr-ph { padding: max(4px, .3em) max(8px, .5em); }
+    /* ---- v3: pieces taken from the redesign, in the site's own colours and type ---- */
+    /* ── Testimonials ── */
+        .tm-marquee { width: 100%; overflow: hidden; margin-top: 12px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+        .tm-track { display: flex; width: max-content; animation: tm-scroll 84s linear infinite; }
+        .tm-marquee:hover .tm-track, .tm-marquee:focus-within .tm-track { animation-play-state: paused; }
+        .tm-set { display: flex; gap: 20px; padding-right: 20px; }
+        @keyframes tm-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .tm-card { position: relative; width: 380px; flex: none; margin: 0; padding: 30px 28px 26px; background: var(--bg-soft); border-radius: 22px; box-shadow: inset 0 0 0 1px var(--light-gray); text-align: left; display: flex; flex-direction: column; gap: 22px; }
+        .tm-card blockquote { margin: 0; font-size: 17px; line-height: 1.6; color: var(--dark); }
+        .tm-card figcaption { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+        .tm-card figcaption span:last-child { display: flex; flex-direction: column; gap: 2px; }
+        .tm-card strong { font-size: 15px; font-weight: 600; color: var(--dark); }
+        .tm-card em { font-style: normal; font-size: 13px; letter-spacing: 0.04em; color: var(--gray); }
+        .tm-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--dark); color: var(--white, #fff); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; flex: none; }
+        .tm-flag { position: absolute; top: 14px; right: 16px; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #b45309; background: rgba(245,158,11,0.16); padding: 4px 8px; border-radius: 6px; }
+        @media (max-width: 640px) { .tm-card { width: 300px; } }
+        @media (prefers-reduced-motion: reduce) { .tm-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .tm-track { animation: none; } .tm-set[aria-hidden="true"] { display: none; } }
+    .pd.cr #clients .tm-marquee { margin-top: var(--cr-block, 48px); }
+    /* not converting: explanation left, symptom and causes right */
+    .cr-prob { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+    .cr-prob-copy { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 120px; }
+    .cr-prob-copy h2 { margin-bottom: 8px; }
+    .cr-prob-copy .pd-sub { margin-top: 0; }
+    .cr-prob-panel { background: var(--bg-soft); border-radius: var(--r-lg, 24px); box-shadow: inset 0 0 0 1px var(--light-gray); overflow: hidden; }
+    .cr-prob-root { padding: 24px var(--card-pad, 32px); font-family: 'Playfair Display', Georgia, serif; font-size: 26px; line-height: 1.2; color: var(--dark); border-bottom: 1.5px solid var(--light-gray); }
+    .cr-prob-panel ol { list-style: none; margin: 0; padding: 0; }
+    .cr-prob-panel li { padding: 22px var(--card-pad, 32px); border-top: 1.5px solid var(--light-gray); display: flex; flex-direction: column; gap: 6px; }
+    .cr-prob-panel li:first-child { border-top: 0; }
+    .cr-prob-panel h3 { font-size: 22px; line-height: 1.2; font-weight: 500; }
+    .cr-prob-panel p { font-size: 16px; line-height: 1.55; color: var(--gray); margin: 0; }
+    .cr-prob-panel em { font-style: normal; font-size: 14px; font-weight: 600; color: #7a5a1c; }
+    html[data-theme="dark"] .cr-prob-panel em { color: #d9b36c; }
+    /* checklist vs diagnosis: minus and plus in black circles */
+    .cr-tr:not(.cr-th) span { display: flex; align-items: flex-start; gap: 14px; }
+    .cr-tr:not(.cr-th) span::before { flex: none; box-sizing: border-box; width: 24px; height: 24px; margin-top: 1px; border: 1.5px solid var(--dark); border-radius: 50%; color: var(--dark); display: inline-flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500; line-height: 1; font-family: 'Inter', sans-serif; }
+    .cr-tr:not(.cr-th) span:first-child::before { content: "\2212"; }
+    .cr-tr:not(.cr-th) span:last-child::before { content: "+"; }
+    /* real finding: struck note, dots instead of numbers */
+    .cr-t-old { border: 0; border-radius: 0; padding: 0; margin: 0; }
+    .cr-t-old blockquote { margin: 0; }
+    .cr-t-old p { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; line-height: 1.25; color: var(--dark); text-decoration: line-through; text-decoration-thickness: 1.5px; text-decoration-color: var(--gray); }
+    .cr-t-old figcaption { margin-top: 14px; font-size: 15px; color: var(--gray); }
+    .cr-t-chain li { padding-left: 32px; }
+    .cr-t-chain li::before { content: ""; width: 9px; height: 9px; left: 0; top: 11px; border-radius: 50%; background: var(--dark); font-size: 0; }
+    .cr-t-chain li:not(:last-child)::after { left: 4px; top: 26px; }
+    /* included / not included */
+    .cr-incl2 { gap: 0; border: 1.5px solid var(--light-gray); border-radius: var(--r-lg, 24px); overflow: hidden; }
+    .cr-incl2 > div { background: none; border-radius: 0; padding: 24px; }
+    .cr-incl2 > div:last-child { border-left: 1.5px solid var(--light-gray); }
+    .cr-incl2 li { padding-left: 28px; }
+    .cr-incl2 > div:first-child li::before { content: "+"; border: 0; transform: none; width: auto; height: auto; left: 4px; top: 0; font-size: 18px; line-height: 1.45; color: var(--dark); font-weight: 500; }
+    .cr-incl2 > div:last-child li::before { content: "\2212"; left: 4px; top: 0; font-size: 18px; line-height: 1.45; color: var(--gray); }
+    .pd.cr .cr-incl2 > div { padding: 24px; border-radius: 0; }
+    /* see a real report: plain pages with captions */
+    .cp-page { background: none; padding: 0; border-radius: 0; gap: 12px; }
+    .cp-page:hover { transform: none; }
+    .cp-page img { border-radius: var(--r-md, 16px); border: 1.5px solid var(--light-gray); transition: border-color .25s ease; }
+    .cp-page:hover img { border-color: var(--dark); }
+    .cp-page span { padding: 0; }
+    /* who does the work: no background */
+    .pd.cr .cr-who { background: none; padding: 0; }
+    /* scopes: tabs */
+    .cr-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; }
+    .cr-tab { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 500; line-height: 1.3; padding: 11px 20px; border: 1.5px solid var(--light-gray); border-radius: 9999px; background: none; color: var(--dark); cursor: pointer; transition: background .25s ease, color .25s ease, border-color .25s ease; }
+    .cr-tab:hover { border-color: var(--dark); }
+    .cr-tab[aria-selected="true"] { background: var(--dark); color: var(--white, #fff); border-color: var(--dark); }
+    .cr-tab:focus-visible { outline: 2px solid var(--dark); outline-offset: 2px; }
+    .cr-panel { margin-top: 18px; background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: var(--card-pad, 32px); box-shadow: inset 0 0 0 1px var(--light-gray); display: grid; grid-template-columns: 5fr 7fr; gap: 32px 48px; scroll-margin-top: 120px; }
+    .cr-panel[hidden] { display: none; }
+    .cr-panel-main { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cr-panel-main h3 { font-size: 28px; line-height: 1.2; font-weight: 500; }
+    .cr-panel-main p { margin: 0; font-size: 16px; line-height: 1.55; }
+    .cr-panel-main .btn-outline-dark { margin-top: 8px; }
+    .cr-panel-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-content: start; }
+    .cr-panel-cols h4 { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); font-weight: 400; margin: 0 0 12px; }
+    .cr-panel-cols ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 15.5px; line-height: 1.45; }
+    .cr-panel-cols li { position: relative; padding-left: 22px; }
+    .cr-panel-cols .cr-ex li::before { content: "+"; position: absolute; left: 3px; top: -1px; font-weight: 500; color: var(--dark); }
+    .cr-panel-cols .cr-nx li { color: var(--gray); }
+    .cr-panel-cols .cr-nx li::before { content: "\2212"; position: absolute; left: 3px; top: -1px; color: var(--gray); }
+    .cr-panel-foot { grid-column: 1 / -1; border-top: 1.5px solid var(--light-gray); padding-top: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.5; color: var(--gray); }
+    .cr-panel-foot p { margin: 0; }
+    .cr-panel-foot strong { color: var(--dark); font-weight: 600; }
+    @media (max-width: 860px) {
+      .cr-prob { grid-template-columns: 1fr; gap: 32px; } .cr-prob-copy { position: static; }
+      .cr-panel { grid-template-columns: 1fr; padding: 26px 22px; } .cr-panel-cols { grid-template-columns: 1fr; }
+      .cr-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; } .cr-tab { flex: none; white-space: nowrap; }
+      .cr-incl2 > div:last-child { border-left: 0; border-top: 1.5px solid var(--light-gray); }
+    }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -788,34 +877,37 @@
             <p class="cr-q-note">Analytics and recordings strengthen the diagnosis, but they aren’t required. Without them I examine the journey and the product experience directly and report what the evidence supports.</p>
           </section>
 
-          <!-- 11. PROOF -->
-          <section id="proof" aria-labelledby="cr-work">
-            <h2 id="cr-work">What clients and case studies show</h2>
-            <p class="pd-sub">Public examples of conversion and behavioral analysis across different digital products.</p>
-            <blockquote class="pd-quote cr-testimonial">“She did a bit of everything for us: a CRO review of our booking funnel, redesigns of key pages and components, and ongoing support for our developers once designs went into build.”<footer>Selcuk Bahtiyar, Senior Product Manager, ex-eBay</footer></blockquote>
-            <div class="pd-work cr-work4">
-              <a href="/cs-proffer"><span class="pic"><img src="images/proffer/card.jpg" alt="" loading="lazy" /></span><h3>Why visitors leave a platform that promises no agents</h3><p>A diagnosis of a Dubai property marketplace, with a look inside the report.</p><span class="pd-more">Read the case study →</span></a>
-              <a href="/cs-updf"><span class="pic"><img src="images/UPDF_cover_card.png" alt="" loading="lazy" /></span><h3>UPDF pricing page</h3><p>How unclear plans and inconsistent pricing can undermine trust before a user pays.</p><span class="pd-more">Read the analysis →</span></a>
-              <a href="/cs-kualitee"><span class="pic"><img src="images/Cover_image_card.png" alt="" loading="lazy" /></span><h3>Kualitee sign-up</h3><p>Why a B2B SaaS sign-up page was losing potential conversions.</p><span class="pd-more">Read the analysis →</span></a>
-              <a href="/cs-mercor"><span class="pic"><img src="images/Mercor_card.png" alt="" loading="lazy" /></span><h3>Mercor policy change</h3><p>How a quiet policy change and a dead-end flow create friction in a verification journey.</p><span class="pd-more">Read the analysis →</span></a>
+          <!-- WHAT CLIENTS SAY -->
+          <section id="clients" aria-labelledby="cr-clients">
+          
+          <h2 id="cr-clients">What clients say</h2>
+          <p class="pd-sub">A few words from the people I've worked with.</p>
+          <div class="tm-marquee">
+            <div class="tm-track">
+              <div class="tm-set"><figure class="tm-card"><blockquote>&ldquo;She thinks about what’s realistic for the developers, what gives users the best experience and what will convert, and finds a good balance between them. That makes her designs easy to actually build.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">S</span><span><strong>Selcuk Bahtiyar</strong><em>Senior Product Manager, ex-eBay</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga is a phenomenal designer who truly bridges the gap between user needs and business goals. She seamlessly tackles diverse feature sets, ensuring every interface feels intuitive and completely aligned with Customer core vision.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">A</span><span><strong>Alena Bonevich</strong><em>QA Engineer, Moonbug</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga’s contributions drove our revenue growth and helped us reach new annual milestones. She played a key part in turning our custom development into our first SaaS product.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">P</span><span><strong>Paul Janecek, PhD</strong><em>CEO, Think Blue Data</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga is company Dr. House. She simplifies complex, seemingly impossible tasks and delivers elegant solutions. Her real strength is turning massive amounts of data into readable, user-friendly interfaces.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">D</span><span><strong>Dasha Timbush</strong><em>Founder &amp; CEO, CastingForm</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;A well-trained, uniquely gifted and emotionally intelligent expert in her field. Her knowledge and talent for big data visualisation are in high demand among DesignLab students.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">A</span><span><strong>Anna Sholina</strong><em>Founder, EMERGE</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Working with you was a solid experience. Delivered great UX work in a short timeframe and genuinely exceeded my expectations.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">J</span><span><strong>Jens Nystroem</strong><em>Founder, Stomp It</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Your ability to balance user needs with business goals is truly impactful.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">H</span><span><strong>Hemantha Hewa Ellewela</strong><em>Augmented Era</em></span></figcaption></figure></div>
+              <div class="tm-set" aria-hidden="true"><figure class="tm-card"><blockquote>&ldquo;She thinks about what’s realistic for the developers, what gives users the best experience and what will convert, and finds a good balance between them. That makes her designs easy to actually build.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">S</span><span><strong>Selcuk Bahtiyar</strong><em>Senior Product Manager, ex-eBay</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga is a phenomenal designer who truly bridges the gap between user needs and business goals. She seamlessly tackles diverse feature sets, ensuring every interface feels intuitive and completely aligned with Customer core vision.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">A</span><span><strong>Alena Bonevich</strong><em>QA Engineer, Moonbug</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga’s contributions drove our revenue growth and helped us reach new annual milestones. She played a key part in turning our custom development into our first SaaS product.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">P</span><span><strong>Paul Janecek, PhD</strong><em>CEO, Think Blue Data</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Olga is company Dr. House. She simplifies complex, seemingly impossible tasks and delivers elegant solutions. Her real strength is turning massive amounts of data into readable, user-friendly interfaces.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">D</span><span><strong>Dasha Timbush</strong><em>Founder &amp; CEO, CastingForm</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;A well-trained, uniquely gifted and emotionally intelligent expert in her field. Her knowledge and talent for big data visualisation are in high demand among DesignLab students.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">A</span><span><strong>Anna Sholina</strong><em>Founder, EMERGE</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Working with you was a solid experience. Delivered great UX work in a short timeframe and genuinely exceeded my expectations.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">J</span><span><strong>Jens Nystroem</strong><em>Founder, Stomp It</em></span></figcaption></figure><figure class="tm-card"><blockquote>&ldquo;Your ability to balance user needs with business goals is truly impactful.&rdquo;</blockquote><figcaption><span class="tm-avatar" aria-hidden="true">H</span><span><strong>Hemantha Hewa Ellewela</strong><em>Augmented Era</em></span></figcaption></figure></div>
             </div>
-            <div class="pd-work-actions"><a href="/case-studies" class="pd-link">Explore more analyses and case studies</a></div>
-          </section>
+          </div>
+        </section>
 
           <!-- 2. PROBLEM -->
           <section id="problem" aria-labelledby="cr-problem">
-            <h2 id="cr-problem">“Not converting” is a symptom, not a diagnosis</h2>
-            <p class="pd-sub">Your analytics can show where people leave. They rarely show what a first-time visitor misunderstood, doubted, or couldn’t find.</p>
-            <p class="pd-sub">When you know your product well, it’s hard to see it as a stranger does. A page can look complete to the team that built it and still leave a new visitor with unanswered questions.</p>
-            <p class="pd-sub">The same symptom can have very different causes, and each needs a different response.</p>
-            <div class="cr-causes" data-anim>
-              <div class="cr-root"><span>Visitors don’t convert</span></div>
-              <div class="cr-cause-grid">
-                <article style="--i:0"><h3>Comprehension</h3><p>The visitor can’t quickly tell what the product does or how it helps.</p><em>Do they understand it?</em></article>
-                <article style="--i:1"><h3>Trust</h3><p>They don’t have enough reason to believe the product or its claims.</p><em>Do they believe it?</em></article>
-                <article style="--i:2"><h3>Fit</h3><p>The offer doesn’t connect to their situation or needs.</p><em>Is it for them?</em></article>
-                <article style="--i:3"><h3>Desire</h3><p>The value isn’t compelling enough to motivate the next step.</p><em>Do they want it enough?</em></article>
-                <article style="--i:4"><h3>Missing information</h3><p>An answer, step, or piece of guidance they need is absent or arrives too late.</p><em>What’s missing, or late?</em></article>
+            <div class="cr-prob">
+              <div class="cr-prob-copy">
+                <h2 id="cr-problem">“Not converting” is a symptom, not a diagnosis</h2>
+                <p class="pd-sub">Your analytics can show where people leave. They rarely show what a first-time visitor misunderstood, doubted, or couldn’t find.</p>
+                <p class="pd-sub">When you know your product well, it’s hard to see it as a stranger does. A page can look complete to the team that built it and still leave a new visitor with unanswered questions.</p>
+                <p class="pd-sub">The same symptom can have very different causes, and each needs a different response.</p>
+              </div>
+              <div class="cr-prob-panel">
+                <p class="cr-prob-root">Visitors don’t convert</p>
+                <ol>
+                  <li><h3>Comprehension</h3><p>The visitor can’t quickly tell what the product does or how it helps.</p><em>Do they understand it?</em></li>
+                  <li><h3>Trust</h3><p>They don’t have enough reason to believe the product or its claims.</p><em>Do they believe it?</em></li>
+                  <li><h3>Fit</h3><p>The offer doesn’t connect to their situation or needs.</p><em>Is it for them?</em></li>
+                  <li><h3>Desire</h3><p>The value isn’t compelling enough to motivate the next step.</p><em>Do they want it enough?</em></li>
+                  <li><h3>Missing information</h3><p>An answer, step, or piece of guidance they need is absent or arrives too late.</p><em>What’s missing, or late?</em></li>
+                </ol>
               </div>
             </div>
           </section>
@@ -836,7 +928,7 @@
             <div class="cr-transform" data-anim>
               <p class="cr-t-label">A real finding, from a case study</p>
               <div class="cr-t-grid">
-                <div class="cr-t-old"><h3>Checklist-style note</h3><p>“The value proposition is unclear.”</p></div>
+                <figure class="cr-t-old"><blockquote><p>“The value proposition is unclear.”</p></blockquote><figcaption>Checklist-style note</figcaption></figure>
                 <ol class="cr-t-chain">
                   <li style="--i:0"><b>Observable issue</b><span>Two neighboring homepage cards say “zero commission” and “1% commission”, and nothing says who each applies to.</span></li>
                   <li style="--i:1"><b>Visitor perception</b><span>The platform can’t clearly explain what it charges.</span></li>
@@ -847,6 +939,19 @@
               </div>
               <a class="pd-link" href="/cs-proffer">Read the full case study</a>
             </div>
+          </section>
+
+          <!-- CASE STUDIES -->
+          <section id="proof" aria-labelledby="cr-work">
+            <h2 id="cr-work">Case studies</h2>
+            <p class="pd-sub">Public examples of conversion and behavioral analysis across different digital products.</p>
+            <div class="pd-work cr-work4">
+              <a href="/cs-proffer"><span class="pic"><img src="images/proffer/card.jpg" alt="" loading="lazy" /></span><h3>Why visitors leave a platform that promises no agents</h3><p>A diagnosis of a Dubai property marketplace, with a look inside the report.</p><span class="pd-more">Read the case study →</span></a>
+              <a href="/cs-updf"><span class="pic"><img src="images/UPDF_cover_card.png" alt="" loading="lazy" /></span><h3>UPDF pricing page</h3><p>How unclear plans and inconsistent pricing can undermine trust before a user pays.</p><span class="pd-more">Read the analysis →</span></a>
+              <a href="/cs-kualitee"><span class="pic"><img src="images/Cover_image_card.png" alt="" loading="lazy" /></span><h3>Kualitee sign-up</h3><p>Why a B2B SaaS sign-up page was losing potential conversions.</p><span class="pd-more">Read the analysis →</span></a>
+              <a href="/cs-mercor"><span class="pic"><img src="images/Mercor_card.png" alt="" loading="lazy" /></span><h3>Mercor policy change</h3><p>How a quiet policy change and a dead-end flow create friction in a verification journey.</p><span class="pd-more">Read the analysis →</span></a>
+            </div>
+            <div class="pd-work-actions"><a href="/case-studies" class="pd-link">Explore more analyses and case studies</a></div>
           </section>
 
           <!-- 7. DELIVERABLE -->
@@ -869,6 +974,7 @@
                   <div><h3>Included</h3><ul><li>Evidence tied to your product</li><li>An explanation of each problem and why it matters</li><li>Priorities and effort signals</li><li>Notes on confidence and limitations</li></ul></div>
                   <div><h3>Not included</h3><ul><li>Final copy or design files</li><li>Implementation of the changes</li><li>Results verification after changes</li><li>Ongoing optimization</li><li>Product or pricing strategy</li><li>A guaranteed uplift</li></ul></div>
                 </div>
+                <aside class="pd-note"><strong>What it doesn’t promise.</strong> The audit doesn’t guarantee a conversion lift, calculate a financial return, provide final copy or design files, or implement changes. It evaluates how pricing is presented, not the underlying pricing strategy or business model.</aside>
               </div>
             </div>
             <div class="cr-sample" data-anim>
@@ -902,7 +1008,6 @@
                 <p>The method is my own, built on that experience and currently being formalized as Rootwise. <a class="pd-link" href="/about">More about me</a></p>
               </div>
             </div>
-            <aside class="pd-note"><strong>What it doesn’t promise.</strong> The audit doesn’t guarantee a conversion lift, calculate a financial return, provide final copy or design files, or implement changes. It evaluates how pricing is presented, not the underlying pricing strategy or business model.</aside>
           </section>
 
           <!-- 6. PROCESS -->
@@ -930,58 +1035,56 @@
               <div class="cr-bar b4" style="--i:3"><span>SaaS platform and activation</span></div>
             </div>
             <p class="cr-q-note">The two extensions grow the full journey in different directions: one before the visitor arrives, one after sign-up. They aren’t higher tiers. <span class="cr-ph">Relationship between scopes — CONFIRM</span></p>
-            <div class="cr-pkgs" data-anim>
-              <article class="cr-pkg" id="package-1" style="--i:0">
+            <div class="cr-tabs" role="tablist" aria-label="Scopes" id="pkgTabs">
+              <button type="button" class="cr-tab" role="tab" id="tab-1" aria-controls="package-1" aria-selected="true">Single landing page</button>
+              <button type="button" class="cr-tab" role="tab" id="tab-2" aria-controls="package-2" aria-selected="false" tabindex="-1">Full conversion journey</button>
+              <button type="button" class="cr-tab" role="tab" id="tab-3" aria-controls="package-3" aria-selected="false" tabindex="-1">Extended marketing and conversion</button>
+              <button type="button" class="cr-tab" role="tab" id="tab-4" aria-controls="package-4" aria-selected="false" tabindex="-1">SaaS platform and activation</button>
+            </div>
+            <article class="cr-panel" id="package-1" role="tabpanel" aria-labelledby="tab-1">
+              <div class="cr-panel-main">
                 <p class="pd-tag">Core scope</p>
                 <h3>Single landing page</h3>
                 <p class="cr-price"><span class="cr-ph">[CURRENCY] [PRICE]</span></p>
                 <p><strong>Best for:</strong> one page with one conversion purpose.</p>
-                <h4>Examined</h4>
-                <ul><li>How clearly the page communicates its offer</li><li>Whether the right audience sees themselves in it</li><li>Evidence and trust signals on the page</li><li>The call to action and on-page friction</li><li>Pricing presentation, if present</li></ul>
-                <h4>Not examined</h4>
-                <ul><li>How visitors arrive</li><li>What happens after the click</li><li>Breakdowns between steps</li></ul>
-                <p class="cr-small"><strong>Consider a broader scope if</strong> the problem may sit between pages.</p>
-                <p class="cr-small"><strong>You provide:</strong> the URL, the audience, device contexts.</p>
                 <a class="btn-outline-dark" href="#request" data-scope="Single landing page">Request This Scope</a>
-              </article>
-              <article class="cr-pkg" id="package-2" style="--i:1">
+              </div>
+              <div class="cr-panel-cols"><div class="cr-ex"><h4>Examined</h4><ul><li>How clearly the page communicates its offer</li><li>Whether the right audience sees themselves in it</li><li>Evidence and trust signals on the page</li><li>The call to action and on-page friction</li><li>Pricing presentation, if present</li></ul></div><div class="cr-nx"><h4>Not examined</h4><ul><li>How visitors arrive</li><li>What happens after the click</li><li>Breakdowns between steps</li></ul></div></div>
+              <div class="cr-panel-foot"><p><strong>Consider a broader scope if</strong> the problem may sit between pages.</p><p><strong>You provide:</strong> the URL, the audience, device contexts.</p></div>
+            </article>
+            <article class="cr-panel" id="package-2" role="tabpanel" aria-labelledby="tab-2">
+              <div class="cr-panel-main">
                 <p class="pd-tag">Core scope</p>
                 <h3>Full conversion journey</h3>
                 <p class="cr-price"><span class="cr-ph">[CURRENCY] [PRICE]</span></p>
                 <p><strong>Best for:</strong> finding where a visitor loses understanding, confidence, or momentum between entry and conversion.</p>
-                <h4>Examined</h4>
-                <ul><li>The journey from the agreed entry point to the conversion</li><li>Each stage and the transitions between them</li><li>Whether expectations carry from one step to the next</li><li>Friction, missing information, and confidence gaps</li></ul>
-                <h4>Not examined</h4>
-                <ul><li>Marketing outside the website journey</li><li>What happens after the conversion</li></ul>
-                <p class="cr-small"><strong>Consider an extension if</strong> expectations are set before arrival, or the experience after sign-up matters.</p>
-                <p class="cr-small"><strong>You provide:</strong> entry points, the conversion that counts, details of gated steps.</p>
                 <a class="btn-outline-dark" href="#request" data-scope="Full conversion journey">Request This Scope</a>
-              </article>
-              <article class="cr-pkg" id="package-3" style="--i:2">
+              </div>
+              <div class="cr-panel-cols"><div class="cr-ex"><h4>Examined</h4><ul><li>The journey from the agreed entry point to the conversion</li><li>Each stage and the transitions between them</li><li>Whether expectations carry from one step to the next</li><li>Friction, missing information, and confidence gaps</li></ul></div><div class="cr-nx"><h4>Not examined</h4><ul><li>Marketing outside the website journey</li><li>What happens after the conversion</li></ul></div></div>
+              <div class="cr-panel-foot"><p><strong>Consider an extension if</strong> expectations are set before arrival, or the experience after sign-up matters.</p><p><strong>You provide:</strong> entry points, the conversion that counts, details of gated steps.</p></div>
+            </article>
+            <article class="cr-panel" id="package-3" role="tabpanel" aria-labelledby="tab-3">
+              <div class="cr-panel-main">
                 <p class="pd-tag">Extension of the full journey</p>
                 <h3>Extended marketing and conversion</h3>
                 <p class="cr-price"><span class="cr-ph">[CURRENCY] [PRICE]</span></p>
                 <p><strong>Best for:</strong> projects where the message that brings visitors in shapes whether the website meets their expectations.</p>
-                <h4>Examined</h4>
-                <ul><li>Everything in the full conversion journey</li><li>The marketing touchpoints you agree on, as sources of promises</li><li>Whether the promise made before arrival matches the experience</li></ul>
-                <h4>Not examined</h4>
-                <ul><li>Email or ad performance</li><li>List, retention, or lifecycle strategy</li><li>Creative quality as a standalone audit</li></ul>
-                <p class="cr-small"><strong>You provide:</strong> the full-journey inputs, plus the touchpoints as screenshots or exports <span class="cr-ph">accepted formats — CONFIRM</span>.</p>
                 <a class="btn-outline-dark" href="#request" data-scope="Extended marketing and conversion">Request This Scope</a>
-              </article>
-              <article class="cr-pkg" id="package-4" style="--i:3">
+              </div>
+              <div class="cr-panel-cols"><div class="cr-ex"><h4>Examined</h4><ul><li>Everything in the full conversion journey</li><li>The marketing touchpoints you agree on, as sources of promises</li><li>Whether the promise made before arrival matches the experience</li></ul></div><div class="cr-nx"><h4>Not examined</h4><ul><li>Email or ad performance</li><li>List, retention, or lifecycle strategy</li><li>Creative quality as a standalone audit</li></ul></div></div>
+              <div class="cr-panel-foot"><p><strong>You provide:</strong> the full-journey inputs, plus the touchpoints as screenshots or exports <span class="cr-ph">accepted formats — CONFIRM</span>.</p></div>
+            </article>
+            <article class="cr-panel" id="package-4" role="tabpanel" aria-labelledby="tab-4">
+              <div class="cr-panel-main">
                 <p class="pd-tag">Extension of the full journey</p>
                 <h3>SaaS platform and activation</h3>
                 <p class="cr-price"><span class="cr-ph">[CURRENCY] [PRICE]</span></p>
                 <p><strong>Best for:</strong> SaaS and self-serve products where sign-up is not the finish line.</p>
-                <h4>Examined</h4>
-                <ul><li>Everything in the full conversion journey</li><li>Sign-up and account creation</li><li>Onboarding and early product interactions</li><li>Whether new users know how to start and what to do next</li><li>The path to first meaningful value</li></ul>
-                <h4>Not examined</h4>
-                <ul><li>Retention and lifecycle after first value</li><li>Product strategy or the business model</li></ul>
-                <p class="cr-small"><strong>You provide:</strong> the full-journey inputs, plus safe access or screens <span class="cr-ph">access process — CONFIRM</span>.</p>
                 <a class="btn-outline-dark" href="#request" data-scope="SaaS platform and activation">Request This Scope</a>
-              </article>
-            </div>
+              </div>
+              <div class="cr-panel-cols"><div class="cr-ex"><h4>Examined</h4><ul><li>Everything in the full conversion journey</li><li>Sign-up and account creation</li><li>Onboarding and early product interactions</li><li>Whether new users know how to start and what to do next</li><li>The path to first meaningful value</li></ul></div><div class="cr-nx"><h4>Not examined</h4><ul><li>Retention and lifecycle after first value</li><li>Product strategy or the business model</li></ul></div></div>
+              <div class="cr-panel-foot"><p><strong>You provide:</strong> the full-journey inputs, plus safe access or screens <span class="cr-ph">access process — CONFIRM</span>.</p></div>
+            </article>
             <p class="cr-q-note"><strong>Suitable for:</strong> SaaS products, AI-powered products, digital platforms, marketplaces, e-commerce, and other digital services. <strong>What sets the price:</strong> <span class="cr-ph">PRICE DRIVERS — CONFIRM</span></p>
           </section>
 
@@ -1238,6 +1341,20 @@
       new IntersectionObserver(function (es) { heroIn = es[0].isIntersecting; upd(); }, { threshold: 0.02 }).observe(hero);
       new IntersectionObserver(function (es) { reqIn = es[0].isIntersecting; upd(); }, { threshold: 0.05 }).observe(req);
     }
+  })();
+  </script>
+  <script>
+  (function () {
+    var tabs = [].slice.call(document.querySelectorAll('#pkgTabs .cr-tab')); if (!tabs.length) return;
+    var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+    function pick(i, focus) { tabs.forEach(function (t, k) { var on = k === i; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; panels[k].hidden = !on; }); if (focus) tabs[i].focus(); }
+    function fromHash() { return panels.findIndex(function (p) { return '#' + p.id === location.hash; }); }
+    var st = fromHash(); pick(st > -1 ? st : 0, false);
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { pick(i, false); });
+      t.addEventListener('keydown', function (e) { var n = tabs.length, k = i; if (e.key === 'ArrowRight') k = (i + 1) % n; else if (e.key === 'ArrowLeft') k = (i + n - 1) % n; else if (e.key === 'Home') k = 0; else if (e.key === 'End') k = n - 1; else return; e.preventDefault(); pick(k, true); });
+    });
+    window.addEventListener('hashchange', function () { var k = fromHash(); if (k > -1) pick(k, false); });
   })();
   </script>
   <script src="/js/theme.js" defer></script>
