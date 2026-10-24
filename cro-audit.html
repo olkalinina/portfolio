@@ -606,6 +606,11 @@
     .cr-chips input:checked + span { background: #ede8ea; color: #171717; border-color: #ede8ea; }
     .cr-chips input:focus-visible + span { outline: 2px solid #ede8ea; outline-offset: 2px; }
     .cr-form .cr-submit { background: #ede8ea !important; color: #171717 !important; align-self: flex-start; }
+    .cr-form-est { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 14px; background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2); font-size: 14px; line-height: 1.45; color: #f7f5f5; }
+    .cr-form-est[hidden] { display: none; }
+    .cr-form-est b { display: block; font-weight: 600; }
+    .cr-form-est em { display: block; font-style: normal; color: rgba(247,245,245,.75); }
+    .cr-form-est button { flex: none; background: none; border: 0; color: #f7f5f5; text-decoration: underline; text-underline-offset: 3px; font: inherit; cursor: pointer; padding: 6px 2px; }
     .cr-form-note { font-size: 13.5px; line-height: 1.5; color: rgba(247,245,245,.62); }
     .cr-form-note a { color: #f7f5f5; text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width: 960px) { .cr-req { grid-template-columns: 1fr; padding: 36px 22px; gap: 36px; } .cr-form { padding: 24px 20px; } .cr-req h2 { font-size: 30px !important; } .cr-form .cr-submit { width: 100%; align-self: stretch; } .cr-req .cv-svg { display: none; } }
@@ -952,7 +957,7 @@
     .cr-sum-totalrow span { font-size: 15px; color: var(--dark); }
     .cr-sum-totalrow strong { font-family: 'Playfair Display', Georgia, serif; font-size: 40px; font-weight: 500; line-height: 1; color: var(--dark); font-variant-numeric: tabular-nums; }
     .cr-sum-note { margin: 16px 0 0; font-size: 13px; line-height: 1.5; color: var(--gray); }
-    .cr-calc-sum .btn-dark { display: inline-flex; width: 100%; justify-content: center; align-items: center; gap: 10px; margin-top: auto; }
+    .cr-calc-sum .btn-dark { display: inline-flex; width: 100%; justify-content: center; align-items: center; gap: 10px; margin-top: 24px; }
     @media (max-width: 960px) { .cr-calc { grid-template-columns: minmax(0, 1fr); } .cr-calc-sum { border-left: 0; border-top: 1.5px solid var(--light-gray); } }
     @media (max-width: 640px) { .cr-tiers { grid-template-columns: 1fr; } .cr-blk { padding: 22px 18px 24px; } .cr-calc-sum { padding: 22px 18px 24px; } .cr-calc-head h2 { font-size: 30px; } }
   </style>
@@ -1345,6 +1350,7 @@
                   <ul class="cr-sum-lines" id="calcLines"></ul>
                   <div class="cr-sum-totalrow"><span>Estimated total</span><strong id="calcTotal" aria-live="polite"></strong></div>
                   <p class="cr-sum-note">An estimate for planning, not a binding quote. Final scope and cost are confirmed with you before any payment.</p>
+                  <a class="btn-dark" href="#request" id="calcCta">Get a tailored quote <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                 </aside>
               </div>
             </div>
@@ -1368,6 +1374,8 @@
             <form class="cr-form" action="https://formspree.io/f/xkjovqro" method="POST">
               <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
               <input type="hidden" name="_subject" value="CRO audit request from olgakalinina.me/cro-audit" />
+              <input type="hidden" name="estimate_scope" value="" /><input type="hidden" name="estimate_platform" value="" /><input type="hidden" name="estimate_addons" value="" /><input type="hidden" name="estimate_delivery" value="" /><input type="hidden" name="estimate_total" value="" />
+              <div class="cr-form-est" id="rqEstimate" hidden><span><b>Your estimate is included</b><em id="rqEstimateText"></em></span><button type="button" id="rqEstimateClear">Remove</button></div>
               <input type="hidden" name="source_page" value="/cro-audit" />
               <div class="cr-field"><label for="rq-email">Email <span class="req" aria-hidden="true">*</span></label><input id="rq-email" type="email" name="email" autocomplete="email" required /></div>
               <div class="cr-field"><label for="rq-url">Product or page URL <span class="req" aria-hidden="true">*</span></label><input id="rq-url" type="text" inputmode="url" name="url" placeholder="example.com" required /></div>
@@ -1648,7 +1656,8 @@
       if (st.emails) { total += PRICING.addons.marketingEmails; lines.push({ label: 'Marketing emails', right: '+' + money(PRICING.addons.marketingEmails) }); }
       if (rushExtra) lines.push({ label: 'Rush delivery', right: '+' + money(rushExtra) });
       lines.push({ label: 'Delivery time', right: st.rush ? PRICING.rush.label[st.scope] : PRICING.terms[st.scope] });
-      return { total: total, lines: lines };
+      var addons = []; if (saas) addons.push('SaaS in-product experience'); if (st.emails) addons.push('Marketing emails'); if (rushExtra) addons.push('Rush delivery (+' + PRICING.rush.percent + '%)');
+      return { total: total, lines: lines, text: { scope: LABELS.scope[st.scope], platform: LABELS.device[st.device], addons: addons.length ? addons.join(', ') : 'None', delivery: st.rush ? PRICING.rush.label[st.scope] : PRICING.terms[st.scope], total: money(total) } };
     }
     function bothExtra(scope) {
       var b = PRICING.bothDevices; return b.mode === 'fixed' ? b.value : Math.round(PRICING.scope[scope] * b.value / 100);
@@ -1679,6 +1688,21 @@
     root.addEventListener('change', render);
     render();
 
+      /* the CTA hands the chosen options to the request form: the form carries them as hidden fields, so they arrive in the email */
+    var rqBox = document.getElementById('rqEstimate'), rqText = document.getElementById('rqEstimateText'), rqForm = rqBox ? rqBox.closest('form') : null;
+    function setEstimate(t) {
+      if (!rqForm) return;
+      var map = { estimate_scope: t ? t.scope : '', estimate_platform: t ? t.platform : '', estimate_addons: t ? t.addons : '', estimate_delivery: t ? t.delivery : '', estimate_total: t ? t.total + ' (estimate)' : '' };
+      Object.keys(map).forEach(function (k) { rqForm.elements[k].value = map[k]; });
+      rqBox.hidden = !t;
+      if (t) rqText.textContent = t.scope + ', ' + t.platform + (t.addons !== 'None' ? ', ' + t.addons : '') + '. ' + t.total + ', ready in ' + t.delivery + '.';
+    }
+    document.getElementById('calcCta').addEventListener('click', function () {
+      var st = state(), r = calc(st), map = { single: 'Single landing page', flow: st.saas ? 'SaaS platform and activation' : 'Full conversion journey', ecommerce: 'Not sure yet' };
+      var radio = document.querySelector('.cr-chips input[value="' + map[st.scope] + '"]'); if (radio) radio.checked = true;
+      setEstimate(r.text);
+    });
+    if (document.getElementById('rqEstimateClear')) document.getElementById('rqEstimateClear').addEventListener('click', function () { setEstimate(null); });
   })();
   </script>
   <script src="/js/theme.js" defer></script>
