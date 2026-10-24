@@ -758,6 +758,14 @@
       .hx-drop { background: var(--dark); color: var(--white, #fff); }
     }
     @media (prefers-reduced-motion: reduce) { .hx-stage .hx-an, .hx-stage .hx-an .dot.hot { animation: none !important; } }
+    /* the white "Your report" card sits inside a dark panel: keep the dark pen cursor over it so it never vanishes */
+    @media (hover: hover) and (pointer: fine) {
+      html:not([data-theme="dark"]) body main .cv.pd-dark .cv-out, html:not([data-theme="dark"]) body main .cv.pd-dark .cv-out *,
+      html[data-theme="dark"] body:not(.is-protected) main .cv.pd-dark .cv-out, html[data-theme="dark"] body:not(.is-protected) main .cv.pd-dark .cv-out * {
+        cursor: url('/images/cursor-pen.png') 2 1, auto !important;
+        cursor: image-set(url('/images/cursor-pen.png') 1x, url('/images/cursor-pen@2x.png') 2x) 2 1, auto !important;
+      }
+    }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
