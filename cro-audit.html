@@ -898,6 +898,63 @@
     .cr-who2-sub { right: 2%; bottom: 0; width: 42%; height: 52%; }
     .cr-who2-tags { position: absolute; right: 0; top: -4px; list-style: none; margin: 0; padding: 0; font-family: 'Reenie Beanie', 'Segoe Script', cursive; font-size: 25px; line-height: 1.1; color: var(--gray); transform: rotate(-6deg); transform-origin: right top; text-align: left; }
     @media (max-width: 860px) { .cr-who2 { grid-template-columns: 1fr; padding: 32px 24px; } .cr-who2-art { height: 340px; } body:not(.is-protected) main .pd.cr .cr-who2-text h3 { font-size: 32px; } }
+    /* ---- price calculator (prototype) ---- */
+    #pricing > h2, #pricing > .pd-sub { text-align: center; margin-left: auto; margin-right: auto; }
+    .pd.cr #pricing > .pd-sub { margin-top: 14px; max-width: 640px; }
+    .cr-calc-proto { width: fit-content; margin: 22px auto 0; padding: 6px 14px; border: 1.5px dashed #b45309; border-radius: 9999px; background: rgba(245,158,11,.12); color: #92400e; font-size: 14px; line-height: 1.4; text-align: center; }
+    html[data-theme="dark"] .cr-calc-proto { color: #fcd34d; border-color: #d97706; background: rgba(245,158,11,.14); }
+    .cr-calc { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: start; margin-top: 40px; }
+    .cr-calc-form { display: flex; flex-direction: column; gap: 36px; min-width: 0; }
+    .cr-cg { border: 0; margin: 0; padding: 0; min-width: 0; }
+    .cr-cg[hidden] { display: none; }
+    .cr-cg legend { padding: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 24px; line-height: 1.2; color: var(--dark); }
+    .cr-cg-hint { margin: 6px 0 14px; font-size: 15px; line-height: 1.5; color: var(--gray); }
+    .cr-cg-note { margin: 12px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--gray); }
+    .cr-cg-note strong { color: var(--dark); font-weight: 600; }
+    .cr-opts { display: flex; flex-direction: column; gap: 10px; }
+    .cr-opt { position: relative; display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 18px 20px; border: 1.5px solid var(--light-gray); border-radius: var(--r-lg, 24px); background: none; cursor: pointer; transition: border-color .2s ease, background .2s ease; }
+    .cr-opt:hover { border-color: var(--gray); }
+    .cr-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .cr-opt-mark { width: 22px; height: 22px; margin-top: 2px; border: 1.5px solid var(--gray); border-radius: 50%; display: block; position: relative; transition: border-color .2s ease, background .2s ease; }
+    .cr-opt--check .cr-opt-mark { border-radius: 6px; }
+    .cr-opt-body b { display: block; font-size: 17px; font-weight: 600; color: var(--dark); line-height: 1.3; }
+    .cr-opt-body small { display: block; margin-top: 4px; font-size: 14.5px; line-height: 1.55; color: var(--gray); }
+    .cr-opt-price { font-size: 15px; font-weight: 600; color: var(--dark); white-space: nowrap; padding-top: 1px; font-variant-numeric: tabular-nums; }
+    .cr-opt:has(input:checked) { border-color: var(--dark); background: var(--white, #fff); }
+    .cr-opt:has(input:checked) .cr-opt-mark { border-color: var(--dark); background: var(--dark); }
+    .cr-opt:not(.cr-opt--check):has(input:checked) .cr-opt-mark::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: var(--white, #fff); }
+    .cr-opt--check:has(input:checked) .cr-opt-mark::after { content: ""; position: absolute; left: 6px; top: 2px; width: 5px; height: 10px; border-right: 2px solid var(--white, #fff); border-bottom: 2px solid var(--white, #fff); transform: rotate(40deg); }
+    .cr-opt:has(input:focus-visible), .cr-segopt:has(input:focus-visible) { outline: 2px solid var(--dark); outline-offset: 3px; }
+    .cr-track { display: grid; grid-template-columns: 1fr 1fr; margin-top: 14px; border-radius: 14px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--light-gray); }
+    .cr-track-seg { padding: 12px 16px; font-size: 14px; line-height: 1.4; color: var(--gray); }
+    .cr-track-seg b { display: block; font-size: 13px; font-weight: 600; color: var(--dark); }
+    .cr-track-seg--add { background: var(--bg-soft); border-left: 1.5px solid var(--light-gray); }
+    .cr-seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .cr-segopt { position: relative; display: block; border: 1.5px solid var(--light-gray); border-radius: var(--r-md, 16px); cursor: pointer; transition: border-color .2s ease, background .2s ease; }
+    .cr-segopt:hover { border-color: var(--gray); }
+    .cr-segopt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .cr-segopt > span { display: block; padding: 14px 16px; }
+    .cr-segopt b { display: block; font-size: 16px; font-weight: 600; color: var(--dark); line-height: 1.3; }
+    .cr-segopt small { display: block; margin-top: 3px; font-size: 14px; color: var(--gray); font-variant-numeric: tabular-nums; }
+    .cr-segopt:has(input:checked) { border-color: var(--dark); background: var(--white, #fff); box-shadow: inset 0 0 0 1px var(--dark); }
+    .cr-calc-analytics { margin: 0; padding-top: 4px; font-size: 14.5px; line-height: 1.55; color: var(--gray); max-width: 560px; }
+    .cr-calc-sum { position: sticky; top: 110px; background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: var(--card-pad, 32px); box-shadow: inset 0 0 0 1px var(--light-gray), var(--sh-soft, none); }
+    .cr-calc-sum h3 { font-size: 24px; font-weight: 500; margin: 0 0 18px; }
+    .cr-sum-lines { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+    .cr-sum-lines li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1.5px solid var(--light-gray); font-size: 15.5px; line-height: 1.45; }
+    .cr-sum-lines li:first-child { border-top: 0; padding-top: 0; }
+    .cr-sum-lines li span:first-child { color: var(--gray); }
+    .cr-sum-lines li span:first-child b { display: block; color: var(--dark); font-weight: 600; }
+    .cr-sum-lines li span:last-child { color: var(--dark); font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .cr-sum-total { margin-top: 8px; padding: 18px 0 4px; border-top: 1.5px solid var(--dark); display: grid; gap: 4px; }
+    .cr-sum-total span { font-size: 14px; color: var(--gray); }
+    .cr-sum-total strong { font-family: 'Playfair Display', Georgia, serif; font-size: 48px; font-weight: 500; line-height: 1.05; color: var(--dark); font-variant-numeric: tabular-nums; }
+    .cr-sum-total em { font-style: normal; font-size: 13px; color: #92400e; }
+    html[data-theme="dark"] .cr-sum-total em { color: #fcd34d; }
+    .cr-sum-note { margin: 14px 0 20px; font-size: 14.5px; line-height: 1.55; color: var(--gray); }
+    .cr-calc-sum .btn-dark { display: inline-flex; width: 100%; justify-content: center; }
+    @media (max-width: 960px) { .cr-calc { grid-template-columns: 1fr; gap: 32px; } .cr-calc-sum { position: static; } }
+    @media (max-width: 640px) { .cr-seg { grid-template-columns: 1fr; } .cr-opt { grid-template-columns: 22px minmax(0, 1fr); } .cr-opt-price { grid-column: 2; } .cr-track { grid-template-columns: 1fr; } .cr-track-seg--add { border-left: 0; border-top: 1.5px solid var(--light-gray); } .cr-sum-total strong { font-size: 40px; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -948,7 +1005,7 @@
               <p class="hx-eyebrow">CRO audit · Behavioral CRO Diagnosis</p>
               <h1 id="hx-title">Your visitors are leaving. Find out why.</h1>
               <p class="hx-lede">I investigate your website or product experience to find where the conversion journey breaks, and show you what to fix first.</p>
-              <div class="hx-actions"><a href="#request" class="btn-dark" data-cta="hero">Request a CRO Audit <svg class="btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a><a href="#request" class="btn-outline-dark">See Pricing</a></div>
+              <div class="hx-actions"><a href="#request" class="btn-dark" data-cta="hero">Request a CRO Audit <svg class="btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a><a href="#pricing" class="btn-outline-dark">See Pricing</a></div>
               <ul class="hx-trust">
                 <li><span class="hx-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9M10 20V4M16 20v-8M22 20H2"/></svg></span>Evidence-based diagnosis</li>
                 <li><span class="hx-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16.5 9.5"/></svg></span>100+ diagnostics completed</li>
@@ -1205,6 +1262,72 @@
                 <img class="cr-who2-sub" src="images/cro-who-books.jpg" alt="" width="560" height="560" loading="lazy" />
                 <ul class="cr-who2-tags" aria-label="Areas of work"><li>Product design</li><li>CRO</li><li>SaaS platforms</li><li>AI products</li></ul>
               </div>
+            </div>
+          </section>
+
+          <!-- PRICE CALCULATOR (prototype) -->
+          <section id="pricing" aria-labelledby="cr-pricing">
+            <h2 id="cr-pricing">Estimate your audit</h2>
+            <p class="pd-sub">Choose what you need examined and see how the scope shapes the price. This is an estimate for planning, not an order.</p>
+            <p class="cr-calc-proto"><strong>Prototype.</strong> Every amount on this page is a placeholder, not a confirmed price.</p>
+            <div class="cr-calc" id="crCalc">
+              <div class="cr-calc-form">
+
+                <fieldset class="cr-cg">
+                  <legend>Audit scope</legend>
+                  <p class="cr-cg-hint">What I examine. Pick one.</p>
+                  <div class="cr-opts">
+                    <label class="cr-opt"><input type="radio" name="calc-scope" value="single" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-opt-body"><b>Single-page audit</b><small>One page, such as a homepage, landing page or product page. The smallest scope.</small></span><span class="cr-opt-price" data-price="scope.single"></span></label>
+                    <label class="cr-opt"><input type="radio" name="calc-scope" value="flow" checked /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-opt-body"><b>Full conversion flow audit</b><small>The complete journey on a website, from the entry point to the desired conversion, for example from a landing page through sign-up. SaaS products can add the in-product experience.</small></span><span class="cr-opt-price" data-price="scope.flow"></span></label>
+                    <label class="cr-opt"><input type="radio" name="calc-scope" value="ecommerce" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-opt-body"><b>E-commerce conversion flow</b><small>For online shops. The customer journey from discovering a product to completing a purchase, to find friction and drop-off points across shopping and checkout.</small></span><span class="cr-opt-price" data-price="scope.ecommerce"></span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="cr-cg" id="calcSaas" hidden>
+                  <legend>SaaS product experience</legend>
+                  <p class="cr-cg-hint">Optional. Available with the full conversion flow audit.</p>
+                  <div class="cr-opts">
+                    <label class="cr-opt cr-opt--check"><input type="checkbox" name="calc-saas" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-opt-body"><b>Include the in-product experience</b><small>I go through the product itself after sign-up, following the user journey until the first meaningful value.</small></span><span class="cr-opt-price" data-price="addons.saasProduct"></span></label>
+                  </div>
+                  <div class="cr-track" aria-label="What each part covers">
+                    <div class="cr-track-seg"><b>Flow audit</b><span>Marketing website, then sign-up</span></div>
+                    <div class="cr-track-seg cr-track-seg--add"><b>This add-on</b><span>After sign-up, up to first value</span></div>
+                  </div>
+                </fieldset>
+
+                <fieldset class="cr-cg">
+                  <legend>Marketing emails</legend>
+                  <p class="cr-cg-hint">Optional. Works with any scope.</p>
+                  <div class="cr-opts">
+                    <label class="cr-opt cr-opt--check"><input type="checkbox" name="calc-emails" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-opt-body"><b>Review marketing emails</b><small>Emails sent to potential or existing users who are not paying customers yet: cold outreach, emails to prospects who showed interest, and activation or upgrade emails to registered users who have not converted to paid.</small></span><span class="cr-opt-price" data-price="addons.marketingEmails"></span></label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="cr-cg">
+                  <legend>Device coverage</legend>
+                  <p class="cr-cg-hint">Mobile and desktop experiences can differ a lot, so they are reviewed separately.</p>
+                  <div class="cr-seg" role="presentation">
+                    <label class="cr-segopt"><input type="radio" name="calc-device" value="mobile" /><span><b>Mobile only</b><small data-device-price="mobile"></small></span></label>
+                    <label class="cr-segopt"><input type="radio" name="calc-device" value="desktop" checked /><span><b>Desktop only</b><small data-device-price="desktop"></small></span></label>
+                    <label class="cr-segopt"><input type="radio" name="calc-device" value="both" /><span><b>Mobile + desktop</b><small data-device-price="both"></small></span></label>
+                  </div>
+                  <p class="cr-cg-note" id="calcBothNote"><strong>Mobile + desktop means two separate reviews and two separate reports.</strong> It is not a check of how the layout adapts.</p>
+                </fieldset>
+
+                <p class="cr-calc-analytics">If you have analytics data such as GA4, Hotjar or Microsoft Clarity, share it. It supports the findings and does not change the estimate.</p>
+              </div>
+
+              <aside class="cr-calc-sum" aria-label="Estimate summary">
+                <h3>Your estimate</h3>
+                <ul class="cr-sum-lines" id="calcLines"></ul>
+                <div class="cr-sum-total">
+                  <span>Estimated total</span>
+                  <strong id="calcTotal" aria-live="polite"></strong>
+                  <em>Placeholder amount</em>
+                </div>
+                <p class="cr-sum-note">A planning estimate, not a binding quote. I confirm the scope and the price with you before any payment.</p>
+                <a class="btn-dark" href="#request" id="calcCta">Discuss your project</a>
+              </aside>
             </div>
           </section>
 
@@ -1490,6 +1613,82 @@
     window.addEventListener('resize', render);
     pgs[0].addEventListener('load', render);
     render();
+  })();
+  </script>
+  <script>
+  (function () {
+    var root = document.getElementById('crCalc'); if (!root) return;
+
+    /* ============================================================
+       PRICES: temporary placeholder values. Change them here only.
+       The page reads everything below, nothing is hard-coded in the layout.
+       ============================================================ */
+    var PRICING = {
+      currency: '$',
+      scope: { single: 1000, flow: 2500, ecommerce: 3000 },      /* base price per audit scope */
+      addons: { saasProduct: 1200, marketingEmails: 600 },        /* optional add-ons */
+      /* Mobile + desktop: two separate reviews and reports.
+         mode 'percent' = the extra review costs this % of the scope's base price.
+         mode 'fixed'   = the extra review adds this fixed amount. */
+      bothDevices: { mode: 'percent', value: 80 }
+    };
+    var LABELS = {
+      scope: { single: 'Single-page audit', flow: 'Full conversion flow audit', ecommerce: 'E-commerce conversion flow' },
+      device: { mobile: 'Mobile only', desktop: 'Desktop only', both: 'Mobile + desktop (two reviews, two reports)' }
+    };
+
+    /* pure pricing logic: state in, lines and total out */
+    function calc(st) {
+      var lines = [], total = 0, base = PRICING.scope[st.scope];
+      lines.push({ label: LABELS.scope[st.scope], amount: base }); total += base;
+      lines.push({ label: LABELS.device[st.device], sub: 'Device coverage', amount: st.device === 'both' ? bothExtra(st.scope) : 0, included: st.device !== 'both' });
+      if (st.device === 'both') total += bothExtra(st.scope);
+      if (st.saas && st.scope === 'flow') { lines.push({ label: 'In-product experience', sub: 'SaaS add-on', amount: PRICING.addons.saasProduct }); total += PRICING.addons.saasProduct; }
+      if (st.emails) { lines.push({ label: 'Marketing email review', sub: 'Add-on', amount: PRICING.addons.marketingEmails }); total += PRICING.addons.marketingEmails; }
+      return { lines: lines, total: total };
+    }
+    function bothExtra(scope) {
+      var b = PRICING.bothDevices; return b.mode === 'fixed' ? b.value : Math.round(PRICING.scope[scope] * b.value / 100);
+    }
+    function money(n) { return PRICING.currency + n.toLocaleString('en-US'); }
+
+    /* ui */
+    var form = root;
+    function val(name) { var c = form.querySelector('input[name="' + name + '"]:checked'); return c ? c.value : null; }
+    function state() { return { scope: val('calc-scope'), device: val('calc-device'), saas: form.querySelector('input[name="calc-saas"]').checked, emails: form.querySelector('input[name="calc-emails"]').checked }; }
+    var linesEl = document.getElementById('calcLines'), totalEl = document.getElementById('calcTotal'), saasGroup = document.getElementById('calcSaas');
+    function get(path) { return path.split('.').reduce(function (o, k) { return o[k]; }, PRICING); }
+    [].forEach.call(form.querySelectorAll('[data-price]'), function (el) { el.textContent = (el.getAttribute('data-price').indexOf('addons') === 0 ? '+' : 'from ') + money(get(el.getAttribute('data-price'))); });
+    function render() {
+      var st = state();
+      var showSaas = st.scope === 'flow';
+      saasGroup.hidden = !showSaas;
+      if (!showSaas) form.querySelector('input[name="calc-saas"]').checked = false;
+      st.saas = st.saas && showSaas;
+      /* device price hints depend on the chosen scope */
+      form.querySelector('[data-device-price="mobile"]').textContent = 'Included';
+      form.querySelector('[data-device-price="desktop"]').textContent = 'Included';
+      form.querySelector('[data-device-price="both"]').textContent = '+' + money(bothExtra(st.scope));
+      var r = calc(st);
+      linesEl.innerHTML = r.lines.map(function (l) {
+        var right = l.included ? 'Included' : (l.amount ? (l.sub ? '+' : '') + money(l.amount) : 'Included');
+        return '<li><span>' + (l.sub ? '<b>' + l.label + '</b>' + l.sub : '<b>' + l.label + '</b>Audit scope') + '</span><span>' + right + '</span></li>';
+      }).join('');
+      totalEl.textContent = money(r.total);
+    }
+    form.addEventListener('change', render);
+    render();
+
+    /* the CTA carries the choice into the request form, nothing is sent */
+    var cta = document.getElementById('calcCta');
+    cta.addEventListener('click', function () {
+      var st = state(), r = calc(st), map = { single: 'Single landing page', flow: st.saas ? 'SaaS platform and activation' : 'Full conversion journey', ecommerce: 'Not sure yet' };
+      var radio = document.querySelector('.cr-chips input[value="' + map[st.scope] + '"]'); if (radio) radio.checked = true;
+      var msg = document.getElementById('rq-msg');
+      if (msg && (!msg.value || msg.getAttribute('data-auto') === '1')) {
+        msg.value = 'Estimate I explored: ' + r.lines.map(function (l) { return l.label; }).join(', ') + ' (' + money(r.total) + ', placeholder).'; msg.setAttribute('data-auto', '1');
+      }
+    });
   })();
   </script>
   <script src="/js/theme.js" defer></script>
