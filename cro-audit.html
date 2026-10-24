@@ -834,6 +834,14 @@
     .cr-cs3 .cs-card-img-contained { margin: 14px 0 24px; margin-top: auto; padding-top: 0; overflow: hidden; border-radius: 12px; }
     .cr-cs3 .cs-card-img-contained img { width: 100%; height: 190px; object-fit: cover; object-position: top; display: block; border-radius: 12px; border: 1px solid var(--light-gray); }
     @media (max-width: 960px) { .cr-cs3 { grid-template-columns: 1fr; } }
+    .cr-faq-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 4px 0 20px; }
+    .cr-faq-lists h3 { font-size: 18px; font-weight: 500; margin-bottom: 10px; }
+    .cr-faq-lists ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 15.5px; line-height: 1.45; }
+    .cr-faq-lists li { position: relative; padding-left: 22px; }
+    .cr-faq-lists > div:first-child li::before { content: "+"; position: absolute; left: 3px; top: -1px; font-weight: 500; color: var(--dark); }
+    .cr-faq-lists > div:last-child li { color: var(--gray); }
+    .cr-faq-lists > div:last-child li::before { content: "\2212"; position: absolute; left: 3px; top: -1px; color: var(--gray); }
+    @media (max-width: 640px) { .cr-faq-lists { grid-template-columns: 1fr; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -1081,11 +1089,6 @@
                   <li><span class="n">05</span><strong>Priority roadmap</strong><span class="d">Ordered actions with effort signals, linked to the problems they address.</span></li>
                   <li><span class="n">06</span><strong>Limitations</strong><span class="d">What I couldn’t observe, and what that changes.</span></li>
                 </ul>
-                <div class="cr-incl2">
-                  <div><h3>Included</h3><ul><li>Evidence tied to your product</li><li>An explanation of each problem and why it matters</li><li>Priorities and effort signals</li><li>Notes on confidence and limitations</li></ul></div>
-                  <div><h3>Not included</h3><ul><li>Final copy or design files</li><li>Implementation of the changes</li><li>Results verification after changes</li><li>Ongoing optimization</li><li>Product or pricing strategy</li><li>A guaranteed uplift</li></ul></div>
-                </div>
-                <aside class="pd-note"><strong>What it doesn’t promise.</strong> The audit doesn’t guarantee a conversion lift, calculate a financial return, provide final copy or design files, or implement changes. It evaluates how pricing is presented, not the underlying pricing strategy or business model.</aside>
               </div>
             </div>
             <div class="cr-sample" data-anim>
@@ -1228,6 +1231,8 @@
             </div>
             <div class="pd-faq">
               <details><summary>What is a CRO audit?<span class="pl" aria-hidden="true"></span></summary><p>A structured review of a website or digital product to find what keeps visitors from completing a desired action. It covers the journey, messaging, trust, and the behavioral evidence available, and ends in prioritized recommendations.</p></details>
+              <details><summary>What is included, and what is not?<span class="pl" aria-hidden="true"></span></summary><div class="cr-faq-lists"><div><h3>Included</h3><ul><li>Evidence tied to your product</li><li>An explanation of each problem and why it matters</li><li>Priorities and effort signals</li><li>Notes on confidence and limitations</li></ul></div><div><h3>Not included</h3><ul><li>Final copy or design files</li><li>Implementation of the changes</li><li>Results verification after changes</li><li>Ongoing optimization</li><li>Product or pricing strategy</li><li>A guaranteed uplift</li></ul></div></div></details>
+              <details><summary>What does the audit not promise?<span class="pl" aria-hidden="true"></span></summary><p>The audit doesn’t guarantee a conversion lift, calculate a financial return, provide final copy or design files, or implement changes. It evaluates how pricing is presented, not the underlying pricing strategy or business model.</p></details>
               <details><summary>How is a CRO audit different from a UX audit?<span class="pl" aria-hidden="true"></span></summary><p>A UX audit looks at usability and the overall experience. A CRO audit looks at the barriers to a specific outcome, such as sign-ups, purchases, or demo requests. The two overlap. <a class="pd-link" href="/cro-audit-vs-ux-audit">Read the full comparison</a>.</p></details>
               <details><summary>Do I need to give you analytics access?<span class="pl" aria-hidden="true"></span></summary><p>No. Analytics such as GA4 can strengthen the diagnosis: they show where people leave and which areas deserve a closer look, so share them if you have them. Without them, I examine the journey and the product experience directly and report what the evidence supports. Findings reflect the evidence available.</p></details>
               <details><summary>Will you tell me how much my conversion will rise?<span class="pl" aria-hidden="true"></span></summary><p>No. I don’t promise a specific uplift or invent projections. I identify and explain conversion barriers within the agreed scope.</p></details>
