@@ -778,6 +778,16 @@
       .pd.cr #how .cv-nodes { gap: 10px; }
       .pd.cr #how .cv-node { padding: 10px 16px; }
     }
+    /* Not converting: dark band, same as "Real problems. Thoughtful solutions." on the Home page */
+    .pd.cr #problem { --band: #171717; position: relative; padding: 96px 0 104px; background: var(--band); box-shadow: 0 0 0 100vmax var(--band); clip-path: inset(0 -100vmax); }
+    html[data-theme="dark"] .pd.cr #problem { --band: #2f2e2e; }
+    html body .pd.cr #problem h2, html body .pd.cr #problem h3, html body .pd.cr #problem .cr-prob-root { color: #f7f5f5; }
+    html body .pd.cr #problem .pd-sub, html body .pd.cr #problem .cr-prob-panel p { color: rgba(247,245,245,.72); }
+    html body .pd.cr #problem .cr-prob-panel { background: rgba(255,255,255,.07); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+    html body .pd.cr #problem .cr-prob-root { border-bottom-color: rgba(255,255,255,.14); }
+    html body .pd.cr #problem .cr-prob-panel p.cr-prob-root { color: #f7f5f5; }
+    html body .pd.cr #problem .cr-prob-panel li { border-top-color: rgba(255,255,255,.14); }
+    html body .pd.cr #problem .cr-prob-panel em { color: #d9b36c; }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
