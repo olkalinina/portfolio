@@ -719,6 +719,36 @@
       .cr-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; } .cr-tab { flex: none; white-space: nowrap; }
       .cr-incl2 > div:last-child { border-left: 0; border-top: 1.5px solid var(--light-gray); }
     }
+    /* ---- hero illustration, final version from the supplied artwork ---- */
+    @media (min-width: 761px) {
+      .hx { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: 24px; }
+      .hx-stage { aspect-ratio: 662 / 628; }
+      .hx-browser { left: 10.3cqw; top: 5.9cqw; width: 66cqw; height: 71.3cqw; scale: .806; transform-origin: 0 0; }
+      .hx-cards { left: 0; top: 0; right: auto; width: 100%; height: 100%; }
+      .hx-card { right: auto; background: rgba(255,255,255,.58); -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4); box-shadow: 0 1.2cqw 3cqw rgba(23,23,23,.12), inset 0 0 0 1px rgba(255,255,255,.75); }
+      .hx-stage.on2 .c1, .hx-stage.on3 .c1, .hx-stage.on3 .c2 { opacity: 1; transform: none; }
+      .hx-stage.on2 .c1 .hx-body, .hx-stage.on3 .c1 .hx-body, .hx-stage.on3 .c2 .hx-body { grid-template-rows: 1fr; }
+      .hx-stage.on2 .hx-hl.h1, .hx-stage.on3 .hx-hl.h1, .hx-stage.on3 .hx-hl.h2 { opacity: 1; }
+      .hx-stage.on2 .l1, .hx-stage.on3 .l1, .hx-stage.on3 .l2 { stroke-dashoffset: 0; }
+      .hx-stage.on2 .hx-lines .d1, .hx-stage.on3 .hx-lines .d1, .hx-stage.on3 .hx-lines .d2 { opacity: 1; }
+      .hx-lines path { stroke-width: 1.5; }
+      .hx-lines circle { fill: var(--gold); opacity: 0; transition: opacity .4s ease .2s; }
+      .hx-stage.on1 .hx-lines .d1, .hx-stage.on2 .hx-lines .d2, .hx-stage.on3 .hx-lines .d3, .hx-stage.all .hx-lines circle { opacity: 1; }
+      .hx-an { left: 4.65cqw; top: 55.9cqw; width: 52cqw; scale: .806; transform-origin: 0 0; background: #151617; color: #fff; box-shadow: 0 1.6cqw 4cqw rgba(23,23,23,.28), 0 0 0 1px rgba(255,255,255,.06); }
+      .hx-an-head b { color: #fff; }
+      .hx-an-more { background: #2a2c2e; } .hx-an-more i { background: #fff; }
+      .hx-an-tabs { background: #26282a; } .hx-an-tabs span { color: #cfd2d6; } .hx-an-tabs span.on { background: #34373a; color: #fff; box-shadow: none; }
+      .hx-an-ico i { background: #d9b36c; }
+      .hx-an-stat strong { color: #fff; } .hx-an-stat small { color: #b7bbc0; }
+      .hx-an-badge { background: #2a2c2e; color: #fff; box-shadow: none; }
+      .hx-an .gl { stroke: #34373a; }
+      .hx-an .area { fill: rgba(217,179,108,.2); }
+      .hx-an .ln { stroke: #fff; }
+      .hx-an .dot { background: #151617; box-shadow: 0 0 0 2px #5b5f66; }
+      .hx-an .dot.hot { background: #d9b36c; border-radius: 30%; box-shadow: 0 0 0 max(.35cqw, 3px) #151617, 0 0 0 max(.6cqw, 4.5px) #fff; }
+      .hx-an-x { color: #b7bbc0; }
+      .hx-drop { background: #26282a; color: #fff; }
+    }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -820,28 +850,25 @@
                   <article class="hx-card c1" data-i="1">
                     <header><b>1</b><div><small>Headline</small><h3>It doesn’t say what the product does</h3></div></header>
                     <div class="hx-body"><div>
-                      <p><em>Why it matters</em>A first-time visitor can’t tell in seconds whether this is for them.</p>
                       <p><em>Diagnostic direction</em>Test naming the outcome and the audience.</p>
                     </div></div>
                   </article>
                   <article class="hx-card c2" data-i="2">
                     <header><b>2</b><div><small>Primary button</small><h3>It asks for a trial before showing the value</h3></div></header>
                     <div class="hx-body"><div>
-                      <p><em>Why it matters</em>The commitment comes first. The only softer option is the weaker demo button.</p>
                       <p><em>Diagnostic direction</em>Look at what a visitor must see before this ask feels reasonable.</p>
                     </div></div>
                   </article>
                   <article class="hx-card c3" data-i="3">
                     <header><b>3</b><div><small>Trust strip</small><h3>Logos with nothing behind them</h3></div></header>
                     <div class="hx-body"><div>
-                      <p><em>Why it matters</em>Unattributed logos read as decoration and add little credibility.</p>
                       <p><em>Diagnostic direction</em>Check whether a named customer, a result, or a quote can sit next to the claim.</p>
                     </div></div>
                   </article>
                 </div>
 
                 <div class="hx-an" aria-hidden="true">
-                  <span class="hx-an-pill">Illustrative example</span>
+                  
                   <div class="hx-an-head"><b>Conversion journey</b><span class="hx-an-more"><i></i><i></i><i></i></span></div>
                   <div class="hx-an-tabs"><span class="on">Overview</span><span>Journey</span><span>Sign-up</span></div>
                   <div class="hx-an-stat">
@@ -1229,35 +1256,36 @@
     targets.forEach(function (id, i) { var d = document.createElement('div'); d.className = 'hx-hl h' + (i + 1); d.setAttribute('aria-hidden', 'true'); d.style.position = 'absolute'; stage.appendChild(d); hl.push(d); });
     var svg = document.getElementById('hxLines'), paths = svg.querySelectorAll('path');
     function small() { return window.matchMedia('(max-width: 760px)').matches; }
+    var cfg = [{ l: 58.5, t: 4.5, w: 35.5, f: .25 }, { l: 53.9, t: 26.3, w: 35.5, f: .7 }, { l: 56.8, t: 48.3, w: 35.5, f: .3 }];
+    var NS = 'http://www.w3.org/2000/svg', dots = [];
+    [1, 2, 3].forEach(function (n) { ['s', 'e'].forEach(function (k) { var c = document.createElementNS(NS, 'circle'); c.setAttribute('class', 'd' + n); c.setAttribute('r', '3.5'); svg.appendChild(c); dots.push(c); }); });
     function layout() {
       if (small()) return;
-      var sr = stage.getBoundingClientRect(), W = sr.width, H = sr.height, unit = W / 100;
-      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-      var chEl = stage.querySelector('.hx-cards'), chH = chEl.getBoundingClientRect().height, hs = [];
-      cards.forEach(function (c) { var cs = getComputedStyle(c); hs.push(c.querySelector('header').offsetHeight + c.querySelector('.hx-body > div').scrollHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom)); });
-      var tot = hs.reduce(function (x, y) { return x + y; }, 0), gp = Math.max(10, (chH - tot) / (cards.length - 1)), yy = 0;
-      cards.forEach(function (c, i) { c.style.top = yy + 'px'; yy += hs[i] + gp; });
-      var navR = stage.querySelector('.hx-nav').getBoundingClientRect(), appR = stage.querySelector('.hx-app').getBoundingClientRect(), trR = document.getElementById('hxTrust').getBoundingClientRect();
-      var laneTop = (navR.bottom + appR.top) / 2 - sr.top, laneBottom = (appR.bottom + trR.top) / 2 - sr.top;
+      var sr = stage.getBoundingClientRect(), W = sr.width, unit = W / 100;
+      cards.forEach(function (c, i) { c.style.left = cfg[i].l * unit + 'px'; c.style.width = cfg[i].w * unit + 'px'; });
+      var prev = 0, pos = [];
+      cards.forEach(function (c, i) {
+        var cs = getComputedStyle(c);
+        var h = c.querySelector('header').offsetHeight + c.querySelector('.hx-body > div').scrollHeight + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+        var top = Math.max(cfg[i].t * unit, i ? prev + unit * 1.8 : 0);
+        c.style.top = top + 'px'; prev = top + h; pos.push([top, h]);
+      });
+      var need = Math.max(prev + unit * 1.5, 94.9 * unit);
+      if (Math.abs(parseFloat(stage.style.minHeight || 0) - need) > 1) stage.style.minHeight = need + 'px';
+      sr = stage.getBoundingClientRect();
+      svg.setAttribute('viewBox', '0 0 ' + sr.width + ' ' + sr.height);
       targets.forEach(function (id, i) {
         var t = document.getElementById(id).getBoundingClientRect();
         var pad = i === 2 ? unit * 0.5 : unit * 0.6;
         var x = t.left - sr.left - pad, y = t.top - sr.top - pad, w = t.width + pad * 2, h = t.height + pad * 2;
         hl[i].style.left = x + 'px'; hl[i].style.top = y + 'px'; hl[i].style.width = w + 'px'; hl[i].style.height = h + 'px';
-        var mx = x, my = y;
-        marks[i].style.left = mx + 'px'; marks[i].style.top = my + 'px';
-        var c = cards[i], cr = c.getBoundingClientRect();
-        var hdr = c.querySelector('header').getBoundingClientRect();
-        var cx = cr.left - sr.left, cy = hdr.top - sr.top + hdr.height / 2 - 2;
-        var gap = unit * 3.4, d;
-        if (i === 0) {
-          d = 'M' + (x + w) + ' ' + y + ' L' + (x + w) + ' ' + laneTop + ' L' + (cx - gap) + ' ' + laneTop + ' L' + (cx - gap + unit * 1.4) + ' ' + cy + ' L' + cx + ' ' + cy;
-        } else if (i === 1) {
-          d = 'M' + (x + w) + ' ' + (y + h) + ' L' + (x + w) + ' ' + laneBottom + ' L' + (cx - gap) + ' ' + laneBottom + ' L' + (cx - gap + unit * 1.4) + ' ' + cy + ' L' + cx + ' ' + cy;
-        } else {
-          d = 'M' + (x + w) + ' ' + (y + h / 2) + ' L' + (cx - gap) + ' ' + (y + h / 2) + ' L' + (cx - gap + unit * 1.4) + ' ' + cy + ' L' + cx + ' ' + cy;
-        }
+        marks[i].style.left = x + 'px'; marks[i].style.top = y + 'px';
+        var ex = cfg[i].l * unit, ey = pos[i][0] + pos[i][1] * cfg[i].f, sx, sy, d;
+        if (i === 0) { sx = x + w * .72; sy = y; d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + (ey + (sy - ey) * .2) + ' ' + (sx + (ex - sx) * .35) + ' ' + ey + ' ' + ex + ' ' + ey; }
+        else if (i === 1) { sx = x + w; sy = y + h / 2; d = 'M' + sx + ' ' + sy + ' C' + (sx + (ex - sx) * .35) + ' ' + (sy - unit * 5) + ' ' + (ex - (ex - sx) * .3) + ' ' + (ey + unit * 2) + ' ' + ex + ' ' + ey; }
+        else { sx = x + w * .4; sy = y + h; d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + (sy + (ey - sy) * .85) + ' ' + (sx + (ex - sx) * .3) + ' ' + ey + ' ' + ex + ' ' + ey; }
         paths[i].setAttribute('d', d);
+        dots[i * 2].setAttribute('cx', sx); dots[i * 2].setAttribute('cy', sy); dots[i * 2 + 1].setAttribute('cx', ex); dots[i * 2 + 1].setAttribute('cy', ey);
       });
     }
     layout();
