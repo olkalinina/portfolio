@@ -899,7 +899,11 @@
     .cr-who2-tags { position: absolute; right: 0; top: -4px; list-style: none; margin: 0; padding: 0; font-family: 'Reenie Beanie', 'Segoe Script', cursive; font-size: 25px; line-height: 1.1; color: var(--gray); transform: rotate(-6deg); transform-origin: right top; text-align: left; }
     @media (max-width: 860px) { .cr-who2 { grid-template-columns: 1fr; padding: 32px 24px; } .cr-who2-art { height: 340px; } body:not(.is-protected) main .pd.cr .cr-who2-text h3 { font-size: 32px; } }
     /* ---- price calculator (prototype) ---- */
-    .cr-calc { padding: 0; }
+    .cr-calc { --band: #171717; --dark: #f7f5f5; --gray: rgba(247,245,245,.68); --light-gray: rgba(255,255,255,.16); --white: #2c2b2b; --bg-soft: #262525; background: var(--band); color: var(--dark); border-radius: var(--r-xl, 32px); padding: 22px 26px 26px; box-shadow: var(--sh-deep, none); }
+    html[data-theme="dark"] .cr-calc { --band: #2f2e2e; --white: #3b3a3a; --bg-soft: #353434; }
+    html body .cr-calc h2 { color: #f7f5f5; }
+    html body .cr-calc .cr-calc-sum .btn-dark { background: #f7f5f5 !important; color: #171717 !important; background-image: none !important; }
+    html body .cr-calc .cr-calc-sum .btn-dark:hover { background: #ffffff !important; }
     @media (min-width: 1200px) { .cr-calc { width: min(1340px, calc(100vw - 48px)); margin-left: calc(50% - min(670px, 50vw - 24px)); } }
     .cr-calc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 12px; }
     .cr-calc-eyebrow { margin: 0; font-family: 'Lora', Georgia, serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
@@ -922,8 +926,7 @@
     .cr-row:has(input:checked) .cr-opt-mark::after { content: ""; position: absolute; left: 4.5px; top: 1px; width: 4px; height: 8px; border-right: 2px solid var(--white, #fff); border-bottom: 2px solid var(--white, #fff); transform: rotate(40deg); }
     .cr-card, .cr-dev, .cr-row { position: relative; cursor: pointer; border: 1.5px solid var(--light-gray); border-radius: var(--r-md, 16px); background: color-mix(in srgb, var(--white, #fff) 40%, transparent); transition: border-color .2s ease, background .2s ease; }
     .cr-card:hover, .cr-dev:hover, .cr-row:hover { border-color: var(--gray); }
-    .cr-card:has(input:checked), .cr-dev:has(input:checked) { border-color: #d99aa0; background: rgba(232,192,200,.28); }
-    html[data-theme="dark"] .cr-card:has(input:checked), html[data-theme="dark"] .cr-dev:has(input:checked) { border-color: rgba(230,130,140,.55); background: rgba(190,110,125,.2); }
+    .cr-card:has(input:checked), .cr-dev:has(input:checked) { border-color: var(--dark); background: rgba(255,255,255,.1); }
     .cr-row:has(input:checked) { border-color: var(--dark); }
     .cr-card:has(input:focus-visible), .cr-dev:has(input:focus-visible), .cr-row:has(input:focus-visible) { outline: 2px solid var(--dark); outline-offset: 3px; }
     .cr-scope3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
@@ -952,7 +955,7 @@
     .cr-sum-label { margin: 0; font-family: 'Lora', Georgia, serif; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
     .cr-sum-label--2 { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--light-gray); }
     .cr-sum-total { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 58px; font-weight: 400; line-height: 1.05; color: var(--dark); margin-top: 8px; padding-bottom: 6px; font-variant-numeric: tabular-nums; }
-    .cr-sum-ph { margin: 0; font-size: 12.5px; color: #92400e; }
+    .cr-sum-ph { margin: 0; font-size: 12.5px; color: #fcd34d; }
     html[data-theme="dark"] .cr-sum-ph { color: #fcd34d; }
     .cr-sum-lines { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
     .cr-sum-lines li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; line-height: 1.3; color: var(--dark); }
@@ -960,8 +963,7 @@
     .cr-sum-lines li:first-child span:last-child { color: var(--dark); }
     .cr-sum-lines li.has-price span:last-child { color: var(--dark); }
     .cr-sum-lines li em { display: block; font-style: normal; font-size: 12.5px; color: var(--gray); }
-    .cr-sum-inc { margin-top: 12px; padding: 12px 14px; border-radius: var(--r-md, 16px); background: rgba(232,192,200,.22); }
-    html[data-theme="dark"] .cr-sum-inc { background: rgba(190,110,125,.16); }
+    .cr-sum-inc { margin-top: 12px; padding: 12px 14px; border-radius: var(--r-md, 16px); background: rgba(255,255,255,.07); }
     .cr-sum-inc p { margin: 0 0 4px; font-size: 14px; color: var(--dark); display: flex; align-items: center; gap: 8px; }
     .cr-sum-info { display: inline-flex; color: var(--dark); }
     .cr-sum-inc ul { margin: 0; padding-left: 28px; font-size: 12.5px; line-height: 1.5; color: var(--dark); }
@@ -1310,11 +1312,11 @@
                   </fieldset>
 
                   <fieldset class="cr-step">
-                    <legend><span class="cr-step-n" aria-hidden="true">4</span><span class="cr-step-q">Which platforms should be reviewed?</span><span class="cr-step-h">Mobile + desktop means two separate reviews, not a responsiveness check.</span></legend>
+                    <legend><span class="cr-step-n" aria-hidden="true">4</span><span class="cr-step-q">Which platforms should be reviewed?</span><span class="cr-step-h">Mobile + Desktop means two separate reviews, not a responsiveness check.</span></legend>
                     <div class="cr-seg3">
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="mobile" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7.5" y="3" width="9" height="18" rx="2"/><path d="M11 18h2"/></svg></span><span class="cr-dev-body"><b>Mobile only</b><small>Focus on the mobile experience.</small></span></label>
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="desktop" checked /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="5.5" width="15" height="10.5" rx="1.6"/><path d="M2.5 19h19"/></svg></span><span class="cr-dev-body"><b>Desktop only</b><small>Focus on the desktop experience.</small></span></label>
-                      <label class="cr-dev"><input type="radio" name="calc-device" value="both" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico cr-dev-ico--2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7.5" y="3" width="9" height="18" rx="2"/><path d="M11 18h2"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="5.5" width="15" height="10.5" rx="1.6"/><path d="M2.5 19h19"/></svg></span><span class="cr-dev-body"><b>Mobile + desktop</b><small>Two separate reports.</small></span><span class="cr-dev-price" data-device-price="both"></span></label>
+                      <label class="cr-dev"><input type="radio" name="calc-device" value="mobile" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span><span class="cr-dev-body"><b>Mobile only</b><small>Focus on the mobile experience.</small></span></label>
+                      <label class="cr-dev"><input type="radio" name="calc-device" value="desktop" checked /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span class="cr-dev-body"><b>Desktop only</b><small>Focus on the desktop experience.</small></span></label>
+                      <label class="cr-dev"><input type="radio" name="calc-device" value="both" /><span class="cr-opt-mark" aria-hidden="true"></span><span class="cr-dev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"/><path d="M10 19v-3"/><path d="M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></svg></span><span class="cr-dev-body"><b>Mobile + Desktop</b><small>Two separate reports.</small></span><span class="cr-dev-price" data-device-price="both"></span></label>
                     </div>
                   </fieldset>
                 </div>
@@ -1330,7 +1332,7 @@
                     <ul><li>Findings, each with its evidence</li><li>Priorities, in order</li><li>A roadmap your team can act on</li><li>Notes on confidence and limitations</li></ul>
                   </div>
                   <p class="cr-sum-note">This is an estimated price for planning, not a binding quote. Final scope and cost are confirmed with you before any payment. Analytics access does not change the price.</p>
-                  <a class="btn-dark" href="#request" id="calcCta">Get in touch to discuss your project <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                  <a class="btn-dark" href="#request" id="calcCta">Get a tailored quote <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                 </aside>
               </div>
             </div>
@@ -1639,7 +1641,7 @@
     };
     var LABELS = {
       scope: { single: 'Single page audit', flow: 'Full conversion flow audit', ecommerce: 'E-commerce flow audit' },
-      device: { mobile: 'Mobile only', desktop: 'Desktop only', both: 'Mobile + desktop' }
+      device: { mobile: 'Mobile only', desktop: 'Desktop only', both: 'Mobile + Desktop' }
     };
 
     /* pure pricing logic: state in, lines and total out */
