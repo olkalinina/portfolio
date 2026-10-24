@@ -847,7 +847,7 @@
     .cr-sample-text { display: flex; flex-direction: column; gap: 12px; }
     .cr-sample-text .pd-sub { margin-top: 0 !important; }
     .cr-book { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
-    .cr-book-stage { position: relative; width: 100%; height: 580px; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; perspective: 1600px; outline: none; }
+    .cr-book-stage { position: relative; width: 100%; height: 580px; overflow: visible; clip-path: inset(-140px 0 -140px 0); touch-action: pan-y; user-select: none; -webkit-user-select: none; perspective: 1600px; outline: none; }
     .cr-book-stage:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 16px; }
     .cr-pg { position: absolute; top: 10px; left: 50%; width: 368px; max-width: none; height: auto; border-radius: 12px; border: 1.5px solid var(--light-gray); background: #fff; box-shadow: 0 18px 50px rgba(23,23,23,.14); transition: transform .6s cubic-bezier(.22,.7,.2,1), opacity .5s ease; pointer-events: none; will-change: transform; }
     .cr-pg.is-near { pointer-events: auto; cursor: pointer; }
