@@ -747,8 +747,11 @@
       .hx-an .ln { stroke: var(--dark); }
       .hx-an .dot { background: var(--bg-soft); box-shadow: 0 0 0 2px var(--dark); }
       .hx-an .dot.hot { background: #8a1c33; border-radius: 50%; box-shadow: 0 0 0 max(.3cqw, 2.5px) var(--bg-soft), 0 0 0 max(.6cqw, 4.5px) #8a1c33; }
-      .hx-stage.ready .hx-an { animation: hxFloat 7s ease-in-out 2.1s infinite; }
-      @keyframes hxFloat { 0% { translate: 0 0; } 30% { translate: 7px -26px; } 65% { translate: -5px -12px; } 100% { translate: 0 0; } }
+      .hx-stage.ready .hx-an { animation: hxFloat 4.8s ease-in-out 2.1s infinite alternate both; }
+      @keyframes hxFloat { from { translate: -12px 12px; } to { translate: 12px -12px; } }
+      .hx-stage .hx-an .ln { stroke-dasharray: none; }
+      .hx-stage.js-seq .hx-an .hx-an-chart svg { clip-path: inset(-10px 100% -10px -10px); }
+      .hx-stage.js-seq.ready .hx-an .hx-an-chart svg { clip-path: inset(-10px -10px); transition: clip-path 1.3s ease 1.8s; }
       .hx-stage.ready .hx-an .dot.hot { animation: hxBlink 1.1s ease-in-out infinite; }
       @keyframes hxBlink { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
       .hx-an-x { color: var(--gray); }
