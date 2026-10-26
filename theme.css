@@ -341,3 +341,20 @@ a.link-btn:hover svg, a.link-btn:focus-visible svg { transform: translateX(4px);
 a.link-btn:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 4px; }
 .pd-link:hover { text-decoration-thickness: 2px; }
 @media (prefers-reduced-motion: reduce) { a.link-btn, a.link-btn svg { transition: none; } }
+
+/* ======== TEST PALETTE (branch palette-test only; delete this block to go back) ========
+   #DFE3F2 page + light elements, #5A5B60 body text, #000000 titles, #7182AB section bands, #FFFFFF cards */
+html:not([data-theme="dark"]) { background: #DFE3F2; }
+html:not([data-theme="dark"]) body:not(.is-protected) {
+  --dark: #000000; --strong: #000000; --text: #5A5B60; --ink: #5A5B60; --gray: #5A5B60; --muted: #5A5B60; --ink-muted: #5A5B60;
+  --light-gray: #DFE3F2; --border: #DFE3F2; --border-btn: #7182AB; --bg-soft: #FFFFFF; --bg-card: #FFFFFF; --white: #FFFFFF; --surface: #FFFFFF; --on-accent: #FFFFFF; --accent-bg: #000000;
+  --band: #7182AB;
+  background: #DFE3F2; color: #5A5B60;
+}
+html:not([data-theme="dark"]) body.home:not(.is-protected) { background: #DFE3F2; }
+html:not([data-theme="dark"]) body:not(.is-protected) :is(.cs-section, .ab-band, .pd.cr #problem) { --band: #7182AB; }
+html:not([data-theme="dark"]) body:not(.is-protected) :is(.contact-block, .ab-cta, .ax-cta, .help-card--cro, .cs-section .arc-card) { background: #7182AB !important; }
+html:not([data-theme="dark"]) body:not(.is-protected) .help-card--product { background: #FFFFFF; }
+html:not([data-theme="dark"]) body:not(.is-protected) .footer { background: transparent; border-top-color: #7182AB; }
+html:not([data-theme="dark"]) body:not(.is-protected) .nav { background: rgba(223, 227, 242, 0.94); border-bottom-color: #7182AB; }
+html:not([data-theme="dark"]) body:not(.is-protected) :is(.mobile-menu, .nav-dd-menu) { background: #FFFFFF; border-color: #DFE3F2; }
