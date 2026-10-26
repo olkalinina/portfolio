@@ -327,3 +327,8 @@ body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline):is(:hover, :fo
 .footer .footer-legal { font-size: 14px; }
 @media (max-width: 860px) { .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); } .footer-brand { grid-column: 1 / -1; max-width: none; } }
 @media (max-width: 560px) { .footer-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px 20px; } .footer-col:last-of-type { grid-column: 1 / -1; } .footer-bottom { flex-direction: column; align-items: flex-start; gap: 4px; } }
+
+.footer .footer-name { display: inline-flex; align-items: center; gap: 12px; }
+.footer-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; }
+.ar-i { display: inline-block; flex: none; vertical-align: -3px; margin-left: 6px; }
+.btn-dark .ar-i, .help-card .ar-i, .post-more .ar-i, .bcard-more .ar-i { margin-left: 0; vertical-align: middle; }

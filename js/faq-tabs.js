@@ -12,6 +12,7 @@
       t.setAttribute('aria-selected', on ? 'true' : 'false');
       t.tabIndex = on ? 0 : -1;
       if (on && focus) t.focus();
+      if (on) { var all = document.getElementById('faqAll'); if (all) all.href = '/faq#' + (t.getAttribute('data-topic') === 'product' ? 'product-design' : t.getAttribute('data-topic')); }
       var p = panels[k];
       if (on) { p.hidden = false; p.classList.remove('is-in'); void p.offsetWidth; p.classList.add('is-in'); }
       else p.hidden = true;
