@@ -928,6 +928,42 @@
     .cr-faq-price li small { display: block; font-size: 14px; color: var(--gray); margin-top: 2px; }
     .cr-faq-price li > span:last-child { white-space: nowrap; font-weight: 600; color: var(--dark); font-variant-numeric: tabular-nums; text-align: right; }
     .cr-faq-price li > span:last-child small { font-weight: 400; }
+    /* ---- contact: send a request or book a call ---- */
+    .cr-contact-frame { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: stretch; background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 40px; box-shadow: inset 0 0 0 1px var(--light-gray); }
+    .cr-contact-intro { align-self: center; padding: 0 8px 0 4px; }
+    .cr-contact-eyebrow { margin: 0 0 18px; font-family: 'Lora', Georgia, serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
+    .pd.cr .cr-contact-intro h2 { font-size: 44px; line-height: 1.08; margin: 0; max-width: none; }
+    .cr-contact-sub { margin: 20px 0 0; font-size: 17px; line-height: 1.6; color: var(--gray); max-width: 30ch; }
+    .cr-contact-card { display: flex; flex-direction: column; background: var(--white, #fff); border-radius: var(--r-lg, 24px); padding: 32px 30px 30px; box-shadow: inset 0 0 0 1px var(--light-gray); min-width: 0; }
+    .cr-contact-call { background: transparent; }
+    .cr-contact-ico { width: 56px; height: 56px; border-radius: 50%; background: var(--light-gray); color: var(--dark); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    body:not(.is-protected) main .pd.cr .cr-contact-card h3 { font-size: 30px; font-weight: 400; line-height: 1.15; margin: 0 0 10px; }
+    .cr-contact-desc { margin: 0 0 22px; font-size: 16px; line-height: 1.55; color: var(--gray); }
+    .cr-cf { border: 0; margin: 0 0 16px; padding: 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+    .cr-cf label, .cr-cf legend { padding: 0; font-size: 14.5px; font-weight: 500; color: var(--dark); }
+    .cr-cf .req { color: #a8803a; }
+    .cr-cf .opt { color: var(--gray); font-weight: 400; }
+    .cr-cf input[type="text"], .cr-cf input[type="email"], .cr-cf textarea { width: 100%; min-height: 48px; padding: 12px 16px; border: 1.5px solid color-mix(in srgb, var(--gray) 50%, transparent); border-radius: 14px; background: color-mix(in srgb, var(--white, #fff) 70%, var(--bg-soft)); color: var(--dark); font: inherit; font-size: 15.5px; }
+    .cr-cf textarea { min-height: 96px; resize: vertical; }
+    .cr-cf input::placeholder, .cr-cf textarea::placeholder { color: var(--gray); opacity: .8; }
+    .cr-cf input:focus-visible, .cr-cf textarea:focus-visible { outline: 2px solid var(--dark); outline-offset: 1px; border-color: var(--dark); }
+    .cr-scope-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cr-scope-chips label { position: relative; cursor: pointer; font-weight: 400; }
+    .cr-scope-chips input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .cr-scope-chips span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border: 1.5px solid color-mix(in srgb, var(--gray) 50%, transparent); border-radius: 9999px; font-size: 14.5px; color: var(--dark); transition: background .2s ease, color .2s ease, border-color .2s ease; }
+    .cr-scope-chips label:hover span { border-color: var(--dark); }
+    .cr-scope-chips input:checked + span { background: var(--dark); color: var(--white, #fff); border-color: var(--dark); }
+    .cr-scope-chips input:focus-visible + span { outline: 2px solid var(--dark); outline-offset: 2px; }
+    .cr-contact-submit, .cr-contact-call .btn-outline-dark { display: inline-flex; width: 100%; justify-content: center; align-items: center; gap: 10px; margin-top: 6px; }
+    .cr-contact-call .btn-outline-dark { margin-top: auto; }
+    .cr-contact-note { margin: 14px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--gray); }
+    .cr-contact-note a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; }
+    .cr-call-list { list-style: none; margin: 0 0 26px; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+    .cr-call-list li { display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: 16px; align-items: start; }
+    .cr-call-ico { width: 48px; height: 48px; border-radius: 50%; background: var(--white, #fff); box-shadow: inset 0 0 0 1px var(--light-gray); display: flex; align-items: center; justify-content: center; color: var(--dark); }
+    .cr-call-list b { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 500; color: var(--dark); line-height: 1.25; }
+    .cr-call-list small { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.5; color: var(--gray); }
+    @media (max-width: 1100px) { .cr-contact-frame { grid-template-columns: minmax(0, 1fr); padding: 28px 20px; } .cr-contact-intro { padding: 0; } .pd.cr .cr-contact-intro h2 { font-size: 36px; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -1272,32 +1308,42 @@
           </section>
 
           <!-- 13. REQUEST -->
-          <section id="request" class="cr-req pd-dark" aria-labelledby="cr-request">
-            <svg class="cv-svg" aria-hidden="true"></svg>
-            <i class="cv-src" aria-hidden="true"></i><i class="cv-src" aria-hidden="true"></i><i class="cv-src" aria-hidden="true"></i><i class="cv-src" aria-hidden="true"></i>
-            <div class="cr-req-copy">
-              <p class="cr-req-label">Fit check</p>
-              <h2 id="cr-request">Start with a fit check. Pay once the scope is clear.</h2>
-              <p>Tell me about your product and the journey you want to understand. I reply personally with the scope that fits and its price, before any payment.</p>
-              <ol class="cr-req-steps">
-                <li><span>1</span><div><b>Tell me about your product</b><small>The URL and what counts as a conversion.</small></div></li>
-                <li><span>2</span><div><b>I check the fit</b><small>I tell you which scope fits and what I’d need.</small></div></li>
-                <li><span>3</span><div><b>Confirm and begin</b><small>After you agree on scope and price, I send an invoice and the access details. Work starts the day after I receive payment.</small></div></li>
-              </ol>
-              <p class="cr-req-meta"><strong>Turnaround:</strong> 48 hours for a single page, 3 to 5 business days for a flow. <strong>Start:</strong> the day after payment arrives. · <strong>Confidentiality:</strong> I sign an NDA before the work starts if you ask for one, and I use what you share only for your audit.</p>
+          <section id="request" class="cr-contact" aria-labelledby="cr-request">
+            <div class="cr-contact-frame">
+              <div class="cr-contact-intro">
+                <p class="cr-contact-eyebrow">CRO audit</p>
+                <h2 id="cr-request">Let&rsquo;s find the right scope for your audit</h2>
+                <p class="cr-contact-sub">Share a few details or book a call, whichever is easier for you.</p>
+              </div>
+
+              <form class="cr-contact-card cr-contact-form" action="https://formspree.io/f/xkjovqro" method="POST">
+                <span class="cr-contact-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                <h3>Send a request</h3>
+                <p class="cr-contact-desc">Fill in a short form and I&rsquo;ll get back to you with a personalized recommendation and price.</p>
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+                <input type="hidden" name="_subject" value="CRO audit request from olgakalinina.me/cro-audit" />
+                <input type="hidden" name="source_page" value="/cro-audit" />
+                <div class="cr-cf"><label for="rq-email">Work email <span class="req" aria-hidden="true">*</span></label><input id="rq-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required /></div>
+                <div class="cr-cf"><label for="rq-url">Product or page URL <span class="req" aria-hidden="true">*</span></label><input id="rq-url" type="text" inputmode="url" name="url" placeholder="https://" required /></div>
+                <fieldset class="cr-cf cr-cf-scope"><legend>Which scope fits?</legend><div class="cr-scope-chips"><label><input type="radio" name="scope" value="Not sure yet" checked /><span>Not sure yet</span></label><label><input type="radio" name="scope" value="Single page" /><span>Single page</span></label><label><input type="radio" name="scope" value="Full conversion flow" /><span>Full conversion flow</span></label><label><input type="radio" name="scope" value="E-commerce purchase journey" /><span>E-commerce purchase journey</span></label></div></fieldset>
+                <div class="cr-cf"><label for="rq-msg">What would you like me to review? <span class="opt">(optional)</span></label><textarea id="rq-msg" name="message" rows="3" placeholder="e.g. landing page, sign-up flow, product experience, and what counts as a conversion"></textarea></div>
+                <button type="submit" class="btn-dark cr-contact-submit">Send a request <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                <p class="cr-contact-note">No payment required. I&rsquo;ll confirm the scope and price personally. Your message is sent through Formspree and used only to reply to you. <a href="/privacy">Privacy</a></p>
+              </form>
+
+              <div class="cr-contact-card cr-contact-call">
+                <span class="cr-contact-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span>
+                <h3>Book a call</h3>
+                <p class="cr-contact-desc">Prefer to discuss your product, goals and questions? Book a short call at a convenient time.</p>
+                <ul class="cr-call-list">
+                  <li><span class="cr-call-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span><div><b>30-minute call</b><small>A focused conversation about your goals and the right scope.</small></div></li>
+                  <li><span class="cr-call-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><div><b>Ask questions</b><small>Get clear answers about the process, timeline and deliverables.</small></div></li>
+                  <li><span class="cr-call-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><b>Find the right scope</b><small>I&rsquo;ll help you choose the option that fits your product and goals.</small></div></li>
+                </ul>
+                <a class="btn-outline-dark" href="#request" id="callCta" aria-disabled="true">Choose a time <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <p class="cr-contact-note"><span class="cr-ph">calendar link to confirm</span></p>
+              </div>
             </div>
-            <form class="cr-form" action="https://formspree.io/f/xkjovqro" method="POST">
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
-              <input type="hidden" name="_subject" value="CRO audit request from olgakalinina.me/cro-audit" />
-              <input type="hidden" name="source_page" value="/cro-audit" />
-              <div class="cr-field"><label for="rq-email">Email <span class="req" aria-hidden="true">*</span></label><input id="rq-email" type="email" name="email" autocomplete="email" required /></div>
-              <div class="cr-field"><label for="rq-url">Product or page URL <span class="req" aria-hidden="true">*</span></label><input id="rq-url" type="text" inputmode="url" name="url" placeholder="example.com" required /></div>
-              <div class="cr-field"><label for="rq-goal">What counts as a conversion?</label><input id="rq-goal" type="text" name="conversion" placeholder="Sign-ups, demo requests, purchases…" /></div>
-              <fieldset class="cr-field"><legend>Which scope fits?</legend><div class="cr-chips"><label><input type="radio" name="scope" value="Not sure yet" checked /><span>Not sure yet</span></label><label><input type="radio" name="scope" value="Single page" /><span>Single page</span></label><label><input type="radio" name="scope" value="Full conversion flow" /><span>Full conversion flow</span></label><label><input type="radio" name="scope" value="E-commerce purchase journey" /><span>E-commerce purchase journey</span></label></div></fieldset>
-              <div class="cr-field"><label for="rq-msg">Anything you want me to look at <span class="opt">(optional)</span></label><textarea id="rq-msg" name="message" rows="3"></textarea></div>
-              <button type="submit" class="btn-dark cr-submit">Request a CRO Audit</button>
-              <p class="cr-form-note">Your message is sent through Formspree and used only to reply to you. <a href="/privacy">Privacy</a></p>
-            </form>
           </section>
 
           <!-- 13. FAQ -->
@@ -1322,6 +1368,13 @@
                   <li><span><b>Rush delivery</b><small>Single page: tomorrow instead of 48 hours. Flows: 1–2 days instead of 3–5 business days.</small></span><span>+<span data-pct="rush"></span><small><span data-amt="rush.single"></span> single page<br><span data-amt="rush.flow"></span> flow<br><span data-amt="rush.ecommerce"></span> e-commerce</small></span></li>
                 </ul>
                 <p style="margin-top:16px;font-size:14px;">Percentages are taken from the scope price. Analytics access (GA4, Hotjar, Clarity) never changes the price.</p>
+              </div></details>
+              <details><summary>What happens after I send a request?<span class="pl" aria-hidden="true"></span></summary><div class="cr-faq-price">
+                <ul>
+                  <li><span><b>1. I check the fit</b><small>I reply personally with the scope that fits and its price, before any payment.</small></span></li>
+                  <li><span><b>2. Confirm and begin</b><small>After you agree on scope and price, I send an invoice and the access details. Work starts the day after I receive payment.</small></span></li>
+                  <li><span><b>3. Delivery</b><small>48 hours for a single page, 3 to 5 business days for a flow. The report arrives in Notion and/or PDF.</small></span></li>
+                </ul>
               </div></details>
               <details><summary>How is a CRO audit different from a UX audit?<span class="pl" aria-hidden="true"></span></summary><p>A UX audit looks at usability and the overall experience. A CRO audit looks at the barriers to a specific outcome, such as sign-ups, purchases, or demo requests. The two overlap. <a class="pd-link" href="/cro-audit-vs-ux-audit">Read the full comparison</a>.</p></details>
               <details><summary>Do I need to give you analytics access?<span class="pl" aria-hidden="true"></span></summary><p>No. Analytics such as GA4 can strengthen the diagnosis: they show where people leave and which areas deserve a closer look, so share them if you have them. Without them, I examine the journey and the product experience directly and report what the evidence supports. Findings reflect the evidence available.</p></details>
@@ -1508,7 +1561,7 @@
     /* scope buttons pre-select the scope in the form */
     [].forEach.call(document.querySelectorAll('[data-scope]'), function (a) {
       a.addEventListener('click', function () {
-        var r = document.querySelector('.cr-chips input[value="' + a.getAttribute('data-scope') + '"]'); if (r) r.checked = true;
+        var r = document.querySelector('input[name="scope"][value="' + a.getAttribute('data-scope') + '"]'); if (r) r.checked = true;
       });
     });
 
@@ -1611,6 +1664,9 @@
       });
     });
     sync();
+
+    /* the booking button waits for the calendar link */
+    var callCta = document.getElementById('callCta'); if (callCta) callCta.addEventListener('click', function (e) { if (callCta.getAttribute('aria-disabled') === 'true') e.preventDefault(); });
 
     /* the link under the heading opens the FAQ answer */
     var link = document.getElementById('extrasLink'), box = document.getElementById('faq-extras');
