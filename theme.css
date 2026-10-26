@@ -313,7 +313,8 @@ body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline):is(:hover, :fo
 
 /* ---- Footer: message, Services / Learn / Company columns, legal row ---- */
 .footer .footer-inner { max-width: 1187px; align-items: stretch; gap: 0; padding-top: 48px; padding-bottom: 8px; }
-.footer-top { display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 40px; align-items: start; }
+.footer-top { display: grid; grid-template-columns: minmax(0, 1fr) repeat(3, auto); gap: 40px 88px; align-items: start; }
+.footer-legals { display: flex; gap: 28px; }
 .footer-brand { display: flex; flex-direction: column; gap: 14px; max-width: 360px; }
 .footer .footer-name { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; line-height: 1.2; color: var(--strong, var(--dark)); }
 .footer .footer-msg { margin: 0; font-size: 15px; line-height: 1.55; color: var(--gray); }
