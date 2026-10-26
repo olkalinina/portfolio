@@ -332,3 +332,12 @@ body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline):is(:hover, :fo
 .footer-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; }
 .ar-i { display: inline-block; flex: none; vertical-align: -3px; margin-left: 6px; }
 .btn-dark .ar-i, .help-card .ar-i, .post-more .ar-i, .bcard-more .ar-i { margin-left: 0; vertical-align: middle; }
+
+/* ---- Text link button: arrow icon, underline spans text and icon, hover moves the arrow ---- */
+a.link-btn { display: inline-flex; align-items: center; gap: 8px; padding-bottom: 4px; font-family: 'Lora', Georgia, serif; font-size: 16px; line-height: 1.4; font-weight: 400; color: var(--dark); text-decoration: none; background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat; transition: background-size .25s ease, opacity .2s ease; }
+a.link-btn svg { flex: none; transition: transform .25s ease; }
+a.link-btn:hover, a.link-btn:focus-visible { background-size: 100% 2px; opacity: .72; }
+a.link-btn:hover svg, a.link-btn:focus-visible svg { transform: translateX(4px); }
+a.link-btn:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 4px; }
+.pd-link:hover { text-decoration-thickness: 2px; }
+@media (prefers-reduced-motion: reduce) { a.link-btn, a.link-btn svg { transition: none; } }

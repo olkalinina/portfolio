@@ -220,7 +220,7 @@
     .cr-t-chain li:not(:last-child)::after { content: ""; position: absolute; left: 13.5px; top: 32px; bottom: 4px; width: 1.5px; background: var(--light-gray); }
     .cr-t-chain b { font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray); font-weight: 400; padding-top: 5px; }
     .cr-t-chain span { font-size: 16px; line-height: 1.55; }
-    .cr-transform .pd-link { display: inline-block; margin-top: 26px; }
+    .cr-transform .link-btn { display: inline-flex; margin-top: 26px; }
     /* principles + who */
     .cr-principles { margin-top: 44px; }
     .cr-principles .pd-card { padding-top: 34px; }
@@ -812,7 +812,7 @@
     .pd.cr .cr-transform::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .22; mix-blend-mode: soft-light; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
     .pd.cr .cr-transform > :not(.cr-sheets) { position: relative; z-index: 1; }
     .pd.cr .cr-transform .cr-t-label { color: rgba(247,245,245,.7); }
-    .pd.cr .cr-transform .pd-link { color: #f7f5f5; }
+    .pd.cr .cr-transform .link-btn { color: #f7f5f5; }
     .pd.cr .cr-transform .cr-t-old { background: rgba(190,70,82,.2); border-color: rgba(236,140,150,.45); }
     html body .pd.cr .cr-transform .cr-t-old p:not(.cr-t-col) { color: #f7f5f5; text-decoration-color: #ec8c96; }
     .pd.cr .cr-transform .cr-t-old .cr-t-col, .pd.cr .cr-transform .cr-t-old figcaption { color: rgba(247,245,245,.7); }
@@ -889,8 +889,7 @@
     body:not(.is-protected) main .pd.cr .cr-who2-text h3 { font-size: 40px; line-height: 1.12; font-weight: 400; margin: 0; }
     .cr-who2-text p { font-size: 16.5px; line-height: 1.65; color: var(--dark); margin: 0; max-width: 540px; }
     .cr-who2-text p.cr-who2-muted { color: var(--gray); }
-    .cr-who2-text .pd-link { margin-top: 6px; }
-    .pd-link.cr-more { display: inline-flex; align-items: center; gap: 6px; }
+    .cr-who2-text .link-btn { margin-top: 6px; }
     .cr-who2-art { position: relative; height: 380px; min-width: 0; }
     .cr-who2-blob { position: absolute; right: 4%; top: 18%; width: 62%; height: 70%; background: rgba(232,192,200,.45); border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%; filter: blur(.3px); }
     html[data-theme="dark"] .cr-who2-blob { background: rgba(190,110,125,.28); }
@@ -912,7 +911,7 @@
     .cr-plan-price strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 52px; font-weight: 500; line-height: 1.05; color: var(--dark); font-variant-numeric: tabular-nums; }
     .cr-plan ul.cr-plan-tags { margin: 14px 0 0; flex-direction: row; flex-wrap: wrap; gap: 6px; }
     .cr-plan .cr-plan-tags li { display: block; padding: 3px 11px; border-radius: 9999px; background: var(--light-gray); font-size: 13px; line-height: 1.5; color: var(--dark); }
-    .cr-plans-addons { margin: 28px 0 0 !important; font-size: 16px; line-height: 1.5; }
+    .cr-plans-addons { margin: 28px auto 0 !important; font-size: 16px; line-height: 1.5; text-align: center; }
     .cr-plan-price span { display: block; margin-top: 6px; font-size: 14px; color: var(--gray); }
     .cr-plan > a.btn-dark, .cr-plan > a.btn-outline-dark { margin-top: 24px; width: 100%; justify-content: center; text-align: center; }
     .cr-plan-inc { margin: 28px 0 12px; font-size: 14.5px; color: var(--gray); }
@@ -1228,7 +1227,7 @@
                   <li style="--i:4"><b>Direction</b><span>Name the audience on each card and set the 1% against the typical agent fee.</span></li>
                 </ol></div>
               </div>
-              <a class="pd-link" href="/cs-proffer">Read the full case study</a>
+              <a class="link-btn" href="/cs-proffer">Read the full case study <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </section>
 
@@ -1241,7 +1240,7 @@
               <a class="cs-card" href="/cs-updf"><div class="cs-card-title">UPDF pricing page</div><div class="cs-card-desc">How unclear plans and inconsistent pricing can undermine trust before a user pays.</div><div class="cs-card-img-contained"><img src="images/UPDF_cover_card.png" alt="UPDF pricing page analysis" loading="lazy" /></div></a>
               <a class="cs-card" href="/cs-kualitee"><div class="cs-card-title">Kualitee sign-up</div><div class="cs-card-desc">Why a B2B SaaS sign-up page was losing potential conversions.</div><div class="cs-card-img-contained"><img src="images/Cover_image_card.png" alt="Kualitee B2B SaaS sign-up redesign" loading="lazy" /></div></a>
             </div>
-            <div class="pd-work-actions"><a href="/case-studies" class="pd-link">Explore more analyses and case studies</a></div>
+            <div class="pd-work-actions"><a href="/case-studies" class="link-btn">Explore more analyses and case studies <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
           </section>
 
           <!-- 7. DELIVERABLE -->
@@ -1312,7 +1311,7 @@
                 <h3>Who does the work</h3>
                 <p>I’m a product designer and product owner with 20+ years of experience across SaaS platforms, AI-enabled products, and data-heavy systems, including e-commerce products and marketplaces. I carry out every diagnosis myself and review the findings before they reach you.</p>
                 <p class="cr-who2-muted">I developed a behavioural diagnosis method based on my deep experience in product design.</p>
-                <a class="pd-link cr-more" href="/about">More about me <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+                <a class="link-btn" href="/about">More about me <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
               <div class="cr-who2-art" aria-hidden="false">
                 <span class="cr-who2-blob" aria-hidden="true"></span>
@@ -1386,7 +1385,7 @@
               <details><summary>Do I need to provide analytics access?<span class="pl" aria-hidden="true"></span></summary><p>No. Analytics tools such as GA4, Hotjar, or Microsoft Clarity can help strengthen the diagnosis, but they&rsquo;re not required. Without analytics, I examine the user journey and product experience directly. Findings and recommendations reflect the evidence available.</p></details>
               <details><summary>How long does an audit take?<span class="pl" aria-hidden="true"></span></summary><ul class="cr-faq-ul"><li>Single Page Audit: 48 hours</li><li>Full Conversion Flow: 3&ndash;5 business days</li><li>E-commerce Flow: 4&ndash;6 business days</li></ul><p>The timeline starts once payment is received and all necessary access and materials have been provided. Rush delivery is available for an additional fee.</p></details>
               <details><summary>What&rsquo;s your refund policy?<span class="pl" aria-hidden="true"></span></summary><p>If the audit doesn&rsquo;t meet your expectations, I&rsquo;ll return your full payment, no questions asked. I stand behind the quality of my work.</p></details>
-              <p class="cr-faq-all"><a class="pd-link" href="/faq#cro">See all questions</a></p>
+              <p class="cr-faq-all"><a class="link-btn" href="/faq#cro">See all questions <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
             </div>
           </section>
 
