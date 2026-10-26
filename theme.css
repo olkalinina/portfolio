@@ -361,3 +361,20 @@ html:root body main .help-card .btn-dark.mb.mb.mb::after { inset: -900px; }
 ::-moz-selection { background: rgba(246, 220, 120, 0.5); color: inherit; }
 html[data-theme="dark"] ::selection { background: rgba(236, 205, 100, 0.38); }
 html[data-theme="dark"] ::-moz-selection { background: rgba(236, 205, 100, 0.38); }
+
+/* ---- Hover = swap to the opposite (js/mesh-buttons.js sets .mb-inv on dark themes and dark areas) ---- */
+.mb { transition: background-color .25s ease, color .25s ease, box-shadow .25s ease; }
+.mb .mb-fill { transition: opacity .25s ease, filter .25s ease; }
+/* filled, light page: dark -> light with a thin dark ring */
+html:root body main .btn-dark.mb-solid.mb-solid:not(.mb-inv):hover { background: #eceef2 !important; color: #111113 !important; box-shadow: inset 0 0 0 1.5px #0b0c0e !important; }
+html:root body main .btn-dark.mb-solid.mb-solid:not(.mb-inv):hover .mb-fill { opacity: 0; filter: none; }
+/* filled, dark page or dark area: light -> dark with a thin light ring */
+html:root body main .btn-dark.mb-solid.mb-inv:hover { background: #0b0c0e !important; color: #ffffff !important; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.55) !important; }
+html:root body main .btn-dark.mb-solid.mb-inv:hover .mb-fill { opacity: 0; filter: none; }
+/* outline, light page: transparent -> dark */
+html:root body main :is(.btn-outline-dark, .btn-outline).mb-stroke.mb-stroke:not(.mb-inv):hover { background: #0b0c0e !important; color: #ffffff !important; }
+/* outline, dark page or dark area: transparent -> light */
+html:root body main :is(.btn-outline-dark, .btn-outline).mb-stroke.mb-inv:hover { background: #eceef2 !important; color: #111113 !important; }
+/* text link buttons: darker on light, whiter on dark, never faded */
+a.link-btn:hover, a.link-btn:focus-visible { opacity: 1; color: #000000; }
+html[data-theme="dark"] a.link-btn:hover, html[data-theme="dark"] a.link-btn:focus-visible, .cr-transform a.link-btn:hover, .cs-section a.link-btn:hover, #problem a.link-btn:hover { color: #ffffff; }
