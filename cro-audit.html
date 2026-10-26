@@ -971,6 +971,21 @@
     .cr-faq-ul { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 16.5px; line-height: 1.6; color: var(--gray); }
     .pd-faq details > p + p, .pd-faq details > ul + p { margin-top: -8px; }
     .cr-faq-all { margin-top: 24px; }
+    /* comparison table */
+    #compare > h2, #compare > .pd-sub { text-align: center; margin-left: auto; margin-right: auto; }
+    .pd.cr #compare > .pd-sub { margin-top: 14px; }
+    .cr-cmp-wrap { margin-top: 40px; overflow-x: auto; border-radius: var(--r-xl, 32px); box-shadow: inset 0 0 0 1.5px var(--light-gray); background: var(--bg-soft); }
+    .cr-cmp .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .cr-cmp-wrap:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
+    .cr-cmp { width: 100%; min-width: 760px; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
+    .cr-cmp th, .cr-cmp td { padding: 20px 24px; text-align: left; vertical-align: top; font-size: 15.5px; line-height: 1.5; color: var(--gray); border-top: 1.5px solid var(--light-gray); }
+    .cr-cmp thead th { border-top: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 400; color: var(--dark); padding-top: 26px; padding-bottom: 20px; }
+    .cr-cmp thead th:first-child { width: 20%; }
+    .cr-cmp tbody th { font-weight: 600; color: var(--dark); }
+    .cr-cmp .cr-cmp-me { background: var(--white, #fff); color: var(--dark); box-shadow: inset 2px 0 0 var(--dark), inset -2px 0 0 var(--dark); }
+    .cr-cmp thead .cr-cmp-me { border-radius: 24px 24px 0 0; box-shadow: inset 2px 0 0 var(--dark), inset -2px 0 0 var(--dark), inset 0 2px 0 var(--dark); }
+    .cr-cmp tbody tr:last-child .cr-cmp-me { box-shadow: inset 2px 0 0 var(--dark), inset -2px 0 0 var(--dark), inset 0 -2px 0 var(--dark); border-radius: 0 0 24px 24px; }
+    @media (max-width: 640px) { .cr-cmp th, .cr-cmp td { padding: 16px 16px; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -1312,6 +1327,18 @@
                 </article>
             </div>
             <p class="cr-plans-note">These are estimates for planning, not binding quotes. Final scope and cost are confirmed with you before any payment.</p>
+          </section>
+
+          <!-- COMPARE -->
+          <section id="compare" aria-labelledby="cr-compare">
+            <h2 id="cr-compare">How this compares</h2>
+            <p class="pd-sub">Compare your options before you decide.</p>
+            <div class="cr-cmp-wrap" role="region" aria-label="Comparison table" tabindex="0">
+              <table class="cr-cmp">
+                <thead><tr><th scope="col"><span class="visually-hidden">Criteria</span></th><th scope="col" class="cr-cmp-me">CRO audit with me</th><th scope="col">Agency</th><th scope="col">In-house hire</th></tr></thead>
+                <tbody><tr><th scope="row">Pricing model</th><td class="cr-cmp-me">Fixed price per scope, from $490</td><td>Usually a project quote or a retainer</td><td>Salary and benefits</td></tr><tr><th scope="row">Who does the work</th><td class="cr-cmp-me">Me, from your first message to the report</td><td>A team, often with an account manager</td><td>One employee, one perspective</td></tr><tr><th scope="row">Time to first findings</th><td class="cr-cmp-me">48 hours to 6 business days</td><td>Depends on the agency&rsquo;s schedule</td><td>Depends on hiring and onboarding</td></tr><tr><th scope="row">Commitment</th><td class="cr-cmp-me">One-off project, no retainer</td><td>Often a retainer or a longer contract</td><td>Employment contract</td></tr><tr><th scope="row">What you receive</th><td class="cr-cmp-me">Evidence-based findings, prioritized, with a 20-minute Loom walkthrough</td><td>Varies by agency</td><td>Depends on the person&rsquo;s skills</td></tr></tbody>
+              </table>
+            </div>
           </section>
 
           <!-- 13. REQUEST -->
