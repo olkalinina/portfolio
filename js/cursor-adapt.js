@@ -8,6 +8,8 @@
   function surface(x, y) {
     var e = document.elementFromPoint(x, y);
     if (e && /^(IMG|VIDEO|PICTURE)$/.test(e.tagName)) return 'light'; /* screenshots and photos are mostly light */
+    /* a link whose click area is stretched past its own box (the service-card buttons) must not stand in for the card behind it */
+    while (e && e.nodeType === 1) { var r = e.getBoundingClientRect(); if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) break; e = e.parentElement; }
     while (e && e.nodeType === 1) {
       var cs = getComputedStyle(e), c = parse(cs.backgroundColor);
       if (c && c.a > 0.6) return lum(c) < 0.3 ? 'dark' : 'light';
