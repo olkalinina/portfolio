@@ -355,3 +355,9 @@ html:root body main .help-card .btn-dark.mb.mb.mb::after { inset: -900px; }
 .btn-dark.mb-solid .mb-fill, .btn-outline-dark.mb-stroke .mb-fill, .btn-outline.mb-stroke .mb-fill { transition: filter .25s ease; }
 .btn-dark.mb-solid:hover .mb-fill { filter: brightness(1.25); }
 .btn-dark.mb-solid.mb-inv:hover .mb-fill { filter: brightness(.92); }
+
+/* ---- Text selection: soft egg-yellow, see-through ---- */
+::selection { background: rgba(246, 220, 120, 0.5); color: inherit; }
+::-moz-selection { background: rgba(246, 220, 120, 0.5); color: inherit; }
+html[data-theme="dark"] ::selection { background: rgba(236, 205, 100, 0.38); }
+html[data-theme="dark"] ::-moz-selection { background: rgba(236, 205, 100, 0.38); }
