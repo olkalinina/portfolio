@@ -349,35 +349,34 @@ html:not([data-theme="dark"]) { background: #DFE3F2; }
 html:not([data-theme="dark"]) body:not(.is-protected) {
   --dark: #000000; --strong: #000000; --text: rgba(0,0,0,.62); --ink: rgba(0,0,0,.62); --gray: rgba(0,0,0,.62); --muted: rgba(0,0,0,.62); --ink-muted: rgba(0,0,0,.62);
   --light-gray: #E4E8F5; --border: #E4E8F5; --border-btn: rgba(0,0,0,.28); --bg-soft: #FFFFFF; --bg-card: #FFFFFF; --white: #FFFFFF; --surface: #FFFFFF; --on-accent: #FFFFFF; --accent-bg: #000000;
-  --band: #2D4FC6; --slate: #7182AB; --hot: #E12646;
+  --band: #7182AB; --slate: #7182AB; --hot: #E12646;
   background: #DFE3F2 linear-gradient(180deg, #F4F6FC 0, #DFE3F2 760px) no-repeat; color: rgba(0,0,0,.62);
 }
 html:not([data-theme="dark"]) body.home:not(.is-protected) { background: #DFE3F2 linear-gradient(180deg, #F4F6FC 0, #DFE3F2 760px) no-repeat; }
 /* cards: white, no hairline */
 html:not([data-theme="dark"]) body:not(.is-protected) :is(.cr-plan, .arc-card, .cr-contact-card, .post, .bcard, .tm-card, .help-card--product, .ab-card, .cr-prob-panel, .pd-card) { box-shadow: none; }
 /* bands */
-html:not([data-theme="dark"]) body:not(.is-protected) :is(.cs-section, .pd.cr #problem) { --band: #2D4FC6; }
-html:not([data-theme="dark"]) body:not(.is-protected) .ab-band { --band: #2D4FC6; }
-html:not([data-theme="dark"]) body:not(.is-protected) :is(.help-card--cro, .cs-section .arc-card) { background: #2D4FC6 !important; }
+html:not([data-theme="dark"]) body:not(.is-protected) :is(.cs-section, .pd.cr #problem) { --band: #7182AB; }
+html:not([data-theme="dark"]) body:not(.is-protected) .ab-band { --band: #7182AB; }
+html:not([data-theme="dark"]) body:not(.is-protected) :is(.help-card--cro, .cs-section .arc-card) { background: #7182AB !important; }
 html:not([data-theme="dark"]) body:not(.is-protected) .cs-section .arc-card { background: rgba(255,255,255,.10) !important; }
 html:not([data-theme="dark"]) body:not(.is-protected) :is(.contact-block, .ab-cta, .ax-cta) { background: #7182AB !important; }
-/* slate footer band with white text and outline-style links, like a closing panel */
-html:not([data-theme="dark"]) body:not(.is-protected) .footer { background: #7182AB; border-top: 0; margin-top: 128px; box-shadow: 0 0 0 100vmax #7182AB; clip-path: inset(0 -100vmax); }
-html:not([data-theme="dark"]) body:not(.is-protected) .footer :is(.footer-name, .footer-msg, .footer-h, .footer-col a, .footer-copy, .footer-legal) { color: #FFFFFF; }
-html:not([data-theme="dark"]) body:not(.is-protected) .footer :is(.footer-msg, .footer-copy) { color: rgba(255,255,255,.82); }
-html:not([data-theme="dark"]) body:not(.is-protected) .footer .footer-bottom { border-top-color: rgba(255,255,255,.3); }
-html:not([data-theme="dark"]) body:not(.is-protected) .footer .footer-col a:hover, html:not([data-theme="dark"]) body:not(.is-protected) .footer .footer-legal:hover { color: #FFFFFF; }
+/* footer: mid slate band with dark text */
+html:not([data-theme="dark"]) body:not(.is-protected) .footer { background: #9099BA; border-top: 0; margin-top: 128px; box-shadow: 0 0 0 100vmax #9099BA; clip-path: inset(0 -100vmax); }
+html:not([data-theme="dark"]) body:not(.is-protected) .footer :is(.footer-name, .footer-h, .footer-col a, .footer-legal) { color: #000000; }
+html:not([data-theme="dark"]) body:not(.is-protected) .footer :is(.footer-msg, .footer-copy) { color: rgba(0,0,0,.8); }
+html:not([data-theme="dark"]) body:not(.is-protected) .footer .footer-bottom { border-top-color: rgba(0,0,0,.2); }
 /* nav on the gradient */
 html:not([data-theme="dark"]) body:not(.is-protected) .nav { background: rgba(244,246,252,.82); border-bottom-color: rgba(0,0,0,.08); }
 html:not([data-theme="dark"]) body:not(.is-protected) :is(.mobile-menu, .nav-dd-menu) { background: #FFFFFF; border-color: #E4E8F5; }
 /* the one hot accent */
 html:not([data-theme="dark"]) .hx-an .dot.hot { background: #E12646; box-shadow: 0 0 0 max(.3cqw, 2.5px) #fff, 0 0 0 max(.6cqw, 4.5px) #E12646; }
 html:not([data-theme="dark"]) body:not(.is-protected) .help-card--product { background: #FFFFFF !important; }
-html:not([data-theme="dark"]) body:not(.is-protected) .contact-block { background: #2D4FC6 !important; }
+html:not([data-theme="dark"]) body:not(.is-protected) .contact-block { background: #7182AB !important; }
 
 /* ---- test v3: the page colour changes with the section in view (js/bg-shift.js sets --page-bg) ---- */
 html:not([data-theme="dark"]) body:not(.is-protected), html:not([data-theme="dark"]) body.home:not(.is-protected) { background: transparent; }
 html:not([data-theme="dark"]) body:not(.is-protected)::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--page-bg, #DFE3F2); transition: background-color .6s ease; }
 html:not([data-theme="dark"]) body:not(.is-protected) [data-bg="slate"] { --gray: rgba(0,0,0,.84); --muted: rgba(0,0,0,.84); --text: rgba(0,0,0,.84); --ink: rgba(0,0,0,.84); }
-html:not([data-theme="dark"]) body:not(.is-protected) [data-bg="cobalt"] { --gray: rgba(255,255,255,.8); }
+html:not([data-theme="dark"]) body:not(.is-protected) [data-bg="deep"] { --gray: rgba(255,255,255,.8); }
 @media (prefers-reduced-motion: reduce) { html:not([data-theme="dark"]) body:not(.is-protected)::before { transition: none; } }

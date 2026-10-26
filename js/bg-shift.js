@@ -1,7 +1,7 @@
 /* Page background that follows the section in view: a fixed layer behind the page crossfades to the colour set on
-   data-bg ("light", "white", "slate" or "cobalt") of the section crossing the middle of the screen. Light mode only (CSS decides). */
+   data-bg ("light", "white", "slate" or "deep") of the section crossing the middle of the screen. Light mode only (CSS decides). */
 (function () {
-  var map = { light: '#DFE3F2', white: '#FFFFFF', slate: '#7182AB', cobalt: '#2D4FC6' };
+  var map = { light: '#DFE3F2', white: '#FFFFFF', slate: '#9099BA', deep: '#7182AB' };
   var secs = [].slice.call(document.querySelectorAll('[data-bg]'));
   if (!secs.length) return;
   var root = document.documentElement, last = '', ticking = false;
