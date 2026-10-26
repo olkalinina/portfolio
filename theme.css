@@ -174,24 +174,16 @@ html[data-theme="dark"] body:not(.is-protected) .modal-overlay { background: rgb
   }
 }
 
-/* ---- Pen cursor flips to its opposite colour over dark (or, in dark mode, light) surfaces so it never disappears.
-   On the two service cards the whole card is the button's click layer, so there the cursor follows the CARD colour, not the button's. ---- */
+/* ---- Pen cursor adapts to the surface under it: js/cursor-adapt.js sets data-surf="dark" or "light" on <html> while the pointer moves.
+   Over a dark surface on a light page the pen turns light; over a light surface on the dark theme it turns dark. ---- */
 @media (hover: hover) and (pointer: fine) {
-  html:not([data-theme="dark"]) body main :is(.cs-section, .cs-section *, .btn-dark, .btn-dark *, .help-card--cro, .help-card--cro *, .pd-dark, .pd-dark *, .pd-ico, .pd-ico *, .pd-hero-tile, .pd-hero-tile *, .help-icon-tile, .help-icon-tile *, .tm-avatar, .faq-tab-check, .faq-tab-check *):not(input):not(textarea):not(select) {
+  html[data-surf="dark"]:not([data-theme="dark"]) body *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
     cursor: url('/images/cursor-pen-light.png') 2 1, auto !important;
     cursor: image-set(url('/images/cursor-pen-light.png') 1x, url('/images/cursor-pen-light@2x.png') 2x) 2 1, auto !important;
   }
-  html:not([data-theme="dark"]) body main :is(.cs-section .arc-card, .cs-section .arc-card *, .pd-dark .btn-dark, .pd-dark .btn-dark *, .help-card--product .btn-dark, .help-card--product .btn-dark *):not(input):not(textarea):not(select) {
+  html[data-surf="light"][data-theme="dark"] body:not(.is-protected) *:not(input):not(textarea):not(select):not([contenteditable="true"]) {
     cursor: url('/images/cursor-pen.png') 2 1, auto !important;
     cursor: image-set(url('/images/cursor-pen.png') 1x, url('/images/cursor-pen@2x.png') 2x) 2 1, auto !important;
-  }
-  html[data-theme="dark"] body:not(.is-protected) main :is(.btn-dark, .btn-dark *, .pd-chips.tools li, .pd-chips.tools li *, .faq-tab-check, .faq-tab-check *):not(input):not(textarea):not(select) {
-    cursor: url('/images/cursor-pen.png') 2 1, auto !important;
-    cursor: image-set(url('/images/cursor-pen.png') 1x, url('/images/cursor-pen@2x.png') 2x) 2 1, auto !important;
-  }
-  html[data-theme="dark"] body:not(.is-protected) main .help-section :is(.help-card .btn-dark, .help-card .btn-dark *):not(input):not(textarea):not(select) {
-    cursor: url('/images/cursor-pen-gold.png') 2 1, auto !important;
-    cursor: image-set(url('/images/cursor-pen-gold.png') 1x, url('/images/cursor-pen-gold@2x.png') 2x) 2 1, auto !important;
   }
 }
 
