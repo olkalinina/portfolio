@@ -374,3 +374,10 @@ html:not([data-theme="dark"]) body:not(.is-protected) :is(.mobile-menu, .nav-dd-
 html:not([data-theme="dark"]) .hx-an .dot.hot { background: #E12646; box-shadow: 0 0 0 max(.3cqw, 2.5px) #fff, 0 0 0 max(.6cqw, 4.5px) #E12646; }
 html:not([data-theme="dark"]) body:not(.is-protected) .help-card--product { background: #FFFFFF !important; }
 html:not([data-theme="dark"]) body:not(.is-protected) .contact-block { background: #2D4FC6 !important; }
+
+/* ---- test v3: the page colour changes with the section in view (js/bg-shift.js sets --page-bg) ---- */
+html:not([data-theme="dark"]) body:not(.is-protected), html:not([data-theme="dark"]) body.home:not(.is-protected) { background: transparent; }
+html:not([data-theme="dark"]) body:not(.is-protected)::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--page-bg, #DFE3F2); transition: background-color .6s ease; }
+html:not([data-theme="dark"]) body:not(.is-protected) [data-bg="slate"] { --gray: rgba(0,0,0,.84); --muted: rgba(0,0,0,.84); --text: rgba(0,0,0,.84); --ink: rgba(0,0,0,.84); }
+html:not([data-theme="dark"]) body:not(.is-protected) [data-bg="cobalt"] { --gray: rgba(255,255,255,.8); }
+@media (prefers-reduced-motion: reduce) { html:not([data-theme="dark"]) body:not(.is-protected)::before { transition: none; } }
