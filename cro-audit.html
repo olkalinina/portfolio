@@ -355,9 +355,9 @@
     .btn-arrow { width: 16px; height: 16px; flex: none; }
     .btn-outline-dark { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border: 1.5px solid var(--dark); border-radius: var(--radius-pill); background: transparent; color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 500; transition: background var(--transition), transform var(--transition); cursor: pointer; }
     .btn-outline-dark:hover { background: var(--bg-soft); transform: translateY(-1px); }
-    .hx-trust { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: nowrap; gap: 14px; width: 100%; }
-    .hx-trust li { display: flex; align-items: center; gap: 8px; font-size: 14.5px; line-height: 1.35; flex: 1 1 0; min-width: 0; }
-    .hx-ico { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--bg-soft); box-shadow: inset 0 0 0 1px var(--light-gray); display: flex; align-items: center; justify-content: center; }
+    .hx-trust { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: nowrap; gap: 10px; width: 100%; }
+    .hx-trust li { display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 1.35; flex: 1 1 auto; min-width: 0; text-wrap: balance; }
+    .hx-ico { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--bg-soft); box-shadow: inset 0 0 0 1px var(--light-gray); display: flex; align-items: center; justify-content: center; }
     .hx-ico svg { width: 18px; height: 18px; }
     /* "Suitable for": same layout as the Trusted by row on Home */
     .hx-suit-row { grid-column: 1 / -1; min-width: 0; display: flex; align-items: center; gap: 36px; padding-top: 16px; }
@@ -722,6 +722,7 @@
     /* ---- hero illustration, final version from the supplied artwork ---- */
     @media (min-width: 1181px) {
       .hx { grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: clamp(48px, 6vw, 88px); }
+      .hx-trust { width: calc(100% + 36px); margin-right: -36px; }
       body:not(.is-protected) main .hx > .hx-text > h1 { font-size: clamp(46px, 4.2vw, 56px) !important; }
       .hx-lede { font-size: clamp(17px, 1.45vw, 19px); }
     }
