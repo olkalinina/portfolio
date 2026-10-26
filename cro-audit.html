@@ -980,15 +980,15 @@
     .cr-cmp-lab, .cr-cmp-c, .cr-cmp-h { padding: 16px 24px; border-top: 1px solid var(--light-gray); font-size: 15.5px; line-height: 1.5; color: var(--gray); }
     .cr-cmp-lab { font-weight: 600; font-size: 14.5px; color: var(--dark); padding-left: 4px; }
     .cr-cmp-h { border-top: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 400; line-height: 1.2; color: var(--dark); padding-top: 26px; padding-bottom: 18px; align-self: end; }
-    :root { --cr-green: #46705a; }
-    html[data-theme="dark"] { --cr-green: #86b496; }
-    .cr-cmp-me { background: var(--white, #fff); color: var(--dark); box-shadow: inset 2px 0 0 var(--cr-green), inset -2px 0 0 var(--cr-green); }
+    :root { --cr-green: #8fbaa0; }
+    html[data-theme="dark"] { --cr-green: #6f9a82; }
+    .cr-cmp-me { background: var(--white, #fff); color: var(--dark); border-top: 0; position: relative; z-index: 1; box-shadow: inset 2px 0 0 var(--cr-green), inset -2px 0 0 var(--cr-green), inset 0 1px 0 var(--light-gray); }
     .cr-cmp-h.cr-cmp-me { border-radius: 24px 24px 0 0; box-shadow: inset 2px 0 0 var(--cr-green), inset -2px 0 0 var(--cr-green), inset 0 2px 0 var(--cr-green); font-weight: 500; }
     .cr-cmp-hd { display: inline-flex; align-items: center; gap: 12px; }
     .cr-cmp-photo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; }
     .cr-cmp-ico { width: 40px; height: 40px; border-radius: 50%; background: var(--light-gray); color: var(--dark); display: inline-flex; align-items: center; justify-content: center; flex: none; }
     .cr-cmp-ico svg { width: 22px; height: 22px; }
-    .cr-cmp-cta { display: flex; flex-direction: column; align-items: stretch; gap: 14px; border-radius: 0 0 24px 24px; padding-top: 28px; padding-bottom: 28px; box-shadow: inset 2px 0 0 var(--cr-green), inset -2px 0 0 var(--cr-green), inset 0 -2px 0 var(--cr-green); }
+    .cr-cmp-cta { display: flex; flex-direction: column; align-items: stretch; gap: 14px; border-radius: 0 0 24px 24px; padding-top: 28px; padding-bottom: 28px; box-shadow: inset 2px 0 0 var(--cr-green), inset -2px 0 0 var(--cr-green), inset 0 -2px 0 var(--cr-green), inset 0 1px 0 var(--light-gray); }
     .cr-cmp-cta .btn-dark { display: inline-flex; justify-content: center; align-items: center; gap: 10px; width: 100%; }
     .cr-cmp-sec { text-align: center; font-size: 14.5px; color: var(--gray); text-decoration: underline; text-underline-offset: 3px; }
     .cr-cmp-sec:hover { color: var(--dark); }
@@ -1001,7 +1001,7 @@
       .cr-cmp-h, .cr-cmp-c { order: var(--o); padding: 18px 22px; background: var(--bg-soft); box-shadow: inset 1.5px 0 0 var(--light-gray), inset -1.5px 0 0 var(--light-gray); }
       .cr-cmp-h { margin-top: 24px; border-radius: 20px 20px 0 0; box-shadow: inset 1.5px 0 0 var(--light-gray), inset -1.5px 0 0 var(--light-gray), inset 0 1.5px 0 var(--light-gray); align-self: stretch; }
       .cr-cmp-h.cr-cmp-me { margin-top: 0; background: var(--white, #fff); }
-      .cr-cmp-c.cr-cmp-me { background: var(--white, #fff); box-shadow: inset 2px 0 0 var(--cr-green), inset -2px 0 0 var(--cr-green); }
+      .cr-cmp-c.cr-cmp-me { background: var(--white, #fff); box-shadow: inset 2px 0 0 var(--cr-green), inset -2px 0 0 var(--cr-green), inset 0 1px 0 var(--light-gray); }
       .cr-cmp-cta { box-shadow: inset 2px 0 0 var(--cr-green), inset -2px 0 0 var(--cr-green), inset 0 -2px 0 var(--cr-green) !important; }
       .cr-cmp-c::before { content: attr(data-label); display: block; margin-bottom: 4px; font-size: 13px; font-weight: 600; color: var(--dark); }
       .cr-cmp-cta::before { content: none; }
