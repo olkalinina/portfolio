@@ -890,6 +890,7 @@
     .cr-who2-text p { font-size: 16.5px; line-height: 1.65; color: var(--dark); margin: 0; max-width: 540px; }
     .cr-who2-text p.cr-who2-muted { color: var(--gray); }
     .cr-who2-text .pd-link { margin-top: 6px; }
+    .pd-link.cr-more { display: inline-flex; align-items: center; gap: 6px; }
     .cr-who2-art { position: relative; height: 380px; min-width: 0; }
     .cr-who2-blob { position: absolute; right: 4%; top: 18%; width: 62%; height: 70%; background: rgba(232,192,200,.45); border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%; filter: blur(.3px); }
     html[data-theme="dark"] .cr-who2-blob { background: rgba(190,110,125,.28); }
@@ -903,12 +904,15 @@
     .pd.cr #pricing > .pd-sub { margin-top: 14px; max-width: 720px; }
     .cr-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 48px; align-items: stretch; }
     .cr-plan { display: flex; flex-direction: column; background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 36px 32px 34px; box-shadow: inset 0 0 0 1px var(--light-gray); }
-    .cr-plan.is-selected, .cr-plans:not(:has(.is-selected)) .cr-plan--default { background: var(--white, #fff); box-shadow: inset 0 0 0 2px var(--dark), var(--sh-soft, none); }
+    .cr-plan.is-selected, .cr-plan:hover, .cr-plan:focus-within { background: var(--white, #fff); box-shadow: inset 0 0 0 2px var(--dark), var(--sh-soft, none); }
     .cr-plan { transition: box-shadow .25s ease, background .25s ease; }
     body:not(.is-protected) main .pd.cr .cr-plan h3 { font-size: 28px; font-weight: 500; line-height: 1.15; margin: 0; }
     .cr-plan-desc { margin: 12px 0 0; font-size: 15.5px; line-height: 1.5; color: var(--gray); min-height: 70px; }
     .cr-plan-price { margin: 24px 0 0; padding-top: 24px; border-top: 1.5px solid var(--light-gray); }
     .cr-plan-price strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 52px; font-weight: 500; line-height: 1.05; color: var(--dark); font-variant-numeric: tabular-nums; }
+    .cr-plan ul.cr-plan-tags { margin: 14px 0 0; flex-direction: row; flex-wrap: wrap; gap: 6px; }
+    .cr-plan .cr-plan-tags li { display: block; padding: 3px 11px; border-radius: 9999px; background: var(--light-gray); font-size: 13px; line-height: 1.5; color: var(--dark); }
+    .cr-plans-addons { margin: 28px 0 0 !important; font-size: 16px; line-height: 1.5; }
     .cr-plan-price span { display: block; margin-top: 6px; font-size: 14px; color: var(--gray); }
     .cr-plan > a.btn-dark, .cr-plan > a.btn-outline-dark { margin-top: 24px; width: 100%; justify-content: center; text-align: center; }
     .cr-plan-inc { margin: 28px 0 12px; font-size: 14.5px; color: var(--gray); }
@@ -916,6 +920,7 @@
     .cr-plan li { display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 12px; align-items: start; font-size: 15.5px; line-height: 1.4; color: var(--dark); }
     .cr-plan li svg { margin-top: 1px; color: var(--dark); }
     .cr-plans-note { margin-top: 28px !important; max-width: 640px; font-size: 14px; line-height: 1.5; color: var(--gray); }
+    @supports (grid-template-rows: subgrid) { @media (min-width: 961px) { .cr-plans { row-gap: 0; grid-template-rows: repeat(7, auto); } .cr-plan { display: grid; grid-row: span 7; grid-template-rows: subgrid; align-content: start; } .cr-plan > * { align-self: start; } body:not(.is-protected) main .pd.cr .cr-plan h3 { align-self: end; } .cr-plan ul.cr-plan-tags { align-items: flex-start; align-content: flex-start; } .cr-plan-desc { min-height: 0; } } }
     @media (max-width: 960px) { .cr-plans { grid-template-columns: minmax(0, 1fr); max-width: 520px; margin-left: auto; margin-right: auto; } .cr-plan-desc { min-height: 0; } }
     /* FAQ: platforms, add-ons and rush delivery with prices */
     .cr-faq-price { padding: 4px 0 24px; max-width: 640px; }
@@ -1229,7 +1234,7 @@
 
           <!-- CASE STUDIES -->
           <section id="proof" aria-labelledby="cr-work">
-            <h2 id="cr-work">Case studies</h2>
+            <h2 id="cr-work">See my available case studies</h2>
             <p class="pd-sub">Public examples of conversion and behavioral analysis across different digital products.</p>
             <div class="cr-cs3">
               <a class="cs-card" href="/cs-proffer"><div class="cs-card-title">Why visitors leave a platform that promises no agents</div><div class="cs-card-desc">A diagnosis of a Dubai property marketplace, with a look inside the report.</div><div class="cs-card-img-contained"><img src="images/proffer/card.jpg" alt="Proffer homepage with the search bar and three commission cards" loading="lazy" /></div></a>
@@ -1306,8 +1311,8 @@
                 <p class="cr-who2-eyebrow">The person behind the audit</p>
                 <h3>Who does the work</h3>
                 <p>I’m a product designer and product owner with 20+ years of experience across SaaS platforms, AI-enabled products, and data-heavy systems, including e-commerce products and marketplaces. I carry out every diagnosis myself and review the findings before they reach you.</p>
-                <p class="cr-who2-muted">The method is my own, built on that experience and currently being formalized as Rootwise.</p>
-                <a class="pd-link" href="/about">More about me</a>
+                <p class="cr-who2-muted">I developed a behavioural diagnosis method based on my deep experience in product design.</p>
+                <a class="pd-link cr-more" href="/about">More about me <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
               </div>
               <div class="cr-who2-art" aria-hidden="false">
                 <span class="cr-who2-blob" aria-hidden="true"></span>
@@ -1325,29 +1330,30 @@
             <div class="cr-plans">
                 <article class="cr-plan">
                   <h3>Single page</h3>
-                  <p class="cr-plan-desc">One landing page, product page or homepage.</p>
-                  <p class="cr-plan-price"><strong data-price="scope.single"></strong><span>One device included</span></p>
+                  <p class="cr-plan-desc">One landing page, product page or homepage.</p><ul class="cr-plan-tags" aria-label="Suited to"><li>Landing page</li><li>Product page</li><li>Homepage</li></ul>
+                  <p class="cr-plan-price"><strong data-price="scope.single"></strong></p>
                   <a class="btn-outline-dark" href="#request" data-scope="Single page">Audit one page</a>
                   <p class="cr-plan-inc">What&rsquo;s included:</p>
-                  <ul><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>One page, one device</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Report with findings, each with its evidence</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Priorities, in order</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>20-minute Loom walkthrough of the findings</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>One page, one device</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Report with findings, each with its evidence</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Priorities, in order</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Ready in 48 hours</span></li></ul>
+                  <ul><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>One page, mobile and desktop experience</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Report with findings, each with its evidence</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Priorities, in order</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>20-minute Loom walkthrough of the findings</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Ready in 48 hours</span></li></ul>
                 </article>
-                <article class="cr-plan cr-plan--default">
+                <article class="cr-plan">
                   <h3>Full conversion flow</h3>
-                  <p class="cr-plan-desc">End-to-end flow of up to 6 steps, for example from landing to sign-up.</p>
-                  <p class="cr-plan-price"><strong data-price="scope.flow"></strong><span>One device included</span></p>
-                  <a class="btn-dark" href="#request" data-scope="Full conversion flow">Audit my flow</a>
+                  <p class="cr-plan-desc">Any journey with a conversion goal, up to 6 steps, for example from landing to sign-up.</p><ul class="cr-plan-tags" aria-label="Suited to"><li>SaaS</li><li>Service business</li><li>Lead generation</li><li>Booking or sign-up</li></ul>
+                  <p class="cr-plan-price"><strong data-price="scope.flow"></strong></p>
+                  <a class="btn-outline-dark" href="#request" data-scope="Full conversion flow">Audit my flow</a>
                   <p class="cr-plan-inc">What&rsquo;s included:</p>
                   <ul><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Flow of up to 6 steps, one device</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Report with findings, each with its evidence</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Priorities and a roadmap your team can act on</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>20-minute Loom walkthrough of the findings</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Ready in 3–5 business days</span></li></ul>
                 </article>
                 <article class="cr-plan">
                   <h3>E-commerce purchase journey</h3>
-                  <p class="cr-plan-desc">The path from catalog to purchase, including the key pages.</p>
-                  <p class="cr-plan-price"><strong data-price="scope.ecommerce"></strong><span>One device included</span></p>
+                  <p class="cr-plan-desc">The path from catalog to purchase, including the key pages.</p><ul class="cr-plan-tags" aria-label="Suited to"><li>Online store</li><li>E-commerce</li></ul>
+                  <p class="cr-plan-price"><strong data-price="scope.ecommerce"></strong></p>
                   <a class="btn-outline-dark" href="#request" data-scope="E-commerce purchase journey">Audit my purchase journey</a>
                   <p class="cr-plan-inc">What&rsquo;s included:</p>
                   <ul><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Catalog to purchase, one device</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Report with findings, each with its evidence</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Priorities and a roadmap your team can act on</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>20-minute Loom walkthrough of the findings</span></li><li><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></svg><span>Ready in 4–6 business days</span></li></ul>
                 </article>
             </div>
+            <p class="cr-plans-addons">Want me to also check your marketing emails, post-purchase flow or post-signup SaaS experience? <a class="pd-link" href="/faq#cro">See my add-ons</a></p>
             <p class="cr-plans-note">These are estimates for planning, not binding quotes. Final scope and cost are confirmed with you before any payment.</p>
           </section>
 
@@ -1428,28 +1434,34 @@
     </main>
         <footer class="footer">
       <div class="footer-inner">
-        <div class="footer-social-row">
-          <nav class="footer-links">
-            <a href="/product-design" data-text="Product Design">Product Design</a>
-            <span class="footer-dot"></span>
-            <a href="/cro-audit" data-text="CRO Diagnosis">CRO Diagnosis</a>
-            <span class="footer-dot"></span>
-            <a href="/case-studies" data-text="Case Studies">Case Studies</a>
-            <span class="footer-dot"></span>
-            <a href="/blog" data-text="Blog">Blog</a>
-            <span class="footer-dot"></span>
-            <a href="/about" data-text="About">About</a>
-            <span class="footer-dot"></span>
-            <a href="/contacts" data-text="Contacts">Contacts</a>
-            <span class="footer-dot"></span>
-            <a href="/privacy" data-text="Privacy">Privacy</a>
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="footer-name" href="/">Olga Kalinina</a>
+            <p class="footer-msg">I find where your conversion journey breaks and show you what to fix first.</p>
+          </div>
+          <nav class="footer-col" aria-label="Services">
+            <p class="footer-h">Services</p>
+            <a href="/product-design">Product Design</a>
+            <a href="/cro-audit">CRO Diagnosis</a>
+            <a href="/case-studies">Case Studies</a>
           </nav>
-          <div class="footer-socials">
+          <nav class="footer-col" aria-label="Learn">
+            <p class="footer-h">Learn</p>
+            <a href="/blog">Blog</a>
+            <a href="/faq">FAQ</a>
+          </nav>
+          <nav class="footer-col" aria-label="Company">
+            <p class="footer-h">Company</p>
+            <a href="/about">About</a>
+            <a href="/contacts">Contacts</a>
             <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
             <a href="https://www.behance.net/kalininaolga" target="_blank" rel="noopener">Behance</a>
-          </div>
+          </nav>
         </div>
-        <p class="footer-copy">&#169; 2026 Olga Kalinina</p>
+        <div class="footer-bottom">
+          <p class="footer-copy">&#169; 2026 Olga Kalinina. All rights reserved.</p>
+          <a class="footer-legal" href="/privacy">Privacy Policy</a>
+        </div>
       </div>
     </footer>
   </div>
