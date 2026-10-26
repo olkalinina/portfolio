@@ -296,20 +296,6 @@ body:not(.is-protected) main .pd-card, body:not(.is-protected) main .ab-card, bo
 .mobile-menu-links a:hover, .mobile-menu-links a:active, .mobile-menu-links a.active:hover { font-weight: 600; }
 .footer-links a:hover, .footer-links a:active { color: var(--gray); font-weight: 600; }
 
-/* ---- CTA hover (all public pages): from black to a flowing multicolour gradient, the same colours as the service cards' outline ---- */
-@property --cg { syntax: '<number>'; inherits: false; initial-value: 0; }
-@keyframes cta-flow { from { background-position: 0% 0; } to { background-position: 200% 0; } }
-body:not(.is-protected) main .btn-dark { background-image: linear-gradient(90deg, rgba(255,95,168,var(--cg)), rgba(139,92,246,var(--cg)) 38%, rgba(59,130,246,var(--cg)) 68%, rgba(255,95,168,var(--cg))); background-size: 200% 100%; background-repeat: repeat-x; background-origin: border-box; background-clip: border-box; transition: --cg .4s ease, color .4s ease, opacity .2s ease, transform .2s ease; }
-body:not(.is-protected) main .btn-dark * { transition: color .4s ease; }
-/* wins over the cards' and the dark theme's own button backgrounds */
-html:root body:not(.is-protected) main .btn-dark.btn-dark.btn-dark { background-image: linear-gradient(90deg, rgba(255,95,168,var(--cg)), rgba(139,92,246,var(--cg)) 38%, rgba(59,130,246,var(--cg)) 68%, rgba(255,95,168,var(--cg))) !important; background-size: 200% 100% !important; background-repeat: repeat-x !important; background-origin: border-box !important; background-clip: border-box !important; }
-body:not(.is-protected) main .btn-dark:is(:hover, :focus-visible, :active) { --cg: 1; opacity: 1; animation: cta-flow 6s linear infinite; }
-html:root body:not(.is-protected) main .btn-dark.btn-dark:is(:hover, :focus-visible, :active), html:root body:not(.is-protected) main .btn-dark.btn-dark:is(:hover, :focus-visible, :active) * { color: #fff !important; }
-body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline) { position: relative; isolation: isolate; background-image: linear-gradient(90deg, rgba(255,95,168,calc(var(--cg) * .12)), rgba(139,92,246,calc(var(--cg) * .12)) 38%, rgba(59,130,246,calc(var(--cg) * .12)) 68%, rgba(255,95,168,calc(var(--cg) * .12))); background-size: 200% 100%; background-repeat: repeat-x; background-origin: border-box; background-clip: border-box; transition: border-color .5s ease, background-color .5s ease, transform .2s ease, --cg .6s ease; }
-body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline)::before { content: ""; position: absolute; inset: -1.5px; z-index: -1; border-radius: inherit; padding: 1.5px; pointer-events: none; opacity: 0; transition: opacity .6s ease; background: linear-gradient(90deg, #ff5fa8, #8b5cf6 38%, #3b82f6 68%, #ff5fa8); background-size: 200% 100%; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); }
-body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline):is(:hover, :focus-visible, :active) { --cg: 1; border-color: transparent; animation: cta-flow 6s linear infinite; }
-body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline):is(:hover, :focus-visible, :active)::before { opacity: 1; animation: cta-flow 6s linear infinite; }
-@media (prefers-reduced-motion: reduce) { body:not(.is-protected) main .btn-dark:is(:hover, :focus-visible, :active), body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline):is(:hover, :focus-visible, :active), body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline):is(:hover, :focus-visible, :active)::before { animation: none; } }
 
 /* ---- Footer: message, Services / Learn / Company columns, legal row ---- */
 .footer .footer-inner { max-width: 1187px; align-items: stretch; gap: 0; padding-top: 48px; padding-bottom: 8px; }
@@ -366,3 +352,6 @@ html:root body main :is(.btn-outline-dark, .btn-outline).mb-stroke.mb-inv:hover 
 /* service cards: the button is the containing block for its fill, so the whole-card click area is stretched past it (the card clips it) */
 html:root body main .help-card .btn-dark.mb.mb.mb { position: relative; }
 html:root body main .help-card .btn-dark.mb.mb.mb::after { inset: -900px; }
+.btn-dark.mb-solid .mb-fill, .btn-outline-dark.mb-stroke .mb-fill, .btn-outline.mb-stroke .mb-fill { transition: filter .25s ease; }
+.btn-dark.mb-solid:hover .mb-fill { filter: brightness(1.25); }
+.btn-dark.mb-solid.mb-inv:hover .mb-fill { filter: brightness(.92); }
