@@ -361,3 +361,19 @@ html:root body main .help-card .btn-dark.mb.mb.mb::after { inset: -900px; }
 ::-moz-selection { background: rgba(246, 220, 120, 0.5); color: inherit; }
 html[data-theme="dark"] ::selection { background: rgba(236, 205, 100, 0.38); }
 html[data-theme="dark"] ::-moz-selection { background: rgba(236, 205, 100, 0.38); }
+
+/* ---- Cookie / analytics consent card ---- */
+.ck { position: fixed; left: 20px; bottom: 20px; z-index: 90; width: min(380px, calc(100vw - 40px)); padding: 20px 22px; border-radius: 20px; background: var(--white, #fff); color: var(--dark); box-shadow: 0 18px 50px rgba(0,0,0,.18), inset 0 0 0 1px var(--light-gray); font-family: 'Lora', Georgia, serif; }
+.ck-t { margin: 0 0 6px; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; line-height: 1.25; color: var(--strong, var(--dark)); }
+.ck-p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--gray); }
+.ck-p a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; }
+.ck-b { display: flex; gap: 10px; margin-top: 16px; }
+.ck-b button { flex: 1; min-height: 44px; padding: 0 18px; border-radius: 9999px; font: 500 15px 'Lora', Georgia, serif; cursor: pointer; border: 1.5px solid var(--dark); }
+.ck-no { background: transparent; color: var(--dark); }
+.ck-yes { background: var(--dark); color: var(--white, #fff); }
+.ck-b button:focus-visible { outline: 2px solid var(--dark); outline-offset: 2px; }
+html[data-theme="dark"] .ck { background: #2f2e2e; box-shadow: 0 18px 50px rgba(0,0,0,.5), inset 0 0 0 1px #464545; }
+html[data-theme="dark"] .ck-b button { border-color: #ede8ea; }
+html[data-theme="dark"] .ck-yes { background: #ede8ea; color: #171717; }
+button.footer-legal { background: none; border: 0; cursor: pointer; }
+@media (max-width: 560px) { .ck { left: 12px; right: 12px; bottom: 12px; width: auto; } }
