@@ -146,7 +146,7 @@ html[data-theme="dark"] body:not(.is-protected) .theme-toggle { background: #2f2
 html[data-theme="dark"] body:not(.is-protected) .mobile-menu { background: #2f2e2e; border-color: #464545; }
 html[data-theme="dark"] body:not(.is-protected) .mobile-menu-backdrop { background: rgba(0,0,0,0.5); }
 html[data-theme="dark"] body:not(.is-protected) .footer { border-top-color: #2f2e2e; }
-html[data-theme="dark"] body:not(.is-protected) :is(.cs-lock-btn, .cs-lock, .carousel-btn, .filter-pill, .table-scroll, .bcard, .blog-card, .form-field input, .form-field textarea, .svc-btn, .modal, .modal-cancel, .cs-access-btn, .modal-field input, .badge, .tool-pill, .btn-outline, .btn-pill, .deck-btn, .mobile-menu-close, .section-label) {
+html[data-theme="dark"] body:not(.is-protected) :is(.cs-lock-btn, .cs-lock, .carousel-btn, .filter-pill, .table-scroll, .blog-card, .form-field input, .form-field textarea, .svc-btn, .modal, .modal-cancel, .cs-access-btn, .modal-field input, .badge, .tool-pill, .btn-outline, .btn-pill, .deck-btn, .mobile-menu-close, .section-label) {
   background: var(--surface); color: var(--dark); border-color: var(--light-gray);
 }
 html[data-theme="dark"] body:not(.is-protected) :is(.blog-tab) { color: var(--gray); }
