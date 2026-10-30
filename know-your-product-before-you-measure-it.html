@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Know your product before you measure it: a founder’s guide to SaaS analytics — Olga Kalinina</title>
+  <meta name="description" content="You don’t need a sophisticated analytics setup to tell whether your SaaS works. How to map the user journey, pick the metrics that matter, investigate with little data, and decide what to improve next." />
+  <link rel="canonical" href="https://olgakalinina.me/know-your-product-before-you-measure-it" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="Know your product before you measure it: a founder’s guide to SaaS analytics — Olga Kalinina" />
+  <meta property="og:description" content="You don’t need a sophisticated analytics setup to tell whether your SaaS works. How to map the user journey, pick the metrics that matter, investigate with little data, and decide what to improve next." />
+  <meta property="og:url" content="https://olgakalinina.me/know-your-product-before-you-measure-it" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Know your product before you measure it: a founder’s guide to SaaS analytics — Olga Kalinina" />
+  <meta name="twitter:description" content="You don’t need a sophisticated analytics setup to tell whether your SaaS works. How to map the user journey, pick the metrics that matter, investigate with little data, and decide what to improve next." />
+  <meta name="twitter:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Know your product before you measure it: a founder’s guide to SaaS analytics", "datePublished": "2026-10-30", "dateModified": "2026-10-30", "image": "https://olgakalinina.me/images/og-default.jpg", "description": "You don’t need a sophisticated analytics setup to tell whether your SaaS works. How to map the user journey, pick the metrics that matter, investigate with little data, and decide what to improve next.", "mainEntityOfPage": "https://olgakalinina.me/know-your-product-before-you-measure-it", "inLanguage": "en", "author": {"@id": "https://olgakalinina.me/#person"}}, {"@type": "Person", "@id": "https://olgakalinina.me/#person", "name": "Olga Kalinina", "jobTitle": "Product Designer & Behavioral CRO Expert", "url": "https://olgakalinina.me/", "image": "https://olgakalinina.me/images/olga_hero.jpg", "sameAs": ["https://www.linkedin.com/in/olga-kalinina-sundary/", "https://substack.com/@olinproduct/"]}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ---- Article page ---- */
+    .ax-layout { display: grid; grid-template-columns: 210px minmax(0, 720px); gap: 56px; justify-content: center; align-items: start; }
+    .ax-toc { position: sticky; top: 130px; align-self: start; padding-top: 48px; }
+    .ax-toc-title { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 16px; line-height: 1.4; }
+    .ax-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; border-left: 1.5px solid var(--light-gray); }
+    .ax-toc li { margin: 0; }
+    .ax-toc a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
+    .ax-toc a:hover { color: var(--strong); }
+    .ax-toc a.is-active { color: var(--strong); border-left-color: var(--strong); font-weight: 500; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (max-width: 1100px) { .ax-layout { grid-template-columns: minmax(0, 720px); } .ax-toc { display: none; } }
+    .ax { --ax-ink: var(--strong); --ax-on-ink: #f7f5f5; --ax-gold: #a8803a; --ax-gold-soft: rgba(168,128,58,.16); min-width: 0; padding: 48px 0 96px; font-size: 17px; line-height: 1.75; color: var(--dark); }
+    html[data-theme="dark"] .ax { --ax-on-ink: #171717; --ax-gold: #d9b36c; --ax-gold-soft: rgba(217,179,108,.18); }
+    .ax p { margin: 0 0 1.1em; }
+    .ax a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    .ax strong { font-weight: 600; color: var(--strong); }
+    .ax h2 { margin: 72px 0 16px; scroll-margin-top: 96px; }
+    .ax h3 { margin: 36px 0 8px; }
+    .ax ul, .ax ol { padding-left: 1.2em; margin: 0 0 1.2em; }
+    .ax li { margin-bottom: .45em; }
+    .ax-head { margin-bottom: 40px; }
+    .ax-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .ax-tag { display: inline-flex; align-items: center; width: fit-content; padding: 4px 12px; border-radius: var(--radius-pill); background: #fef3c7; color: #92400e; font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; }
+    .ax-tag.is-saas { background: #dcfce7; color: #166534; }
+    html[data-theme="dark"] .ax-tag.is-saas { background: rgba(74,222,128,.16); color: #86efac; }
+    html[data-theme="dark"] .ax-tag { background: rgba(251,191,36,.18); color: #fcd34d; }
+    .ax .ax-lede { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 22px 0 0; padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
+        /* reading progress */
+    .ax-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--strong); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; pointer-events: none; }
+    /* tables */
+    .ax-table { overflow-x: auto; margin: 26px 0; border: 1.5px solid var(--light-gray); border-radius: var(--r-lg); }
+    .ax-table table { border-collapse: collapse; width: 100%; min-width: 580px; font-size: 16px; line-height: 1.5; }
+    .ax-table th, .ax-table td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--light-gray); }
+    .ax-table th { background: var(--bg-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; font-weight: 400; color: var(--gray); }
+    .ax-table tr:last-child td { border-bottom: 0; }
+    .ax-table td:first-child { font-weight: 600; color: var(--strong); }
+    .ax-table tbody tr { transition: background .25s ease; }
+    .ax-table tbody tr:hover { background: var(--bg-soft); }
+    /* stats */
+    .ax-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0; }
+    .ax-stat { background: var(--bg-soft); border-radius: var(--r-lg); padding: 24px 22px; }
+    .ax-stat b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; color: var(--strong); margin-bottom: 10px; }
+    .ax-stat > span { font-size: 16px; line-height: 1.6; color: var(--gray); display: block; }
+    .ax-stat b span { font: inherit; color: inherit; display: inline; }
+    /* note, chain, questions */
+    .ax-chain { list-style: none; counter-reset: step; margin: 30px 0 30px 14px; padding: 0; }
+    .ax-chain li { position: relative; padding: 0 0 24px 32px; margin: 0; counter-increment: step; }
+    .ax-chain li:not(:last-child)::after { content: ""; position: absolute; left: -1px; top: 18px; bottom: -2px; width: 1.5px; background: var(--light-gray); }
+    .ax-chain li::before { z-index: 1; content: counter(step); position: absolute; left: -15px; top: 2px; width: 29px; height: 29px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; line-height: 1; }
+    .ax-chain b { display: block; font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; color: var(--gray); font-weight: 400; margin: 4px 0 4px; }
+    .ax-chain span { display: block; font-size: 16px; line-height: 1.65; }
+    .ax-questions { padding-left: 1.4em; }
+    .ax-questions li { margin-bottom: .9em; padding-left: .2em; }
+    .ax-questions li::marker { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15em; color: var(--gray); }
+    /* closing card */
+    .ax-cta { background: #2f2e2e; border-radius: var(--r-xl); padding: 64px 40px; margin: 80px 0 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    html[data-theme="dark"] .ax-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
+    .ax .ax-cta h2 { margin: 0; color: #f7f5f5; }
+    .ax .ax-cta p { color: rgba(247,245,245,.72); max-width: 540px; margin: 0; font-size: 18px; line-height: 1.6; }
+    .ax .ax-cta .btn-dark { margin-top: 12px; background: #ede8ea !important; color: #171717 !important; text-decoration: none; font-size: 15px; font-weight: 500; font-family: 'Lora', Georgia, serif; padding: 13px 26px; }
+    .ax-about { margin-top: 64px; padding-top: 12px; border-top: 1.5px solid var(--light-gray); font-size: 16px; line-height: 1.7; }
+    .ax-about h2 { margin-top: 36px; }
+    .ax-sources { font-size: 15px; line-height: 1.6; color: var(--gray); }
+    .ax-sources li { margin-bottom: .6em; }
+    /* motion: only when JS is on and motion is allowed */
+
+    .ax-eyebrow { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 10px; }
+    .cp-related { display: block; margin: 20px 0 0; padding: 26px 30px; background: var(--bg-soft); border-radius: var(--r-lg); text-decoration: none !important; color: inherit; transition: transform .25s ease; }
+    .cp-related:hover { transform: translateY(-3px); }
+    .cp-related strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .cp-related p:not(.ax-eyebrow) { margin: 0 0 12px; font-size: 16px; line-height: 1.6; color: var(--gray); }
+    .cp-related > span { font-size: 15px; color: var(--strong); }
+    .ax-related-wrap { margin-top: 56px; }
+    .ax-related-wrap > .ax-eyebrow { margin-bottom: 0; }
+    /* ---- Trial conversion article ---- */
+    .ax section[id] { scroll-margin-top: 96px; }
+    .tf-inv { border-left: 3px solid var(--ax-gold); padding: 2px 0 2px 18px; margin-left: 2px; font-size: 16px; line-height: 1.65; }
+    .ax-table td:first-child { white-space: normal; }
+    .tf-fig { margin: 40px 0; padding: 28px 24px 22px; background: var(--bg-soft); border-radius: var(--r-lg); }
+    .ax .tf-fig-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--strong); margin: 0 0 4px; }
+    .ax .tf-fig-sub { font-size: 14px; color: var(--gray); margin: 0 0 22px; }
+    .ax .tf-fig-note { font-size: 15px; line-height: 1.55; color: var(--dark); margin: 36px 0 0; padding-top: 22px; border-top: 1.5px solid var(--light-gray); }
+    .tf-fig figcaption { font-size: 15px; line-height: 1.55; color: var(--gray); margin-top: 14px; }
+    .tf-group { margin: 0 0 22px; }
+    .ax .tf-group-name { font-size: 16px; font-weight: 600; color: var(--strong); margin: 0 0 10px; }
+    .tf-bar-row { display: grid; grid-template-columns: 138px minmax(0, 1fr) 44px; align-items: center; gap: 12px; margin-bottom: 8px; font-size: 15px; }
+    .tf-bar-label { color: var(--gray); }
+    .tf-track { height: 26px; border-radius: 9px; background: var(--light-gray); overflow: hidden; }
+    .tf-bar { height: 100%; width: var(--w); border-radius: 9px; transform-origin: 0 50%; }
+    .tf-bar.is-signups { background: var(--ax-ink); }
+    .tf-bar.is-paying { background: var(--ax-gold); }
+    .tf-bar-val { font-weight: 600; color: var(--strong); text-align: right; }
+    .tf-matrix { display: grid; grid-template-columns: 92px minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin-top: 20px; }
+    .tf-col-head, .tf-row-head { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); align-self: end; padding-bottom: 2px; }
+    .tf-row-head { align-self: center; padding: 0; line-height: 1.4; }
+    .tf-cell { border-radius: var(--r-md); padding: 18px 18px 20px; font-size: 15px; line-height: 1.5; }
+    .tf-cell b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 18px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .tf-cell span { color: var(--dark); }
+    .tf-cell.is-a { background: var(--ax-gold-soft); }
+    .tf-cell.is-b { background: rgba(120,116,118,.16); }
+    .tf-cell.is-c { background: rgba(120,116,118,.10); }
+    .tf-cell.is-d { background: rgba(120,116,118,.16); }
+    .tf-steps { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-direction: column; gap: 8px; }
+    .tf-steps li { display: flex; align-items: center; gap: 14px; margin: 0; padding: 11px 16px; border-radius: var(--r-md); font-size: 16px; line-height: 1.4; color: var(--strong); }
+    .tf-n { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    .tf-steps li.is-a { background: rgba(120,116,118,.16); }
+    .tf-steps li.is-b { background: rgba(120,116,118,.10); }
+    .tf-steps li.is-c { background: var(--ax-gold-soft); }
+    .tf-steps li.is-d { background: rgba(120,116,118,.16); }
+    @media (prefers-reduced-motion: no-preference) {
+      .ax-js .tf-fig .tf-bar { transform: scaleX(0); }
+      .ax-js .tf-fig.is-in .tf-bar { transform: none; transition: transform 1s cubic-bezier(.2,.8,.2,1); }
+      .ax-js .tf-fig.is-in .tf-group:nth-of-type(2) .tf-bar { transition-delay: .35s; }
+      .ax-js .tf-fig.is-in .tf-bar.is-paying { transition-delay: .2s; }
+      .ax-js .tf-fig.is-in .tf-group:nth-of-type(2) .tf-bar.is-paying { transition-delay: .55s; }
+      .ax-js .tf-cell { opacity: 0; transform: translateY(12px); }
+      .ax-js .tf-fig.is-in .tf-cell { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+      .ax-js .tf-fig.is-in .tf-cell.is-b { transition-delay: .15s; } .ax-js .tf-fig.is-in .tf-cell.is-c { transition-delay: .3s; } .ax-js .tf-fig.is-in .tf-cell.is-d { transition-delay: .45s; }
+      .ax-js .tf-steps li { opacity: 0; transform: translateX(-14px); }
+      .ax-js .tf-fig.is-in .tf-steps li { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; transition-delay: calc(var(--i) * .1s); }
+    }
+    /* ---- Know your product article ---- */
+    .ax code { font-size: .88em; padding: 2px 6px; border-radius: 6px; background: var(--bg-soft); }
+    .ax p.kp-formula { font-size: 16px; padding: 14px 18px; margin: 4px 0 1.2em; border-radius: var(--r-md); background: var(--bg-soft); color: var(--strong); }
+    .kp-stages, .kp-map { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; counter-reset: none; }
+    .kp-stage { margin: 0; background: var(--white); border-radius: var(--r-md); padding: 14px 16px 16px; }
+    html[data-theme="dark"] .kp-stage { background: rgba(255,255,255,.05); }
+    .kp-stage.is-key { box-shadow: inset 0 0 0 1.5px var(--ax-gold); }
+    .kp-stage button { all: unset; box-sizing: border-box; display: flex; align-items: center; gap: 10px; width: 100%; cursor: pointer; font-size: 16px; font-weight: 600; color: var(--strong); line-height: 1.3; }
+    .kp-stage button:focus-visible { outline: 2px solid var(--strong); outline-offset: 3px; border-radius: 6px; }
+    .kp-n { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    .ax .kp-q { margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--dark); }
+    .ax .kp-d { margin: 8px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--gray); }
+    .kp-js .kp-d { display: none; }
+    .kp-js .kp-stage.is-open .kp-d { display: block; }
+    .kp-js .kp-stage button::after { content: "+"; margin-left: auto; font-weight: 400; font-size: 20px; color: var(--gray); }
+    .kp-js .kp-stage.is-open button::after { content: "\2212"; }
+    .kp-map li { margin: 0; background: var(--white); border-radius: var(--r-md); padding: 14px 16px; font-size: 15px; line-height: 1.5; }
+    html[data-theme="dark"] .kp-map li { background: rgba(255,255,255,.05); }
+    .kp-map li.is-key { box-shadow: inset 0 0 0 1.5px var(--ax-gold); }
+    .kp-map b { display: block; font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 400; color: var(--gray); margin-bottom: 6px; }
+    .kp-map span { color: var(--strong); font-weight: 600; }
+    .kp-gap { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.8fr) minmax(0,1fr); gap: 14px; align-items: stretch; }
+    .kp-side { background: var(--white); border-radius: var(--r-md); padding: 18px 20px; }
+    html[data-theme="dark"] .kp-side { background: rgba(255,255,255,.05); }
+    .ax .kp-side-h { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 500; color: var(--strong); margin: 0 0 10px; }
+    .kp-side ul { list-style: none; padding: 0; margin: 0; font-size: 15px; line-height: 1.5; }
+    .kp-side li { margin: 0 0 6px; padding-left: 14px; position: relative; }
+    .kp-side li::before { content: ""; position: absolute; left: 0; top: .6em; width: 5px; height: 5px; border-radius: 50%; background: var(--gray); }
+    .kp-mid { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; }
+    .kp-mid-t { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); line-height: 1.4; }
+    .kp-mid-line { width: 100%; height: 0; border-top: 1.5px dashed var(--ax-gold); position: relative; }
+    .kp-mid-line::after { content: ""; position: absolute; right: 0; top: -5px; width: 8px; height: 8px; border-top: 1.5px solid var(--ax-gold); border-right: 1.5px solid var(--ax-gold); transform: rotate(45deg); }
+    .ax .kp-friction { margin: 20px 0 0; padding: 12px 16px; border-radius: var(--r-md); background: var(--ax-gold-soft); font-size: 15px; line-height: 1.5; }
+    .kp-flow, .kp-loop { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .kp-flow li { margin: 0; padding: 12px 16px; border-radius: var(--r-md); background: var(--white); display: flex; flex-direction: column; gap: 4px; }
+    html[data-theme="dark"] .kp-flow li { background: rgba(255,255,255,.05); }
+    .kp-fq { font-weight: 600; color: var(--strong); font-size: 16px; line-height: 1.4; }
+    .kp-fno { font-size: 14.5px; color: var(--gray); line-height: 1.45; }
+    .kp-flow li.is-go { background: var(--ax-gold-soft); }
+    .kp-loop { flex-direction: row; gap: 8px; }
+    .kp-loop li { flex: 1 1 0; min-width: 0; margin: 0; padding: 14px; border-radius: var(--r-md); background: var(--white); font-size: 14.5px; line-height: 1.45; position: relative; }
+    html[data-theme="dark"] .kp-loop li { background: rgba(255,255,255,.05); }
+    .kp-loop b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 17px; color: var(--strong); margin-bottom: 6px; }
+    .kp-loop span { color: var(--gray); }
+    .ax .kp-back { margin: 14px 0 0; font-size: 14px; color: var(--gray); text-align: right; }
+    @media (prefers-reduced-motion: no-preference) {
+      .ax-js .kp-flow li, .ax-js .kp-loop li { opacity: 0; transform: translateY(10px); }
+      .ax-js .kp-fig.is-in .kp-flow li, .ax-js .kp-fig.is-in .kp-loop li { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; transition-delay: calc(var(--i) * .22s); }
+    }
+    @media (max-width: 760px) {
+      .kp-stages, .kp-map { grid-template-columns: 1fr; }
+      .kp-gap { grid-template-columns: 1fr; }
+      .kp-mid { flex-direction: row; padding: 4px 0; }
+      .kp-mid-line { flex: 1; width: auto; }
+      .kp-loop { flex-direction: column; }
+      .tf-matrix { grid-template-columns: 70px minmax(0,1fr) minmax(0,1fr); }
+    }
+    @media (max-width: 860px) { .ax-cta { padding: 48px 24px; } }
+    @media (max-width: 640px) { .ax { padding-top: 24px; } .ax-lede { font-size: 17px; } .ax h2 { margin-top: 56px; } .tf-fig { padding: 22px 16px 18px; } .tf-bar-row { grid-template-columns: 1fr 40px; } .tf-bar-label { grid-column: 1 / -1; } .tf-track { grid-column: 1; } .tf-matrix { grid-template-columns: 1fr; } .tf-corner, .tf-col-head { display: none; } .tf-row-head { padding-top: 8px; } .ax .ax-cta .btn-dark { width: 100%; } }
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      .nav, .mobile-menu, .mobile-menu-backdrop, .footer, .ax-toc, .ax-progress { display: none !important; }
+      html, body, body:not(.is-protected) { background: #fff !important; }
+      .page-wrapper, .page-content, .container { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+      .ax-layout { display: block; }
+      .ax { padding: 0; font-size: 11pt; line-height: 1.6; }
+      .ax * { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+      .ax svg * { opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+      .ax h2 { margin-top: 28pt; break-after: avoid; }
+      .ax h3 { break-after: avoid; }
+      .ax-fig, .ax-stat, .ax-table, .ax-chain li, .ax-questions li { break-inside: avoid; }
+      .ax-cta { break-inside: avoid; margin-top: 32pt; padding: 28pt 24pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax-fig, .ax-stat, .ax-toc, .ax-table th, .ax-tag, .ax-chain li::before, .ax svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax a { color: inherit; }
+    }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=25" />
+</head>
+<body>
+
+  <!-- NAV -->
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="navServices">Services<svg viewBox="0 0 12 8" width="11" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1.5,1.75 6,6.25 10.5,1.75"/></svg></button><div class="nav-dd-menu" id="navServices"><a href="/product-design" class="nav-dd-item"><strong>Product Design</strong><span>Building a new product or improving an existing one.</span></a><a href="/cro-audit" class="nav-dd-item"><strong>Behavioral CRO Diagnosis</strong><span>Finding conversion barriers and deciding what to improve.</span></a></div></div>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <span class="mobile-menu-label">Services</span>
+      <a href="/product-design" class="mobile-sub">Product Design</a>
+      <a href="/cro-audit" class="mobile-sub">Behavioral CRO Diagnosis</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page-wrapper">
+    <main class="page-content">
+<div class="ax-progress" id="axProgress" aria-hidden="true"></div>
+<div class="container">
+<div class="ax-layout">
+  <aside class="cs-toc ax-toc" aria-label="On this page">
+    <p class="ax-toc-title">On this page</p>
+    <ul>
+      <li><a href="#journey">Start with the journey</a></li>
+      <li><a href="#story">Website and product, one story</a></li>
+      <li><a href="#metrics">Which metrics matter</a></li>
+      <li><a href="#no-analytics">No analytics? Start here</a></li>
+      <li><a href="#setup">A minimum analytics setup</a></li>
+      <li><a href="#ab-testing">A/B testing is not a magic fix</a></li>
+      <li><a href="#improve">Turn findings into improvements</a></li>
+      <li><a href="#plan">An action plan</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </aside>
+<article class="ax">
+
+  <header class="ax-head">
+    <div class="ax-meta"><span class="ax-tag post-tag">CRO</span><span class="ax-tag post-tag is-saas">SaaS</span></div>
+    <h1>Know your product before you measure it</h1>
+    <p class="ax-lede">A founder’s guide to SaaS analytics, conversion funnels and product health. You can learn a lot about whether your product works before you set up a single dashboard, as long as you understand the journey your users take.</p>
+  </header>
+
+  <section id="intro">
+    <p>
+      Analytics tell you where people drop off. They rarely tell you why.
+      And if you have no analytics at all, you can still spot confusing
+      screens, pointless steps, vague messaging and the other things that
+      keep people from getting value out of your product.
+    </p>
+    <p>
+      This is how I look at a SaaS product: how to map the journey, which
+      metrics are worth tracking, what to do when you have little or no
+      data, and how to decide what to fix next. It's written for founders,
+      whether you're setting up your first analytics tool or sitting on a
+      lot of data with no clear answers. The order is the same in both
+      cases. Understand the journey first, then measure.
+    </p>
+  </section>
+
+  <section id="journey">
+    <h2>1. Start with the user journey, not the dashboard</h2>
+    <p>
+      A common trap is staring at single numbers without the journey behind
+      them. You may know how many people visit your site, how many create an
+      account and how many start a subscription. Do you know how many of
+      them ever see the value you promised?
+    </p>
+    <p>
+      A conversion funnel doesn't end at sign-up. Registration is where the
+      product experience begins. So start by mapping the whole path, from
+      the first touch on your marketing site to the moment someone gets the
+      core value of the product.
+    </p>
+
+    <h3>The nine stages of a SaaS journey</h3>
+
+    <figure class="tf-fig kp-fig" data-anim>
+      <p class="tf-fig-title">The SaaS journey, stage by stage</p>
+      <p class="tf-fig-sub">Tap a stage to see what happens in it.</p>
+      <ol class="kp-stages">
+        <li class="kp-stage">
+          <button type="button" aria-expanded="false"><span class="kp-n">1</span><span class="kp-name">Acquisition</span></button>
+          <p class="kp-q">Is this relevant to me?</p>
+          <p class="kp-d">A potential customer discovers your product.</p>
+        </li>
+        <li class="kp-stage">
+          <button type="button" aria-expanded="false"><span class="kp-n">2</span><span class="kp-name">First visit</span></button>
+          <p class="kp-q">What does it do, and what will I get from it?</p>
+          <p class="kp-d">They look around your website or landing page.</p>
+        </li>
+        <li class="kp-stage">
+          <button type="button" aria-expanded="false"><span class="kp-n">3</span><span class="kp-name">Evaluation</span></button>
+          <p class="kp-q">Does it solve my problem? Can I trust it?</p>
+          <p class="kp-d">They go through features, pricing, use cases and proof.</p>
+        </li>
+        <li class="kp-stage">
+          <button type="button" aria-expanded="false"><span class="kp-n">4</span><span class="kp-name">Conversion</span></button>
+          <p class="kp-q">What happens if I take the next step?</p>
+          <p class="kp-d">They sign up, start a trial or request a demo.</p>
+        </li>
+        <li class="kp-stage">
+          <button type="button" aria-expanded="false"><span class="kp-n">5</span><span class="kp-name">Account creation</span></button>
+          <p class="kp-q">How much effort does it take to get started?</p>
+          <p class="kp-d">They enter the product.</p>
+        </li>
+        <li class="kp-stage">
+          <button type="button" aria-expanded="false"><span class="kp-n">6</span><span class="kp-name">Onboarding</span></button>
+          <p class="kp-q">What should I do first?</p>
+          <p class="kp-d">They configure the product or finish the initial setup.</p>
+        </li>
+        <li class="kp-stage is-key">
+          <button type="button" aria-expanded="false"><span class="kp-n">7</span><span class="kp-name">Activation</span></button>
+          <p class="kp-q">Does this actually solve my problem?</p>
+          <p class="kp-d">They experience the core value for the first time.</p>
+        </li>
+        <li class="kp-stage">
+          <button type="button" aria-expanded="false"><span class="kp-n">8</span><span class="kp-name">Engagement</span></button>
+          <p class="kp-q">Is it useful enough to become part of my workflow?</p>
+          <p class="kp-d">They come back and use it again.</p>
+        </li>
+        <li class="kp-stage">
+          <button type="button" aria-expanded="false"><span class="kp-n">9</span><span class="kp-name">Retention and monetization</span></button>
+          <p class="kp-q">Is the value worth paying for, month after month?</p>
+          <p class="kp-d">They keep using, paying for or expanding their use of the product.</p>
+        </li>
+      </ol>
+    </figure>
+
+    <p>
+      Not every product follows this path. A self-serve tool can take
+      someone from the website to activation in one sitting. An enterprise
+      platform might need a demo, internal approval, technical setup and
+      several people before anyone sees value. Map the journey your
+      business actually has.
+    </p>
+
+    <h3>Conversion, activation and value are different things</h3>
+    <p>People mix these up all the time, so here is how I use them.</p>
+    <p>
+      <strong>Conversion</strong> is the action that moves someone to the
+      next stage of your business: a completed sign-up, a trial start, a
+      demo request.
+    </p>
+    <p>
+      <strong>Activation</strong> is the moment a new user first
+      experiences the core value of the product. It should be a meaningful
+      action. Creating an account doesn't count.
+    </p>
+    <p>
+      <strong>Value outcome</strong> is the result the customer is after: a
+      report they can use, a finished project, a manual task that no longer
+      has to be done by hand.
+    </p>
+    <p>Take an AI analytics platform:</p>
+    <ul>
+      <li>Conversion: the user creates an account.</li>
+      <li>Activation: they connect a real data source and generate a report.</li>
+      <li>Value outcome: they use that report to make a business decision.</li>
+    </ul>
+    <p>
+      Creating an account only means someone was curious enough to try the
+      product. It says nothing yet about whether it helped.
+    </p>
+
+    <h3>How to define activation</h3>
+    <p>
+      Start from the promise your website makes. What outcome are you
+      selling, and what is the first moment inside the product where a user
+      can see that outcome becoming real? Some examples:
+    </p>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr><th>Product type</th><th>Weak activation signal</th><th>Better candidate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Analytics platform</td><td>User logs in</td><td>User connects a data source and generates a useful report</td></tr>
+        <tr><td>Project management tool</td><td>User creates a project</td><td>User adds tasks and starts managing work with their team</td></tr>
+        <tr><td>AI product</td><td>User sends a prompt</td><td>User uses or exports an AI-generated result in their real workflow</td></tr>
+        <tr><td>Collaboration tool</td><td>User creates a workspace</td><td>Several team members start exchanging content</td></tr>
+        <tr><td>Marketing platform</td><td>User installs the product</td><td>User publishes a campaign or gets a first meaningful result</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>
+      Treat these as starting hypotheses. The right activation event is the
+      action that shows people are starting to get value and, ideally,
+      predicts that they will stay. If you have enough data, compare
+      retention for users who did the candidate action with those who
+      didn't. If you have very little, talk to your best customers and ask
+      when they first realized the product was useful.
+    </p>
+  </section>
+
+  <section id="story">
+    <h2>2. Your website and your product have to tell the same story</h2>
+    <p>
+      The marketing website and the product often get treated as two
+      separate design jobs. For the person on the other side of the screen
+      it is one experience. The website sets expectations and the product
+      has to meet them.
+    </p>
+    <p>
+      Say your site promises that users can automate their reporting in
+      minutes. A visitor signs up and lands on an empty dashboard. To get
+      anywhere, they have to connect several integrations, set permissions
+      and learn terms they've never seen. The website promised a result and
+      the product handed them a setup project.
+    </p>
+    <p>
+      That gap can hurt conversion even when the website and the product
+      each look fine on their own.
+    </p>
+
+    <figure class="tf-fig kp-fig" data-anim>
+      <p class="tf-fig-title">The gap between promise and value</p>
+      <p class="tf-fig-sub">Conversion is one continuous journey, not a set of separate pages.</p>
+      <div class="kp-gap">
+        <div class="kp-side">
+          <p class="kp-side-h">Marketing website</p>
+          <ul>
+            <li>The promise</li>
+            <li>What visitors expect</li>
+            <li>Reasons to sign up</li>
+          </ul>
+        </div>
+        <div class="kp-mid" aria-hidden="true">
+          <span class="kp-mid-t">Expectation vs. experience</span>
+          <span class="kp-mid-line"></span>
+        </div>
+        <div class="kp-side">
+          <p class="kp-side-h">Product</p>
+          <ul>
+            <li>Sign-up</li>
+            <li>Onboarding</li>
+            <li>First action</li>
+            <li>First value</li>
+          </ul>
+        </div>
+      </div>
+      <p class="kp-friction"><b>Friction point.</b> The promised outcome arrives late, or it isn't clear how to get to it.</p>
+    </figure>
+
+    <h3>What your website should answer</h3>
+    <p>
+      Before you dig into analytics, check whether a potential customer
+      could understand your product and make an informed decision. The site
+      should answer a handful of plain questions.
+    </p>
+    <p>
+      <strong>What is this, and who is it for?</strong> Say what the product
+      does, who it helps and what problem it solves. A line like "transform
+      your workflow" means little until you explain what changes.
+    </p>
+    <p>
+      <strong>What do I get out of it?</strong> Features aren't benefits.
+      "Advanced reporting" tells a visitor almost nothing. Showing how those
+      reports help someone spot revenue opportunities tells them a lot.
+    </p>
+    <p>
+      <strong>How does it work?</strong> Screenshots, demos, examples and
+      realistic use cases help people picture what they're signing up for.
+      This matters most for complex and AI-powered products.
+    </p>
+    <p>
+      <strong>Can I trust it?</strong> Testimonials, case studies, customers
+      people recognize, security information and honest communication all
+      reduce uncertainty. How much proof is enough depends on the product
+      and on how risky it is to buy.
+    </p>
+    <p>
+      <strong>How much does it cost?</strong> Self-serve products usually do
+      better with clear prices and clear differences between plans.
+      Enterprise products with custom contracts need another approach, but
+      even a starting price or an example helps people judge the investment.
+    </p>
+    <p>
+      <strong>What happens next?</strong> "Start free trial", "Book a demo"
+      and "Create an account" promise different things. The next screen
+      should deliver what the button said.
+    </p>
+
+    <h3>A website check you can do without analytics</h3>
+    <p>
+      Show your homepage to someone who has never seen the product. Give
+      them five to ten seconds, then ask:
+    </p>
+    <ul>
+      <li>What does this product do?</li>
+      <li>Who is it for?</li>
+      <li>What problem does it solve?</li>
+      <li>What do you expect to happen if you click the main button?</li>
+    </ul>
+    <p>
+      If the answers are fuzzy, you've found your first thing to improve.
+      Do the same with the pricing page and key product pages. Can people
+      tell the plans apart? Do they know what's included? Are their obvious
+      objections answered? You don't need scroll-depth data to know that a
+      pricing page is confusing.
+    </p>
+  </section>
+
+  <section id="metrics">
+    <h2>3. Which metrics actually matter</h2>
+    <p>
+      Once the journey is clear, you can decide what to measure. The
+      biggest mistake here is tracking everything just because the tool
+      lets you. Page views, sign-ups, daily active users and button clicks
+      can all be useful, but none of them tells you on its own whether
+      people get value.
+    </p>
+    <p>
+      A good metric answers a specific question and points to something you
+      can look into or change. For an early-stage SaaS, I'd start with one
+      primary business outcome and a small set of metrics across
+      acquisition, conversion, activation and retention. The right number
+      depends on your product and business model.
+    </p>
+
+    <h3>Acquisition: are you attracting the right people?</h3>
+    <p>
+      Look at where visitors come from and whether they take the next step.
+    </p>
+    <p>
+      <strong>Traffic by source.</strong> Which channels bring people to the
+      site: organic search, paid campaigns, referrals, social, direct.
+    </p>
+    <p>
+      <strong>Visit-to-conversion rate.</strong> The share of visitors who
+      complete the next step you want, whether that's a sign-up, a trial
+      start or a demo request.
+    </p>
+    <p class="kp-formula">Conversions ÷ unique visitors × 100</p>
+    <p>
+      <strong>Landing-page conversion by source.</strong> Compare how
+      different channels and landing pages perform.
+    </p>
+    <p>
+      A low conversion rate doesn't automatically mean the site is badly
+      designed. You may be attracting the wrong audience, or your ad may
+      promise something the landing page doesn't. A campaign aimed at
+      students could bring plenty of traffic to a B2B analytics platform and
+      almost no qualified sign-ups. Look at the quality of traffic, not
+      only the volume.
+    </p>
+
+    <h3>Evaluation and sign-up: can interested people take the next step?</h3>
+    <p>
+      When someone decides to try the product, signing up should be easy.
+    </p>
+    <p>
+      <strong>Sign-up completion rate.</strong>
+    </p>
+    <p class="kp-formula">Completed sign-ups ÷ started sign-ups × 100</p>
+    <p>
+      If many people start registering and don't finish, look at the
+      process. Are you asking for information you don't need yet? Is a
+      credit card required when they didn't expect it? Are there technical
+      errors? Is it clear what happens after registration?
+    </p>
+    <p>
+      <strong>Step-by-step funnel conversion.</strong> How many people move
+      from each step to the next. This shows where the biggest drop-off is.
+      It doesn't say why.
+    </p>
+
+    <h3>Activation: are users getting value?</h3>
+    <p>This is one of the most important areas for a SaaS product.</p>
+    <p><strong>Activation rate.</strong></p>
+    <p class="kp-formula">Users who reach the activation event within N days ÷ users who signed up in the cohort × 100</p>
+    <p>
+      Define the activation event carefully. It should be a real milestone,
+      not just any interaction.
+    </p>
+    <p>
+      <strong>Onboarding completion.</strong> How many users finish the
+      important setup steps. It shows where onboarding gets hard or where
+      people stop.
+    </p>
+    <p>
+      <strong>Time to first value (TTFV).</strong> How long it takes a new
+      user to reach the first meaningful outcome. If your product promises
+      automated analytics, how long does it take someone to connect their
+      data and get a first useful report? Use the median where you can,
+      since a few users with very long setups will skew the average. Track
+      the users who never reach first value at all, too.
+    </p>
+
+    <h3>Retention: do people come back?</h3>
+    <p>
+      A product that gets sign-ups but doesn't keep users has a basic
+      problem to investigate.
+    </p>
+    <p>
+      <strong>Cohort retention.</strong> Group users by when they signed up
+      or activated, then see how many keep doing something meaningful over
+      time. For example: of the people who signed up in the first week of
+      October, what share are still doing the core action in week four?
+    </p>
+    <p>
+      <strong>Repeat value events.</strong> Don't only count logins. Look at
+      whether people come back to do things that deliver value. Someone who
+      opens the app every morning isn't necessarily getting anything out
+      of it.
+    </p>
+    <p>
+      <strong>Trial-to-paid or free-to-paid conversion.</strong> How many
+      users or accounts move to a paid plan. Read it next to activation. If
+      people who activate convert well but most new users never activate,
+      the problem is probably onboarding rather than pricing.
+    </p>
+
+    <h3>Segment your numbers</h3>
+    <p>
+      Averages hide differences. Say your SaaS has a 30% activation rate.
+      That looks like one number, but maybe agencies activate at 60% and
+      independent users at 10%. Those groups have different needs,
+      workflows and expectations, and the average won't tell you which
+      experience is working.
+    </p>
+    <p>Where it makes sense, split your metrics by:</p>
+    <ul>
+      <li>Acquisition source</li>
+      <li>Device</li>
+      <li>User role</li>
+      <li>Company size</li>
+      <li>Subscription plan</li>
+      <li>Use case</li>
+      <li>New versus returning users</li>
+    </ul>
+
+    <figure class="tf-fig kp-fig" data-anim>
+      <p class="tf-fig-title">A metric for each stage</p>
+      <p class="tf-fig-sub">Each metric answers a different question.</p>
+      <ol class="kp-map">
+        <li><b>1. Acquisition</b><span>Traffic by source</span></li>
+        <li><b>2. First visit</b><span>Landing-page conversion by source</span></li>
+        <li><b>3. Evaluation</b><span>Step-by-step funnel conversion</span></li>
+        <li><b>4. Conversion</b><span>Visit-to-conversion rate</span></li>
+        <li><b>5. Account creation</b><span>Sign-up completion rate</span></li>
+        <li><b>6. Onboarding</b><span>Onboarding completion</span></li>
+        <li class="is-key"><b>7. Activation</b><span>Activation rate<br />Time to first value</span></li>
+        <li><b>8. Engagement</b><span>Repeat value events</span></li>
+        <li><b>9. Retention and monetization</b><span>Cohort retention<br />Trial-to-paid conversion</span></li>
+      </ol>
+    </figure>
+
+    <h3>Metrics show where to look, not why</h3>
+    <p>
+      A funnel might show that 55% of users never connect a data source.
+      That's a useful finding, but it doesn't tell you whether the
+      instructions are unclear, something is failing technically,
+      permissions are missing, the setup was a surprise, or people simply
+      don't see why they should connect their data.
+    </p>
+    <p>
+      To find the reason you need other evidence: session recordings, user
+      interviews, support requests or watching someone use the product.
+    </p>
+  </section>
+
+  <section id="no-analytics">
+    <h2>4. What if you don't have analytics?</h2>
+    <p>
+      This is where many founders get stuck. They assume that without
+      analytics they can't know what users do or make informed
+      improvements. That's not quite right.
+    </p>
+    <p>
+      Without data you can't reliably calculate conversion rates or spot
+      statistical patterns. You can still investigate the experience, find
+      usability problems, understand expectations and see what stops people
+      from getting value. If your product is early and you have few users,
+      watching a handful of them is often worth more than weeks spent
+      building dashboards.
+    </p>
+
+    <h3>Step 1. Map the journey yourself</h3>
+    <p>
+      Write down every step a new user takes, from discovering your site to
+      their first meaningful result in the product:
+    </p>
+    <ul>
+      <li>The landing page</li>
+      <li>Pricing and product information</li>
+      <li>Sign-up or demo request</li>
+      <li>Account creation</li>
+      <li>Onboarding</li>
+      <li>Setup and integrations</li>
+      <li>The first key action</li>
+      <li>The first meaningful result</li>
+    </ul>
+    <p>
+      For each step, note what the user needs to understand, decide and do.
+      If you can't say what happens between two steps, start there.
+    </p>
+
+    <h3>Step 2. Go through the product as a new user</h3>
+    <p>
+      Create a fresh account and use the product without admin rights or
+      the knowledge you have as its creator. Try it on desktop and on
+      mobile. At each screen, ask yourself:
+    </p>
+    <ul>
+      <li>Is it obvious what this screen is for?</li>
+      <li>Do I know what to do next?</li>
+      <li>Does this match what the website promised?</li>
+      <li>Am I being asked for information or permissions too early?</li>
+      <li>Would someone new understand the terminology?</li>
+      <li>Do the empty states help?</li>
+      <li>Do error messages explain how to recover?</li>
+      <li>Do I get feedback when an action works?</li>
+      <li>Is there a point where I don't know how to continue?</li>
+    </ul>
+    <p>
+      Pay special attention to empty states. A blank dashboard is normal
+      for a new user, but it should say what to do next and why.
+    </p>
+
+    <h3>Step 3. Watch real users</h3>
+    <p>
+      Your own run-through helps, but you already know how the product
+      works. New users don't. Ask five or so people from your target
+      audience to complete realistic tasks, for example:
+    </p>
+    <p class="tf-inv">
+      You're in charge of marketing at a small company and want to know
+      which campaigns brought in the most sign-ups last month. Explore this
+      product and try to find out.
+    </p>
+    <p>
+      Ask them to think aloud as they work. Don't explain the interface and
+      don't nudge them toward the right button. Watch where they hesitate,
+      what they misread and where they get stuck. Afterwards, ask:
+    </p>
+    <ul>
+      <li>What did you expect to happen?</li>
+      <li>What was confusing?</li>
+      <li>Was there anything you couldn't find?</li>
+      <li>When did you stop being sure what to do next?</li>
+      <li>Would you use this product for the task you were given? Why, or why not?</li>
+    </ul>
+    <p>
+      Five users can show you a lot of usability problems in a focused
+      flow, but this is qualitative research, not measurement. It doesn't
+      mean that 80% of your users run into the same problem. If you have
+      distinct groups, such as admins and everyday users, test them
+      separately.
+    </p>
+
+    <h3>Step 4. Read the feedback you already have</h3>
+    <p>Your users may already be pointing at the problems. Go through:</p>
+    <ul>
+      <li>Support tickets</li>
+      <li>Live chat conversations</li>
+      <li>Sales-call notes</li>
+      <li>Customer interviews</li>
+      <li>Cancellation reasons</li>
+      <li>Feature requests</li>
+      <li>Onboarding questions</li>
+    </ul>
+    <p>
+      Look for questions that keep coming back. If several people
+      separately ask how to connect an integration, find a report or invite
+      their team, something in the experience probably needs work.
+    </p>
+
+    <h3>Step 5. Keep findings and assumptions apart</h3>
+    <p>
+      Not everything you find rests on the same amount of evidence. I keep
+      three piles:
+    </p>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr><th>Type</th><th>What it means</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Observed problem</td><td>You saw a user run into it</td><td>A user couldn't find the integration settings</td></tr>
+        <tr><td>Repeated pattern</td><td>The same issue showed up across several users or sources</td><td>Four users and several support tickets mention confusing integration instructions</td></tr>
+        <tr><td>Hypothesis</td><td>A plausible explanation nobody has checked yet</td><td>The integration page may be hard to find because of the navigation</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>
+      The split stops you from treating guesses as facts and spending time
+      on problems that may not exist.
+    </p>
+
+    <h3>How to prioritize what you find</h3>
+    <p>
+      You'll probably find more than you can fix right away. Weigh each
+      issue on four things:
+    </p>
+    <ol>
+      <li><strong>Impact.</strong> Does it sit on a critical step of the conversion or activation journey?</li>
+      <li><strong>Severity.</strong> Does it cause confusion, delay, failure or abandonment?</li>
+      <li><strong>Evidence.</strong> Did you see it happen, or is it still a hypothesis?</li>
+      <li><strong>Effort.</strong> How much time and development work would the fix take?</li>
+    </ol>
+    <p>
+      A broken sign-up button is an obvious priority. A small visual
+      inconsistency on an internal settings page probably isn't. If a fix
+      is expensive and rests only on assumptions, collect more evidence
+      before you build it.
+    </p>
+
+    <figure class="tf-fig kp-fig" data-anim>
+      <p class="tf-fig-title">Evidence and impact</p>
+      <p class="tf-fig-sub">Fix the observed blockers first. Check the assumptions before you build anything for them.</p>
+      <div class="tf-matrix">
+        <span></span>
+        <span class="tf-col-head">Low evidence</span>
+        <span class="tf-col-head">High evidence</span>
+        <span class="tf-row-head">High impact</span>
+        <div class="tf-cell is-b"><b>Investigate further</b><span>A promising hunch. Get more evidence before you build.</span></div>
+        <div class="tf-cell is-a"><b>Fix first</b><span>An observed blocker on a critical step.</span></div>
+        <span class="tf-row-head">Low impact</span>
+        <div class="tf-cell is-c"><b>Leave it for now</b><span>Little evidence and little to gain.</span></div>
+        <div class="tf-cell is-d"><b>Fix when it's cheap</b><span>Real, but it won't move much.</span></div>
+      </div>
+    </figure>
+  </section>
+
+  <section id="setup">
+    <h2>5. A minimum viable analytics setup</h2>
+    <p>
+      Once you understand the journey and know what you want to look into,
+      analytics become far more useful. You don't have to track every click
+      or build a heavy reporting system. Start with the questions. For an
+      early-stage self-serve SaaS they might be:
+    </p>
+    <ul>
+      <li>Which acquisition channels bring users who actually activate?</li>
+      <li>How many visitors start and finish registration?</li>
+      <li>Where do users stop during onboarding?</li>
+      <li>How long does it take them to reach a first meaningful result?</li>
+      <li>How many activated users come back to do the core action?</li>
+    </ul>
+    <p>Those questions should decide what you track.</p>
+
+    <h3>Website analytics and product analytics do different jobs</h3>
+    <p>
+      <strong>Website analytics</strong>, such as Google Analytics 4, show
+      acquisition and behavior on the site: where visitors come from, which
+      pages they view and whether they take the next step.
+    </p>
+    <p>
+      <strong>Product analytics</strong>, such as Amplitude or Mixpanel,
+      show what users do inside the application: which actions they
+      complete, where they stop, how they engage and whether they return.
+    </p>
+    <p>
+      For many SaaS products you need both to see the whole journey. One
+      detail matters a lot: connecting acquisition data with product
+      behavior. If someone arrives from a LinkedIn campaign, signs up and
+      eventually activates, you want to be able to link those events.
+      Otherwise marketing optimizes for sign-ups while the product team
+      optimizes for activation, and nobody notices that some channels bring
+      users who never see the value.
+    </p>
+
+    <h3>Start with a small event plan</h3>
+    <p>
+      You don't need hundreds of events. For a hypothetical B2B analytics
+      platform, a first event map could look like this:
+    </p>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr><th>Stage</th><th>Event</th><th>What it tells you</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Website</td><td><code>page_viewed</code></td><td>Which pages users visit</td></tr>
+        <tr><td>Website</td><td><code>cta_clicked</code></td><td>Which calls to action get attention</td></tr>
+        <tr><td>Sign-up</td><td><code>signup_started</code></td><td>How many users begin registration</td></tr>
+        <tr><td>Sign-up</td><td><code>signup_completed</code></td><td>How many finish registration</td></tr>
+        <tr><td>Onboarding</td><td><code>workspace_created</code></td><td>Whether initial setup begins</td></tr>
+        <tr><td>Onboarding</td><td><code>data_source_connected</code></td><td>Whether users complete a key integration</td></tr>
+        <tr><td>Onboarding</td><td><code>data_source_connection_failed</code></td><td>Whether integration attempts fail</td></tr>
+        <tr><td>Activation</td><td><code>report_created</code></td><td>Whether users build their first report</td></tr>
+        <tr><td>Activation</td><td><code>report_shared</code></td><td>Whether users take a meaningful next step</td></tr>
+        <tr><td>Engagement</td><td><code>report_viewed</code></td><td>Whether users return to their reports</td></tr>
+        <tr><td>Monetization</td><td><code>subscription_started</code></td><td>Whether users become paying customers</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>
+      This is an illustration, not a template to copy. Choose events that
+      match the real actions and value of your own product.
+    </p>
+    <p>
+      For every event, write down exactly when it fires. <code>data_source_connected</code>,
+      for example, should mean the system confirmed a successful connection,
+      not that someone clicked the Connect button. Also decide which
+      properties you'll need, such as acquisition source, user role or
+      subscription plan.
+    </p>
+
+    <h3>Check that the data can be trusted</h3>
+    <p>Before you make decisions from a dashboard:</p>
+    <ul>
+      <li>Test the important events yourself.</li>
+      <li>Check that they fire at the right moment.</li>
+      <li>Make sure nothing is counted twice.</li>
+      <li>Keep event names and definitions consistent.</li>
+      <li>Compare critical events, such as completed sign-ups or payments, with your own database where you can.</li>
+    </ul>
+    <p>
+      Bad tracking leads to confident but wrong decisions. Also collect
+      only the data you need, handle personal information responsibly and
+      put proper privacy and consent controls in place for your users.
+    </p>
+  </section>
+
+  <section id="ab-testing">
+    <h2>6. A/B testing is not a magic fix</h2>
+    <p>
+      A/B testing is often treated as the answer to every conversion
+      problem. Something isn't converting? Test another headline. Sign-ups
+      are low? Test another button. Users aren't activating? Test another
+      onboarding screen.
+    </p>
+    <p>
+      But an A/B test doesn't diagnose anything. It compares two versions
+      of an experience and tells you whether one did better on a chosen
+      metric, under the conditions of that experiment. It can't tell you why
+      people behave the way they do, and it doesn't come up with good ideas
+      for you.
+    </p>
+
+    <h3>Why it may not suit your product</h3>
+    <p>
+      A test needs enough users and conversions to tell a real difference
+      from random variation. Say your landing page gets 500 visitors a
+      month and converts 3% of them. That's about 15 conversions a month.
+      Split the traffic between two versions and you probably won't collect
+      enough to spot a small improvement with any confidence. The smaller
+      the effect you're after, the more data you need.
+    </p>
+    <p>
+      That's why testing a button color or a minor headline change on a
+      low-traffic site is usually a poor use of time.
+    </p>
+
+    <h3>What to do instead</h3>
+    <p>
+      Start with the evidence you already have. If users keep misunderstanding
+      your value proposition, make it clearer. If several of them can't
+      finish onboarding because an integration is confusing, look into that
+      step and improve it. If the sign-up form has fields you don't need,
+      think about removing them or asking later. None of these needs an
+      A/B test first.
+    </p>
+
+    <h3>When a test does make sense</h3>
+    <ul>
+      <li>You have a clearly defined conversion or product metric.</li>
+      <li>You have enough traffic and conversions for the test.</li>
+      <li>You have a specific hypothesis backed by evidence.</li>
+      <li>You know what you're changing and why.</li>
+      <li>You can measure the result without misleading side effects.</li>
+    </ul>
+    <p>A good hypothesis might read like this:</p>
+    <p class="tf-inv">
+      Users hesitate to start a free trial because they don't know whether
+      a credit card is required. We believe a clear "No credit card
+      required" message next to the button will increase completed sign-ups
+      without reducing activation.
+    </p>
+    <p>
+      That idea comes from an observed problem, not from someone guessing
+      which button color looks better.
+    </p>
+
+    <figure class="tf-fig kp-fig" data-anim>
+      <p class="tf-fig-title">Should you run an A/B test?</p>
+      <p class="tf-fig-sub">Work down from the top. Each question has to be a yes before the next one matters.</p>
+      <ol class="kp-flow">
+        <li style="--i:0"><span class="kp-fq">Do you know where users drop off?</span><span class="kp-fno">No: map the journey and investigate.</span></li>
+        <li style="--i:1"><span class="kp-fq">Do you know why?</span><span class="kp-fno">No: watch users, review recordings and feedback.</span></li>
+        <li style="--i:2"><span class="kp-fq">Is there a clear hypothesis backed by evidence?</span><span class="kp-fno">No: gather more evidence.</span></li>
+        <li style="--i:3"><span class="kp-fq">Do you have enough traffic and conversions?</span><span class="kp-fno">No: make a reasoned improvement and watch later cohorts.</span></li>
+        <li class="is-go" style="--i:4"><span class="kp-fq">Yes to all four: consider an A/B test.</span></li>
+      </ol>
+    </figure>
+
+    <h3>What if there is no clear winner?</h3>
+    <p>
+      An inconclusive result isn't wasted effort. It may mean the change had
+      little effect, the effect was too small to detect, or the hypothesis
+      was wrong. A negative result can also save you from shipping
+      something that makes the experience worse. The point of experimenting
+      is to learn, not to collect a string of winners.
+    </p>
+  </section>
+
+  <section id="improve">
+    <h2>7. Turn findings into improvements</h2>
+    <p>
+      You don't need an analytics department to start making better product
+      decisions. You need a repeatable way to connect what you see with what
+      you change. A simple loop is enough:
+    </p>
+
+    <figure class="tf-fig kp-fig" data-anim>
+      <p class="tf-fig-title">The improvement loop</p>
+      <p class="tf-fig-sub">Learning keeps going. It isn't a one-time audit.</p>
+      <ol class="kp-loop">
+        <li style="--i:0"><b>Signal</b><span>Something points to a possible problem.</span></li>
+        <li style="--i:1"><b>Investigation</b><span>Find out what is going on.</span></li>
+        <li style="--i:2"><b>Hypothesis</b><span>Form a plausible explanation.</span></li>
+        <li style="--i:3"><b>Action</b><span>Make a targeted improvement.</span></li>
+        <li style="--i:4"><b>Evaluation</b><span>Check whether the experience got better.</span></li>
+      </ol>
+      <p class="kp-back">Then back to the first step.</p>
+    </figure>
+
+    <p>A few examples of how it plays out:</p>
+
+    <div class="ax-table"><table>
+      <thead>
+        <tr><th>What you notice</th><th>What to look into</th><th>Possible next step</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Visitors arrive but few sign up</td><td>Audience quality, value proposition, pricing, trust, what the button promises</td><td>Make the message clearer or remove friction from the decision</td></tr>
+        <tr><td>Users sign up but don't activate</td><td>Onboarding, setup requirements, empty states, time to first value</td><td>Shorten the path to the first meaningful action</td></tr>
+        <tr><td>Users activate but don't come back</td><td>Whether the product gives recurring value and fits their workflow</td><td>Look at retention patterns and why people leave</td></tr>
+        <tr><td>The same support question keeps coming up</td><td>Navigation, terminology, missing instructions, unclear functionality</td><td>Improve the interface or add guidance where it's needed</td></tr>
+        <tr><td>Analytics show a big drop-off but no explanation</td><td>Session recordings, interviews, support feedback</td><td>Study that specific step before deciding what to change</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>
+      What matters is not jumping straight from a metric to a solution. A
+      drop in activation doesn't automatically mean you should redesign
+      onboarding. It means you need to find out what keeps people from
+      reaching activation. Sometimes it's the interface. Sometimes it's the
+      wrong audience, an expectation the website set too high, a missing
+      integration, or an activation event that was defined badly. Let the
+      evidence decide the next step.
+    </p>
+  </section>
+
+  <section id="plan">
+    <h2>8. An action plan for founders</h2>
+    <p>If you don't know where to start, go in this order.</p>
+
+    <p><strong>Understand.</strong></p>
+    <ol>
+      <li>Name your business model: self-serve, sales-led, freemium, free trial or a mix.</li>
+      <li>Map the journey from the first website visit to the first meaningful result in the product.</li>
+      <li>Define what activation means for your product.</li>
+      <li>Go through the whole experience as a new user, on desktop and mobile.</li>
+    </ol>
+
+    <p><strong>Observe.</strong></p>
+    <ol start="5">
+      <li>Ask a few target users to complete realistic tasks.</li>
+      <li>Read customer feedback, support requests and sales conversations.</li>
+      <li>Write down observed problems, repeated patterns and unchecked hypotheses.</li>
+      <li>Prioritize the issues that affect the journey most.</li>
+    </ol>
+
+    <p><strong>Measure.</strong></p>
+    <ol start="9">
+      <li>Pick the most important conversion, activation and retention events.</li>
+      <li>Set up a small tracking plan.</li>
+      <li>Check that the data is accurate.</li>
+      <li>Build a few reports that answer specific business questions.</li>
+    </ol>
+
+    <p><strong>Improve.</strong></p>
+    <ol start="13">
+      <li>Dig into the biggest friction point.</li>
+      <li>Form a hypothesis based on evidence.</li>
+      <li>Make a targeted improvement.</li>
+      <li>See what changed and keep learning.</li>
+    </ol>
+
+    <p>
+      You don't have to finish all of this before your first improvement. If
+      you find a broken sign-up form or an onboarding step that keeps
+      confusing people, fix it. The aim is to make decisions on purpose
+      instead of on assumptions.
+    </p>
+  </section>
+
+  <section id="conclusion">
+    <h2>Conclusion: understand first, then measure</h2>
+    <p>
+      Analytics are valuable, but they don't replace understanding your
+      product. A dashboard can show that users leave during onboarding. It
+      can't always tell you whether they were confused, overwhelmed,
+      missing an integration or just the wrong audience. A/B testing can
+      compare two solutions, but it can't tell you which problem is worth
+      solving. And a product with very little traffic can still have
+      obvious problems that stop people from seeing its value.
+    </p>
+    <p>
+      So start by mapping the journey. Check what your website promises and
+      whether the product delivers it. Watch how people use it. Pick a few
+      meaningful metrics and use analytics to answer the questions that
+      matter. You don't need to measure everything, only to understand
+      enough to make the next decision well.
+    </p>
+  </section>
+
+  <section class="ax-cta pd-dark" aria-labelledby="kp-cta-t">
+    <h2 id="kp-cta-t">Not sure where your journey leaks?</h2>
+    <p>Mapping the journey and finding where it breaks is the work I do. Send me what you’re seeing and I’ll tell you where I’d start.</p>
+    <a class="btn-dark" href="/#contact">Let's Connect</a>
+  </section>
+
+  <div class="ax-related-wrap">
+    <p class="ax-eyebrow">Related reading</p>
+    <a class="cp-related" href="/find-ux-problems-with-analytics">
+      <strong>How to find UX problems in your SaaS product using analytics</strong>
+      <p>What funnels and segments can show, what they can’t, and how to prioritize fixes with evidence.</p>
+      <span>Read article <svg class="ar-i" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="cp-related" href="/saas-free-trial-conversion">
+      <strong>Why SaaS free trials don’t convert: a diagnostic framework</strong>
+      <p>Low trial conversion is a symptom. How to find the cause before you change anything.</p>
+      <span>Read article <svg class="ar-i" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+
+  <section class="ax-about">
+    <h2>About this article</h2>
+    <p>I'm Olga, a product designer and product owner with 20+ years of experience across SaaS platforms, AI-enabled products and data-heavy systems. I wrote this because founders often ask whether they need analytics or A/B tests before they can improve anything. Most of the time they first need a clearer picture of the journey their users take.</p>
+    <h3>Sources and further reading</h3>
+    <ol class="ax-sources"> <li> <a href="https://www.nngroup.com/articles/which-ux-research-methods/" target="_blank" rel="noopener"> Nielsen Norman Group — When to Use Which User-Experience Research Methods </a> </li> <li> <a href="https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/" target="_blank" rel="noopener"> Nielsen Norman Group — Why You Only Need to Test with 5 Users </a> </li> <li> <a href="https://www.nngroup.com/articles/thinking-aloud-the-1-usability-tool/" target="_blank" rel="noopener"> Nielsen Norman Group — Thinking Aloud: The #1 Usability Tool </a> </li> <li> <a href="https://www.lennysnewsletter.com/p/what-is-a-good-activation-rate" target="_blank" rel="noopener"> Lenny’s Newsletter — What Is a Good Activation Rate? </a> </li> <li> <a href="https://info.amplitude.com/rs/138-CDN-550/images/Amplitude-The-North-Star-Playbook.pdf" target="_blank" rel="noopener"> Amplitude — The North Star Playbook </a> </li> <li> <a href="https://docs.mixpanel.com/docs/data-structure/events-and-properties" target="_blank" rel="noopener"> Mixpanel Documentation — Events and Properties </a> </li> <li> <a href="https://docs.mixpanel.com/guides/guides-by-workflow/build-tracking-strategy" target="_blank" rel="noopener"> Mixpanel — Build a Tracking Strategy </a> </li> <li> <a href="https://www.nngroup.com/articles/mixed-methods-research/" target="_blank" rel="noopener"> Nielsen Norman Group — Mixed-Methods Research </a> </li> <li> <a href="https://www.cambridge.org/core/books/trustworthy-online-controlled-experiments/D97B26382EB0EB2DC2019A7A7B518F59" target="_blank" rel="noopener"> Kohavi, Tang and Xu — Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing </a> </li> </ol>
+  </section>
+
+</article>
+</div>
+</div>
+    </main>
+
+    <!-- FOOTER -->
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="footer-name" href="/"><img class="footer-avatar" src="/images/olga_kalinina.jpg" alt="" width="40" height="40" />Olga Kalinina</a>
+            <p class="footer-msg">I find where your conversion journey breaks and show you what to fix first.</p>
+          </div>
+          <nav class="footer-col" aria-label="Services">
+            <p class="footer-h">Services</p>
+            <a href="/product-design">Product Design</a>
+            <a href="/cro-audit">CRO Diagnosis</a>
+            <a href="/case-studies">Case Studies</a>
+          </nav>
+          <nav class="footer-col" aria-label="Learn">
+            <p class="footer-h">Learn</p>
+            <a href="/blog">Blog</a>
+            <a href="/faq">FAQ</a>
+          </nav>
+          <nav class="footer-col" aria-label="Company">
+            <p class="footer-h">Company</p>
+            <a href="/about">About</a>
+            <a href="/contacts">Contacts</a>
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">&#169; 2026 Olga Kalinina. All rights reserved.</p>
+          <span class="footer-legals"><a class="footer-legal" href="/privacy">Privacy Policy</a><a class="footer-legal" href="/terms">Terms</a><button type="button" class="footer-legal" data-consent-open>Cookie settings</button></span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bar = document.getElementById('axProgress');
+    if (bar && !still) {
+      var tick = 0;
+      var upd = function () { tick = 0; var h = document.documentElement.scrollHeight - window.innerHeight; bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')'; };
+      window.addEventListener('scroll', function () { if (!tick) tick = requestAnimationFrame(upd); }, { passive: true });
+      upd();
+    }
+    if (still || !('IntersectionObserver' in window)) return;
+    root.classList.add('ax-js');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (!e.isIntersecting) return; e.target.classList.add('is-in'); io.unobserve(e.target); });
+    }, { threshold: 0.25 });
+    [].forEach.call(document.querySelectorAll('[data-anim]'), function (el) { io.observe(el); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var list = document.querySelector('.kp-stages');
+    if (!list) return;
+    list.classList.add('kp-js'); list.parentNode.classList.add('kp-js');
+    [].forEach.call(list.querySelectorAll('.kp-stage'), function (li) {
+      var b = li.querySelector('button');
+      b.addEventListener('click', function () {
+        var o = li.classList.toggle('is-open');
+        b.setAttribute('aria-expanded', o ? 'true' : 'false');
+      });
+    });
+  })();
+  </script>
+  <script src="/js/toc.js" defer></script>
+  <script src="/js/theme.js" defer></script>
+  <script src="/js/analytics.js" defer></script>
+  <script src="/js/mesh-buttons.js" defer></script>
+</body>
+</html>
