@@ -155,6 +155,8 @@
     .kp-n { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 12.5px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
     .ax .kp-q { margin: 10px 0 0; font-size: 15px; line-height: 1.5; color: var(--dark); }
     .ax .kp-d { margin: 8px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--gray); }
+    .kp-js .kp-stage { cursor: pointer; transition: background .2s ease; }
+    .kp-js .kp-stage:hover { background: var(--bg-soft); }
     .kp-js .kp-d { display: none; }
     .kp-js .kp-stage.is-open .kp-d { display: block; }
     .kp-js .kp-stage button::after { content: "+"; margin-left: auto; font-weight: 400; font-size: 20px; color: var(--gray); }
@@ -1249,7 +1251,7 @@
     list.classList.add('kp-js'); list.parentNode.classList.add('kp-js');
     [].forEach.call(list.querySelectorAll('.kp-stage'), function (li) {
       var b = li.querySelector('button');
-      b.addEventListener('click', function () {
+      li.addEventListener('click', function () {
         var o = li.classList.toggle('is-open');
         b.setAttribute('aria-expanded', o ? 'true' : 'false');
       });
