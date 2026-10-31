@@ -13,7 +13,7 @@
 
   function items(el, out) {
     [].forEach.call(el.children, function (c) {
-      if (c.tagName === 'SCRIPT' || c.tagName === 'STYLE') return;
+      if (c.tagName === 'SCRIPT' || c.tagName === 'STYLE' || c.classList.contains('hb-wrap')) return;
       if (c.matches(LISTS)) [].forEach.call(c.children, function (x) { out.push(x); });
       else if (c.matches(WRAPS)) items(c, out);
       else out.push(c);
