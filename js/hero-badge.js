@@ -8,12 +8,31 @@
   var card = wrap.querySelector('.hb-card');
   if (!rig || !card) return;
 
+  /* the small "turn me over" arrows on both sides of the card: play, rest a moment, play again */
+  var swaps = [];
+  function initSwap() {
+    if (!window.lottie) return;
+    fetch('/images/hb-swap.json').then(function (r) { return r.json(); }).then(function (data) {
+      wrap.querySelectorAll('.hb-swap').forEach(function (el) {
+        var an = window.lottie.loadAnimation({ container: el, renderer: 'svg', loop: false, autoplay: false, animationData: data });
+        swaps.push(an);
+        if (still) { an.goToAndStop(0, true); return; }
+        var timer = null;
+        function later(ms) { clearTimeout(timer); timer = setTimeout(function () { if (!document.hidden && visible) an.goToAndPlay(0, true); else later(1500); }, ms); }
+        an.addEventListener('complete', function () { later(2600); });
+        later(2200);
+      });
+    }).catch(function () {});
+  }
+
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var visible = true;
+  initSwap();
   if (still) { wrap.classList.add('hb-ready'); card.addEventListener('click', function () { card.classList.toggle('is-back'); }); return; }
 
   var a = 0, av = 0;      /* lanyard angle (deg) and its speed, hangs from a point hidden under the menu */
   var f = 0, fv = 0;      /* card angle (deg, absolute) and its speed, hangs from the clasp */
-  var t0 = null, last = 0, dropped = false, running = false, visible = true;
+  var t0 = null, last = 0, dropped = false, running = false;
   var lim = 28;           /* largest card swing (deg); smaller when the badge is close to the edge of the page */
   function fitLimit() {
     var host = wrap.closest('section') || document.documentElement;
