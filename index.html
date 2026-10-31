@@ -33,10 +33,19 @@
     .hb-rig { position: absolute; left: 0; right: 0; top: calc(var(--u) * -212); height: calc(var(--u) * 2253); transform-origin: 50% 0; will-change: transform; }
     .hb-wrap:not(.hb-ready) .hb-rig { visibility: hidden; }
     .hb-lan { position: absolute; z-index: 2; left: 50%; top: 0; width: calc(var(--u) * 450); height: auto; margin-left: calc(var(--u) * -225); filter: drop-shadow(0 calc(var(--u) * 6) calc(var(--u) * 8) rgba(0,0,0,.28)); pointer-events: none; user-select: none; }
-    .hb-card { position: absolute; left: 0; top: calc(var(--u) * 938); width: var(--w); height: calc(var(--u) * 1315); transform-origin: 50% calc(var(--u) * 79); filter: drop-shadow(0 calc(var(--u) * 14) calc(var(--u) * 18) rgba(0,0,0,.3)); }
-    .hb-cardimg { position: absolute; inset: 0; width: 100%; height: 100%; user-select: none; pointer-events: none; }
-    .hb-photo { position: absolute; left: calc(var(--u) * 87); top: calc(var(--u) * 250); width: calc(var(--u) * 680); height: calc(var(--u) * 800); object-fit: cover; object-position: 50% 30%; border-radius: calc(var(--u) * 34); box-shadow: 0 0 0 calc(var(--u) * 6) rgba(255,255,255,.55), 0 calc(var(--u) * 6) calc(var(--u) * 14) rgba(90,55,0,.4); }
-    .hb-gloss { position: absolute; left: calc(var(--u) * 87); top: calc(var(--u) * 250); width: calc(var(--u) * 680); height: calc(var(--u) * 800); border-radius: calc(var(--u) * 34); background: linear-gradient(125deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 38%); pointer-events: none; }
+    .hb-card { position: absolute; left: 0; top: calc(var(--u) * 938); width: var(--w); height: calc(var(--u) * 1315); transform-origin: 50% calc(var(--u) * 79); perspective: calc(var(--w) * 4); filter: drop-shadow(0 calc(var(--u) * 14) calc(var(--u) * 18) rgba(0,0,0,.3)); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .hb-card:focus-visible { outline: 2px solid var(--dark, #222); outline-offset: 6px; border-radius: calc(var(--u) * 60); }
+    .hb-flip { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.3,.7,.2,1); }
+    .hb-card.is-back .hb-flip { transform: rotateY(180deg); }
+    .hb-face { position: absolute; inset: 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; font-family: Inter, -apple-system, "Helvetica Neue", Arial, sans-serif; color: #000; }
+    .hb-face.is-back { transform: rotateY(180deg); }
+    .hb-cardimg { position: absolute; inset: 0; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; pointer-events: none; }
+    .hb-photo { position: absolute; left: calc(var(--u) * 122); top: calc(var(--u) * 228); width: calc(var(--u) * 610); height: calc(var(--u) * 610); object-fit: cover; object-position: 50% 30%; border-radius: 50%; box-shadow: 0 0 0 calc(var(--u) * 6) rgba(255,255,255,.55), 0 calc(var(--u) * 6) calc(var(--u) * 14) rgba(90,55,0,.4); }
+    .hb-gloss { position: absolute; left: calc(var(--u) * 122); top: calc(var(--u) * 228); width: calc(var(--u) * 610); height: calc(var(--u) * 610); border-radius: 50%; background: linear-gradient(125deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 40%); pointer-events: none; }
+    .hb-name { position: absolute; left: 0; right: 0; top: calc(var(--u) * 930); margin: 0; text-align: center; font-size: calc(var(--u) * 86); font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
+    .hb-role { position: absolute; left: calc(var(--u) * 72); right: calc(var(--u) * 40); top: calc(var(--u) * 330); margin: 0; font-size: calc(var(--u) * 100); font-weight: 800; line-height: 1.12; letter-spacing: -.01em; text-transform: uppercase; }
+    .hb-since { position: absolute; left: calc(var(--u) * 74); top: calc(var(--u) * 760); margin: 0; font-size: calc(var(--u) * 46); font-weight: 700; letter-spacing: .01em; text-transform: uppercase; color: rgba(70,40,0,.72); }
+    @media (prefers-reduced-motion: reduce) { .hb-flip { transition: none; } }
     @media (max-width: 960px) { .hb-wrap { --w: 230px; margin-top: 0; -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 56px); mask-image: linear-gradient(to bottom, transparent 0, #000 56px); } }
     .hero-photo { width: 100%; height: auto; aspect-ratio: 4 / 4.3; border-radius: 33px; object-fit: cover; object-position: 50% 40%; display: block; background: var(--bg-soft); }
     .btn-outline-dark { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border: 1.5px solid var(--dark); border-radius: var(--radius-pill); background: transparent; color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 500; transition: background var(--transition), transform var(--transition); }
@@ -444,13 +453,23 @@
               <a href="#contact" class="btn-outline-dark">Discuss a Project</a>
             </div>
           </div>
-          <div class="hb-wrap" role="img" aria-label="Olga Kalinina, product designer">
+          <div class="hb-wrap">
             <div class="hb-rig">
-              <img class="hb-lan" src="images/hb-lanyard-2.webp" alt="" width="276" height="650" decoding="async" />
-              <div class="hb-card">
-                <img class="hb-cardimg" src="images/hb-card.webp" alt="" width="760" height="1170" decoding="async" />
-                <img class="hb-photo" src="images/olga_hero.jpg" alt="" width="1600" height="1062" decoding="async" />
-                <span class="hb-gloss"></span>
+              <img class="hb-lan" src="images/hb-lanyard-3.webp" alt="" width="276" height="650" decoding="async" />
+              <div class="hb-card" role="button" tabindex="0" aria-label="Olga Kalinina, product designer and CRO expert. Press to turn the badge over.">
+                <div class="hb-flip">
+                  <div class="hb-face is-front">
+                    <img class="hb-cardimg" src="images/hb-card.webp" alt="" width="760" height="1170" decoding="async" draggable="false" />
+                    <img class="hb-photo" src="images/olga_hero.jpg" alt="" width="1600" height="1062" decoding="async" draggable="false" />
+                    <span class="hb-gloss"></span>
+                    <p class="hb-name">Olga Kalinina</p>
+                  </div>
+                  <div class="hb-face is-back">
+                    <img class="hb-cardimg" src="images/hb-card.webp" alt="" width="760" height="1170" decoding="async" draggable="false" />
+                    <p class="hb-role">Product designer &amp; CRO expert</p>
+                    <p class="hb-since">Since 2004</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

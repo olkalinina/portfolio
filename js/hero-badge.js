@@ -9,7 +9,7 @@
   if (!rig || !card) return;
 
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (still) { wrap.classList.add('hb-ready'); return; }
+  if (still) { wrap.classList.add('hb-ready'); card.addEventListener('click', function () { card.classList.toggle('is-back'); }); return; }
 
   var a = 0, av = 0;      /* lanyard angle (deg) and its speed, hangs from a point hidden under the menu */
   var f = 0, fv = 0;      /* card angle (deg, absolute) and its speed, hangs from the clasp */
@@ -71,11 +71,15 @@
     lastX = e.clientX;
   });
   wrap.addEventListener('pointerleave', function () { lastX = null; });
+  function flip() { card.classList.toggle('is-back'); }
   wrap.addEventListener('pointerdown', function (e) {
     var r = card.getBoundingClientRect();
     var side = (e.clientX < r.left + r.width / 2) ? 1 : -1;
     fv += side * 70; av += side * 7;
   });
+  /* a click on the card turns it over */
+  card.addEventListener('click', flip);
+  card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
 
   /* run only while on screen and the tab is open */
   if ('IntersectionObserver' in window) {
