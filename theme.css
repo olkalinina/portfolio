@@ -332,6 +332,8 @@ a.link-btn:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; 
    Light page: dark filled button with white text, outline with a silver-black stroke.
    Dark theme and dark areas: inverted (light filled button with dark text, light stroke). No colour gradients, no stroke on filled buttons. ---- */
 html:root body:not(.is-protected) main :is(.btn-dark, .btn-outline-dark, .btn-outline) { background-image: none !important; animation: none !important; }
+/* buttons keep the scroll-reveal animation (the rule above only removes the old hover animation) */
+html:root body:not(.is-protected) main :is(.btn-dark, .btn-outline-dark, .btn-outline).rv.in { animation: rv-in .85s cubic-bezier(.2,.7,.2,1) var(--rd, 0ms) both !important; }
 html:root body:not(.is-protected) main :is(.btn-outline-dark, .btn-outline)::before { display: none !important; }
 html:root body .help-card::after { background: currentColor !important; animation: none !important; }
 .mb { position: relative; isolation: isolate; }
