@@ -8,59 +8,8 @@
   var card = wrap.querySelector('.hb-card');
   if (!rig || !card) return;
 
-  /* the small "turn me over" arrows on both sides of the card. Two arrows ride round an oval track and swap places:
-     the head leads, the tail follows a moment later. They play, rest a moment, then play again. */
-  var SX = 52.5, SR = 40, HEAD0 = 117, TRAVEL = 230, ARM = 38;   /* track half-length, radius, first head position, distance travelled, arrow-head arm */
-  var TRACK = 'M' + SX + ' ' + (-SR) + 'H' + (-SX) + 'A' + SR + ' ' + SR + ' 0 0 0 ' + (-SX) + ' ' + SR + 'H' + SX + 'A' + SR + ' ' + SR + ' 0 0 0 ' + SX + ' ' + (-SR) + 'Z';
-  function easeIO(x) { x = Math.max(0, Math.min(1, x)); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
-  function makeSwap(el) {
-    var NS = 'http://www.w3.org/2000/svg';
-    el.innerHTML = '<svg viewBox="-100 -80 200 160" width="100%" height="100%" fill="none" stroke="#000" stroke-width="9" aria-hidden="true" focusable="false">' +
-      '<path id="t" d="' + TRACK + '" stroke="none"/>' +
-      '<g><path class="tl"/><path class="hd" stroke-linecap="round" stroke-linejoin="round"/></g>' +
-      '<g transform="rotate(180)"><path class="tl"/><path class="hd" stroke-linecap="round" stroke-linejoin="round"/></g></svg>';
-    var track = el.querySelector('#t'); track.removeAttribute('id');
-    var total = track.getTotalLength();
-    var tails = el.querySelectorAll('.tl'), heads = el.querySelectorAll('.hd');
-    function draw(u) {
-      var sh = HEAD0 + TRAVEL * easeIO(u / .85), st = TRAVEL * easeIO((u - .1) / .85);
-      var p = track.getPointAtLength(sh % total), q = track.getPointAtLength((sh + 0.5) % total);
-      var ang = Math.atan2(q.y - p.y, q.x - p.x), i, a1, a2;
-      var d = 'M' + (p.x - ARM * Math.cos(ang - .785)).toFixed(2) + ' ' + (p.y - ARM * Math.sin(ang - .785)).toFixed(2) +
-              'L' + p.x.toFixed(2) + ' ' + p.y.toFixed(2) +
-              'L' + (p.x - ARM * Math.cos(ang + .785)).toFixed(2) + ' ' + (p.y - ARM * Math.sin(ang + .785)).toFixed(2);
-      for (i = 0; i < 2; i++) {
-        heads[i].setAttribute('d', d);
-        tails[i].setAttribute('d', TRACK);
-        tails[i].setAttribute('stroke-dasharray', Math.max(sh - st, 0) + ' ' + total);
-        tails[i].setAttribute('stroke-dashoffset', -st);
-      }
-    }
-    draw(0);
-    return draw;
-  }
-  function initSwap() {
-    wrap.querySelectorAll('.hb-swap').forEach(function (el) {
-      var draw = makeSwap(el);
-      if (still) return;
-      var timer = null, raf = null, DUR = 1100;
-      function play() {
-        if (document.hidden || !visible) { later(1500); return; }
-        var t0 = performance.now();
-        (function step(now) {
-          var u = Math.min((now - t0) / DUR, 1);
-          draw(u);
-          if (u < 1) raf = requestAnimationFrame(step); else later(2600);
-        })(t0);
-      }
-      function later(ms) { clearTimeout(timer); timer = setTimeout(play, ms); }
-      later(2200);
-    });
-  }
-
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var visible = true;
-  initSwap();
   if (still) { wrap.classList.add('hb-ready'); card.addEventListener('click', function () { card.classList.toggle('is-back'); }); return; }
 
   var a = 0, av = 0;      /* lanyard angle (deg) and its speed, hangs from a point hidden under the menu */
