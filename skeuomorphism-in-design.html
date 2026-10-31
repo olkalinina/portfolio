@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skeuomorphism in design: definition, application, and relevance — Olga Kalinina</title>
+  <meta name="description" content="Skeuomorphism is a design practice that incorporates elements of the real world into digital interfaces to create a sense of recognition. Where it came from, why it faded, and where it may return." />
+  <link rel="canonical" href="https://olgakalinina.me/skeuomorphism-in-design" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Olga Kalinina" />
+  <meta property="og:title" content="Skeuomorphism in design: definition, application, and relevance — Olga Kalinina" />
+  <meta property="og:description" content="Skeuomorphism is a design practice that incorporates elements of the real world into digital interfaces to create a sense of recognition. Where it came from, why it faded, and where it may return." />
+  <meta property="og:url" content="https://olgakalinina.me/skeuomorphism-in-design" />
+  <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Skeuomorphism in design: definition, application, and relevance — Olga Kalinina" />
+  <meta name="twitter:description" content="Skeuomorphism is a design practice that incorporates elements of the real world into digital interfaces to create a sense of recognition. Where it came from, why it faded, and where it may return." />
+  <meta name="twitter:image" content="https://olgakalinina.me/images/og-default.jpg" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "headline": "Skeuomorphism in design: definition, application, and relevance", "datePublished": "2024-03-27", "dateModified": "2026-10-31", "image": "https://olgakalinina.me/images/og-default.jpg", "description": "Skeuomorphism is a design practice that incorporates elements of the real world into digital interfaces to create a sense of recognition. Where it came from, why it faded, and where it may return.", "mainEntityOfPage": "https://olgakalinina.me/skeuomorphism-in-design", "inLanguage": "en", "author": {"@id": "https://olgakalinina.me/#person"}}, {"@type": "Person", "@id": "https://olgakalinina.me/#person", "name": "Olga Kalinina", "jobTitle": "Product Designer & Behavioral CRO Expert", "url": "https://olgakalinina.me/", "image": "https://olgakalinina.me/images/olga_hero.jpg", "sameAs": ["https://www.linkedin.com/in/olga-kalinina-sundary/", "https://substack.com/@olinproduct/"]}]}</script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ---- Article page ---- */
+    .ax-layout { display: grid; grid-template-columns: 210px minmax(0, 720px); gap: 56px; justify-content: center; align-items: start; }
+    .ax-toc { position: sticky; top: 130px; align-self: start; padding-top: 48px; }
+    .ax-toc-title { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 16px; line-height: 1.4; }
+    .ax-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; border-left: 1.5px solid var(--light-gray); }
+    .ax-toc li { margin: 0; }
+    .ax-toc a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
+    .ax-toc a:hover { color: var(--strong); }
+    .ax-toc a.is-active { color: var(--strong); border-left-color: var(--strong); font-weight: 500; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (max-width: 1100px) { .ax-layout { grid-template-columns: minmax(0, 720px); } .ax-toc { display: none; } }
+    .ax { --ax-ink: var(--strong); --ax-on-ink: #f7f5f5; --ax-gold: #a8803a; --ax-gold-soft: rgba(168,128,58,.16); min-width: 0; padding: 48px 0 96px; font-size: 17px; line-height: 1.75; color: var(--dark); }
+    html[data-theme="dark"] .ax { --ax-on-ink: #171717; --ax-gold: #d9b36c; --ax-gold-soft: rgba(217,179,108,.18); }
+    .ax p { margin: 0 0 1.1em; }
+    .ax a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    .ax strong { font-weight: 600; color: var(--strong); }
+    .ax h2 { margin: 72px 0 16px; scroll-margin-top: 96px; }
+    .ax h3 { margin: 36px 0 8px; }
+    .ax ul, .ax ol { padding-left: 1.2em; margin: 0 0 1.2em; }
+    .ax li { margin-bottom: .45em; }
+    .ax-head { margin-bottom: 40px; }
+    .ax-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .ax-tag { display: inline-flex; align-items: center; width: fit-content; padding: 4px 12px; border-radius: var(--radius-pill); background: #fef3c7; color: #92400e; font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; }
+    .ax-tag.is-saas { background: #dcfce7; color: #166534; }
+    html[data-theme="dark"] .ax-tag.is-saas { background: rgba(74,222,128,.16); color: #86efac; }
+    html[data-theme="dark"] .ax-tag { background: rgba(251,191,36,.18); color: #fcd34d; }
+    .ax .ax-lede { font-size: 18px; line-height: 1.6; color: var(--gray); margin: 22px 0 0; padding-bottom: 28px; border-bottom: 1.5px solid var(--light-gray); }
+        /* reading progress */
+    .ax-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--strong); transform: scaleX(0); transform-origin: 0 50%; z-index: 60; pointer-events: none; }
+    /* tables */
+    .ax-table { overflow-x: auto; margin: 26px 0; border: 1.5px solid var(--light-gray); border-radius: var(--r-lg); }
+    .ax-table table { border-collapse: collapse; width: 100%; min-width: 580px; font-size: 16px; line-height: 1.5; }
+    .ax-table th, .ax-table td { padding: 14px 18px; text-align: left; vertical-align: top; border-bottom: 1.5px solid var(--light-gray); }
+    .ax-table th { background: var(--bg-soft); font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; font-weight: 400; color: var(--gray); }
+    .ax-table tr:last-child td { border-bottom: 0; }
+    .ax-table td:first-child { font-weight: 600; color: var(--strong); }
+    .ax-table tbody tr { transition: background .25s ease; }
+    .ax-table tbody tr:hover { background: var(--bg-soft); }
+    /* stats */
+    .ax-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0; }
+    .ax-stat { background: var(--bg-soft); border-radius: var(--r-lg); padding: 24px 22px; }
+    .ax-stat b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.05; color: var(--strong); margin-bottom: 10px; }
+    .ax-stat > span { font-size: 16px; line-height: 1.6; color: var(--gray); display: block; }
+    .ax-stat b span { font: inherit; color: inherit; display: inline; }
+    /* note, chain, questions */
+    .ax-chain { list-style: none; counter-reset: step; margin: 30px 0 30px 14px; padding: 0; }
+    .ax-chain li { position: relative; padding: 0 0 24px 32px; margin: 0; counter-increment: step; }
+    .ax-chain li:not(:last-child)::after { content: ""; position: absolute; left: -1px; top: 18px; bottom: -2px; width: 1.5px; background: var(--light-gray); }
+    .ax-chain li::before { z-index: 1; content: counter(step); position: absolute; left: -15px; top: 2px; width: 29px; height: 29px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; line-height: 1; }
+    .ax-chain b { display: block; font-size: 12.5px; text-transform: uppercase; letter-spacing: .14em; color: var(--gray); font-weight: 400; margin: 4px 0 4px; }
+    .ax-chain span { display: block; font-size: 16px; line-height: 1.65; }
+    .ax-questions { padding-left: 1.4em; }
+    .ax-questions li { margin-bottom: .9em; padding-left: .2em; }
+    .ax-questions li::marker { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15em; color: var(--gray); }
+    /* closing card */
+    .ax-cta { background: #2f2e2e; border-radius: var(--r-xl); padding: 64px 40px; margin: 80px 0 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    html[data-theme="dark"] .ax-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
+    .ax .ax-cta h2 { margin: 0; color: #f7f5f5; }
+    .ax .ax-cta p { color: rgba(247,245,245,.72); max-width: 540px; margin: 0; font-size: 18px; line-height: 1.6; }
+    .ax .ax-cta .btn-dark { margin-top: 12px; background: #ede8ea !important; color: #171717 !important; text-decoration: none; font-size: 15px; font-weight: 500; font-family: 'Lora', Georgia, serif; padding: 13px 26px; }
+    .ax-about { margin-top: 64px; padding-top: 12px; border-top: 1.5px solid var(--light-gray); font-size: 16px; line-height: 1.7; }
+    .ax-about h2 { margin-top: 36px; }
+    .ax-sources { font-size: 15px; line-height: 1.6; color: var(--gray); }
+    .ax-sources li { margin-bottom: .6em; }
+    /* motion: only when JS is on and motion is allowed */
+
+    .ax-eyebrow { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 10px; }
+    .cp-related { display: block; margin: 20px 0 0; padding: 26px 30px; background: var(--bg-soft); border-radius: var(--r-lg); text-decoration: none !important; color: inherit; transition: transform .25s ease; }
+    .cp-related:hover { transform: translateY(-3px); }
+    .cp-related strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .cp-related p:not(.ax-eyebrow) { margin: 0 0 12px; font-size: 16px; line-height: 1.6; color: var(--gray); }
+    .cp-related > span { font-size: 15px; color: var(--strong); }
+    .ax-related-wrap { margin-top: 56px; }
+    .ax-related-wrap > .ax-eyebrow { margin-bottom: 0; }
+    /* ---- Trial conversion article ---- */
+    .ax section[id] { scroll-margin-top: 96px; }
+    .tf-inv { border-left: 3px solid var(--ax-gold); padding: 2px 0 2px 18px; margin-left: 2px; font-size: 16px; line-height: 1.65; }
+    .ax-table td:first-child { white-space: normal; }
+    .tf-fig { margin: 40px 0; padding: 28px 24px 22px; background: var(--bg-soft); border-radius: var(--r-lg); }
+    .ax .tf-fig-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--strong); margin: 0 0 4px; }
+    .ax .tf-fig-sub { font-size: 14px; color: var(--gray); margin: 0 0 22px; }
+    .ax .tf-fig-note { font-size: 15px; line-height: 1.55; color: var(--dark); margin: 36px 0 0; padding-top: 22px; border-top: 1.5px solid var(--light-gray); }
+    .tf-fig figcaption { font-size: 15px; line-height: 1.55; color: var(--gray); margin-top: 14px; }
+    .tf-group { margin: 0 0 22px; }
+    .ax .tf-group-name { font-size: 16px; font-weight: 600; color: var(--strong); margin: 0 0 10px; }
+    .tf-bar-row { display: grid; grid-template-columns: 138px minmax(0, 1fr) 44px; align-items: center; gap: 12px; margin-bottom: 8px; font-size: 15px; }
+    .tf-bar-label { color: var(--gray); }
+    .tf-track { height: 26px; border-radius: 9px; background: var(--light-gray); overflow: hidden; }
+    .tf-bar { height: 100%; width: var(--w); border-radius: 9px; transform-origin: 0 50%; }
+    .tf-bar.is-signups { background: var(--ax-ink); }
+    .tf-bar.is-paying { background: var(--ax-gold); }
+    .tf-bar-val { font-weight: 600; color: var(--strong); text-align: right; }
+    .tf-matrix { display: grid; grid-template-columns: 92px minmax(0, 1fr) minmax(0, 1fr); gap: 10px; margin-top: 20px; }
+    .tf-col-head, .tf-row-head { font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); align-self: end; padding-bottom: 2px; }
+    .tf-row-head { align-self: center; padding: 0; line-height: 1.4; }
+    .tf-cell { border-radius: var(--r-md); padding: 18px 18px 20px; font-size: 15px; line-height: 1.5; }
+    .tf-cell b { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 18px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+    .tf-cell span { color: var(--dark); }
+    .tf-cell.is-a { background: var(--ax-gold-soft); }
+    .tf-cell.is-b { background: rgba(120,116,118,.16); }
+    .tf-cell.is-c { background: rgba(120,116,118,.10); }
+    .tf-cell.is-d { background: rgba(120,116,118,.16); }
+    .tf-steps { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-direction: column; gap: 8px; }
+    .tf-steps li { display: flex; align-items: center; gap: 14px; margin: 0; padding: 11px 16px; border-radius: var(--r-md); font-size: 16px; line-height: 1.4; color: var(--strong); }
+    .tf-n { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+    .tf-steps li.is-a { background: rgba(120,116,118,.16); }
+    .tf-steps li.is-b { background: rgba(120,116,118,.10); }
+    .tf-steps li.is-c { background: var(--ax-gold-soft); }
+    .tf-steps li.is-d { background: rgba(120,116,118,.16); }
+    @media (prefers-reduced-motion: no-preference) {
+      .ax-js .tf-fig .tf-bar { transform: scaleX(0); }
+      .ax-js .tf-fig.is-in .tf-bar { transform: none; transition: transform 1s cubic-bezier(.2,.8,.2,1); }
+      .ax-js .tf-fig.is-in .tf-group:nth-of-type(2) .tf-bar { transition-delay: .35s; }
+      .ax-js .tf-fig.is-in .tf-bar.is-paying { transition-delay: .2s; }
+      .ax-js .tf-fig.is-in .tf-group:nth-of-type(2) .tf-bar.is-paying { transition-delay: .55s; }
+      .ax-js .tf-cell { opacity: 0; transform: translateY(12px); }
+      .ax-js .tf-fig.is-in .tf-cell { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
+      .ax-js .tf-fig.is-in .tf-cell.is-b { transition-delay: .15s; } .ax-js .tf-fig.is-in .tf-cell.is-c { transition-delay: .3s; } .ax-js .tf-fig.is-in .tf-cell.is-d { transition-delay: .45s; }
+      .ax-js .tf-steps li { opacity: 0; transform: translateX(-14px); }
+      .ax-js .tf-fig.is-in .tf-steps li { opacity: 1; transform: none; transition: opacity .5s ease, transform .5s ease; transition-delay: calc(var(--i) * .1s); }
+    }
+    /* ---- Skeuomorphism article ---- */
+    .sk-fig { margin: 32px 0; }
+    .sk-fig img { display: block; width: 100%; height: auto; border-radius: var(--r-lg); border: 1.5px solid var(--light-gray); background: #fff; }
+    .sk-fig.is-narrow { max-width: 360px; margin-left: auto; margin-right: auto; }
+    .sk-fig figcaption { font-size: 15px; line-height: 1.55; color: var(--gray); margin-top: 12px; }
+    @media (max-width: 860px) { .ax-cta { padding: 48px 24px; } }
+    @media (max-width: 640px) { .ax { padding-top: 24px; } .ax-lede { font-size: 17px; } .ax h2 { margin-top: 56px; } .tf-fig { padding: 22px 16px 18px; } .tf-bar-row { grid-template-columns: 1fr 40px; } .tf-bar-label { grid-column: 1 / -1; } .tf-track { grid-column: 1; } .tf-matrix { grid-template-columns: 1fr; } .tf-corner, .tf-col-head { display: none; } .tf-row-head { padding-top: 8px; } .ax .ax-cta .btn-dark { width: 100%; } }
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      .nav, .mobile-menu, .mobile-menu-backdrop, .footer, .ax-toc, .ax-progress { display: none !important; }
+      html, body, body:not(.is-protected) { background: #fff !important; }
+      .page-wrapper, .page-content, .container { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+      .ax-layout { display: block; }
+      .ax { padding: 0; font-size: 11pt; line-height: 1.6; }
+      .ax * { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+      .ax svg * { opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+      .ax h2 { margin-top: 28pt; break-after: avoid; }
+      .ax h3 { break-after: avoid; }
+      .ax-fig, .ax-stat, .ax-table, .ax-chain li, .ax-questions li { break-inside: avoid; }
+      .ax-cta { break-inside: avoid; margin-top: 32pt; padding: 28pt 24pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax-fig, .ax-stat, .ax-toc, .ax-table th, .ax-tag, .ax-chain li::before, .ax svg { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .ax a { color: inherit; }
+    }
+  </style>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="stylesheet" href="/theme.css?v=26" />
+</head>
+<body>
+
+  <!-- NAV -->
+    <nav class="nav">
+    <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
+    <div class="nav-links">
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true" aria-controls="navServices">Services<svg viewBox="0 0 12 8" width="11" height="8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1.5,1.75 6,6.25 10.5,1.75"/></svg></button><div class="nav-dd-menu" id="navServices"><a href="/product-design" class="nav-dd-item"><strong>Product Design</strong><span>Building a new product or improving an existing one.</span></a><a href="/cro-audit" class="nav-dd-item"><strong>Behavioral CRO Diagnosis</strong><span>Finding conversion barriers and deciding what to improve.</span></a></div></div>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu-backdrop" id="menuBackdrop" onclick="toggleMenu()"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-top">
+      <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" /></a>
+      <button class="mobile-menu-close" onclick="toggleMenu()">&#x2715;</button>
+    </div>
+    <div class="mobile-menu-links">
+      <span class="mobile-menu-label">Services</span>
+      <a href="/product-design" class="mobile-sub">Product Design</a>
+      <a href="/cro-audit" class="mobile-sub">Behavioral CRO Diagnosis</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/blog" class="active">Blog</a>
+      <a href="/faq">FAQ</a>
+      <a href="/about">About</a>
+      <a href="/contacts">Contacts</a>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page-wrapper">
+    <main class="page-content">
+<div class="ax-progress" id="axProgress" aria-hidden="true"></div>
+<div class="container">
+<div class="ax-layout">
+  <aside class="cs-toc ax-toc" aria-label="On this page">
+    <p class="ax-toc-title">On this page</p>
+    <ul>
+      <li><a href="#visual-trend">Skeuomorphism as a visual trend</a></li>
+      <li><a href="#decline">Criticism and decline</a></li>
+      <li><a href="#resurgence">The resurgence</a></li>
+      <li><a href="#now">Skeuomorphism now</a></li>
+      <li><a href="#cyclical">The cyclical nature of design</a></li>
+    </ul>
+  </aside>
+<article class="ax">
+
+  <header class="ax-head">
+    <div class="ax-meta"><span class="ax-tag post-tag">Interaction Design</span></div>
+    <h1>Skeuomorphism in design: definition, application, and relevance</h1>
+    <p class="ax-lede">Skeuomorphism is a design practice that incorporates elements of the real world into digital interfaces to create a sense of recognition. The term ‘skeuomorph’ refers to an object or design that imitates the characteristics of something else, essentially a copy or derivative. In other words, it’s the transfer of meaning, functions, and properties of a real object to a virtual one.</p>
+  </header>
+
+  <section id="intro">
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/dieter-rams-controls.jpg" width="600" height="413" alt="A panel of realistic knobs, buttons, switches and dials in the style of Dieter Rams’ product design" loading="lazy" decoding="async" />
+      <figcaption>An example of skeuomorphism in UI design by German industrial designer Dieter Rams</figcaption>
+    </figure>
+    <p>
+      When computers and the internet became commonplace, skeuomorphic elements played a crucial role: using metaphors and analogies from familiar physical objects as inspiration for interface elements such as icons (trash can, folder, document, home, etc.). This allowed users who were new to digital products to intuitively understand the purpose and functionality of these tools by associating them with already familiar objects.
+    </p>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/calculator-vs-app.jpg" width="1222" height="641" alt="A physical pocket calculator next to the Windows 2000 calculator app, with a similar button layout" loading="lazy" decoding="async" />
+      <figcaption>Calculator vs. calculator app in Windows 2000</figcaption>
+    </figure>
+  </section>
+
+  <section id="visual-trend">
+    <h2>Skeuomorphism as a visual design trend</h2>
+    <p>
+      In the late 2000s and early 2010s, skeuomorphism evolved from simply using physical metaphors for functionality into a major visual design trend. The interfaces of that period strived to reproduce not only the purpose but the entire outward appearance and sensory experience of their physical counterparts as accurately as possible.
+    </p>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/windows-desktop.jpg" width="1400" height="1052" alt="A Windows 2000 desktop with the Start menu open, showing detailed icons and a photographic wallpaper" loading="lazy" decoding="async" />
+      <figcaption>Windows 2000 interface</figcaption>
+    </figure>
+    <p>
+      The visual language of the time was characterized by pronounced realism with excessive use of realistic textures, shadows, gradients, and 3D effects to create a tangible, three-dimensional aesthetic imitating physical objects such as wood, leather, and paper. E-book readers like iBooks were designed to look like physical bookshelves with virtual books. Calendar apps resembled actual desktop calendars.
+    </p>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/ibooks-bookshelf.jpg" width="660" height="495" alt="The iBooks app on an iPad, with book covers arranged on wooden bookshelves" loading="lazy" decoding="async" />
+      <figcaption>iBooks app simulates a real bookshelf</figcaption>
+    </figure>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/ibooks-page-turn.jpg" width="640" height="425" alt="A person turning a page of an e-book on an iPad, with the page curling like paper" loading="lazy" decoding="async" />
+      <figcaption>iBooks simulates the effect of turning the pages of a book</figcaption>
+    </figure>
+    <p>
+      The goal was to create digital interfaces that looked and felt as visually similar to their real-world analogues as possible. While initially making unfamiliar interfaces feel more grounded and lifelike, the excessive details also led to visual element overload, processor strain, and slower load times.
+    </p>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/ios-icons-6-vs-17.jpg" width="1400" height="660" alt="Six pairs of iOS app icons, Wallet, Maps, Contacts, Clock, Weather and FaceTime, comparing the detailed iOS 6 versions from 2012 with the flat iOS 17 versions from 2023" loading="lazy" decoding="async" />
+      <figcaption>Evolution of iOS icons from skeuomorphism to flat design</figcaption>
+    </figure>
+    <p>
+      Despite its subsequent overuse, skeuomorphism in design played an important role in developing initial digital literacy among users. By using metaphors of familiar objects as instructional aids, skeuomorphism made new technologies more understandable and familiar to fledgling users.
+    </p>
+  </section>
+
+  <section id="decline">
+    <h2>Criticism and decline</h2>
+    <p>
+      As the novelty of skeuomorphism wore off and digital interfaces became more prevalent, critics began pointing out the limitations of this design approach. Key criticisms included:
+    </p>
+    <ul>
+      <li>Difficulty scaling skeuomorphic designs to different screen sizes and device types due to proportions based on physical objects</li>
+      <li>Visual clutter from excessive decorative textures and effects</li>
+      <li>Slower load times and processing needs due to graphical complexity</li>
+      <li>Apps and widgets were becoming increasingly complex and multi-functional, whereas physical objects were often limited in features and purpose</li>
+      <li>An outdated, inauthentic aesthetic look as it became excessive</li>
+    </ul>
+    <p>
+      The backlash against skeuomorphism’s constraints and excesses led to the rise of flat design and minimalist approaches distancing themselves from physical metaphors. As users became more technologically experienced, the need for such “hand-holding” through skeuomorphic realism diminished.
+    </p>
+    <figure class="sk-fig is-narrow">
+      <img src="/images/skeuomorphism/icons-evolution.png" width="742" height="952" alt="Four pairs of icons, with a detailed metaphor on the left turning into a simpler symbol on the right: a phone handset into a phone, an envelope into an at sign, a tray download into a cloud download, a floppy disk into the word Save" loading="lazy" decoding="async" />
+      <figcaption>Familiar metaphors giving way to simpler icons</figcaption>
+    </figure>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/trash-can-icons.png" width="768" height="300" alt="Five trash can icons, from a simple flat outline on the left to a detailed, realistic metal bin on the right" loading="lazy" decoding="async" />
+      <figcaption>Trash can icon from flat to skeuomorphic</figcaption>
+    </figure>
+  </section>
+
+  <section id="resurgence">
+    <h2>The resurgence of skeuomorphism</h2>
+    <p>
+      Although skeuomorphism fell out of fashion, some designers argue it could reemerge for certain use cases and audiences who struggle with adopting digital technologies and abstractions. For example, research by Ellis and Marshall explored using skeuomorphism to create more intuitive online banking interfaces for the elderly.
+    </p>
+    <p>
+      Their findings showed that while elderly users preferred the clean aesthetic of flat design visually, they still benefited significantly from skeuomorphic cues and metaphors when it came to learning and understanding the interface’s functionality. Realistic textures like shadows or paper edges provided helpful cues to these users about what actions would occur.
+    </p>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/contacts-icon-evolution.jpg" width="1400" height="670" alt="The iOS Contacts icon across six versions, from a leather address book in iPhone OS 2–3 to a flat silhouette icon in iOS 13 and later" loading="lazy" decoding="async" />
+      <figcaption>Evolution of the Contacts icon on iOS</figcaption>
+    </figure>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/maps-icon-evolution.jpg" width="1400" height="670" alt="The iOS Maps icon across six versions, from a detailed paper-map look with a pin in iPhone OS 1–3 to a flat, colourful icon in iOS 15 and later" loading="lazy" decoding="async" />
+      <figcaption>Evolution of the Maps icon on iOS</figcaption>
+    </figure>
+    <p>
+      Thus, skeuomorphism may play an important role in ensuring initial accessibility for new technologies before transitioning to more abstract interfaces as users become adept with new tech.
+    </p>
+  </section>
+
+  <section id="now">
+    <h2>Skeuomorphism now</h2>
+    <p>
+      Researchers in human-computer interaction speculate that skeuomorphism could reemerge as a methodology for easing the introduction of radically new interfaces and technologies like virtual reality (VR), augmented reality (AR), and wearable devices (smart watches, glasses, etc.).
+    </p>
+    <p>
+      For instance, while VR unlocks countless possibilities for designing entirely novel virtual spaces and objects, skeuomorphism could be a useful tool initially for “grounding” unfamiliar new solutions in familiar physical objects. Modeling virtual objects based on real-world counterparts will make them more comprehensible.
+    </p>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/vr-interface.jpg" width="1024" height="471" alt="A virtual reality home screen showing flat interface panels floating in a living room" loading="lazy" decoding="async" />
+      <figcaption>A virtual reality interface</figcaption>
+    </figure>
+    <figure class="sk-fig">
+      <img src="/images/skeuomorphism/smartwatch.jpg" width="1000" height="1000" alt="Two smartwatches with round faces and leather straps, one showing an analog-style watch face and the other a digital clock" loading="lazy" decoding="async" />
+      <figcaption>Smartwatch interface</figcaption>
+    </figure>
+    <p>
+      Smartwatch interfaces today still largely mimic classic analog watches — this was an intentional design choice to make the new device format relatable and familiar before transitioning to more optimized interfaces tailored specifically for wearables.
+    </p>
+  </section>
+
+  <section id="cyclical">
+    <h2>The cyclical nature of design</h2>
+    <p>
+      Design trends are cyclical — as user needs evolve alongside shifting technological and cultural contexts, certain skeuomorphic traits may reappear in interfaces blending innovation and recognizability.
+    </p>
+    <p>
+      While the overt skeuomorphic realism of the early 2010s fell out of fashion, the core principle of skeuomorphism using physical metaphors to ease the introduction of new technologies remains relevant, especially for onboarding radically new interfaces. As we evolve, skeuomorphism will likely continually resurface in new forms adapted to contemporary design constraints and user needs.
+    </p>
+  </section>
+
+  <section class="ax-cta pd-dark" aria-labelledby="sk-cta-t">
+    <h2 id="sk-cta-t">Working on a product interface?</h2>
+    <p>I’d be glad to talk through what is working for your users and what isn’t. Send me a short note about your product and I’ll tell you where I’d start.</p>
+    <a class="btn-dark" href="/#contact">Let's Connect</a>
+  </section>
+
+  <section class="ax-about">
+    <h2>About this article</h2>
+    <p>I'm Olga, a product designer and product owner with 20+ years of experience across SaaS platforms, AI-enabled products and data-heavy systems. This article was first published on <a href="https://medium.com/@olga.is.busy" target="_blank" rel="noopener">Medium</a> in March 2024. I also publish other articles there.</p>
+  </section>
+
+</article>
+</div>
+</div>
+    </main>
+
+    <!-- FOOTER -->
+        <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="footer-name" href="/"><img class="footer-avatar" src="/images/olga_kalinina.jpg" alt="" width="40" height="40" />Olga Kalinina</a>
+            <p class="footer-msg">I find where your conversion journey breaks and show you what to fix first.</p>
+          </div>
+          <nav class="footer-col" aria-label="Services">
+            <p class="footer-h">Services</p>
+            <a href="/product-design">Product Design</a>
+            <a href="/cro-audit">CRO Diagnosis</a>
+            <a href="/case-studies">Case Studies</a>
+          </nav>
+          <nav class="footer-col" aria-label="Learn">
+            <p class="footer-h">Learn</p>
+            <a href="/blog">Blog</a>
+            <a href="/faq">FAQ</a>
+          </nav>
+          <nav class="footer-col" aria-label="Company">
+            <p class="footer-h">Company</p>
+            <a href="/about">About</a>
+            <a href="/contacts">Contacts</a>
+            <a href="https://www.linkedin.com/in/olga-kalinina-sundary/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://medium.com/@olga.is.busy" target="_blank" rel="noopener">Medium</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">&#169; 2026 Olga Kalinina. All rights reserved.</p>
+          <span class="footer-legals"><a class="footer-legal" href="/privacy">Privacy Policy</a><a class="footer-legal" href="/terms">Terms</a><button type="button" class="footer-legal" data-consent-open>Cookie settings</button></span>
+        </div>
+      </div>
+    </footer>
+  </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('menuBackdrop').classList.toggle('open');
+    }
+  </script>
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bar = document.getElementById('axProgress');
+    if (bar && !still) {
+      var tick = 0;
+      var upd = function () { tick = 0; var h = document.documentElement.scrollHeight - window.innerHeight; bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')'; };
+      window.addEventListener('scroll', function () { if (!tick) tick = requestAnimationFrame(upd); }, { passive: true });
+      upd();
+    }
+    if (still || !('IntersectionObserver' in window)) return;
+    root.classList.add('ax-js');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (!e.isIntersecting) return; e.target.classList.add('is-in'); io.unobserve(e.target); });
+    }, { threshold: 0.25 });
+    [].forEach.call(document.querySelectorAll('[data-anim]'), function (el) { io.observe(el); });
+  })();
+  </script>
+  <script src="/js/toc.js" defer></script>
+  <script src="/js/theme.js" defer></script>
+  <script src="/js/analytics.js" defer></script>
+  <script src="/js/mesh-buttons.js" defer></script>
+</body>
+</html>
