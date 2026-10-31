@@ -29,9 +29,10 @@
     .hero-actions .btn-dark { display: inline-flex; align-items: center; gap: 8px; }
     .btn-arrow { width: 16px; height: 16px; flex: none; }
     /* Hero badge: photo-real lanyard and card (js/hero-badge.js animates it). Sizes are in "u" = 1/854 of the card width. */
-    .hb-wrap { --w: clamp(230px, 21vw, 300px); --u: calc(var(--w) / 854); position: relative; width: var(--w); height: calc(var(--u) * 1780); margin: -83px auto 0; justify-self: center; align-self: start; clip-path: inset(0 -600px -600px -600px); }
+    .hb-wrap { --w: clamp(230px, 21vw, 300px); --u: calc(var(--w) / 854); position: relative; width: var(--w); height: calc(var(--u) * 1780); margin: -83px auto 0; justify-self: center; align-self: start; clip-path: inset(-1200px -600px -600px -600px); }
     .hb-rig { position: absolute; left: 0; right: 0; top: calc(var(--u) * -212); height: calc(var(--u) * 1992); transform-origin: 50% 0; will-change: transform; }
     .hb-wrap:not(.hb-ready) .hb-rig { visibility: hidden; }
+    .hb-ext { position: absolute; z-index: 2; left: 50%; top: calc(var(--u) * -899); width: calc(var(--u) * 450); height: calc(var(--u) * 900); margin-left: calc(var(--u) * -225); background: url(images/hb-strap.webp) 0 100% / 100% auto repeat-y; pointer-events: none; }
     .hb-lan { position: absolute; z-index: 2; left: 50%; top: 0; width: calc(var(--u) * 450); height: auto; margin-left: calc(var(--u) * -225); filter: drop-shadow(0 calc(var(--u) * 6) calc(var(--u) * 8) rgba(0,0,0,.28)); pointer-events: none; user-select: none; }
     .hb-card { position: absolute; left: 0; top: calc(var(--u) * 677); width: var(--w); height: calc(var(--u) * 1315); transform-origin: 50% calc(var(--u) * 79); perspective: calc(var(--w) * 4); filter: drop-shadow(0 calc(var(--u) * 14) calc(var(--u) * 18) rgba(0,0,0,.3)); cursor: pointer; -webkit-tap-highlight-color: transparent; }
     .hb-card:focus-visible { outline: 2px solid var(--dark, #222); outline-offset: 6px; border-radius: calc(var(--u) * 60); }
@@ -45,8 +46,10 @@
     .hb-name { position: absolute; left: 0; right: 0; top: calc(var(--u) * 930); margin: 0; text-align: center; font-size: calc(var(--u) * 86); font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
     .hb-role { position: absolute; left: calc(var(--u) * 72); right: calc(var(--u) * 40); top: calc(var(--u) * 330); margin: 0; font-size: calc(var(--u) * 100); font-weight: 800; line-height: 1.12; letter-spacing: -.01em; text-transform: uppercase; }
     .hb-since { position: absolute; left: calc(var(--u) * 74); top: calc(var(--u) * 760); margin: 0; font-size: calc(var(--u) * 46); font-weight: 700; letter-spacing: .01em; text-transform: uppercase; color: rgba(70,40,0,.72); }
-    @media (prefers-reduced-motion: reduce) { .hb-flip { transition: none; } }
-    @media (max-width: 960px) { .hb-wrap { --w: 230px; margin-top: 0; } .hb-lan { -webkit-mask-image: linear-gradient(to bottom, transparent calc(var(--u) * 212), #000 calc(var(--u) * 212 + 56px)); mask-image: linear-gradient(to bottom, transparent calc(var(--u) * 212), #000 calc(var(--u) * 212 + 56px)); } }
+    .hb-spin { position: absolute; left: 50%; top: calc(var(--u) * 1125); width: calc(var(--u) * 150); height: auto; margin-left: calc(var(--u) * -75); opacity: .78; pointer-events: none; animation: hbSpin 4.2s ease-in-out infinite; }
+    @keyframes hbSpin { 0%, 50% { transform: perspective(400px) rotateY(0deg); } 78%, 100% { transform: perspective(400px) rotateY(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .hb-flip { transition: none; } .hb-spin { animation: none; } }
+    @media (max-width: 960px) { .hb-wrap { --w: 230px; margin-top: 0; clip-path: inset(0 -600px -600px -600px); } .hb-ext { display: none; } .hb-lan { -webkit-mask-image: linear-gradient(to bottom, transparent calc(var(--u) * 212), #000 calc(var(--u) * 212 + 56px)); mask-image: linear-gradient(to bottom, transparent calc(var(--u) * 212), #000 calc(var(--u) * 212 + 56px)); } }
     .hero-photo { width: 100%; height: auto; aspect-ratio: 4 / 4.3; border-radius: 33px; object-fit: cover; object-position: 50% 40%; display: block; background: var(--bg-soft); }
     .btn-outline-dark { display: inline-flex; align-items: center; justify-content: center; padding: 12px 26px; border: 1.5px solid var(--dark); border-radius: var(--radius-pill); background: transparent; color: var(--dark); font-family: var(--font); font-size: 15px; font-weight: 500; transition: background var(--transition), transform var(--transition); }
     .btn-outline-dark:hover { background: var(--bg-soft); transform: translateY(-1px); }
@@ -455,6 +458,7 @@
           </div>
           <div class="hb-wrap">
             <div class="hb-rig">
+              <span class="hb-ext" aria-hidden="true"></span>
               <img class="hb-lan" src="images/hb-lanyard-4.webp" alt="" width="276" height="490" decoding="async" />
               <div class="hb-card" role="button" tabindex="0" aria-label="Olga Kalinina, product designer and CRO expert. Press to turn the badge over.">
                 <div class="hb-flip">
@@ -463,11 +467,13 @@
                     <img class="hb-photo" src="images/olga_hero.jpg" alt="" width="1600" height="1062" decoding="async" draggable="false" />
                     <span class="hb-gloss"></span>
                     <p class="hb-name">Olga Kalinina</p>
+                    <img class="hb-spin" src="images/hb-rotate.png" alt="" width="240" height="144" />
                   </div>
                   <div class="hb-face is-back">
                     <img class="hb-cardimg" src="images/hb-card.webp" alt="" width="760" height="1170" decoding="async" draggable="false" />
                     <p class="hb-role">Product designer &amp; CRO expert</p>
                     <p class="hb-since">Since 2004</p>
+                    <img class="hb-spin" src="images/hb-rotate.png" alt="" width="240" height="144" />
                   </div>
                 </div>
               </div>
