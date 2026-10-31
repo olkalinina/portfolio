@@ -14,6 +14,20 @@
   var a = 0, av = 0;      /* lanyard angle (deg) and its speed, hangs from a point hidden under the menu */
   var f = 0, fv = 0;      /* card angle (deg, absolute) and its speed, hangs from the clasp */
   var t0 = null, last = 0, dropped = false, running = false, visible = true;
+  var lim = 28;           /* largest card swing (deg); smaller when the badge is close to the edge of the page */
+  function fitLimit() {
+    var host = wrap.closest('section') || document.documentElement;
+    var h = host.getBoundingClientRect(), w = wrap.getBoundingClientRect();
+    var cx = w.left + w.width / 2, u = w.width / 854;
+    var room = Math.min(cx - Math.max(h.left, 0), Math.min(h.right, window.innerWidth) - cx) - 8 - 100 * u;
+    var half = w.width / 2, below = 1236 * u, best = 8;
+    for (var d = 8; d <= 28; d += 0.5) {
+      var r = d * Math.PI / 180;
+      if (half * Math.cos(r) + below * Math.sin(r) <= room) best = d; else break;
+    }
+    lim = best;
+  }
+  window.addEventListener('resize', fitLimit);
   var DROP = 1150;        /* ms for the drop */
 
   function ease(x) {      /* fast start, small overshoot, settles */
@@ -48,7 +62,7 @@
     /* card: a looser pendulum hanging from the lanyard */
     var fa = -14 * f - 1.25 * fv + 6 * (a - f) + idle * 20;
     fv += fa * dt; f += fv * dt;
-    if (f > 28) { f = 28; fv *= -0.3; } if (f < -28) { f = -28; fv *= -0.3; }
+    if (f > lim) { f = lim; fv *= -0.3; } if (f < -lim) { f = -lim; fv *= -0.3; }
 
     render(dropY);
     requestAnimationFrame(frame);
@@ -90,6 +104,7 @@
   }
   document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
 
+  fitLimit();
   /* start hidden above the menu, then drop */
   render(-(setHeight() + 40));
   wrap.classList.add('hb-ready');
