@@ -29,11 +29,11 @@
     .hero-actions .btn-dark { display: inline-flex; align-items: center; gap: 8px; }
     .btn-arrow { width: 16px; height: 16px; flex: none; }
     /* Hero badge: photo-real lanyard and card (js/hero-badge.js animates it). Sizes are in "u" = 1/854 of the card width. */
-    .hb-wrap { --w: clamp(230px, 21vw, 300px); --u: calc(var(--w) / 854); position: relative; width: var(--w); height: calc(var(--u) * 2169); margin: -83px auto 0; justify-self: center; align-self: start; clip-path: inset(0 -600px -600px -600px); }
-    .hb-rig { position: absolute; left: 0; right: 0; top: calc(var(--u) * -212); height: calc(var(--u) * 2381); transform-origin: 50% 0; will-change: transform; }
+    .hb-wrap { --w: clamp(230px, 21vw, 300px); --u: calc(var(--w) / 854); position: relative; width: var(--w); height: calc(var(--u) * 2041); margin: -83px auto 0; justify-self: center; align-self: start; clip-path: inset(0 -600px -600px -600px); }
+    .hb-rig { position: absolute; left: 0; right: 0; top: calc(var(--u) * -212); height: calc(var(--u) * 2253); transform-origin: 50% 0; will-change: transform; }
     .hb-wrap:not(.hb-ready) .hb-rig { visibility: hidden; }
-    .hb-lan { position: absolute; z-index: 2; left: 50%; top: 0; width: calc(var(--u) * 447); height: auto; margin-left: calc(var(--u) * -224); filter: drop-shadow(0 calc(var(--u) * 6) calc(var(--u) * 8) rgba(0,0,0,.28)); pointer-events: none; user-select: none; }
-    .hb-card { position: absolute; left: 0; top: calc(var(--u) * 1066); width: var(--w); height: calc(var(--u) * 1315); transform-origin: 50% calc(var(--u) * 79); filter: drop-shadow(0 calc(var(--u) * 14) calc(var(--u) * 18) rgba(0,0,0,.3)); }
+    .hb-lan { position: absolute; z-index: 2; left: 50%; top: 0; width: calc(var(--u) * 450); height: auto; margin-left: calc(var(--u) * -225); filter: drop-shadow(0 calc(var(--u) * 6) calc(var(--u) * 8) rgba(0,0,0,.28)); pointer-events: none; user-select: none; }
+    .hb-card { position: absolute; left: 0; top: calc(var(--u) * 938); width: var(--w); height: calc(var(--u) * 1315); transform-origin: 50% calc(var(--u) * 79); filter: drop-shadow(0 calc(var(--u) * 14) calc(var(--u) * 18) rgba(0,0,0,.3)); }
     .hb-cardimg { position: absolute; inset: 0; width: 100%; height: 100%; user-select: none; pointer-events: none; }
     .hb-photo { position: absolute; left: calc(var(--u) * 87); top: calc(var(--u) * 250); width: calc(var(--u) * 680); height: calc(var(--u) * 800); object-fit: cover; object-position: 50% 30%; border-radius: calc(var(--u) * 34); box-shadow: 0 0 0 calc(var(--u) * 6) rgba(255,255,255,.55), 0 calc(var(--u) * 6) calc(var(--u) * 14) rgba(90,55,0,.4); }
     .hb-gloss { position: absolute; left: calc(var(--u) * 87); top: calc(var(--u) * 250); width: calc(var(--u) * 680); height: calc(var(--u) * 800); border-radius: calc(var(--u) * 34); background: linear-gradient(125deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 38%); pointer-events: none; }
@@ -446,7 +446,7 @@
           </div>
           <div class="hb-wrap" role="img" aria-label="Olga Kalinina, product designer">
             <div class="hb-rig">
-              <img class="hb-lan" src="images/hb-lanyard.webp" alt="" width="274" height="725" decoding="async" />
+              <img class="hb-lan" src="images/hb-lanyard.webp?v=2" alt="" width="276" height="650" decoding="async" />
               <div class="hb-card">
                 <img class="hb-cardimg" src="images/hb-card.webp" alt="" width="760" height="1170" decoding="async" />
                 <img class="hb-photo" src="images/olga_hero.jpg" alt="" width="1600" height="1062" decoding="async" />
