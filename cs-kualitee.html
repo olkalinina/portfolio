@@ -17,6 +17,7 @@
   <meta name="twitter:description" content="Case study: why the Sign-Up page of Kualitee, a B2B SaaS platform, was leaking conversions, and how it was redesigned." />
   <meta name="twitter:image" content="https://olgakalinina.me/images/Cover_image_card.png" />
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Kualitee: Why the Sign-Up Page Was Leaking Conversions","description":"Case study: why the Sign-Up page of Kualitee, a B2B SaaS platform, was leaking conversions, and how it was redesigned.","image":"https://olgakalinina.me/images/Cover_image_card.png","mainEntityOfPage":"https://olgakalinina.me/cs-kualitee","author":{"@id":"https://olgakalinina.me/#person"}},{"@type":"Person","@id":"https://olgakalinina.me/#person","name":"Olga Kalinina","jobTitle":"Product Designer & Behavioral CRO Expert","url":"https://olgakalinina.me/","image":"https://olgakalinina.me/images/olga_hero.jpg","sameAs":["https://www.linkedin.com/in/olga-kalinina-sundary/","https://substack.com/@olinproduct/"],"knowsAbout":["Product design","UX design","Conversion rate optimisation","SaaS","AI products","UX strategy"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cases","item":"https://olgakalinina.me/case-studies"},{"@type":"ListItem","position":2,"name":"Kualitee","item":"https://olgakalinina.me/cs-kualitee"}]}</script>
   <link rel="stylesheet" href="style.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,86 +39,14 @@
     body { min-height: 100vh; }
     a { color: inherit; }
 
-    
-
-    /* ── PAGE WRAPPER ── */
-    .page {
-      max-width: var(--page-w);
-      margin: 0 auto;
-      padding-top: 80px;
-    }
-
-    /* ── MAIN CONTENT ── */
-    .content {
-      max-width: var(--content-w);
-      margin: 0 auto;
-      padding: 0 0 120px;
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
-    }
-
-    /* ── LOGO ROW ── */
-    .logo-row {
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo-row img.logo { height: 57px; width: auto; }
-    .share-btn {
-      width: 24px; height: 24px; cursor: pointer; opacity: .7;
-      background: none; border: none; padding: 0;
-    }
-    .share-btn svg { width: 24px; height: 24px; }
-
-    /* ── TITLE BLOCK ── */
-    .title-block { display: flex; flex-direction: column; gap: 16px; }
-    .title-block h1 {
-      font-size: 36px; font-weight: 600; line-height: 1.2; color: var(--ink);
-    }
-    .title-block .subtitle {
-      font-size: 16px; font-weight: 500; color: var(--ink-muted); margin-top: 10px;
-    }
-    .title-block .description {
-      font-size: 22px; font-weight: 400; color: var(--ink);
-      line-height: 1.45;
-    }
-
-    /* ── COVER IMAGE ── */
-    .cover-img {
-      width: 100%; border-radius: 32px;
-      box-shadow: 0 4px 12px rgba(112,115,121,0.1);
-      display: block; object-fit: cover;
-      border: none; outline: none;
-    }
-
-    /* ── SNAPSHOT CARDS ── */
-    .snapshot-cards { display: flex; flex-direction: column; gap: 24px; }
-    .card {
-      background: var(--bg-card); border-radius: 24px;
-      padding: 32px 24px; width: 100%;
-    }
-    .card h2 {
-      font-size: 24px; font-weight: 500; margin-bottom: 24px; line-height: 1.2;
-    }
-    .card p, .card li {
-      font-size: 18px; font-weight: 400; line-height: 28px; color: var(--ink);
-    }
-    .card p + p { margin-top: 8px; }
-    .card strong { font-weight: 700; }
-    .card em { font-style: italic; }
-
-    /* ── SECTION HEADING ── */
-    .section-heading {
-      font-size: 32px; font-weight: 700; line-height: 1.2; color: var(--ink);
-    }
-
     /* ── ANNOTATED IMAGE ── */
     .annotated-img-wrap {
       position: relative; display: block; width: 100%; line-height: 0;
-      overflow: hidden; border-radius: 24px;
+      overflow: hidden; border-radius: 24px; border: 1px solid var(--border);
     }
     .annotated-img-wrap img {
       width: 100%;
-      box-shadow: 0 4px 12px rgba(112,115,121,0.1);
+      box-shadow: none;
       display: block;
       border: none; outline: none;
     }
@@ -151,28 +80,13 @@
     .numbered-row-text em { font-style: italic; }
     .numbered-row-text p + p { margin-top: 8px; }
 
-    /* ── CALLOUT BOX (lamp / brain / warning) ── */
-    .callout {
-      background: var(--bg-card); border-radius: 24px;
-      padding: 24px; display: flex; gap: 24px; align-items: flex-start;
-      width: 100%;
-    }
-    .callout-body { flex: 1; font-size: 18px; font-style: italic; line-height: 28px; color: var(--ink); }
-    .callout-body strong { font-weight: 700; }
-
     /* ── 3 QUESTIONS BLOCK ── */
     .questions-section {
       display: flex; flex-direction: column; gap: 32px; align-items: center;
     }
-    .questions-title {
-      font-size: 24px; font-weight: 700; color: var(--ink); text-align: center;
-    }
     .questions-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; width: 100%; }
     .question-card {
       background: var(--bg-card); border-radius: 24px; padding: 32px 24px;
-    }
-    .question-card h3 {
-      font-size: 24px; font-weight: 500; line-height: 1.3; margin-bottom: 24px; color: var(--ink);
     }
     .question-card p {
       font-size: 18px; font-weight: 400; line-height: 28px; color: var(--ink);
@@ -190,9 +104,6 @@
     }
     .mobile-screen img { width: 100%; display: block; border-radius: 40px; }
     .mobile-text { flex: 1; }
-    .mobile-text h3 {
-      font-size: 24px; font-weight: 500; margin-bottom: 24px; color: var(--ink); line-height: 1.3;
-    }
     .mobile-text p {
       font-size: 18px; line-height: 28px; color: var(--ink); margin-bottom: 8px;
     }
@@ -203,9 +114,6 @@
       display: flex; flex-direction: column; gap: 32px; align-items: center;
     }
     .about-section .brain-icon { width: 48px; height: 48px; flex-shrink: 0; color: var(--dark); }
-    .about-section h2 {
-      font-size: 24px; font-weight: 700; text-align: center; color: var(--ink);
-    }
     .about-list {
       list-style: disc; padding-left: 27px;
       font-size: 18px; line-height: 28px; color: var(--ink);
@@ -214,25 +122,9 @@
 
     /* ── THREE QUESTIONS CLOSING ── */
     .closing-questions { display: flex; flex-direction: column; gap: 32px; width: 100%; }
-    .closing-questions h2 {
-      font-size: 24px; font-weight: 700; line-height: 28px; color: var(--ink);
-    }
     .closing-questions .q-block p { font-size: 18px; line-height: 28px; color: var(--ink); }
     .closing-questions .q-block + .q-block { margin-top: 32px; }
     .closing-questions .q-label { font-weight: 700; margin-bottom: 8px; }
-
-    /* ── SOURCES ── */
-    .sources-block {
-      border-top: 1px solid var(--border);
-      padding-top: 32px;
-    }
-    .sources-block p, .sources-block li {
-      font-size: 14px; font-style: italic; color: var(--ink-muted); line-height: 20px;
-    }
-    .sources-block ul { list-style: disc; padding-left: 20px; margin-top: 8px; }
-    .sources-block li { margin-bottom: 0; }
-    .sources-block a { color: var(--ink-muted); text-decoration: underline; }
-    .sources-block a:hover { color: var(--ink); }
 
 
     /* ── INLINE ITALIC BOLD ── */
@@ -247,39 +139,8 @@
       /* padding-top handled by .page-content in style.css */
     }
     @media (max-width: 640px) {
-      .title-block h1 { font-size: 26px; }
-      .section-heading { font-size: 24px; }
-      .card h2 { font-size: 20px; }
     }
-
-    /* ── CTA BLOCK ── */
-    .cta-block {
-      margin-top: 0;
-      padding: 48px 0;
-      border-top: 2px solid var(--border);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .cta-block h2 { font-size: 24px; font-weight: 600; color: var(--ink); }
-    .cta-block p { font-size: 16px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 12px; }
-    .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 24px; border-radius: 9999px;
-      border: 1.5px solid var(--border); background: white;
-      font-size: 16px; font-weight: 500; color: var(--ink);
-      cursor: pointer; transition: border-color .2s, transform .2s;
-      font-family: var(--font); text-decoration: none;
-    }
-    .btn-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
-    .btn-outline img { width: 18px; height: 18px; object-fit: contain; }
     @media (max-width: 768px) {
-      .cta-block h2 { font-size: 20px; }
-      .cta-buttons { flex-direction: column; align-items: stretch; }
-      .btn-outline { justify-content: center; }
     }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -287,6 +148,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
   <link rel="stylesheet" href="/theme.css?v=32" />
+  <link rel="stylesheet" href="/cs.css?v=1" />
 </head>
 <body data-cs-cta="Is your sign-up page leaking conversions?">
 
@@ -296,7 +158,7 @@
     <div class="nav-links">
       <a href="/cro-audit">CRO Audit</a>
       <a href="/product-design">Product Design</a>
-      <a href="/case-studies" class="active">Case Studies</a>
+      <a href="/case-studies" class="active">Cases</a>
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
       <a href="/contacts">Contacts</a>
@@ -315,7 +177,7 @@
     <div class="mobile-menu-links">
       <a href="/cro-audit">CRO Audit</a>
       <a href="/product-design">Product Design</a>
-      <a href="/case-studies" class="active">Case Studies</a>
+      <a href="/case-studies" class="active">Cases</a>
       <a href="/blog">Blog</a>
       <a href="/faq">FAQ</a>
       <a href="/about">About</a>
@@ -324,18 +186,17 @@
   </div>
 
 <div class="page-wrapper">
-<main class="page-content">
+<main class="page-content cs-main">
 <div class="container">
 <!-- ═══════════ MAIN ═══════════ -->
 <div class="page">
 <div class="content">
 
-  <!-- LOGO + SHARE -->
+  <nav class="cs-crumbs" aria-label="Breadcrumb"><ol><li><a href="/case-studies">Cases</a></li><li><span aria-current="page">Kualitee</span></li></ol></nav>
+
+  <!-- LOGO -->
   <div class="logo-row">
     <img class="logo" src="images/Logo_kualitee.png" alt="Kualitee" />
-    <button class="share-btn" onclick="if(navigator.share){navigator.share({title:document.title,url:location.href})}else{navigator.clipboard.writeText(location.href)}" aria-label="Share">
-      <img src="images/share-07.png" alt="Share" style="width:24px;height:24px;opacity:.7;" />
-    </button>
   </div>
 
   <!-- TITLE -->
@@ -660,22 +521,6 @@
     </ul>
   </div>
 
-  <!-- CTA BLOCK -->
-  <div class="cta-block">
-    <h2>Enjoyed this analysis?</h2>
-    <p>Share it with your network or subscribe for future insights.</p>
-    <div class="cta-buttons">
-      <button class="btn-outline" id="shareCtaBtn">
-        Share With Your Network
-        <img src="images/share-07.png" alt="" />
-      </button>
-      <a class="btn-outline" href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
-        Subscribe
-        <img src="images/substack.png" alt="Substack" />
-      </a>
-    </div>
-  </div>
-
 </div><!-- /content -->
 </div><!-- /page -->
 </div><!-- /container -->
@@ -719,25 +564,6 @@
     </footer>
 </div><!-- /page-wrapper -->
 
-  <script>
-    async function doShare() {
-      const url   = window.location.href;
-      const title = document.title;
-      if (navigator.share) {
-        try { await navigator.share({ title, url }); return; } catch (e) {}
-      }
-      try {
-        await navigator.clipboard.writeText(url);
-        const btn = document.getElementById('shareCtaBtn');
-        const orig = btn.innerHTML;
-        btn.textContent = 'Link copied ✓';
-        setTimeout(() => { btn.innerHTML = orig; }, 2000);
-      } catch (e) {
-        window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url), '_blank');
-      }
-    }
-    document.getElementById('shareCtaBtn').addEventListener('click', doShare);
-  </script>
   <script>
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');

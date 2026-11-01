@@ -17,44 +17,9 @@
   <meta name="twitter:description" content="A UX teardown of the UPDF pricing page: how unclear plans and inconsistent prices break trust before the user pays, with a wireframe redesign proposal." />
   <meta name="twitter:image" content="https://olgakalinina.me/images/UPDF_cover_card.png" />
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"UPDF: How a Pricing Page Breaks Trust Before the User Pays","description":"A UX teardown of the UPDF pricing page: how unclear plans and inconsistent prices break trust before the user pays, with a wireframe redesign proposal.","image":"https://olgakalinina.me/images/UPDF_cover_card.png","mainEntityOfPage":"https://olgakalinina.me/cs-updf","author":{"@id":"https://olgakalinina.me/#person"}},{"@type":"Person","@id":"https://olgakalinina.me/#person","name":"Olga Kalinina","jobTitle":"Product Designer & Behavioral CRO Expert","url":"https://olgakalinina.me/","image":"https://olgakalinina.me/images/olga_hero.jpg","sameAs":["https://www.linkedin.com/in/olga-kalinina-sundary/","https://substack.com/@olinproduct/"],"knowsAbout":["Product design","UX design","Conversion rate optimisation","SaaS","AI products","UX strategy"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cases","item":"https://olgakalinina.me/case-studies"},{"@type":"ListItem","position":2,"name":"UPDF","item":"https://olgakalinina.me/cs-updf"}]}</script>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── CASE STUDY LAYOUT ── */
-    .cs-wrap {
-      max-width: 1187px;
-      margin: 0 auto;
-      padding: 80px 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
-    }
-
-    /* Logo row */
-    .cs-logo-row { display: flex; align-items: center; justify-content: space-between; }
-    .cs-logo-pill {
-      display: flex; align-items: center; gap: 8px;
-      background: #fff; border-radius: 9999px;
-      padding: 8px 16px;
-    }
-    .cs-logo-pill img { width: 42px; height: 42px; object-fit: contain; }
-    .cs-logo-name {
-      font-size: 26px; font-weight: 800; color: #0a0a0a;
-      letter-spacing: -0.26px;
-    }
-    .cs-share-btn {
-      background: none; border: none; cursor: pointer; padding: 4px;
-      opacity: 0.7; display: flex; align-items: center; transition: opacity 0.2s;
-    }
-    .cs-share-btn:hover { opacity: 1; }
-    .cs-share-btn img { width: 24px; height: 24px; }
-
-    /* Title block */
-    .cs-title-block { display: flex; flex-direction: column; gap: 10px; }
-    .cs-title-block h1 { font-size: 36px; font-weight: 600; line-height: 1.2; color: var(--dark); }
-    .cs-subtitle { font-size: 16px; font-weight: 500; color: var(--gray); }
-
-    /* Intro description */
-    .cs-intro { font-size: 22px; line-height: 1.5; color: var(--dark); font-weight: 400; }
 
     /* Disclaimer card */
     .cs-disclaimer {
@@ -66,22 +31,9 @@
     .cs-disclaimer-label { font-weight: 500; font-style: italic; line-height: 1; }
     .cs-disclaimer p { font-weight: 400; line-height: 1; font-style: italic; }
 
-    /* Cover image */
-    .cs-cover-wrap { border-radius: 32px; overflow: hidden; border: 1px solid var(--light-gray); background: white; }
-    .cs-cover-wrap img { width: 100%; display: block; border: none; }
-
-    /* "The one job" section — grey card */
-    .cs-snapshot-card {
-      background: var(--bg-soft); border-radius: 24px;
-      padding: 32px 24px; display: flex; flex-direction: column; gap: 24px;
-    }
-    .cs-snapshot-card h2 { font-size: 24px; font-weight: 500; color: var(--dark); line-height: 28px; }
-    .cs-snapshot-card p { font-size: 18px; line-height: 28px; color: var(--dark); }
-
     /* Sections */
     .cs-section { display: flex; flex-direction: column; gap: 56px; }
     .cs-section-inner { display: flex; flex-direction: column; gap: 32px; }
-    .cs-issue-heading { font-size: 24px; font-weight: 700; line-height: 28px; color: var(--dark); }
 
     /* Body text */
     .cs-body { font-size: 18px; line-height: 28px; color: var(--dark); }
@@ -91,42 +43,20 @@
     .cs-body em { font-style: italic; }
 
     /* Image wrappers */
-    .cs-img-wrap { border-radius: 32px; overflow: hidden; }
+    .cs-img-wrap { border-radius: 24px; border: 1px solid var(--light-gray); overflow: hidden; }
     .cs-img-wrap img { width: 100%; display: block; border: none; }
 
     /* Issue 3: side-by-side layout */
     .cs-issue-split { display: flex; gap: 32px; align-items: center; }
-    .cs-issue-split-img { flex-shrink: 0; width: 375px; border-radius: 32px; overflow: hidden; }
+    .cs-issue-split-img { flex-shrink: 0; width: 375px; border-radius: 24px; border: 1px solid var(--light-gray); overflow: hidden; }
     .cs-issue-split-img img { width: 100%; display: block; border: none; }
     .cs-issue-split-text { flex: 1; font-size: 18px; line-height: 28px; color: var(--dark); }
     .cs-issue-split-text p { margin-bottom: 8px; }
     .cs-issue-split-text p:last-child { margin-bottom: 0; }
     .cs-issue-split-text strong { font-weight: 700; }
 
-    /* Callout types */
-    .cs-callout-group { display: flex; flex-direction: column; gap: 24px; }
-
-    /* Light callout */
-    .cs-callout-light {
-      background: var(--bg-soft); border-radius: 24px;
-      padding: 24px; display: flex; gap: 24px; align-items: flex-start;
-    }
-    .cs-callout-light-body { flex: 1; font-size: 18px; line-height: 28px; color: var(--dark); font-style: italic; }
-    .cs-callout-light-body > strong:first-child { font-weight: 700; display: block; margin-bottom: 8px; }
-    .cs-callout-light-body strong { font-weight: 700; }
-
-    /* Dark callout */
-    .cs-callout-dark {
-      background: #3d3d3d; border-radius: 24px;
-      padding: 24px; display: flex; gap: 24px; align-items: flex-start;
-    }
-    .cs-callout-dark-body { flex: 1; font-size: 18px; line-height: 28px; color: white; font-style: italic; }
-    .cs-callout-dark-body > strong:first-child { font-weight: 700; display: block; margin-bottom: 8px; }
-    .cs-callout-dark-body strong { font-weight: 700; }
-
     /* Redesign section — centered */
     .cs-redesign-center { display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center; }
-    .cs-redesign-heading { font-size: 24px; font-weight: 700; color: var(--dark); line-height: 28px; }
     .cs-redesign-sub { font-size: 18px; line-height: 28px; color: var(--dark); max-width: 858px; }
 
     /* Wireframe block — scoped under .wf-root */
@@ -209,15 +139,6 @@
     /* Closing paragraph */
     .cs-closing { font-size: 18px; line-height: 28px; color: var(--dark); }
 
-    /* CTA */
-    .cta-block { margin-top: 0; padding: 48px 0 120px; border-top: 2px solid var(--light-gray); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .cta-block h2 { font-size: 24px; font-weight: 600; color: var(--dark); }
-    .cta-block p { font-size: 16px; color: var(--gray); line-height: 1.6; margin-bottom: 12px; }
-    .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 9999px; border: 1.5px solid var(--light-gray); background: white; font-size: 16px; font-weight: 500; color: var(--dark); cursor: pointer; transition: border-color 0.2s, transform 0.2s; font-family: 'Inter', sans-serif; text-decoration: none; }
-    .btn-outline:hover { border-color: var(--dark); transform: translateY(-1px); }
-    .btn-outline img { width: 18px; height: 18px; object-fit: contain; }
-
     @media (max-width: 900px) {
       .cs-issue-split { flex-direction: column; }
       .cs-issue-split-img { width: 100%; }
@@ -225,12 +146,6 @@
       .wf-root .pg-section { padding: 24px 20px; }
     }
     @media (max-width: 768px) {
-      .cs-title-block h1 { font-size: 28px; }
-      .cs-issue-heading { font-size: 20px; }
-      .cs-intro { font-size: 18px; }
-      .cta-block h2 { font-size: 20px; }
-      .cta-buttons { flex-direction: column; align-items: stretch; }
-      .btn-outline { justify-content: center; }
     }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -238,6 +153,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
   <link rel="stylesheet" href="/theme.css?v=32" />
+  <link rel="stylesheet" href="/cs.css?v=1" />
 </head>
 <body data-cs-cta="Is your pricing page losing buyers before they pay?">
 
@@ -246,7 +162,7 @@
     <div class="nav-links">
       <a href="/cro-audit">CRO Audit</a>
       <a href="/product-design">Product Design</a>
-      <a href="/case-studies" class="active">Case Studies</a>
+      <a href="/case-studies" class="active">Cases</a>
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
       <a href="/contacts">Contacts</a>
@@ -265,7 +181,7 @@
     <div class="mobile-menu-links">
       <a href="/cro-audit">CRO Audit</a>
       <a href="/product-design">Product Design</a>
-      <a href="/case-studies" class="active">Case Studies</a>
+      <a href="/case-studies" class="active">Cases</a>
       <a href="/blog">Blog</a>
       <a href="/faq">FAQ</a>
       <a href="/about">About</a>
@@ -274,29 +190,25 @@
   </div>
 
   <div class="page-wrapper">
-    <main class="page-content">
+    <main class="page-content cs-main">
       <div class="container">
-        <div class="cs-wrap">
+        <div class="page">
+<div class="content">
+<nav class="cs-crumbs" aria-label="Breadcrumb"><ol><li><a href="/case-studies">Cases</a></li><li><span aria-current="page">UPDF</span></li></ol></nav>
 
           <!-- Logo row -->
-          <div class="cs-logo-row">
-            <div class="cs-logo-pill">
-              <img src="images/updf_logo.png" alt="UPDF logo" />
-              <span class="cs-logo-name">UPDF</span>
-            </div>
-            <button class="cs-share-btn" id="shareTopBtn" aria-label="Share">
-              <img src="images/share-07.png" alt="Share" />
-            </button>
+          <div class="logo-row">
+            <img class="logo" src="images/Logo_UPDF.png" alt="UPDF" />
           </div>
 
           <!-- Title block -->
-          <div class="cs-title-block">
-            <h1>UPDF: how a pricing page breaks trust before the user pays</h1>
-            <div class="cs-subtitle">Product Design · SaaS · 2026</div>
+          <div class="title-block">
+            <div>
+              <h1>UPDF: how a pricing page breaks trust before the user pays</h1>
+              <p class="subtitle">Product Design · SaaS · 2026</p>
+            </div>
+            <p class="description">UPDF is an AI-powered PDF editor for different platforms. It competes directly with Adobe Acrobat — and positions itself as the affordable, smarter alternative. The pricing page is where that promise either holds or breaks. I opened it as a new user trying to buy. I couldn't figure out what I was buying. This is what I found — and what I'd do differently.</p>
           </div>
-
-          <!-- Intro description -->
-          <p class="cs-intro">UPDF is an AI-powered PDF editor for different platforms. It competes directly with Adobe Acrobat — and positions itself as the affordable, smarter alternative. The pricing page is where that promise either holds or breaks. I opened it as a new user trying to buy. I couldn't figure out what I was buying. This is what I found — and what I'd do differently.</p>
 
           <!-- Disclaimer -->
           <div class="cs-disclaimer">
@@ -305,17 +217,16 @@
           </div>
 
           <!-- Cover image -->
-          <div class="cs-cover-wrap">
-            <img src="images/cover_updf.png" alt="UPDF pricing page analysis" />
-          </div>
+          <img class="cover-img" src="images/cover_updf.png" alt="UPDF pricing page analysis" />
 
           <!-- The one job of a pricing page -->
-          <div class="cs-snapshot-card">
-            <h2 data-toc="The one job of a pricing page">The one job of a pricing page</h2>
-            <div>
-              <p style="font-size:18px;line-height:28px;color:var(--dark);margin-bottom:8px;">A user arrives at a pricing page already interested. They've read about the product. They've compared alternatives. They came here for one thing: to understand what to buy and why.</p>
-              <p style="font-size:18px;line-height:28px;color:var(--dark);margin-bottom:8px;">The page has 30 seconds to answer that.</p>
-              <p style="font-size:18px;line-height:28px;color:var(--dark);">This one doesn't.</p>
+          <div class="snapshot-cards">
+            <div class="card">
+              <h2 data-toc="The one job of a pricing page">The one job of a pricing page</h2>
+              <p>A user arrives at a pricing page already interested. They've read about the product. They've compared alternatives. They came here for one thing: to understand what to buy and why.</p>
+              <p>The page has 30 seconds to answer that.</p>
+              <p>This one doesn't.</p>
+            
             </div>
           </div>
 
@@ -324,8 +235,8 @@
 
             <!-- Issue 1 -->
             <div class="cs-section-inner">
-              <p data-toc="What I found" style="font-size:32px;font-weight:700;line-height:32px;color:var(--dark);">What I found</p>
-              <p class="cs-issue-heading">Issue 1: The page doesn't know what it's selling</p>
+              <h2 class="section-heading" data-toc="What I found">What I found</h2>
+              <h3 class="issue-heading">Issue 1: The page doesn't know what it's selling</h3>
               <div class="cs-img-wrap">
                 <img src="images/issue_1.png" alt="Issue 1: duplicate plan names" />
               </div>
@@ -337,9 +248,9 @@
               <p>There is also a fourth plan — <strong>UPDF Sign</strong> — positioned below the main three with no clear relationship to them. And a fifth plan, <strong>"UPDF with AI"</strong> priced at $148.99, which appears only in the comparison table at the bottom. It has no card. No CTA. No explanation. It exists in the table as if the user already knows what it is.</p>
               <p><strong>Five pricing options. Four cards. One ghost plan. No hierarchy at all.</strong></p>
             </div>
-            <div class="cs-callout-light">
+            <div class="callout">
               <span class="ic ic-data" aria-hidden="true"></span>
-              <div class="cs-callout-light-body">
+              <div class="callout-body">
                 <strong>By the numbers</strong>
                 SaaS companies with more than 4 pricing tiers see on average a 30% lower conversion rate than those offering 3 or fewer options.
               </div>
@@ -347,7 +258,7 @@
 
             <!-- Issue 2 -->
             <div class="cs-section-inner">
-              <p class="cs-issue-heading">Issue 2: AI is presented as four different things on the same page</p>
+              <h3 class="issue-heading">Issue 2: AI is presented as four different things on the same page</h3>
               <div class="cs-img-wrap">
                 <img src="images/issue_2.png" alt="Issue 2: AI presented as four different things" />
               </div>
@@ -361,17 +272,17 @@
                 <p>The <strong>AI Assistant standalone card</strong> has no explanation of who it's for. It's positioned alongside complete plans — PDF tools included — with no signal that it's designed for existing UPDF users who want to add AI. A new user sees it and wonders why they'd pay $79 for AI alone when the Pro card appears to include it for $49.99.</p>
               </div>
             </div>
-            <div class="cs-callout-group">
-              <div class="cs-callout-light">
+            <div class="callout-group">
+              <div class="callout">
                 <span class="ic ic-data" aria-hidden="true"></span>
-                <div class="cs-callout-light-body">
+                <div class="callout-body">
                   <strong>By the numbers</strong>
                   <strong>95% of users</strong> never scroll to the bottom of a page. Information buried in a comparison table — like the accurate AI inclusion status — is effectively invisible to most visitors.
                 </div>
               </div>
-              <div class="cs-callout-dark">
+              <div class="callout is-dark">
                 <span class="ic ic-dark-pattern" aria-hidden="true"></span>
-                <div class="cs-callout-dark-body">
+                <div class="callout-body">
                   <strong>Dark pattern detected</strong>
                   The AI checkbox defaults to checked. The card shows AI features and higher storage as if included in the plan. The price stays at $49.99. The user is shown a version of the product that costs more than what they're about to buy. This is a roach motel variant — easy to enter a state that implies more value, with no clear signal that unchecking changes what you're getting.
                 </div>
@@ -380,7 +291,7 @@
 
             <!-- Issue 3 -->
             <div class="cs-section-inner">
-              <p class="cs-issue-heading">Issue 3: "Pay once, use forever" — except for the part that renews every year</p>
+              <h3 class="issue-heading">Issue 3: "Pay once, use forever" — except for the part that renews every year</h3>
               <div class="cs-issue-split">
                 <div class="cs-issue-split-img">
                   <img src="images/issue_3.png" alt="Issue 3: pay once but AI renews yearly" />
@@ -394,17 +305,17 @@
                 </div>
               </div>
             </div>
-            <div class="cs-callout-group">
-              <div class="cs-callout-light">
+            <div class="callout-group">
+              <div class="callout">
                 <span class="ic ic-data" aria-hidden="true"></span>
-                <div class="cs-callout-light-body">
+                <div class="callout-body">
                   <strong>By the numbers</strong>
                   72% of consumers say unexpected charges after purchase are the top reason they lose trust in a brand and consider cancelling.
                 </div>
               </div>
-              <div class="cs-callout-dark">
+              <div class="callout is-dark">
                 <span class="ic ic-dark-pattern" aria-hidden="true"></span>
-                <div class="cs-callout-dark-body">
+                <div class="callout-body">
                   <strong>Dark pattern detected</strong>
                   This is a hidden subscription pattern. The lifetime card promises a one-time payment. The AI checkbox — checked by default — silently enrolls the user in a $69/year auto-renewing subscription. The word "subscription" does not appear on the card. The contradiction between "pay once" and "auto renew yearly" is never resolved anywhere on the page.
                 </div>
@@ -413,7 +324,7 @@
 
             <!-- Issue 4 -->
             <div class="cs-section-inner">
-              <p class="cs-issue-heading">Issue 4: The real price is never shown</p>
+              <h3 class="issue-heading">Issue 4: The real price is never shown</h3>
               <div class="cs-img-wrap">
                 <img src="images/issue_4.png" alt="Issue 4: phantom prices and hidden real cost" />
               </div>
@@ -426,17 +337,17 @@
               <p>The <strong>UPDF Sign card</strong> claims 50% off from <em>$139</em>. But the monthly plan costs $9 — <em>$108 annualised</em>. The "original" $139 annual price has no basis in any plan shown on the page.</p>
               <p>The same combination of PDF tools and AI appears at three different prices depending on where you look: $118.99 if you use the Pro card checkbox, $148.99 in the comparison table, $79 for the AI-only card. These represent different configurations — but that's never explained.</p>
             </div>
-            <div class="cs-callout-group">
-              <div class="cs-callout-light">
+            <div class="callout-group">
+              <div class="callout">
                 <span class="ic ic-data" aria-hidden="true"></span>
-                <div class="cs-callout-light-body">
+                <div class="callout-body">
                   <strong>By the numbers</strong>
                   A 1% improvement in pricing clarity can yield an 11.1% increase in operating profit. The inverse is also true — pricing confusion directly reduces conversion and increases refund rates.
                 </div>
               </div>
-              <div class="cs-callout-dark">
+              <div class="callout is-dark">
                 <span class="ic ic-dark-pattern" aria-hidden="true"></span>
-                <div class="cs-callout-dark-body">
+                <div class="callout-body">
                   <strong>Dark pattern detected</strong>
                   Three patterns active simultaneously. <strong>Phantom pricing</strong> — crossed-out original prices with no verifiable reference. <strong>Hidden costs</strong> — the real total ($118.99) is never displayed, only the base price ($49.99). <strong>Drip pricing</strong> — the full cost is revealed incrementally across the card headline, a checkbox, and fine print inside that checkbox. Each element alone might be defensible. Together they form a system that delays the user's understanding of what they will actually pay.
                 </div>
@@ -445,7 +356,7 @@
 
             <!-- Issue 5 -->
             <div class="cs-section-inner">
-              <p class="cs-issue-heading">Issue 5: The page wasn't built as one document</p>
+              <h3 class="issue-heading">Issue 5: The page wasn't built as one document</h3>
               <div class="cs-body">
                 <ul style="list-style:disc;padding-left:27px;display:flex;flex-direction:column;gap:8px;">
                   <li>The FAQ references "<strong>premium</strong> individual account." No plan on the page uses the word <strong>Premium</strong>.</li>
@@ -455,9 +366,9 @@
                 </ul>
               </div>
             </div>
-            <div class="cs-callout-light">
+            <div class="callout">
               <span class="ic ic-data" aria-hidden="true"></span>
-              <div class="cs-callout-light-body">
+              <div class="callout-body">
                 <strong>By the numbers</strong>
                 Users who encounter contradictory information on a website are 2.5× more likely to abandon the page than users who encounter information that is simply incomplete.
               </div>
@@ -468,7 +379,7 @@
           <!-- Redesign proposal — centered -->
           <div class="cs-redesign-center">
             <span class="ic ic-site-map" aria-hidden="true"></span>
-            <p class="cs-redesign-heading" data-toc="The redesign proposal">UX redesign proposal: information architecture &amp; decision logic</p>
+            <h2 class="redesign-heading" data-toc="The redesign proposal">UX redesign proposal: information architecture &amp; decision logic</h2>
             <div class="cs-redesign-sub">
               <p style="margin-bottom:8px;">The goal isn't to make this page look better. It's to make it answer one question clearly:</p>
               <p><strong>What should I buy?</strong></p>
@@ -666,7 +577,7 @@
 
           <!-- Three questions -->
           <div style="display:flex;flex-direction:column;gap:32px;">
-            <p style="font-size:24px;font-weight:700;line-height:28px;color:var(--dark);">Three questions I'd ask before designing any pricing page</p>
+            <h2>Three questions I'd ask before designing any pricing page</h2>
             <div style="font-size:18px;line-height:28px;color:var(--dark);">
               <ol style="padding-left:27px;margin-bottom:8px;">
                 <li style="margin-bottom:8px;"><strong>Can a new user name all the plans and explain the difference between them in 30 seconds?</strong></li>
@@ -688,39 +599,21 @@
           </div>
 
           <!-- Sources -->
-          <div style="display:flex;flex-direction:column;gap:32px;padding:32px 0 0;">
-            <hr style="border:none;border-top:1px solid var(--light-gray);margin:0;" />
-            <div style="font-size:14px;font-style:italic;color:#7e808e;line-height:20px;">
-              <p data-toc="Sources" style="margin-bottom:8px;">Sources:</p>
-              <ul style="list-style:disc;padding-left:21px;">
-                <li style="margin-bottom:0;"><a href="https://businessofsoftware.org/talks/pricing-retention-and-growth-strategies/" target="_blank" rel="noopener" style="color:#7e808e;">Patrick Campbell, ProfitWell — "Pricing, Retention, and Growth Strategies That Work"</a></li>
-                <li style="margin-bottom:0;"><a href="https://www.saastock.com/blog/the-saas-pricing-trap-when-too-many-tiers-kill-conversions/" target="_blank" rel="noopener" style="color:#7e808e;">Price Intelligently / SaaStock — "The SaaS Pricing Trap: When Too Many Tiers Kill Conversions"</a></li>
-                <li style="margin-bottom:0;"><a href="https://pubmed.ncbi.nlm.nih.gov/11138768/" target="_blank" rel="noopener" style="color:#7e808e;">Iyengar, S.S. &amp; Lepper, M.R. (2000) — "When Choice Is Demotivating: Can One Desire Too Much of a Good Thing?" — Journal of Personality and Social Psychology, Vol. 79, pp. 995–1006</a></li>
-                <li style="margin-bottom:0;"><a href="https://blog.hubspot.com/marketing/pricing-page-redesign-conversion-rate-optimization" target="_blank" rel="noopener" style="color:#7e808e;">HubSpot — "How Redesigning HubSpot's Pricing Page Increased MQL Conversions by 165% &amp; Free Sign-Ups by 89%"</a></li>
-                <li style="margin-bottom:0;"><a href="https://updf.com/software-subscription-agreement/" target="_blank" rel="noopener" style="color:#7e808e;">UPDF Software Subscription Agreement</a></li>
-                <li style="margin-bottom:0;"><a href="https://updf.com/pricing-individuals/" target="_blank" rel="noopener" style="color:#7e808e;">UPDF Pricing Page — Individuals</a></li>
-                <li><a href="https://updf.com/updf-faqs/" target="_blank" rel="noopener" style="color:#7e808e;">UPDF FAQ — Pricing page FAQ section</a></li>
+          <div class="sources-block">
+            <p data-toc="Sources">Sources:</p>
+            <ul>
+                <li><a href="https://businessofsoftware.org/talks/pricing-retention-and-growth-strategies/" target="_blank" rel="noopener">Patrick Campbell, ProfitWell — "Pricing, Retention, and Growth Strategies That Work"</a></li>
+                <li><a href="https://www.saastock.com/blog/the-saas-pricing-trap-when-too-many-tiers-kill-conversions/" target="_blank" rel="noopener">Price Intelligently / SaaStock — "The SaaS Pricing Trap: When Too Many Tiers Kill Conversions"</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov/11138768/" target="_blank" rel="noopener">Iyengar, S.S. &amp; Lepper, M.R. (2000) — "When Choice Is Demotivating: Can One Desire Too Much of a Good Thing?" — Journal of Personality and Social Psychology, Vol. 79, pp. 995–1006</a></li>
+                <li><a href="https://blog.hubspot.com/marketing/pricing-page-redesign-conversion-rate-optimization" target="_blank" rel="noopener">HubSpot — "How Redesigning HubSpot's Pricing Page Increased MQL Conversions by 165% &amp; Free Sign-Ups by 89%"</a></li>
+                <li><a href="https://updf.com/software-subscription-agreement/" target="_blank" rel="noopener">UPDF Software Subscription Agreement</a></li>
+                <li><a href="https://updf.com/pricing-individuals/" target="_blank" rel="noopener">UPDF Pricing Page — Individuals</a></li>
+                <li><a href="https://updf.com/updf-faqs/" target="_blank" rel="noopener">UPDF FAQ — Pricing page FAQ section</a></li>
               </ul>
-            </div>
           </div>
 
-          <!-- CTA -->
-          <div class="cta-block">
-            <h2>Enjoyed this case study?</h2>
-            <p>Share it with your network or subscribe for future insights.</p>
-            <div class="cta-buttons">
-              <button class="btn-outline" id="shareCtaBtn">
-                Share With Your Network
-                <img src="images/share-07.png" alt="" />
-              </button>
-              <a class="btn-outline" href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
-                Subscribe
-                <img src="images/substack.png" alt="Substack" />
-              </a>
-            </div>
-          </div>
-
-        </div><!-- /cs-wrap -->
+        </div><!-- /content -->
+</div><!-- /page -->
       </div><!-- /container -->
     </main>
 <script src="/js/cs-side.js?v=1"></script>
@@ -766,22 +659,6 @@
       document.getElementById('mobileMenu').classList.toggle('open');
       document.getElementById('menuBackdrop').classList.toggle('open');
     }
-    async function doShare() {
-      const url = window.location.href;
-      const title = document.title;
-      if (navigator.share) { try { await navigator.share({ title, url }); return; } catch(e) {} }
-      try {
-        await navigator.clipboard.writeText(url);
-        const btn = document.getElementById('shareCtaBtn');
-        const orig = btn.innerHTML;
-        btn.textContent = 'Link copied ✓';
-        setTimeout(() => { btn.innerHTML = orig; }, 2000);
-      } catch(e) {
-        window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url), '_blank');
-      }
-    }
-    document.getElementById('shareCtaBtn').addEventListener('click', doShare);
-    document.getElementById('shareTopBtn').addEventListener('click', doShare);
   </script>
   <script src="/js/theme.js?v=2" defer></script>
   <script src="/js/analytics.js" defer></script>

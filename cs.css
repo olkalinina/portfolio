@@ -1,0 +1,82 @@
+/* ============================================================
+   Case studies — shared components (loaded on every cs-*.html)
+   One definition for the page frame, breadcrumbs, header, cards,
+   callouts, sources and images, so all case studies match.
+   ============================================================ */
+
+.cs-main {
+  --ink: var(--dark);
+  --ink-muted: var(--gray);
+  --bg-card: var(--bg-soft);
+  --border: var(--light-gray);
+}
+.cs-main img { max-width: 100%; }
+
+/* Page frame */
+.cs-main .page { max-width: 1440px; margin: 0 auto; padding: 80px 0 0; }
+.cs-main .content { max-width: 1187px; margin: 0 auto; padding: 0 0 120px; display: flex; flex-direction: column; gap: 56px; }
+
+/* First block of pages whose body is made of margin-spaced sections */
+.cs-main .content.is-head { padding-bottom: 0; }
+.cs-main .logo-row img.logo.logo-app { border-radius: 14px; }
+
+/* Long-form article body (Proffer): block flow instead of spaced sections */
+.cs-main .content.is-article { display: block; }
+.cs-main .content.is-article .cs-crumbs { margin-bottom: 24px; }
+.cs-main .content.is-article .title-block { margin-bottom: 56px; }
+
+/* Breadcrumbs: Cases / Name */
+.cs-crumbs { margin-bottom: -32px; font-size: 15px; line-height: 1.4; color: var(--gray); }
+.cs-crumbs ol { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; padding: 0; }
+.cs-crumbs li { display: flex; align-items: center; gap: 8px; margin: 0; }
+.cs-crumbs li + li::before { content: "/"; color: var(--light-gray); }
+.cs-crumbs a { color: var(--gray); text-decoration: none; }
+.cs-crumbs a:hover { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; }
+.cs-crumbs [aria-current] { color: var(--dark); }
+
+/* Header: logo, title, subtitle, intro */
+.cs-main .logo-row { display: flex; align-items: center; justify-content: space-between; }
+.cs-main .logo-row img.logo { height: 57px; width: auto; border-radius: 0; }
+.cs-main .title-block { display: flex; flex-direction: column; gap: 16px; }
+.cs-main .title-block .subtitle { font-size: 16px; font-weight: 500; color: var(--ink-muted); margin-top: 10px; }
+.cs-main .title-block .description { font-size: 22px; font-weight: 400; line-height: 1.45; color: var(--ink); }
+
+/* Headings (h1, h2, h3) come from theme.css, the same for every case study */
+
+/* Cover image */
+.cs-main .cover-img { display: block; width: 100%; border-radius: 32px; border: 1px solid var(--border); background: #fff; object-fit: cover; box-shadow: none; }
+
+/* Cards */
+.cs-main .snapshot-cards { display: flex; flex-direction: column; gap: 24px; }
+.cs-main .card { background: var(--bg-card); border-radius: 24px; padding: 32px 24px; width: 100%; }
+.cs-main .card h2 { margin-bottom: 24px; }
+.cs-main .card p, .cs-main .card li { font-size: 18px; font-weight: 400; line-height: 28px; color: var(--ink); }
+.cs-main .card p + p { margin-top: 8px; }
+.cs-main .card ul { list-style: disc; padding-left: 27px; margin-top: 8px; }
+.cs-main .card strong { font-weight: 700; }
+.cs-main .card em { font-style: italic; }
+
+/* Callouts: light (default) and dark */
+.cs-main .callout { display: flex; gap: 24px; align-items: flex-start; width: 100%; background: var(--bg-card); border-radius: 24px; padding: 24px; }
+.cs-main .callout-body { flex: 1; font-size: 18px; font-style: italic; line-height: 28px; color: var(--ink); }
+.cs-main .callout-body > strong:first-child { display: block; margin-bottom: 8px; }
+.cs-main .callout-body strong { font-weight: 700; }
+.cs-main .callout.is-dark { background: #3d3d3d; }
+.cs-main .callout.is-dark .callout-body { color: #fff; }
+.cs-main .callout.is-dark .ic { color: #fff; }
+.cs-main .callout-group { display: flex; flex-direction: column; gap: 24px; }
+
+/* Sources */
+.cs-main .sources-block { border-top: 1px solid var(--border); padding-top: 32px; }
+.cs-main .sources-block p, .cs-main .sources-block li { font-size: 14px; font-style: italic; line-height: 20px; color: var(--ink-muted); }
+.cs-main .sources-block ul { list-style: disc; padding-left: 20px; margin-top: 8px; }
+.cs-main .sources-block li { margin-bottom: 0; }
+.cs-main .sources-block a { color: var(--ink-muted); text-decoration: underline; }
+.cs-main .sources-block a:hover { color: var(--ink); }
+
+@media (max-width: 640px) {
+  .cs-main .page { padding-top: 48px; }
+  .cs-main .logo-row { flex-wrap: wrap; gap: 16px; }
+  .cs-main .logo-row .badge { white-space: nowrap; padding: 10px 16px; font-size: 14px; }
+  .cs-main .title-block .description { font-size: 18px; line-height: 1.5; }
+}

@@ -17,6 +17,7 @@
   <meta name="twitter:description" content="UX teardown of a real journey on the Mercor talent platform: a qualified applicant, a quiet policy change, and a flow with no way out." />
   <meta name="twitter:image" content="https://olgakalinina.me/images/Mercor_card.png" />
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Mercor: When a Policy Change Breaks Trust","description":"UX teardown of a real journey on the Mercor talent platform: a qualified applicant, a quiet policy change, and a flow with no way out.","image":"https://olgakalinina.me/images/Mercor_card.png","mainEntityOfPage":"https://olgakalinina.me/cs-mercor","author":{"@id":"https://olgakalinina.me/#person"}},{"@type":"Person","@id":"https://olgakalinina.me/#person","name":"Olga Kalinina","jobTitle":"Product Designer & Behavioral CRO Expert","url":"https://olgakalinina.me/","image":"https://olgakalinina.me/images/olga_hero.jpg","sameAs":["https://www.linkedin.com/in/olga-kalinina-sundary/","https://substack.com/@olinproduct/"],"knowsAbout":["Product design","UX design","Conversion rate optimisation","SaaS","AI products","UX strategy"]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cases","item":"https://olgakalinina.me/case-studies"},{"@type":"ListItem","position":2,"name":"Mercor","item":"https://olgakalinina.me/cs-mercor"}]}</script>
   <link rel="stylesheet" href="style.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,24 +41,6 @@
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
-
-    /* ─── PAGE ─── */
-    .page {
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: 80px var(--pad) 0;
-    }
-
-    /* ─── HERO ─── */
-    .hero-top {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
-    }
-    .hero-logo {
-      width: 80px; height: 80px;
-      border-radius: 24px; object-fit: contain;
-    }
     .badges { display: flex; gap: 8px; }
     .badge {
       display: inline-flex; align-items: center; gap: 8px;
@@ -72,24 +55,6 @@
     .badge:hover { background: #f9fafb; }
     .badge img { width: 24px; height: 24px; object-fit: contain; }
 
-    .hero-title {
-      font-size: 36px; font-weight: 600;
-      line-height: 1.15; margin-bottom: 10px;
-    }
-    .hero-sub {
-      font-size: 16px; font-weight: 500;
-      color: var(--muted); margin-bottom: 16px;
-    }
-    .hero-desc {
-      font-size: 18px; line-height: 28px;
-      color: var(--text);
-    }
-    .hero-img {
-      margin-top: 40px;
-      border-radius: 24px; overflow: hidden;
-    }
-    .hero-img img { width: 100%; }
-
     /* ─── SECTION SPACING ─── */
     .section { margin-top: 56px; }
 
@@ -101,14 +66,6 @@
     }
     .two-col.align-center { align-items: center; }
     .two-col.align-start  { align-items: start; }
-
-    /* ─── CARDS (fafafa bg, 24px radius) ─── */
-    .card {
-      background: var(--bg-card);
-      border-radius: 24px;
-      padding: 32px 24px;
-      display: flex; flex-direction: column; gap: 24px;
-    }
     .card-title {
       font-size: 24px; font-weight: 500;
       line-height: 1.2;
@@ -221,43 +178,11 @@
     @media (max-width: 860px) {
       :root { --pad: 20px; }
       .two-col, .img-pair { grid-template-columns: 1fr; }
-      .hero-title { font-size: 26px; }
       .highlight-title, .final-title { font-size: 24px; }
 
     }
-
-    /* ── CTA BLOCK ── */
-    .cta-block {
-      margin-top: 72px;
-      padding: 48px 0 120px;
-      border-top: 2px solid var(--border);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .cta-block h2 { font-size: 24px; font-weight: 600; color: var(--text); }
-    .cta-block p { font-size: 16px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
-    .cta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 24px; border-radius: 9999px;
-      border: 1.5px solid var(--border); background: white;
-      font-size: 16px; font-weight: 500; color: var(--text);
-      cursor: pointer; transition: border-color .2s, transform .2s;
-      font-family: 'Inter', sans-serif; text-decoration: none;
-    }
-    .btn-outline:hover { border-color: var(--text); transform: translateY(-1px); }
-    .btn-outline img { width: 18px; height: 18px; object-fit: contain; }
     @media (max-width: 768px) {
-      .cta-block h2 { font-size: 20px; }
-      .cta-buttons { flex-direction: column; align-items: stretch; }
-      .btn-outline { justify-content: center; }
     }
-
-    /* ─── MERCOR: SWIPE DECK ─── */
-    .hero-logo.wide { width: auto; height: 56px; border-radius: 0; }
     .deck { margin-top: 48px; }
     .deck-track {
       display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
@@ -268,7 +193,7 @@
     .deck-track.is-dragging { cursor: grabbing; scroll-snap-type: none; }
     .deck-card {
       flex: 0 0 calc((100% - 20px) / 1.2); scroll-snap-align: start;
-      border-radius: 32px; overflow: hidden; border: 1px solid var(--border); background: #fafaff;
+      border-radius: 24px; overflow: hidden; border: 1px solid var(--border); background: #fafaff;
       aspect-ratio: 13 / 15;
     }
     .deck-card img { width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; pointer-events: none; }
@@ -288,7 +213,6 @@
       .deck-card { flex-basis: calc((100% - 20px) / 1.1); }
       .deck-dots { display: none; }
       .deck-controls { justify-content: space-between; }
-      .hero-logo.wide { height: 44px; }
     }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -296,6 +220,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
   <link rel="stylesheet" href="/theme.css?v=32" />
+  <link rel="stylesheet" href="/cs.css?v=1" />
 </head>
 <body data-cs-cta="Seeing users drop off and not sure why?">
 
@@ -304,7 +229,7 @@
     <div class="nav-links">
       <a href="/cro-audit">CRO Audit</a>
       <a href="/product-design">Product Design</a>
-      <a href="/case-studies" class="active">Case Studies</a>
+      <a href="/case-studies" class="active">Cases</a>
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
       <a href="/contacts">Contacts</a>
@@ -323,7 +248,7 @@
     <div class="mobile-menu-links">
       <a href="/cro-audit">CRO Audit</a>
       <a href="/product-design">Product Design</a>
-      <a href="/case-studies" class="active">Case Studies</a>
+      <a href="/case-studies" class="active">Cases</a>
       <a href="/blog">Blog</a>
       <a href="/faq">FAQ</a>
       <a href="/about">About</a>
@@ -332,20 +257,25 @@
   </div>
 
 <div class="page-wrapper">
-<main class="page-content">
+<main class="page-content cs-main">
 <div class="container">
 <!-- PAGE CONTENT -->
 <div class="page">
 
   <!-- HERO -->
-  <section>
-    <div class="hero-top">
-      <img src="images/Mercor_logo_full.png" alt="Mercor" class="hero-logo wide" />
+  <section class="content is-head">
+    <nav class="cs-crumbs" aria-label="Breadcrumb"><ol><li><a href="/case-studies">Cases</a></li><li><span aria-current="page">Mercor</span></li></ol></nav>
+    <div class="logo-row">
+      <img src="images/Mercor_logo_full.png" alt="Mercor" class="logo" />
     </div>
-    <h1 class="hero-title">Mercor: when a policy change breaks trust with verified candidates</h1>
-    <p class="hero-sub">UX analysis | Conversion &amp; retention | 2026</p>
-    <p class="hero-desc">A teardown of a real journey on the Mercor talent platform: a qualified applicant, a quiet policy change, and a flow with no way out. How Mercor risks losing verified candidates due to UX inconsistency.</p>
-  </section>
+    <div class="title-block">
+      <div>
+        <h1>Mercor: when a policy change breaks trust with verified candidates</h1>
+        <p class="subtitle">UX analysis | Conversion &amp; retention | 2026</p>
+      </div>
+      <p class="description">A teardown of a real journey on the Mercor talent platform: a qualified applicant, a quiet policy change, and a flow with no way out. How Mercor risks losing verified candidates due to UX inconsistency.</p>
+    </div>
+    </section>
 
   <!-- SWIPE DECK -->
   <section class="deck" aria-label="Case study cards, swipe or use the arrows">
@@ -371,22 +301,6 @@
     </div>
     <p class="deck-hint">Swipe, drag, or use the arrows</p>
   </section>
-
-  <!-- CTA BLOCK -->
-  <div class="cta-block">
-    <h2>Enjoyed this analysis?</h2>
-    <p>Share it with your network or subscribe for future insights.</p>
-    <div class="cta-buttons">
-      <button class="btn-outline" id="shareCtaBtn">
-        Share With Your Network
-        <img src="images/share-07.png" alt="" />
-      </button>
-      <a class="btn-outline" href="https://substack.com/@olinproduct/" target="_blank" rel="noopener">
-        Subscribe
-        <img src="images/substack.png" alt="Substack" />
-      </a>
-    </div>
-  </div>
 
 </div><!-- /page -->
 </div><!-- /container -->
@@ -481,25 +395,6 @@
       window.addEventListener('pointerup', end); window.addEventListener('pointercancel', end);
       update();
     })();
-  </script>
-  <script>
-    async function doShare() {
-      const url   = window.location.href;
-      const title = document.title;
-      if (navigator.share) {
-        try { await navigator.share({ title, url }); return; } catch (e) {}
-      }
-      try {
-        await navigator.clipboard.writeText(url);
-        const btn = document.getElementById('shareCtaBtn');
-        const orig = btn.innerHTML;
-        btn.textContent = 'Link copied ✓';
-        setTimeout(() => { btn.innerHTML = orig; }, 2000);
-      } catch (e) {
-        window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(url), '_blank');
-      }
-    }
-    document.getElementById('shareCtaBtn').addEventListener('click', doShare);
   </script>
   <script>
     function toggleMenu() {
