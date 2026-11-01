@@ -42,7 +42,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
-  <link rel="stylesheet" href="/theme.css?v=27" />
+  <link rel="stylesheet" href="/theme.css?v=28" />
 </head>
 <body>
     <nav class="nav">
@@ -92,16 +92,16 @@
           <form class="contacts-form" action="https://formspree.io/f/xkjovqro" method="POST">
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
             <div class="form-field">
-              <label>Your Name</label>
-              <input type="text" name="name" placeholder="" />
+              <label for="cf-name">Your Name</label>
+              <input id="cf-name" type="text" name="name" autocomplete="name" placeholder="" />
             </div>
             <div class="form-field">
-              <label>Email <span class="required">*</span></label>
-              <input type="email" name="email" placeholder="" required />
+              <label for="cf-email">Email <span class="required" aria-hidden="true">*</span></label>
+              <input id="cf-email" type="email" name="email" autocomplete="email" placeholder="" required />
             </div>
             <div class="form-field">
-              <label>Message <span class="required">*</span></label>
-              <textarea name="message" placeholder="" required></textarea>
+              <label for="cf-msg">Message <span class="required" aria-hidden="true">*</span></label>
+              <textarea id="cf-msg" name="message" placeholder="" required></textarea>
             </div>
             <button type="submit" class="btn-dark form-submit">Send</button>
             <p class="form-note">Your message is sent through Formspree and used only to reply to you. <a href="/privacy">Privacy</a></p>
@@ -152,7 +152,7 @@
       document.getElementById('menuBackdrop').classList.toggle('open');
     }
   </script>
-  <script src="/js/theme.js" defer></script>
+  <script src="/js/theme.js?v=2" defer></script>
   <script src="/js/analytics.js" defer></script>
   <script src="/js/mesh-buttons.js" defer></script>
 </body>

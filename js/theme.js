@@ -2,6 +2,15 @@
 (function () {
   var root = document.documentElement;
   if (document.body.classList.contains('is-protected')) { root.removeAttribute('data-theme'); return; }
+  // Skip link for keyboard users: jumps past the menu to the page content
+  var mainEl = document.querySelector('main');
+  if (mainEl) {
+    if (!mainEl.id) mainEl.id = 'main';
+    mainEl.setAttribute('tabindex', '-1');
+    var skip = document.createElement('a'); skip.className = 'skip-link'; skip.href = '#' + mainEl.id; skip.textContent = 'Skip to content';
+    skip.addEventListener('click', function (e) { e.preventDefault(); mainEl.focus(); mainEl.scrollIntoView(); });
+    document.body.insertBefore(skip, document.body.firstChild);
+  }
   // Smoke trail behind the mouse: switched off for now. To bring it back, remove the "false &&" below.
   if (false && window.matchMedia) { var sm = document.createElement('script'); sm.src = '/js/smoke-cursor.js?v=1'; sm.defer = true; document.head.appendChild(sm); }
   var nav = document.querySelector('.nav'); if (!nav) return;
