@@ -260,9 +260,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
-  <link rel="stylesheet" href="/theme.css?v=28" />
+  <link rel="stylesheet" href="/theme.css?v=30" />
 </head>
-<body>
+<body data-cs-cta="Designing a product like this?">
 
     <nav class="nav">
     <a href="/"><img src="images/olga_kalinina.jpg" alt="Olga Kalinina" class="nav-avatar" /></a>
@@ -330,7 +330,7 @@
   <!-- 2. PROJECT SNAPSHOT + TOOLS -->
   <div class="section two-col align-start">
     <div class="card">
-      <h2 class="card-title">Project snapshot</h2>
+      <h2 class="card-title" data-toc="Project snapshot">Project snapshot</h2>
       <div class="card-body">
         <p><strong>My role:</strong> Product Designer (UX/UI, flows, IA, interaction design)</p>
         <p><strong>Platform:</strong> Android-first (Material Design 3), than iOS</p>
@@ -354,7 +354,7 @@
   <!-- 3. THE PROBLEM + PRODUCT GOAL -->
   <div class="section two-col align-start">
     <div class="text-col">
-      <h2 class="section-title">The Problem</h2>
+      <h2 class="section-title" data-toc="The problem">The Problem</h2>
       <div class="section-body">
         <p>Most budgeting apps assume people want analytics, goals, charts, and long setup.</p>
         <p>But for users with many repeated payments (utilities, subscriptions, rent, services), the real pain is simpler:</p>
@@ -367,7 +367,7 @@
       </div>
     </div>
     <div class="text-col">
-      <h2 class="section-title">Product goal</h2>
+      <h2 class="section-title" data-toc="Product goal">Product goal</h2>
       <div class="section-body">
         <p>Design an MVP that helps users:</p>
         <ul>
@@ -383,7 +383,7 @@
   <!-- 4. TIMELINE -->
   <div class="section">
     <div class="text-col" style="gap:24px;">
-      <h2 class="section-title">Timeline</h2>
+      <h2 class="section-title" data-toc="Timeline">Timeline</h2>
       <div class="timeline-img">
         <img src="images/Timeline.png" alt="Project timeline" />
       </div>
@@ -393,7 +393,7 @@
   <!-- 5. USERS & SCENARIOS -->
   <div class="section two-col align-center">
     <div class="text-col">
-      <h2 class="section-title">Users &amp; scenarios</h2>
+      <h2 class="section-title" data-toc="Users and scenarios">Users &amp; scenarios</h2>
       <div class="section-body">
         <p><strong>Primary users:</strong> people with many monthly bills and cross-area payments (home, family, work, side projects).</p>
         <p><strong>Common scenarios:</strong></p>
@@ -419,7 +419,7 @@
   <div class="section highlight">
     <img src="images/Payli_logo.png" alt="Payli" class="highlight-logo" />
     <div class="highlight-texts">
-      <h2 class="highlight-title">Keep bills organised &amp; Payments on track</h2>
+      <h2 class="highlight-title" data-toc="Keeping bills organised">Keep bills organised &amp; Payments on track</h2>
       <p class="highlight-desc">Payli helps users capture income and expenses in seconds, group payments by projects, and track recurring bills with clear statuses (due, scheduled, paid, overdue). With everything in one place, the user can instantly see what needs attention and stay in control—without heavy budgeting or complex setup.</p>
     </div>
     <div class="img-pair">
@@ -469,7 +469,10 @@
 
 </div><!-- /page -->
 </div><!-- /container -->
-</main><!-- /page-content -->
+</main>
+<script src="/js/cs-side.js?v=1"></script>
+<script src="/js/toc.js" defer></script>
+<!-- /page-content -->
 
 <!-- FOOTER -->
     <footer class="footer">

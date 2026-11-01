@@ -385,3 +385,24 @@ button.footer-legal { background: none; border: 0; cursor: pointer; }
 a:focus-visible, button:focus-visible, summary:focus-visible, [role="button"]:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
 .skip-link { position: fixed; left: 16px; top: -64px; z-index: 10000; padding: 12px 18px; border-radius: 9999px; background: var(--dark); color: var(--white, #fff); font: 500 15px 'Lora', Georgia, serif; text-decoration: none; transition: top .15s; }
 .skip-link:focus { top: 12px; outline: 2px solid var(--white, #fff); outline-offset: 2px; }
+
+/* Case studies: contents list and contact line in a right-hand column (js/cs-side.js). Wide screens only. */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.cs-side { display: none; }
+@media (min-width: 1240px) {
+  .cs-layout { display: grid; grid-template-columns: minmax(0, 1fr) 216px; gap: 48px; align-items: start; }
+  .cs-layout > :first-child { min-width: 0; margin-left: 0; margin-right: 0; }
+  .cs-side { display: block; position: sticky; top: 130px; align-self: start; padding-top: 80px; }
+  .cs-side-title { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 16px; line-height: 1.4; }
+  .cs-side ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; border-left: 1.5px solid var(--light-gray); }
+  .cs-side li { margin: 0; padding: 0; }
+  .cs-side ul a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
+  .cs-side ul a:hover { color: var(--dark); }
+  .cs-side ul a.is-active { color: var(--dark); border-left-color: var(--dark); font-weight: 500; }
+  .cs-side-cta { margin-top: 28px; padding-top: 24px; border-top: 1.5px solid var(--light-gray); }
+  .cs-side-cta:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+  .cs-side-cta p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--gray); }
+  .cs-side-cta a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; white-space: nowrap; }
+  .cs-side-cta a:hover { opacity: .72; }
+}

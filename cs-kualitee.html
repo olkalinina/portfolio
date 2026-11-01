@@ -288,9 +288,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
-  <link rel="stylesheet" href="/theme.css?v=28" />
+  <link rel="stylesheet" href="/theme.css?v=30" />
 </head>
-<body>
+<body data-cs-cta="Is your sign-up page leaking conversions?">
 
 <!-- ═══════════ NAV ═══════════ -->
   <nav class="nav">
@@ -355,7 +355,7 @@
   <!-- PROJECT SNAPSHOT -->
   <div class="snapshot-cards">
     <div class="card">
-      <h2>Project snapshot</h2>
+      <h2 data-toc="Project snapshot">Project snapshot</h2>
       <p><strong>Product:</strong> Kualitee — B2B SaaS for software testing teams</p>
       <p><strong>Focus:</strong> Sign-up page / trial activation</p>
       <p><strong>My role:</strong> Product Designer (UX/UI, flows, conversion design)</p>
@@ -364,7 +364,7 @@
     </div>
 
     <div class="card">
-      <h2>The real question</h2>
+      <h2 data-toc="The real question">The real question</h2>
       <p>When a QA manager lands on your sign-up page, what are they thinking?</p>
       <p>Not <em>"I need a release-ready project."</em> They're thinking: <em>"We keep shipping bugs. My team is drowning. I need something that works before our next release cycle."</em></p>
       <p>So the design question isn't "how do we make the form look better?" It's: <strong>why would this person hesitate — and what can we remove to make hesitation harder?</strong></p>
@@ -373,7 +373,7 @@
 
   <!-- VERSION 1 -->
   <div>
-    <p class="section-heading" style="margin-bottom:32px;">Version 1: The original live page</p>
+    <p class="section-heading" data-toc="The original page" style="margin-bottom:32px;">Version 1: The original live page</p>
 
     <div style="margin-bottom:24px;">
       <div class="annotated-img-wrap">
@@ -436,7 +436,7 @@
 
   <!-- VERSION 2 -->
   <div>
-    <p class="section-heading" style="margin-bottom:32px;">Version 2: The client's proposed redesign</p>
+    <p class="section-heading" data-toc="The client's proposal" style="margin-bottom:32px;">Version 2: The client's proposed redesign</p>
 
     <div style="margin-bottom:24px;">
       <div class="annotated-img-wrap">
@@ -514,7 +514,7 @@
 
   <!-- VERSION 3 -->
   <div>
-    <p class="section-heading" style="margin-bottom:32px;">Version 3: My redesign</p>
+    <p class="section-heading" data-toc="My redesign" style="margin-bottom:32px;">Version 3: My redesign</p>
 
     <div style="margin-bottom:24px;">
       <div class="annotated-img-wrap">
@@ -613,7 +613,7 @@
   <!-- WHAT THIS REDESIGN IS ABOUT -->
   <div class="about-section">
     <img class="brain-icon" src="images/brain_icon 1.png" alt="" />
-    <h2>What this redesign is actually about</h2>
+    <h2 data-toc="What it is about">What this redesign is actually about</h2>
     <div style="width:100%;">
       <p style="font-size:18px;line-height:28px;margin-bottom:8px;">This isn't really a form optimisation, it's more a trust architecture. Every element either adds confidence or removes doubt. The decisions follow from that:</p>
       <ul class="about-list">
@@ -634,7 +634,7 @@
 
   <!-- THREE THINGS / CLOSING QUESTIONS -->
   <div class="closing-questions">
-    <h2>Before redesigning any SaaS sign-up form, answer these questions:</h2>
+    <h2 data-toc="Questions to ask first">Before redesigning any SaaS sign-up form, answer these questions:</h2>
     <div>
       <div class="q-block">
         <p class="q-label">1. Who is actually filling this form?</p>
@@ -681,7 +681,10 @@
 </div><!-- /content -->
 </div><!-- /page -->
 </div><!-- /container -->
-</main><!-- /page-content -->
+</main>
+<script src="/js/cs-side.js?v=1"></script>
+<script src="/js/toc.js" defer></script>
+<!-- /page-content -->
 
 <!-- ═══════════ FOOTER ═══════════ -->
     <footer class="footer">
