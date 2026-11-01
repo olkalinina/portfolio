@@ -31,7 +31,9 @@
     .ax-toc a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
     .ax-toc a:hover { color: var(--strong); }
     .ax-toc-cta { margin-top: 28px; padding-top: 24px; border-top: 1.5px solid var(--light-gray); }
-    .ax-toc-cta p { margin: 0 0 12px; font-size: 15px; line-height: 1.5; color: var(--gray); }
+    .ax-toc-cta p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--gray); }
+    .ax-toc .ax-toc-cta a { display: inline; padding: 0; margin: 0; border: 0; font-size: inherit; line-height: inherit; font-weight: 400; color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; white-space: nowrap; }
+    .ax-toc .ax-toc-cta a:hover { color: var(--dark); opacity: .72; }
     .ax-toc a.is-active { color: var(--strong); border-left-color: var(--strong); font-weight: 500; }
     html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -239,8 +241,7 @@
       <li><a href="#report">Inside the report</a></li>
     </ul>
     <div class="ax-toc-cta">
-      <p>Seeing visitors leave and not sure why?</p>
-      <a class="link-btn" href="/#contact">Contact me <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p>Seeing visitors leave and not sure why? <a href="/#contact">Contact me</a></p>
     </div>
   </aside>
 <article class="ax">
