@@ -301,7 +301,7 @@
     .cr-testimonial footer { margin-top: 14px; font-family: 'Lora', Georgia, serif; font-size: 14.5px; color: var(--gray); letter-spacing: .02em; }
     /* motion */
     @media (prefers-reduced-motion: no-preference) {
-      .cr-js .cr-j-step, .cr-js .cr-j-line, .cr-js .cr-cause-grid article, .cr-js .cr-root, .cr-js .cr-questions li, .cr-js .cr-tr:not(.cr-th), .cr-js .cr-t-chain li, .cr-js .cr-t-old, .cr-js .cr-principles .pd-card, .cr-js .cr-steps li, .cr-js .cr-bar, .cr-js .cr-pkg, .cr-js .cr-start li { opacity: 0; }
+      .cr-js .cr-j-step, .cr-js .cr-j-line, .cr-js .cr-cause-grid article, .cr-js .cr-root, .cr-js .cr-questions li, .cr-js .cr-tr:not(.cr-th), .cr-js .cr-vs-row:not(.cr-vs-head), .cr-js .cr-t-chain li, .cr-js .cr-t-old, .cr-js .cr-principles .pd-card, .cr-js .cr-steps li, .cr-js .cr-bar, .cr-js .cr-pkg, .cr-js .cr-start li { opacity: 0; }
       .cr-js .cr-j-step { transform: translateY(10px); } .cr-js .cr-j-line { transform: scaleX(0); }
       .cr-js [data-anim].is-in .cr-j-step { opacity: 1; transform: none; transition: opacity .5s ease calc(var(--i) * .35s), transform .5s ease calc(var(--i) * .35s); }
       .cr-js [data-anim].is-in .cr-j-line { opacity: 1; transform: none; transition: opacity .3s ease calc(var(--i) * .35s + .25s), transform .4s ease calc(var(--i) * .35s + .25s); }
@@ -314,8 +314,8 @@
       .cr-js .is-in .cr-cause-grid::before, .cr-js .is-in .cr-cause-grid::after, .cr-js .is-in .cr-cause-grid article::before { transform: none; transition: transform .5s ease .4s; }
       .cr-js .cr-questions li { transform: translateY(14px); }
       .cr-js .is-in.cr-questions li, .cr-js .cr-questions.is-in li { opacity: 1; transform: none; transition: opacity .6s ease calc(var(--i) * .15s), transform .6s ease calc(var(--i) * .15s), box-shadow .3s ease; }
-      .cr-js .cr-tr:not(.cr-th) { transform: translateX(-12px); }
-      .cr-js .is-in .cr-tr:not(.cr-th) { opacity: 1; transform: none; transition: opacity .5s ease calc(var(--i) * .1s), transform .5s ease calc(var(--i) * .1s), background .25s ease; }
+      .cr-js .cr-tr:not(.cr-th), .cr-js .cr-vs-row:not(.cr-vs-head) { transform: translateY(10px); }
+      .cr-js .is-in .cr-tr:not(.cr-th), .cr-js .is-in .cr-vs-row:not(.cr-vs-head) { opacity: 1; transform: none; transition: opacity .5s ease calc(var(--i) * .1s), transform .5s ease calc(var(--i) * .1s), background .25s ease; }
       .cr-js .cr-t-old, .cr-js .cr-t-chain li { transform: translateY(12px); }
       .cr-js .is-in .cr-t-old { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
       .cr-js .is-in .cr-t-chain li { opacity: 1; transform: none; transition: opacity .6s ease calc(var(--i) * .22s + .4s), transform .6s ease calc(var(--i) * .22s + .4s); }
@@ -926,6 +926,43 @@
     .cr-plans-note { margin-top: 28px !important; max-width: 640px; font-size: 14px; line-height: 1.5; color: var(--gray); }
     @supports (grid-template-rows: subgrid) { @media (min-width: 961px) { .cr-plans { row-gap: 0; grid-template-rows: repeat(7, auto); } .cr-plan { display: grid; grid-row: span 7; grid-template-rows: subgrid; align-content: start; } .cr-plan > * { align-self: start; } body:not(.is-protected) main .pd.cr .cr-plan h3 { align-self: end; } .cr-plan ul.cr-plan-tags { align-items: flex-start; align-content: flex-start; } .cr-plan-desc { min-height: 0; } } }
     @media (max-width: 960px) { .cr-plans { grid-template-columns: minmax(0, 1fr); max-width: 520px; margin-left: auto; margin-right: auto; } .cr-plan-desc { min-height: 0; } }
+    /* ---- comparison table: typical checklist audit vs my diagnosis (desktop and mobile) ---- */
+    .cr-vs { --cc-a: 36%; --cc-b: 40%; position: relative; margin-top: 56px; display: flex; flex-direction: column; }
+    .cr-vs-hl { position: absolute; z-index: 0; top: -10px; bottom: -10px; right: -10px; width: calc(var(--cc-b) + 10px); border-radius: 26px; background: var(--surface, #fff); box-shadow: inset 0 0 0 2px var(--dark); pointer-events: none; }
+    .cr-vs-row { position: relative; z-index: 1; display: grid; grid-template-columns: calc(100% - var(--cc-a) - var(--cc-b)) var(--cc-a) var(--cc-b); border-top: 1.5px solid var(--light-gray); }
+    .cr-vs-row:first-of-type { border-top: 0; }
+    .cr-vs-row > span { padding: 22px 24px; font-size: 16px; line-height: 1.5; }
+    .cr-vs-head > span { padding-top: 14px; padding-bottom: 18px; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); }
+    .cr-vs-head .cr-vs-b { color: var(--dark); font-weight: 600; }
+    .cr-vs-k { font-family: 'Playfair Display', Georgia, serif; font-size: 19px !important; line-height: 1.25 !important; color: var(--dark); padding-left: 0 !important; }
+    .cr-vs-a, .cr-vs-b { display: flex; gap: 12px; align-items: flex-start; }
+    .cr-vs-a > svg, .cr-vs-b > svg { flex: none; margin-top: 2px; }
+    .cr-vs-a { color: var(--gray); }
+    .cr-vs-b { color: var(--dark); font-weight: 500; }
+    .cr-vs-head .cr-vs-a, .cr-vs-head .cr-vs-b { display: block; }
+    @media (max-width: 760px) {
+      .cr-vs { --cc-a: 50%; --cc-b: 50%; margin-top: 44px; }
+      .cr-vs-hl { top: -8px; bottom: -8px; right: -8px; width: calc(50% + 8px); border-radius: 22px; }
+      .cr-vs-row { grid-template-columns: 1fr 1fr; padding-top: 4px; }
+      .cr-vs-head { padding-top: 0; }
+      .cr-vs-corner { display: none; }
+      .cr-vs-k { grid-column: 1 / -1; padding: 16px 14px 0 0 !important; font-size: 17px !important; }
+      .cr-vs-row > span { padding: 8px 14px 18px 0; font-size: 14.5px; line-height: 1.45; }
+      .cr-vs-row > .cr-vs-b { padding-left: 14px; padding-right: 14px; }
+      .cr-vs-head > span { padding: 12px 14px 14px 0; font-size: 11px; letter-spacing: .1em; }
+      .cr-vs-head > .cr-vs-b { padding-left: 14px; }
+      .cr-vs-a, .cr-vs-b { flex-direction: column; gap: 8px; }
+      .cr-vs-head .cr-vs-a, .cr-vs-head .cr-vs-b { display: block; }
+    }
+    /* ---- mobile only (CRO page) ---- */
+    .cr-book-stage { overflow-x: clip; }
+    @media (max-width: 760px) {
+      .hx-visual { display: none; }
+      .cr-sticky { display: none !important; }
+      .cr-plans { display: flex; max-width: none; margin: 40px -20px 0; padding: 4px 20px 18px; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 20px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .cr-plans::-webkit-scrollbar { display: none; }
+      .cr-plans > .cr-plan { flex: 0 0 82%; scroll-snap-align: start; padding: 30px 24px 28px; }
+    }
     /* FAQ: platforms, add-ons and rush delivery with prices */
     .cr-faq-price { padding: 4px 0 24px; max-width: 640px; }
     .cr-faq-price h3 { font-size: 17px; font-weight: 600; margin: 18px 0 6px; }
@@ -1213,14 +1250,15 @@
           <section id="difference" aria-labelledby="cr-diff">
             <h2 id="cr-diff">Not a checklist. A diagnosis with evidence.</h2>
             <p class="pd-sub">A checklist audit asks whether a page follows recognized practices. I ask where a visitor’s decision breaks, what in the product causes it, and why it matters to conversion.</p>
-            <div class="cr-table" data-anim>
-              <div class="cr-tr cr-th"><span>A typical checklist audit</span><span>My diagnosis</span></div>
-              <div class="cr-tr" style="--i:0"><span>Starts from general best practices.</span><span>Starts from your actual product and the visitor’s decision.</span></div>
-              <div class="cr-tr" style="--i:1"><span>Delivers a list of separate issues.</span><span>Groups related symptoms when they share one cause.</span></div>
-              <div class="cr-tr" style="--i:2"><span>Says an element is missing or unclear.</span><span>Shows the evidence and the doubt it creates for the visitor.</span></div>
-              <div class="cr-tr" style="--i:3"><span>Treats every finding as equally important.</span><span>Names the dominant breakdown and orders the work around it.</span></div>
-              <div class="cr-tr" style="--i:4"><span>Sounds equally sure of everything.</span><span>States limits and matches confidence to the evidence.</span></div>
-              <div class="cr-tr" style="--i:5"><span>Leaves the team to decide what matters first.</span><span>Gives an ordered roadmap with effort signals.</span></div>
+            <div class="cr-vs" role="table" aria-label="A typical checklist audit compared with my diagnosis" data-anim>
+              <span class="cr-vs-hl" aria-hidden="true"></span>
+              <div class="cr-vs-row cr-vs-head" role="row"><span class="cr-vs-corner" role="presentation"></span><span class="cr-vs-a" role="columnheader">A typical checklist audit</span><span class="cr-vs-b" role="columnheader">My diagnosis</span></div>
+              <div class="cr-vs-row" role="row" style="--i:0"><span class="cr-vs-k" role="rowheader">Starting point</span><span class="cr-vs-a" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg><span>Starts from general best practices.</span></span><span class="cr-vs-b" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg><span>Starts from your actual product and the visitor’s decision.</span></span></div>
+              <div class="cr-vs-row" role="row" style="--i:1"><span class="cr-vs-k" role="rowheader">Findings</span><span class="cr-vs-a" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg><span>Delivers a list of separate issues.</span></span><span class="cr-vs-b" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg><span>Groups related symptoms when they share one cause.</span></span></div>
+              <div class="cr-vs-row" role="row" style="--i:2"><span class="cr-vs-k" role="rowheader">Evidence</span><span class="cr-vs-a" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg><span>Says an element is missing or unclear.</span></span><span class="cr-vs-b" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg><span>Shows the evidence and the doubt it creates for the visitor.</span></span></div>
+              <div class="cr-vs-row" role="row" style="--i:3"><span class="cr-vs-k" role="rowheader">Priority</span><span class="cr-vs-a" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg><span>Treats every finding as equally important.</span></span><span class="cr-vs-b" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg><span>Names the dominant breakdown and orders the work around it.</span></span></div>
+              <div class="cr-vs-row" role="row" style="--i:4"><span class="cr-vs-k" role="rowheader">Confidence</span><span class="cr-vs-a" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg><span>Sounds equally sure of everything.</span></span><span class="cr-vs-b" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg><span>States limits and matches confidence to the evidence.</span></span></div>
+              <div class="cr-vs-row" role="row" style="--i:5"><span class="cr-vs-k" role="rowheader">Next step</span><span class="cr-vs-a" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg><span>Leaves the team to decide what matters first.</span></span><span class="cr-vs-b" role="cell"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/></svg><span>Gives an ordered roadmap with effort signals.</span></span></div>
             </div>
             <div class="cr-transform" data-anim><span class="cr-sheets" aria-hidden="true"><i></i><i></i><i></i></span>
               <p class="cr-t-label">A real finding, from a case study</p>
