@@ -78,6 +78,22 @@
     .ax-questions li { margin-bottom: .9em; padding-left: .2em; }
     .ax-questions li::marker { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15em; color: var(--gray); }
     /* closing card */
+    /* report viewer: pages turn like a book (same as the CRO audit page) */
+    :root { --sh-soft: 0 1px 2px rgba(23,23,23,.04), 0 4px 10px rgba(23,23,23,.04), 0 12px 28px rgba(23,23,23,.05), 0 32px 64px rgba(23,23,23,.06); }
+    .cr-book { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; margin: 36px 0 8px; }
+    .cr-book-stage { position: relative; width: 100%; height: 580px; overflow: visible; overflow-x: clip; clip-path: inset(-140px 0 -140px 0); touch-action: pan-y; user-select: none; -webkit-user-select: none; perspective: 1600px; outline: none; }
+    .cr-book-stage:focus-visible { outline: 2px solid var(--dark); outline-offset: 4px; border-radius: 16px; }
+    .cr-pg { position: absolute; top: 10px; left: 50%; width: 368px; max-width: none; height: auto; border-radius: 12px; border: 1.5px solid var(--light-gray); background: #fff; box-shadow: var(--sh-soft); transition: transform .6s cubic-bezier(.22,.7,.2,1), opacity .5s ease; pointer-events: none; will-change: transform; }
+    .cr-pg.is-near { pointer-events: auto; cursor: pointer; }
+    .cr-pg.is-cur { cursor: default; }
+    .cr-book-controls { display: flex; align-items: center; gap: 18px; }
+    .cr-book-count { font-size: 13px; letter-spacing: .18em; color: var(--gray); font-variant-numeric: tabular-nums; }
+    .cr-book .carousel-btn { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--light-gray); background: var(--white, #fff); color: var(--dark); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color .2s; padding: 0; }
+    .cr-book .carousel-btn:hover, .cr-book .carousel-btn.active { border-color: var(--dark); }
+    .cr-book .carousel-btn svg { width: 20px; height: 20px; }
+    @media (max-width: 960px) { .cr-book-stage { height: 480px; } .cr-pg { width: 296px; } }
+    @media (max-width: 520px) { .cr-book-stage { height: 400px; } .cr-pg { width: 240px; } }
+    @media (prefers-reduced-motion: reduce) { .cr-pg { transition: none; } }
     .ax-cta { background: #2f2e2e; border-radius: var(--r-xl); padding: 64px 40px; margin: 80px 0 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
     html[data-theme="dark"] .ax-cta { background: #2f2e2e; box-shadow: inset 0 0 0 1px #464545; }
     .ax .ax-cta h2 { margin: 0; color: #f7f5f5; }
@@ -130,15 +146,6 @@
     .cp-seq-col li { margin: 0 0 14px; font-size: 15px; line-height: 1.5; padding-left: 30px; position: relative; }
     .cp-seq-col li::before { content: attr(data-n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--strong); color: var(--ax-on-ink); font-size: 12px; display: flex; align-items: center; justify-content: center; }
     .cp-seq-col li:last-child { margin-bottom: 0; }
-    .cp-pages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 28px 0; }
-    .cp-page { background: var(--bg-soft); border: 0; border-radius: var(--r-lg); padding: 14px; cursor: zoom-in; text-align: left; font: inherit; color: inherit; display: flex; flex-direction: column; gap: 12px; transition: transform .25s ease; }
-    .cp-page:hover { transform: translateY(-4px); }
-    .cp-page img { width: 100%; height: auto; border-radius: var(--r-sm); border: 1px solid var(--light-gray); display: block; background: #fff; }
-    .cp-page span { font-size: 14px; line-height: 1.45; color: var(--gray); padding: 0 4px 4px; }
-    .cp-box { position: fixed; inset: 0; z-index: 100; background: rgba(23,23,23,.86); display: none; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out; }
-    .cp-box.is-open { display: flex; }
-    .cp-box img { max-height: 100%; max-width: min(100%, 900px); width: auto; height: auto; border-radius: 8px; background: #fff; }
-    .cp-box button { position: absolute; top: 18px; right: 22px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #ede8ea; color: #171717; font-size: 22px; cursor: pointer; }
     .cp-related { display: block; margin: 56px 0 0; padding: 28px 30px; background: var(--bg-soft); border-radius: var(--r-lg); text-decoration: none !important; color: inherit; transition: transform .25s ease; }
     .cp-related:hover { transform: translateY(-3px); }
     .cp-related .ax-eyebrow { margin-bottom: 10px; }
@@ -153,7 +160,7 @@
       .ax-js [data-anim].is-in .cp-user, .ax-js [data-anim].is-in .cp-seq-col, .ax-js [data-anim].is-in .cp-fact { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
       .ax-js [data-anim].is-in > :nth-child(2) { transition-delay: .12s; } .ax-js [data-anim].is-in > :nth-child(3) { transition-delay: .24s; } .ax-js [data-anim].is-in > :nth-child(4) { transition-delay: .36s; }
     }
-    @media (max-width: 860px) { .cp-user { grid-template-columns: 1fr; } .cp-seq, .cp-pages { grid-template-columns: 1fr; } .cp-flow { grid-template-columns: 1fr 1fr; } .cp-dl { grid-template-columns: 1fr; gap: 4px; } .cp-dl dd { margin-bottom: 14px; } .ax-cta { padding: 48px 24px; } }
+    @media (max-width: 860px) { .cp-user { grid-template-columns: 1fr; } .cp-seq .cp-flow { grid-template-columns: 1fr 1fr; } .cp-dl { grid-template-columns: 1fr; gap: 4px; } .cp-dl dd { margin-bottom: 14px; } .ax-cta { padding: 48px 24px; } }
     @media (max-width: 640px) { .ax { padding-top: 24px; } .ax-lede { font-size: 17px; } .ax h2 { margin-top: 56px; } .cp-facts, .cp-flow { grid-template-columns: 1fr; } .ax .ax-cta .btn-dark { width: 100%; } .cp-chart { padding: 22px 18px; } }
     @media print {
       @page { size: A4; margin: 18mm 16mm; }
@@ -363,12 +370,15 @@
   <p>This case study covers the diagnosis and the recommendations. It doesn’t report results from implementing them.</p>
 
   <h2 id="report">Inside the report</h2>
-  <p>The full report is 11 pages. Here are three of them: the opening summary with scope and confidence, one complete finding, and the final part of the roadmap. Select a page to enlarge it.</p>
-  <div class="cp-pages">
-    <button type="button" class="cp-page" data-full="images/proffer/report-p1.jpg"><img src="images/proffer/report-p1.jpg" width="1190" height="1540" alt="Report page 1: title, scope, evidence sources and executive summary" loading="lazy" /><span>Page 1. Scope, evidence sources and the executive summary.</span></button>
-    <button type="button" class="cp-page" data-full="images/proffer/report-p3.jpg"><img src="images/proffer/report-p3.jpg" width="1190" height="1540" alt="Report page 3: finding one with evidence, mechanism, conversion impact, recommendation and validation anchor" loading="lazy" /><span>Page 3. One complete finding, from evidence to validation.</span></button>
-    <button type="button" class="cp-page" data-full="images/proffer/report-p11.jpg"><img src="images/proffer/report-p11.jpg" width="1190" height="1540" alt="Report page 11: the last roadmap items and a note on sequencing" loading="lazy" /><span>Page 11. The last roadmap items and the note on sequencing.</span></button>
-  </div>
+  <p>The full report is 11 pages, from the executive summary to the roadmap. Turn the pages to read it.</p>
+  <div class="cr-book" data-book role="group" aria-roledescription="carousel" aria-label="Report pages">
+<div class="cr-book-stage" tabindex="0"><img class="cr-pg" src="images/proffer/report-p1.jpg" width="1190" height="1541" alt="Report page 1 of 11" draggable="false" /><img class="cr-pg" src="images/proffer/report-p2.jpg" width="1190" height="1541" alt="Report page 2 of 11" draggable="false" /><img class="cr-pg" src="images/proffer/report-p3.jpg" width="1190" height="1541" alt="Report page 3 of 11" draggable="false" loading="lazy" /><img class="cr-pg" src="images/proffer/report-p4.jpg" width="1190" height="1541" alt="Report page 4 of 11" draggable="false" loading="lazy" /><img class="cr-pg" src="images/proffer/report-p5.jpg" width="1190" height="1541" alt="Report page 5 of 11" draggable="false" loading="lazy" /><img class="cr-pg" src="images/proffer/report-p6.jpg" width="1190" height="1541" alt="Report page 6 of 11" draggable="false" loading="lazy" /><img class="cr-pg" src="images/proffer/report-p7.jpg" width="1190" height="1541" alt="Report page 7 of 11" draggable="false" loading="lazy" /><img class="cr-pg" src="images/proffer/report-p8.jpg" width="1190" height="1541" alt="Report page 8 of 11" draggable="false" loading="lazy" /><img class="cr-pg" src="images/proffer/report-p9.jpg" width="1190" height="1541" alt="Report page 9 of 11" draggable="false" loading="lazy" /><img class="cr-pg" src="images/proffer/report-p10.jpg" width="1190" height="1541" alt="Report page 10 of 11" draggable="false" loading="lazy" /><img class="cr-pg" src="images/proffer/report-p11.jpg" width="1190" height="1541" alt="Report page 11 of 11" draggable="false" loading="lazy" /></div>
+<div class="cr-book-controls">
+  <button type="button" class="carousel-btn" data-book-prev aria-label="Previous page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg></button>
+  <span class="cr-book-count" aria-live="polite">01 / 11</span>
+  <button type="button" class="carousel-btn active" data-book-next aria-label="Next page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></button>
+</div>
+              </div>
 
   <section class="ax-cta pd-dark" aria-labelledby="cp-cta-t">
     <h2 id="cp-cta-t">Seeing visitors leave and not sure why?</h2>
@@ -386,7 +396,6 @@
 </article>
 </div>
 </div>
-<div class="cp-box" id="cpBox" role="dialog" aria-modal="true" aria-label="Report page"><button type="button" id="cpBoxClose" aria-label="Close">&times;</button><img alt="" /></div>
     </main>
 
     <!-- FOOTER -->
@@ -442,19 +451,45 @@
       window.addEventListener('scroll', function () { if (!tick) tick = requestAnimationFrame(upd); }, { passive: true });
       upd();
     }
-    var box = document.getElementById('cpBox'), boxImg = box.querySelector('img');
-    function close() { box.classList.remove('is-open'); boxImg.removeAttribute('src'); }
-    [].forEach.call(document.querySelectorAll('.cp-page'), function (b) {
-      b.addEventListener('click', function () { boxImg.src = b.getAttribute('data-full'); boxImg.alt = b.querySelector('img').alt; box.classList.add('is-open'); });
-    });
-    box.addEventListener('click', close);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     if (still || !('IntersectionObserver' in window)) return;
     root.classList.add('ax-js');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (!e.isIntersecting) return; e.target.classList.add('is-in'); io.unobserve(e.target); });
     }, { threshold: 0.25 });
     [].forEach.call(document.querySelectorAll('[data-anim]'), function (el) { io.observe(el); });
+  })();
+  </script>
+  <script>
+  (function () {
+    var book = document.querySelector('[data-book]'); if (!book) return;
+    var stage = book.querySelector('.cr-book-stage'), pgs = [].slice.call(stage.querySelectorAll('.cr-pg')), cnt = book.querySelector('.cr-book-count');
+    var cur = 0, n = pgs.length;
+    function pad(x) { return (x < 10 ? '0' : '') + x; }
+    function render() {
+      var w = pgs[0].offsetWidth || 368; stage.style.height = (pgs[0].offsetHeight + 36) + 'px';
+      pgs.forEach(function (p, i) {
+        var d = i - cur, a = Math.abs(d), x = d * w * 0.64, sc = 1 - Math.min(a, 2) * 0.1, ry = d === 0 ? 0 : (d > 0 ? -14 : 14);
+        p.style.transform = 'translateX(calc(-50% + ' + x + 'px)) scale(' + sc + ') rotateY(' + ry + 'deg)';
+        p.style.opacity = a === 0 ? 1 : (a === 1 ? 0.45 : 0);
+        p.style.zIndex = 10 - a;
+        p.classList.toggle('is-cur', d === 0); p.classList.toggle('is-near', a === 1);
+        p.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+      });
+      cnt.textContent = pad(cur + 1) + ' / ' + pad(n);
+    }
+    function go(i) { cur = Math.max(0, Math.min(n - 1, i)); render(); }
+    book.querySelector('[data-book-prev]').addEventListener('click', function () { go(cur - 1); });
+    book.querySelector('[data-book-next]').addEventListener('click', function () { go(cur + 1); });
+    pgs.forEach(function (p, i) { p.addEventListener('click', function () { if (Math.abs(i - cur) === 1) go(i); }); });
+    stage.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); } else if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); } });
+    var sx = null;
+    stage.addEventListener('pointerdown', function (e) { sx = e.clientX; });
+    stage.addEventListener('pointerup', function (e) { if (sx === null) return; var dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); });
+    stage.addEventListener('pointercancel', function () { sx = null; });
+    stage.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    window.addEventListener('resize', render);
+    pgs[0].addEventListener('load', render);
+    render();
   })();
   </script>
   <script src="/js/toc.js" defer></script>
