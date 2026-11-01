@@ -406,3 +406,20 @@ html { scroll-behavior: smooth; }
   .cs-side-cta a { color: var(--dark); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; white-space: nowrap; }
   .cs-side-cta a:hover { opacity: .72; }
 }
+
+/* ── Line icons: files in /images/icons, coloured by the text colour ── */
+.ic{display:inline-block;width:32px;height:32px;flex-shrink:0;color:var(--dark);background-color:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat;}
+.cs-callout-dark .ic{color:#fff;}
+.ic-data{--ic:url(/images/icons/data.svg);}
+.ic-bulb{--ic:url(/images/icons/lightbulb.svg);}
+.ic-dark-pattern{--ic:url(/images/icons/dark-pattern.svg);}
+.ic-brain{--ic:url(/images/icons/brain.svg);}
+.ic-site-map{--ic:url(/images/icons/site-map.svg);}
+.ic-rocket{--ic:url(/images/icons/rocket.svg);}
+.ic-announcement{--ic:url(/images/icons/announcement.svg);}
+.ic-bell{--ic:url(/images/icons/bell.svg);}
+.ic-coins{--ic:url(/images/icons/coins.svg);}
+.ic-location{--ic:url(/images/icons/location.svg);}
+.ic-message{--ic:url(/images/icons/message.svg);}
+.ic-star{--ic:url(/images/icons/star.svg);}
+.ic-thumbs-up{--ic:url(/images/icons/thumbs-up.svg);}
