@@ -1,6 +1,6 @@
 # Site icons
 
-Line icons (24x24, 2px stroke). Use them with the `.ic` class from theme.css so they take the text colour and are 32px:
+Line icons (24x24, 2px stroke). Use them with the `.ic` class from theme.css so they take the text colour and are 24px:
 
     <span class="ic ic-bulb" aria-hidden="true"></span>
 
