@@ -67,13 +67,13 @@
 
     /* CALLOUT */
     .callout { background: var(--bg-card); border-radius: 24px; padding: 24px; display: flex; gap: 24px; align-items: flex-start; width: 100%; }
-    .callout-icon { width: 44px; height: 44px; flex-shrink: 0; object-fit: contain; }
+    .callout-icon { width: 40px; height: 40px; flex-shrink: 0; color: var(--dark); }
     .callout-body { flex: 1; font-size: 18px; font-style: italic; line-height: 28px; color: var(--ink); }
     .callout-body strong { font-weight: 700; font-style: italic; }
 
     /* DECISIONS */
     .decisions-section { display: flex; flex-direction: column; gap: 32px; align-items: center; }
-    .decisions-icon { width: 64px; height: 64px; object-fit: contain; }
+    .decisions-icon { width: 48px; height: 48px; flex-shrink: 0; color: var(--dark); }
     .decisions-title { font-size: 24px; font-weight: 700; text-align: center; color: var(--ink); }
     .decision-block { display: flex; flex-direction: column; gap: 8px; width: 100%; }
     .decision-block p { font-size: 18px; line-height: 28px; color: var(--ink); }
@@ -203,7 +203,7 @@
 
           <!-- BY THE NUMBERS — after cover, before What I designed per Figma -->
           <div class="callout">
-            <img class="callout-icon" src="images/lamp_icon_small.png" alt="" />
+            <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
             <div class="callout-body">
               <p><strong>By the numbers</strong></p>
               <p>Digital creators using disconnected tool stacks spend an estimated <strong>40–60% of their working time on non-revenue tasks</strong> — formatting, file preparation, and listing creation. Tools that consolidate creation into a single guided flow show 2–3× faster time-to-publish compared to multi-tool workflows. The <strong>blank page problem is the #1 self-reported abandonment trigger</strong> in creation flows — cited by the majority of creators who start a product draft but never complete it.</p>
@@ -236,7 +236,7 @@
 
           <!-- CORE DESIGN DECISIONS (5 decisions from Figma) -->
           <div class="decisions-section">
-            <img class="decisions-icon" src="images/brain_icon 1.png" alt="" />
+            <svg class="decisions-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
             <h2 class="decisions-title" data-toc="Design decisions">Core Design Decisions</h2>
 
             <div class="decision-block">
@@ -246,7 +246,7 @@
             </div>
 
             <div class="callout">
-              <img class="callout-icon" src="images/lamp_icon_small.png" alt="" />
+              <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
               <div class="callout-body">
                 <p><strong>By the numbers</strong></p>
                 <p>In usability studies of multi-step creation tools, real-time output preview reduces task abandonment by 20–30% compared to flows where users only see results after completion. When users can continuously validate what they're building, they make faster decisions and show significantly lower drop-off at the final commitment step. Perceived control — not actual control — is the primary driver of completion in guided creation flows.</p>
@@ -266,7 +266,7 @@
             </div>
 
             <div class="callout">
-              <img class="callout-icon" src="images/lamp_icon_small.png" alt="" />
+              <svg class="callout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
               <div class="callout-body">
                 <p><strong>By the numbers</strong></p>
                 <p>Explicitly communicating reversibility at key decision points — "you can change this later," "nothing is final yet" — reduces abandonment at those steps by 18–24% in multi-step SaaS onboarding flows. The principle maps directly to e-commerce: stores that prominently display return policies see purchase completion rates up to 17% higher than those that don't. The psychology is the same — reducing commitment anxiety increases follow-through.</p>

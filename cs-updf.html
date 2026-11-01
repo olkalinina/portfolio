@@ -111,7 +111,7 @@
       background: var(--bg-soft); border-radius: 24px;
       padding: 24px; display: flex; gap: 24px; align-items: flex-start;
     }
-    .cs-callout-light-icon { width: 44px; height: 44px; flex-shrink: 0; object-fit: contain; }
+    .cs-callout-light-icon { width: 40px; height: 40px; flex-shrink: 0; color: var(--dark); }
     .cs-callout-light-body { flex: 1; font-size: 18px; line-height: 28px; color: var(--dark); font-style: italic; }
     .cs-callout-light-body > strong:first-child { font-weight: 700; display: block; margin-bottom: 8px; }
     .cs-callout-light-body strong { font-weight: 700; }
@@ -121,14 +121,14 @@
       background: #3d3d3d; border-radius: 24px;
       padding: 24px; display: flex; gap: 24px; align-items: flex-start;
     }
-    .cs-callout-dark-icon { width: 56px; height: 56px; flex-shrink: 0; object-fit: contain; border-radius: 50%; }
+    .cs-callout-dark-icon { width: 44px; height: 44px; flex-shrink: 0; color: #fff; }
     .cs-callout-dark-body { flex: 1; font-size: 18px; line-height: 28px; color: white; font-style: italic; }
     .cs-callout-dark-body > strong:first-child { font-weight: 700; display: block; margin-bottom: 8px; }
     .cs-callout-dark-body strong { font-weight: 700; }
 
     /* Redesign section — centered */
     .cs-redesign-center { display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center; }
-    .cs-redesign-char { width: 100px; height: 100px; object-fit: contain; }
+    .cs-redesign-char { width: 64px; height: 64px; flex-shrink: 0; color: var(--dark); }
     .cs-redesign-heading { font-size: 24px; font-weight: 700; color: var(--dark); line-height: 28px; }
     .cs-redesign-sub { font-size: 18px; line-height: 28px; color: var(--dark); max-width: 858px; }
 
@@ -341,7 +341,7 @@
               <p><strong>Five pricing options. Four cards. One ghost plan. No hierarchy at all.</strong></p>
             </div>
             <div class="cs-callout-light">
-              <img src="images/lamp_icon_small.png" alt="" class="cs-callout-light-icon" />
+              <svg class="cs-callout-light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
               <div class="cs-callout-light-body">
                 <strong>By the numbers</strong>
                 SaaS companies with more than 4 pricing tiers see on average a 30% lower conversion rate than those offering 3 or fewer options.
@@ -366,14 +366,14 @@
             </div>
             <div class="cs-callout-group">
               <div class="cs-callout-light">
-                <img src="images/lamp_icon_small.png" alt="" class="cs-callout-light-icon" />
+                <svg class="cs-callout-light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
                 <div class="cs-callout-light-body">
                   <strong>By the numbers</strong>
                   <strong>95% of users</strong> never scroll to the bottom of a page. Information buried in a comparison table — like the accurate AI inclusion status — is effectively invisible to most visitors.
                 </div>
               </div>
               <div class="cs-callout-dark">
-                <img src="images/Hercuile-dark-pattern.png" alt="" class="cs-callout-dark-icon" />
+                <svg class="cs-callout-dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 10.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.5"/><path d="m9 11 3 3L22 4"/></svg>
                 <div class="cs-callout-dark-body">
                   <strong>Dark pattern detected</strong>
                   The AI checkbox defaults to checked. The card shows AI features and higher storage as if included in the plan. The price stays at $49.99. The user is shown a version of the product that costs more than what they're about to buy. This is a roach motel variant — easy to enter a state that implies more value, with no clear signal that unchecking changes what you're getting.
@@ -399,14 +399,14 @@
             </div>
             <div class="cs-callout-group">
               <div class="cs-callout-light">
-                <img src="images/lamp_icon_small.png" alt="" class="cs-callout-light-icon" />
+                <svg class="cs-callout-light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
                 <div class="cs-callout-light-body">
                   <strong>By the numbers</strong>
                   72% of consumers say unexpected charges after purchase are the top reason they lose trust in a brand and consider cancelling.
                 </div>
               </div>
               <div class="cs-callout-dark">
-                <img src="images/Hercuile-dark-pattern.png" alt="" class="cs-callout-dark-icon" />
+                <svg class="cs-callout-dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
                 <div class="cs-callout-dark-body">
                   <strong>Dark pattern detected</strong>
                   This is a hidden subscription pattern. The lifetime card promises a one-time payment. The AI checkbox — checked by default — silently enrolls the user in a $69/year auto-renewing subscription. The word "subscription" does not appear on the card. The contradiction between "pay once" and "auto renew yearly" is never resolved anywhere on the page.
@@ -431,14 +431,14 @@
             </div>
             <div class="cs-callout-group">
               <div class="cs-callout-light">
-                <img src="images/lamp_icon_small.png" alt="" class="cs-callout-light-icon" />
+                <svg class="cs-callout-light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
                 <div class="cs-callout-light-body">
                   <strong>By the numbers</strong>
                   A 1% improvement in pricing clarity can yield an 11.1% increase in operating profit. The inverse is also true — pricing confusion directly reduces conversion and increases refund rates.
                 </div>
               </div>
               <div class="cs-callout-dark">
-                <img src="images/Hercuile-dark-pattern.png" alt="" class="cs-callout-dark-icon" />
+                <svg class="cs-callout-dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
                 <div class="cs-callout-dark-body">
                   <strong>Dark pattern detected</strong>
                   Three patterns active simultaneously. <strong>Phantom pricing</strong> — crossed-out original prices with no verifiable reference. <strong>Hidden costs</strong> — the real total ($118.99) is never displayed, only the base price ($49.99). <strong>Drip pricing</strong> — the full cost is revealed incrementally across the card headline, a checkbox, and fine print inside that checkbox. Each element alone might be defensible. Together they form a system that delays the user's understanding of what they will actually pay.
@@ -459,7 +459,7 @@
               </div>
             </div>
             <div class="cs-callout-light">
-              <img src="images/lamp_icon_small.png" alt="" class="cs-callout-light-icon" />
+              <svg class="cs-callout-light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
               <div class="cs-callout-light-body">
                 <strong>By the numbers</strong>
                 Users who encounter contradictory information on a website are 2.5× more likely to abandon the page than users who encounter information that is simply incomplete.
@@ -470,7 +470,7 @@
 
           <!-- Redesign proposal — centered -->
           <div class="cs-redesign-center">
-            <img src="images/Hercuile_main.png" alt="" class="cs-redesign-char" />
+            <svg class="cs-redesign-char" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
             <p class="cs-redesign-heading" data-toc="The redesign proposal">UX redesign proposal: information architecture &amp; decision logic</p>
             <div class="cs-redesign-sub">
               <p style="margin-bottom:8px;">The goal isn't to make this page look better. It's to make it answer one question clearly:</p>
