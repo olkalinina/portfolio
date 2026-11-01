@@ -21,13 +21,18 @@
   <style>
 
     /* ---- Article page ---- */
-    .ax-layout { display: grid; grid-template-columns: 210px minmax(0, 720px); gap: 56px; justify-content: center; align-items: start; }
+    .ax-layout { display: grid; grid-template-columns: minmax(0, 720px) 232px; gap: 64px; justify-content: center; align-items: start; }
+    .ax-layout > .ax { grid-column: 1; grid-row: 1; }
+    .ax-layout > .ax-toc { grid-column: 2; grid-row: 1; }
     .ax-toc { position: sticky; top: 130px; align-self: start; padding-top: 48px; }
     .ax-toc-title { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 16px; line-height: 1.4; }
     .ax-toc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; border-left: 1.5px solid var(--light-gray); }
     .ax-toc li { margin: 0; }
     .ax-toc a { display: block; padding: 8px 0 8px 16px; margin-left: -1.5px; border-left: 3px solid transparent; font-size: 15px; line-height: 1.4; color: var(--gray); text-decoration: none; transition: color .15s, border-color .15s; }
     .ax-toc a:hover { color: var(--strong); }
+    .ax-toc-cta { margin-top: 28px; padding-top: 24px; border-top: 1.5px solid var(--light-gray); }
+    .ax-toc-cta p { margin: 0 0 16px; font-size: 15px; line-height: 1.5; color: var(--gray); }
+    .ax-toc-cta .btn-outline-dark { min-height: 44px; padding: 0 22px; font-size: 15px; }
     .ax-toc a.is-active { color: var(--strong); border-left-color: var(--strong); font-weight: 500; }
     html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -182,8 +187,8 @@
     <div class="nav-links">
       <a href="/cro-audit">CRO Audit</a>
       <a href="/product-design">Product Design</a>
-      <a href="/case-studies">Case Studies</a>
-      <a href="/blog" class="active">Blog</a>
+      <a href="/case-studies" class="active" aria-current="page">Case Studies</a>
+      <a href="/blog">Blog</a>
       <a href="/about">About</a>
       <a href="/contacts">Contacts</a>
     </div>
@@ -201,8 +206,8 @@
     <div class="mobile-menu-links">
       <a href="/cro-audit">CRO Audit</a>
       <a href="/product-design">Product Design</a>
-      <a href="/case-studies">Case Studies</a>
-      <a href="/blog" class="active">Blog</a>
+      <a href="/case-studies" class="active" aria-current="page">Case Studies</a>
+      <a href="/blog">Blog</a>
       <a href="/faq">FAQ</a>
       <a href="/about">About</a>
       <a href="/contacts">Contacts</a>
@@ -227,6 +232,10 @@
       <li><a href="#roadmap">What I recommended</a></li>
       <li><a href="#report">Inside the report</a></li>
     </ul>
+    <div class="ax-toc-cta">
+      <p>Seeing visitors leave and not sure why?</p>
+      <a class="btn-outline-dark" href="/#contact">Let's Connect</a>
+    </div>
   </aside>
 <article class="ax">
 
@@ -393,7 +402,7 @@
             <p class="footer-h">Services</p>
             <a href="/product-design">Product Design</a>
             <a href="/cro-audit">CRO Diagnosis</a>
-            <a href="/case-studies">Case Studies</a>
+            <a href="/case-studies" class="active" aria-current="page">Case Studies</a>
           </nav>
           <nav class="footer-col" aria-label="Learn">
             <p class="footer-h">Learn</p>
