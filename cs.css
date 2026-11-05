@@ -80,3 +80,5 @@
   .cs-main .logo-row .badge { white-space: nowrap; padding: 10px 16px; font-size: 14px; }
   .cs-main .title-block .description { font-size: 18px; line-height: 1.5; }
 }
+
+.cs-main .content:not(.is-article):not(.is-head) > .ax-related-wrap { margin-top: 0; }

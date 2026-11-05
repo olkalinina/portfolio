@@ -423,3 +423,14 @@ html { scroll-behavior: smooth; }
 .ic-message{--ic:url(/images/icons/message.svg);}
 .ic-star{--ic:url(/images/icons/star.svg);}
 .ic-thumbs-up{--ic:url(/images/icons/thumbs-up.svg);}
+
+/* Related reading: cards at the end of articles and case studies */
+.ax-eyebrow { font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--gray); margin: 0 0 10px; }
+.ax-related-wrap { margin-top: 56px; }
+.ax-related-wrap > .ax-eyebrow { margin-bottom: 0; }
+.cp-related { display: block; margin: 20px 0 0; padding: 26px 30px; background: var(--bg-soft); border-radius: var(--r-lg, 24px); text-decoration: none !important; color: inherit; transition: transform .25s ease; }
+.cp-related:hover { transform: translateY(-3px); }
+.cp-related strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; margin-bottom: 8px; color: var(--strong); }
+.cp-related p:not(.ax-eyebrow) { margin: 0 0 12px; font-size: 16px; line-height: 1.6; color: var(--gray); }
+.cp-related > span { font-size: 15px; color: var(--strong); }
+@media (prefers-reduced-motion: reduce) { .cp-related { transition: none; } .cp-related:hover { transform: none; } }
