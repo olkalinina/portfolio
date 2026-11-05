@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://olgakalinina.me/product-design" />
   <meta property="og:image" content="https://olgakalinina.me/images/og-default.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Product design","serviceType":"Product design","description":"Senior product designer for SaaS, AI and data-heavy products. From idea to developer-ready design, or a redesign of a live product, with conversion built in.","provider":{"@id":"https://olgakalinina.me/#person"},"areaServed":"Worldwide","url":"https://olgakalinina.me/product-design"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scope. After the first call I send you a plan with the steps and a timeline."}},{"@type":"Question","name":"Do you work under NDA?","acceptedAnswer":{"@type":"Answer","text":"Yes. I keep client work confidential, which is why client projects are not shown on this page. I am glad to sign an NDA before we share product details."}},{"@type":"Question","name":"Do you work with developers, and do you hand off?","acceptedAnswer":{"@type":"Answer","text":"Yes. I prepare specs, annotated flows, states and edge cases. During the build I answer developers' questions and check that what ships matches the design."}}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Product design","serviceType":"Product design","description":"Senior product designer for SaaS, AI and data-heavy products. From idea to developer-ready design, or a redesign of a live product, with conversion built in.","provider":{"@id":"https://olgakalinina.me/#person"},"areaServed":"Worldwide","url":"https://olgakalinina.me/product-design"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What kinds of products do you design?","acceptedAnswer":{"@type":"Answer","text":"Mostly complex products: SaaS and B2B platforms, AI products, and data-heavy tools such as analytics portals. I also design MVPs, websites and landing pages. My case studies include a mobile app."}},{"@type":"Question","name":"Can you start from an idea?","acceptedAnswer":{"@type":"Answer","text":"Yes. We define who the product is for and what it must do first, structure the key journeys, and build a clickable prototype. We test it with users before any development starts."}},{"@type":"Question","name":"Can you redesign a product that is already live?","acceptedAnswer":{"@type":"Answer","text":"Yes. I first find out why users get lost or drop off, using the same behavioral conversion diagnosis as in my CRO audits. Then I redesign the flows that cost you users and revenue. If you want evidence before you commit, you can start with a CRO audit."}},{"@type":"Question","name":"What does a project include?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scope. Typically a clickable prototype, the full UI design, a design system or UI kit, and developer-ready specs. Research and validation are part of the work, with weekly check-ins and reviews."}},{"@type":"Question","name":"How long does a project take?","acceptedAnswer":{"@type":"Answer","text":"It depends on the scope. After our first call I send you a plan with the steps and a timeline."}},{"@type":"Question","name":"How much does a project cost?","acceptedAnswer":{"@type":"Answer","text":"The price depends on the scope, the timeline and the deliverables. I do not publish fixed prices. After the first call I send you a quote for your project."}},{"@type":"Question","name":"Do you work under NDA?","acceptedAnswer":{"@type":"Answer","text":"Yes. I keep client work confidential, which is why client projects are not shown on this page. I am glad to sign an NDA before we share product details."}},{"@type":"Question","name":"Do you work with developers, and do you hand off?","acceptedAnswer":{"@type":"Answer","text":"Yes. I prepare specs, annotated flows, states and edge cases. During the build I answer developers’ questions and check that what ships matches the design."}},{"@type":"Question","name":"What do you need from me to get started?","acceptedAnswer":{"@type":"Answer","text":"Access to your product, or a clear description of the idea. Access to the people who use it, or the data about them. One decision-maker on your side, and time from key stakeholders for a few sessions."}},{"@type":"Question","name":"Can you join my team, or give a one-off review?","acceptedAnswer":{"@type":"Answer","text":"Yes. I can lead design on your team part-time, alongside your developers and product manager. I can also give focused advice in a short design review. We agree the format after the first call."}}]}]}</script>
   <link rel="stylesheet" href="style.css" />
   <style>
     .pd { display: flex; flex-direction: column; gap: 128px; padding: 40px 0 100px; }
@@ -214,6 +214,20 @@
       .pd-bridge { padding: 28px 24px; } .pd-bridge h2 { font-size: 26px; }
       .pd-card:nth-child(n+4), .pd-card:last-child { grid-column: span 6; }
     }
+
+    .pd-actions .btn-dark { display: inline-flex; align-items: center; gap: 8px; }
+    .pd-actions { gap: 12px; }
+    .cr-faq-all { margin-top: 24px; }
+    .pd-band { position: relative; border-radius: 32px; background: #2f2e2e; color: #f7f5f5; padding: 72px 56px 64px; margin-left: 0; margin-right: 0; }
+    body:not(.is-protected) main .pd-band h2, body:not(.is-protected) main .pd-band h3 { color: #f7f5f5; }
+    body:not(.is-protected) main .pd-band .pd-sub, body:not(.is-protected) main .pd-band .pd-dcard p, body:not(.is-protected) main .pd-band .pd-note-line { color: rgba(247,245,245,.72); }
+    .pd-band .pd-mock { background: #262626; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+    .pd-band .mk .l { fill: #3b3a3a; } .pd-band .mk .w { fill: #555353; } .pd-band .mk .d { fill: #f1eded; }
+    .pd-band .mk .s { stroke: #f1eded; } .pd-band .mk .t { fill: #171717; }
+    html[data-theme="dark"] .pd-band { box-shadow: inset 0 0 0 1px #464545; }
+    html[data-theme="dark"] .pd-band .mk .w { fill: #555353; } html[data-theme="dark"] .pd-band .mk .l { fill: #3b3a3a; }
+    @media (max-width: 960px) { .pd-band { padding: 48px 28px 44px; } }
+    @media (max-width: 640px) { .pd-actions { width: 100%; flex-direction: column; align-items: stretch; } .pd-actions .btn-dark, .pd-actions .btn-outline-dark { width: 100%; justify-content: center; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -265,7 +279,7 @@
             <h1>Product design that works for your users and your revenue</h1>
             <p class="pd-lead">I take products from idea to a validated, developer-ready design. I also redesign the ones that are not working. Conversion thinking is part of every decision, so the result is easier to use and better for your business.</p>
             <p class="pd-lead">20+ years of designing SaaS platforms, AI products and data-heavy tools. One senior designer, from discovery to handoff.</p>
-            <div class="pd-actions"><a href="#request" class="btn-dark">Discuss Your Product</a><a href="#process" class="pd-link">See how I work</a></div>
+            <div class="pd-actions"><a href="#request" class="btn-dark">Discuss Your Product <svg class="btn-arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a><a href="#process" class="btn-outline-dark">See How I Work</a></div>
           </section>
 
           <section class="pd-facts" aria-label="At a glance">
@@ -310,7 +324,7 @@
             <div class="pd-actions pd-actions-inline"><a href="#request" class="btn-dark">Discuss Your Product</a></div>
           </section>
 
-          <section aria-labelledby="pd-get">
+          <section class="pd-band" aria-labelledby="pd-get">
             <h2 id="pd-get">What you get</h2>
             <p class="pd-sub">Depending on the project, you receive some or all of these.</p>
             <div class="pd-del">
@@ -320,6 +334,17 @@
               <article class="pd-dcard"><div class="pd-mock"><svg class="mk" viewBox="0 0 240 150" aria-hidden="true"><rect class="l" x="20" y="14" width="200" height="122" rx="10"/><rect class="w" x="60" y="34" width="120" height="82" rx="6"/><rect class="d" x="72" y="46" width="60" height="10" rx="3"/><rect class="l" x="72" y="64" width="96" height="14" rx="4"/><rect class="l" x="72" y="86" width="44" height="14" rx="4"/><path class="s" d="M60 24h120M60 20v8M180 20v8M190 34v82M186 34h8M186 116h8"/><circle class="d" cx="36" cy="52" r="9"/><circle class="d" cx="204" cy="100" r="9"/><text x="36" y="56" text-anchor="middle" class="t">1</text><text x="204" y="104" text-anchor="middle" class="t">2</text></svg></div><h3>Developer-ready specs</h3><p>Annotated flows, edge cases and assets, ready to build.</p></article>
             </div>
             <p class="pd-note-line">Client work is under NDA, so these are illustrations, not client screens.</p>
+          </section>
+
+          <section aria-labelledby="pd-work">
+            <h2 id="pd-work">Selected work</h2>
+            <p class="pd-sub">Product design case studies covering different types of digital products, including new applications, complex platforms and workflow-heavy interfaces.</p>
+            <p class="pd-sub">Each case study explores the context, design challenges, decisions and outcomes that can be shared publicly.</p>
+            <div class="pd-work">
+            <a href="/cs-payli"><span class="pic"><img src="images/Payli_image.webp" alt="" loading="lazy" width="1028" height="868" /></span><span class="pd-tag">Mobile app</span><h3>Budget tracking mobile app</h3><p>An app for tracking bills, recurring payments and monthly spending.</p></a>
+            <a href="/cs-lattice"><span class="pic"><img src="images/Cover_lattice_small.webp" alt="" loading="lazy" width="1124" height="749" /></span><span class="pd-tag">AI product</span><h3>AI product builder for creators</h3><p>An AI-assisted creation flow that helps digital creators build and launch their products.</p></a>
+            </div>
+            <div class="pd-work-actions"><a href="/case-studies" class="btn-dark">View All Case Studies</a></div>
           </section>
 
           <section class="pd-split" aria-labelledby="pd-why">
@@ -357,15 +382,7 @@
             </div>
           </section>
 
-          <section class="pd-split" aria-labelledby="pd-industries">
-            <div class="pd-split-head" style="position:static;">
-              <h2 id="pd-industries">Products I design for</h2>
-              <p class="pd-sub">Complex products where structure and clarity do the heaviest work.</p>
-            </div>
-            <ul class="pd-chips"><li>SaaS and B2B platforms</li><li>AI products</li><li>Data and analytics portals</li></ul>
-          </section>
-
-          <section class="pd-bridge" aria-labelledby="pd-bridge-t">
+<section class="pd-bridge" aria-labelledby="pd-bridge-t">
             <div>
               <h2 id="pd-bridge-t">Want evidence before you redesign?</h2>
               <p>A CRO audit shows where visitors drop off and why, so you fix the right thing first.</p>
@@ -373,14 +390,22 @@
             <a href="/cro-audit" class="btn-outline-dark">About the CRO Audit <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </section>
 
-          <section class="pd-split pd-faq" aria-labelledby="pd-faq">
+          <section class="pd-split pd-faq" aria-labelledby="pd-faq" id="faq">
             <div class="pd-split-head">
               <h2 id="pd-faq">Frequently asked questions</h2>
             </div>
             <div class="pd-faq">
-              <details><summary>How long does a project take?<span class="pl" aria-hidden="true"></span></summary><p>It depends on the scope. After the first call I send you a plan with the steps and a timeline.</p></details>
+              <details><summary>What kinds of products do you design?<span class="pl" aria-hidden="true"></span></summary><p>Mostly complex products: SaaS and B2B platforms, AI products, and data-heavy tools such as analytics portals. I also design MVPs, websites and landing pages. My case studies include a mobile app.</p></details>
+              <details><summary>Can you start from an idea?<span class="pl" aria-hidden="true"></span></summary><p>Yes. We define who the product is for and what it must do first, structure the key journeys, and build a clickable prototype. We test it with users before any development starts.</p></details>
+              <details><summary>Can you redesign a product that is already live?<span class="pl" aria-hidden="true"></span></summary><p>Yes. I first find out why users get lost or drop off, using the same behavioral conversion diagnosis as in my CRO audits. Then I redesign the flows that cost you users and revenue. If you want evidence before you commit, you can start with a <a href="/cro-audit">CRO audit</a>.</p></details>
+              <details><summary>What does a project include?<span class="pl" aria-hidden="true"></span></summary><p>It depends on the scope. Typically a clickable prototype, the full UI design, a design system or UI kit, and developer-ready specs. Research and validation are part of the work, with weekly check-ins and reviews.</p></details>
+              <details><summary>How long does a project take?<span class="pl" aria-hidden="true"></span></summary><p>It depends on the scope. After our first call I send you a plan with the steps and a timeline.</p></details>
+              <details><summary>How much does a project cost?<span class="pl" aria-hidden="true"></span></summary><p>The price depends on the scope, the timeline and the deliverables. I do not publish fixed prices. After the first call I send you a quote for your project.</p></details>
               <details><summary>Do you work under NDA?<span class="pl" aria-hidden="true"></span></summary><p>Yes. I keep client work confidential, which is why client projects are not shown on this page. I am glad to sign an NDA before we share product details.</p></details>
               <details><summary>Do you work with developers, and do you hand off?<span class="pl" aria-hidden="true"></span></summary><p>Yes. I prepare specs, annotated flows, states and edge cases. During the build I answer developers&rsquo; questions and check that what ships matches the design.</p></details>
+              <details><summary>What do you need from me to get started?<span class="pl" aria-hidden="true"></span></summary><p>Access to your product, or a clear description of the idea. Access to the people who use it, or the data about them. One decision-maker on your side, and time from key stakeholders for a few sessions.</p></details>
+              <details><summary>Can you join my team, or give a one-off review?<span class="pl" aria-hidden="true"></span></summary><p>Yes. I can lead design on your team part-time, alongside your developers and product manager. I can also give focused advice in a short design review. We agree the format after the first call.</p></details>
+              <p class="cr-faq-all"><a class="link-btn" href="/faq#product-design">See all questions <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
             </div>
           </section>
 
