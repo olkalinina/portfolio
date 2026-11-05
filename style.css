@@ -34,6 +34,7 @@ body.home {
 
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
+img:where([width][height]) { height: auto; }
 
 .page-wrapper { display: flex; flex-direction: column; min-height: 100vh; }
 .page-content { flex: 1; padding-top: 120px; }
