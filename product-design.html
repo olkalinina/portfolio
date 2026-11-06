@@ -248,7 +248,14 @@
     /* ---- hero: same structure as the CRO service page ---- */
     .hx { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 16px 0 0; text-align: left; }
     .hx-text { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
-    .pd-split-head .hx-eyebrow { margin-bottom: 16px; }
+    /* CRO bridge: dark panel, same as the diagnosis panel on the CRO page */
+    .pd-panel { position: relative; border-radius: var(--r-xl, 32px); background: #2f2e2e; color: #f7f5f5; padding: 56px; overflow: hidden; isolation: isolate; align-items: center; }
+    .pd-panel::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.07) 0 1px, transparent 1px 44px); -webkit-mask-image: radial-gradient(60% 90% at 50% 50%, #000, transparent 80%); mask-image: radial-gradient(60% 90% at 50% 50%, #000, transparent 80%); }
+    html[data-theme="dark"] .pd-panel { box-shadow: inset 0 0 0 1px #464545; }
+    body:not(.is-protected) main .pd-panel h2, body:not(.is-protected) main .pd-panel strong { color: #f7f5f5; }
+    body:not(.is-protected) main .pd-panel .pd-sub, body:not(.is-protected) main .pd-panel .pd-incl .d, body:not(.is-protected) main .pd-panel .pd-incl .n { color: rgba(247,245,245,.72); }
+    .pd-panel .pd-incl, .pd-panel .pd-incl li { border-color: rgba(255,255,255,.18); }
+    @media (max-width: 960px) { .pd-panel { padding: 40px 28px; } }
     .hx-eyebrow { font-family: 'Lora', Georgia, serif; font-size: 12.5px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin: 0; }
     body:not(.is-protected) main .hx > .hx-text > h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 56px !important; font-weight: 400 !important; line-height: 1.06 !important; letter-spacing: 0 !important; color: var(--strong, var(--dark)); text-wrap: balance; margin: 0; max-width: none; }
     .hx-lede { font-size: 19px; line-height: 1.65; color: var(--dark); max-width: 520px; margin: 0; }
@@ -531,9 +538,8 @@
             </div>
           </section>
 
-<section class="pd-split" aria-labelledby="pd-bridge-t">
+<section class="pd-split pd-panel pd-dark" aria-labelledby="pd-bridge-t">
             <div class="pd-split-head">
-              <p class="hx-eyebrow">Another service</p>
               <h2 id="pd-bridge-t">Want evidence before you redesign?</h2>
               <p class="pd-sub">A CRO audit shows where visitors drop off and why, so you fix the right thing first.</p>
               <div class="pd-actions pd-actions-inline"><a href="/cro-audit" class="btn-outline-dark">About the CRO Audit <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
