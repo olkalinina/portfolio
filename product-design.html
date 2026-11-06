@@ -249,6 +249,24 @@
     .cr-sticky { position: fixed !important; right: 24px; bottom: 24px; z-index: 40; box-shadow: 0 1px 2px rgba(23,23,23,.1), 0 6px 14px rgba(23,23,23,.1), 0 16px 32px rgba(23,23,23,.12); opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .35s ease, transform .35s ease, --cg .4s ease, color .4s ease; }
     .cr-sticky.show { opacity: 1; transform: none; pointer-events: auto; }
     @media (max-width: 760px) { .cr-sticky { display: none !important; } }
+    /* about me: same as the CRO page */
+    :root { --sh-soft: 0 1px 2px rgba(23,23,23,.04), 0 4px 10px rgba(23,23,23,.04), 0 12px 28px rgba(23,23,23,.05), 0 32px 64px rgba(23,23,23,.06); --sh-deep: 0 1px 2px rgba(0,0,0,.2), 0 6px 14px rgba(0,0,0,.16), 0 18px 40px rgba(0,0,0,.18), 0 40px 80px rgba(0,0,0,.2); }
+    @font-face { font-family: "Reenie Beanie"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/reenie-beanie-latin.woff2") format("woff2"); }
+    .cr-who2 { margin-top: 0; display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: center; background: var(--bg-soft); border-radius: var(--r-xl, 32px); padding: 48px 48px 48px 56px; box-shadow: inset 0 0 0 1px var(--light-gray); overflow: hidden; }
+    .cr-who2-text { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .cr-who2-eyebrow { font-family: 'Lora', Georgia, serif; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--dark); margin: 0; }
+    body:not(.is-protected) main .pd.cr .cr-who2-text h2 { font-size: 40px; line-height: 1.12; font-weight: 400; margin: 0; }
+    .cr-who2-text p { font-size: 16.5px; line-height: 1.65; color: var(--dark); margin: 0; max-width: 540px; }
+    .cr-who2-text p.cr-who2-muted { color: var(--gray); }
+    .cr-who2-text .link-btn { margin-top: 6px; }
+    .cr-who2-art { position: relative; height: 380px; min-width: 0; }
+    .cr-who2-blob { position: absolute; right: 4%; top: 18%; width: 62%; height: 70%; background: rgba(232,192,200,.45); border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%; filter: blur(.3px); }
+    html[data-theme="dark"] .cr-who2-blob { background: rgba(190,110,125,.28); }
+    .cr-who2-main, .cr-who2-sub { position: absolute; object-fit: cover; border-radius: 18px; box-shadow: var(--sh-soft, 0 12px 30px rgba(23,23,23,.1)); }
+    .cr-who2-main { left: 4%; top: 6%; width: 56%; height: 68%; }
+    .cr-who2-sub { right: 2%; bottom: 0; width: 42%; height: 52%; }
+    .cr-who2-tags { position: absolute; right: 0; top: -4px; list-style: none; margin: 0; padding: 0; font-family: 'Reenie Beanie', 'Segoe Script', cursive; font-size: 25px; line-height: 1.1; color: var(--gray); transform: rotate(-6deg); transform-origin: right top; text-align: left; }
+    @media (max-width: 860px) { .cr-who2 { grid-template-columns: 1fr; padding: 32px 24px; } .cr-who2-art { height: 340px; } body:not(.is-protected) main .pd.cr .cr-who2-text h2 { font-size: 32px; } }
     @media (max-width: 960px) { .pd-band { padding: 64px 0 68px; } }
     @media (max-width: 640px) { .pd-actions { width: 100%; flex-direction: column; align-items: stretch; } .pd-actions .btn-dark, .pd-actions .btn-outline-dark { width: 100%; justify-content: center; } }
     /* ---- hero: same structure as the CRO service page ---- */
@@ -521,6 +539,24 @@
               <li><span class="n" aria-hidden="true">03</span><strong>A product owner mindset</strong><span class="d">I question requirements and own outcomes, not only screens.</span></li>
               <li><span class="n" aria-hidden="true">04</span><strong>One person from discovery to handoff</strong><span class="d">Nothing gets lost between a researcher, a designer and a manager.</span></li>
             </ul>
+          </section>
+
+          <section id="about-me" aria-labelledby="pd-who">
+            <div class="cr-who2">
+              <div class="cr-who2-text">
+                <p class="cr-who2-eyebrow">The person behind the design</p>
+                <h2 id="pd-who">Who does the work</h2>
+                <p>I’m a product designer and product owner with 20+ years of experience across SaaS platforms, AI-enabled products, and data-heavy systems, including e-commerce products and marketplaces. I design your product myself, from the first sketch to the handoff to your developers.</p>
+                <p class="cr-who2-muted">I bring a product owner’s mindset and conversion thinking into every design.</p>
+                <a class="link-btn" href="/about">More about me <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="cr-who2-art">
+                <span class="cr-who2-blob" aria-hidden="true"></span>
+                <img class="cr-who2-main" src="images/cro-who-portrait.jpg" alt="Olga Kalinina" width="760" height="760" loading="lazy" />
+                <img class="cr-who2-sub" src="images/cro-who-books.jpg" alt="" width="560" height="560" loading="lazy" />
+                <ul class="cr-who2-tags" aria-label="Areas of work"><li>Product design</li><li>CRO</li><li>SaaS platforms</li><li>AI products</li></ul>
+              </div>
+            </div>
           </section>
 
           <section id="clients" aria-labelledby="cr-clients">
