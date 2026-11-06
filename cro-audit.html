@@ -648,6 +648,8 @@
         @media (max-width: 640px) { .tm-card { width: 300px; } }
         @media (prefers-reduced-motion: reduce) { .tm-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; } .tm-track { animation: none; } .tm-set[aria-hidden="true"] { display: none; } }
     .pd.cr #clients .tm-marquee { margin-top: var(--cr-block, 48px); }
+    #clients > h2, #clients > .pd-sub { text-align: center; margin-left: auto; margin-right: auto; }
+    #clients > .pd-sub { max-width: none; }
     /* not converting: explanation left, symptom and causes right */
     .cr-prob { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
     .cr-prob-copy { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 120px; }
